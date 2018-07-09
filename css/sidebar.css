@@ -1,0 +1,374 @@
+/** * styles/sidebar.css * * Copyright (c) 2003-2013 John Willinsky * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING. * * Site-wide shared elements for pages including sidebar(s). * *//** * Sidebar */
+.block {
+	border-bottom: 1px solid #d14350;
+}
+#developedBy {
+	text-transform: uppercase;
+	font-size: 0.95em;
+}
+#sidebar div.block {/*font-size: 1em;*/
+	padding-bottom: 12px;
+}
+#sidebarRTRelatedItems table td:first-child {
+	display: none;
+}
+#sidebar div.block span.blockTitle {
+	color: #696969;
+	display: block;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: normal;
+	padding: 10px 0 0;
+	text-transform: uppercase;
+}
+#sidebar div.block span.blockSubtitle {
+	display: block;
+	padding: 0;
+}
+#sidebar input.textField, #sidebar select.selectMenu, #sidebar input.button {
+	font-size: 1em;
+}
+#sidebar input.textField {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #cccccc;
+	color: #B5B5B5;
+	font-size: 12px;
+	height: 16px;
+	margin: 5px 0 0;
+	width: 100%;
+	color: #575757;
+}
+#sidebar input[type="password"] {
+	width:88%!important;
+}
+#sidebar #sidebar-password{
+	width:98%!important;
+}
+/*nbc logo*/
+.nbc-logo {
+	margin-top: -15px;
+}/*About author css start*/
+#authorBio {
+	margin-top: 7px !important;
+}
+#authorBio em {
+	font-size: 1.2em;
+	font-style: normal;
+	color: #414040;
+}
+#authorBio p {
+	color: #808080;
+	font-size: 13px;
+}/*About author css end*//*user css start*/
+#sidebarUser label {
+	color: #575757;
+	display: inline;
+	font-family: arial;
+	font-size: 12px;
+	margin-bottom: 0;
+	margin-right: 5px;
+	vertical-align: middle;
+	font-size: 13px;
+	cursor: text;
+}
+#sidebarUser label a {
+	color: #818181;
+	font-size: 11px;!important
+}
+#sidebarUser input[type="checkbox"] {
+	margin-right: 5px;
+	margin-top: 5px;
+	vertical-align: sub;
+}
+#sidebarUser .button {
+	background: none repeat scroll 0 0 #404040;
+	border: medium none;
+	border-radius:0px;
+	color: #FFFFFF;
+	font-size: 12px !important;
+	height: 26px;
+	width: 60px;
+	margin-top: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#sidebarUser li {
+	list-style: none;
+	margin-bottom: 3px;
+}
+#sidebarUser {
+	padding-bottom: 5px;
+}/*user css end*//*Journal search css start*/
+#sidebar select.selectMenu {
+	background-color: #FFFFFF !important;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	color: #575757;
+	font-size: 11px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 4px 6px;
+	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	width: 99%;
+	height: 28px!important;
+}
+#simpleSearchInput input[type="text"] {
+	width:100%;
+	color: #575757;
+}
+#simpleSearchInput .button {
+	background: none repeat scroll 0 0 #404040;
+	border: medium none;
+	border-radius: 0px;
+	color: #FFFFFF;
+	font-size: 12px !important;
+	height: 28px;
+	width: 65px;
+	font-family: Arial, Helvetica, sans-serif;
+}/*Journal search css end*/
+#sidebarWebFeed {
+	display: none;
+}/*Notification css start*/
+#notification ul {
+	margin: 0;
+}
+#notification ul li {
+	background-image: url("/plugins/blocks/readingTools/icons/r_arrow.png");
+	background-position: 0 8px;
+	background-repeat: no-repeat;
+	list-style: none outside none;
+	padding-left: 18px;
+	margin: 5px 0;
+	font-size: 12px;
+}
+#notification li:last-child {
+	margin-bottom: 0;
+}/*Notification css end*//*Browse css start*/
+#sidebarNavigation div.block span .blockSubtitle {
+	color: #3E3E3E;
+	display: block;
+	font-family: arial;
+	font-size: 2.2em;
+	letter-spacing: normal;
+	padding: 0.9em 0;
+	text-transform: uppercase;
+}
+#sidebarNavigation ul {
+	margin: 0;
+}
+#sidebarNavigation ul li {
+	background-image: url("/plugins/blocks/readingTools/icons/r_arrow.png");
+	background-position: 0 8px;
+	background-repeat: no-repeat;
+	list-style: none outside none;
+	margin: 5px 0;
+	padding-left: 18px
+}
+#sidebarNavigation ul li:last-child {
+	margin: 0;
+}
+.blockSubtitle {
+	color: #575757;
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+}/*Browse css end*//*online issn start*/
+.block.custom p {
+	color: #404040;
+	margin-top: 9px;
+	font-size: 11px;
+	font-weight: normal !important;
+}
+.block.custom > p:first-child {
+	margin-bottom: 5px;
+}/*online issn end*//*login start*/
+.remember1 {
+	color: #575757 !important;
+	font-size: 11px !important;
+	cursor: text;
+}
+.remember {
+	color: #575757 !important;
+	font-size: 12px !important;
+	cursor: text;
+}
+.remember a {
+	color: #9E9E9E !important;
+	font-size: 11px !important;
+}
+.remember a:hover {
+	color: #E01F1F !important;
+}/*after login start*/
+.after-login {
+	color: #575757;
+	font-size: 12px !important;
+}
+.after-login strong {
+	color: #000;
+	font-weight: normal;
+	font-size: 13px;
+}
+.after-login ul {
+	margin: 0 !important;
+}
+.after-login ul li {
+	float: left;
+	padding-right: 10px;
+}
+.after-login ul li a {
+	color: #808080;
+	font-size: 12px !important;
+}/*after login end*//*login end*//*article start*/
+#content .articleToolItem a {
+	font-weight: normal;
+	padding-left: 0;
+}
+.articleToolItem br {
+	display: none;
+}
+.articleToolItem {
+	padding-top: 12px !important;
+	margin: 0 !important;
+	font-size: 12px !important;
+}
+#showRelatedItems {
+	font-size: 12px !important;
+}
+#toggleRelatedItems {
+	font-size: 12px !important;
+}
+#relatedItems ul li a {
+	font-size: 12px !important;
+}/*article end*//*alert start*/
+.sidebar_alerts .row-fluid {
+	padding-bottom: 7px;
+}
+.sidebar_alerts input[type="text"] {
+	width: 81% !important;
+}
+.sidebar_alerts label {
+	line-height: 14px;
+	vertical-align: top !important;
+}
+.sidebar_alerts input.button {
+	background: none repeat scroll 0 0 #404040;
+	border: medium none;
+	border-radius: 3px 3px 3px 3px;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px !important;
+	margin-top: 4px;
+	padding: 5px 22px;
+}
+.sidebar_alerts input.button:hover {
+	color: #afafaf;
+}
+.sidebar_alerts .subscribe-button {
+	background: none repeat scroll 0 0 #404040;
+	border: medium none;
+	border-radius: 0px;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px !important;
+	margin-top: 4px;
+	padding: 5px 12px;
+	vertical-align: sub;
+}
+.sidebar_alerts .subscribe-button:hover {
+	color: #fff !important;
+}
+.alert-txt {
+	font-size: 12px;
+	color: #575757;
+	cursor: text;
+	font-weight: normal !important;
+}/*alert end*//*ads start*/
+.sidebar_advertisement {
+	padding: 10px 0;
+}/*ads end*/
+#commentsOnArticle ul {
+	margin: 0;
+	padding: 0;
+}
+#commentsOnArticle li {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+#sidebarRTRelatedItems ul {
+	margin: 0 !important;
+}
+@media (min-width: 1601px) {
+	.alert-txt {
+		font-size: 13px;
+		line-height: 18px !important;
+	}
+	.after-login {
+		font-size: 13px !important;
+	}
+	#notification ul li {
+		font-size: 13px;
+	}
+	.after-login ul li a {
+		font-size: 13px !important;
+	}
+	.articleToolItem {
+		font-size: 13px !important;
+	}
+	#showRelatedItems {
+		font-size: 13px !important;
+	}
+}
+@media (min-width: 1401px) and (max-width: 1600px) {
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+	.sidebar_alerts .span6 {
+		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 979px) {
+}
+#sidebar div.block span.blockSubtitle, #sidebar div.block span.blockTitle, #sidebar div.block span.blockTitle {
+	display: none;
+}
+#sidebar div.block {
+	padding-top: 10px;
+}
+#sidebar div.block:last-child {
+	border: 0;
+}
+.articleToolItem a{
+	font-size: 12px;
+}
+
+.sidebar-box li {
+	/*background: url("http://216.12.194.36/~ijmein//images/theme/bullets.jpg") no-repeat scroll -1px 4px rgba(0, 0, 0, 0);*/
+	line-height: 18px !important;
+	list-style: none outside none;
+	padding-left: 12px !important;
+	word-wrap: break-word;
+}
+
+
+.sidebar-box {
+	border: 1px solid #C9C9C9;
+	padding: 6px 15px;
+	margin-top: 7px;
+	background: #FBFBFB;
+}
+
+.sidebar-box hr{
+	margin: 10px 0 !important;
+}
+
+.sidebar-box h5 {
+	font-size: 16PX;
+}
+
+#content .section ul li {
+	list-style: disc;
+	padding-left: 10px !important;
+}

@@ -1,0 +1,1 @@
+UPDATE wp_posts SET comment_status='open', ping_status='open' WHERE post_type='articles' AND post_status='publish';

@@ -1,0 +1,62 @@
+/**
+ * rt.css
+ *
+ * Copyright (c) 2000-2013 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Stylesheet for reading tools
+ * DEPRECATED. Do not modify.
+ *
+ */
+
+#headerTitle {
+	width: 100%;	
+}
+
+#header h1 {
+	font-size: 1.2em;
+	padding: 0.25em 1em 0.25em 0em;
+	text-align: left;
+}
+
+#container {
+	min-width: 180px !important;
+	padding: 15px;
+	width: auto !important;
+}
+
+#main {
+	width: 95%;
+}
+
+#main h2 {
+	font-size: 1.5em;
+	margin: 0em 1em 0.25em 0em;
+	padding-top: 0;
+}
+
+#content h3 {
+	font-size: 1.5em;
+}
+/**/
+#headerTitle{
+	margin: 0 !important;
+}
+#headerTitle h1{
+	float: right;
+	margin-top: 25px;
+}
+#body{
+	clear: both;
+}
+h2#section-title{
+	background: #575757;
+	padding: 5px 15px !important;
+	color: #FFF !important;
+	font-size: 16px !important;
+	margin: 15px 0;
+}
+#content h3 {
+	font-size: 16px;
+	line-height: 20px;
+}

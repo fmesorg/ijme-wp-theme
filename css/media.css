@@ -1,0 +1,118 @@
+@media only screen and (width: 1920px) {}
+	
+@media (min-width: 1366px) and (max-width: 1600px) {}
+		
+@media only screen and (width: 1366px) {}
+			
+@media only screen and (width: 1280px) {}
+				
+				
+@media (max-width: 1024px) {
+	.navbar .nav > li > a {
+		padding: 11px 8px!important;
+		font-size: 12px;
+	}
+	#rightSidebar {
+		min-height: 320px;
+	}
+}
+					
+@media (min-width: 768px) and (max-width: 1023px) {
+	.nav.navbar-nav {
+	   z-index: 0;
+	}
+	.footer-copys {
+		float: left;
+		width: 70%;
+	}
+	.social-links {
+		float: left;
+		width: 30%;
+	}
+	.navbar .nav > li > a {
+		padding: 11px 3px!important;
+		font-size: 11px;
+	}
+	.current-issue-panel {
+	    padding-left: 15px !important;
+	}
+	.main-container {
+		width: auto !important;
+		padding-right: 0px !important;
+		padding-left: 0px !important;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.home-current-online {
+		padding-right: 0px;
+	}
+}
+						
+@media (max-width: 767px) {
+	.header {
+		margin-top: 10px;
+	}
+	.nav-top-btn-container .top-nav-btnI {
+		width: 50%;
+		margin-top: 20px;
+	}
+	.top-nav-btnI.border:after {
+		right: 0px;
+		top: -13px
+	}
+	ul.search_box {
+		height: 42px;
+		width: 100%;
+		top: 5px;
+	}
+	.search-icon {
+		float: left;
+		margin-left: 8px;
+	}
+	.search-form {
+		top: 48px;
+	}
+	.navbar-toggle {
+		z-index: 20;
+	}
+	.current-issue-bottom-panel {
+		padding-right: 0px!important;
+	}
+	.footer-copys {
+		float: left;
+		width: 100%;
+	}
+	.social-links {
+		float: left;
+		display: block;
+		width: 100%;
+		text-align: center;float: left;
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 8px 0
+	}
+	.social-links  a {
+		float: none;
+		text-align: center;
+		display: inline-block;
+	}
+	.navbar-collapse {
+		max-height: 390px;
+	}
+	.nav.navbar-nav {
+		z-index: 0;
+	}
+	#rightSidebar {
+		min-height: 300px;
+	}
+	.home-current-online {
+		padding-right: 0px;
+	}
+	#main {
+		float: none;
+	}
+	.pd-xs-0{
+		padding: 0;
+	}
+}
