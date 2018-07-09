@@ -197,10 +197,18 @@ function mail_article() {
 	$issue_id = get_post_meta($article_id,'issue_post_id',true);
 	$authors = get_post_meta($article_id, 'authors', true);
 	$authors_array = array();
+
+	$peers = get_post_meta($article_id, 'peers', true);
+	$peers_array = array();
 	
 	if(is_array($authors)) {
 		foreach($authors as $author) $authors_array[] = $author['last_name'].' '.$author['first_name'];
 	}
+
+	if(is_array($peers)) {
+		foreach($peers as $peer) $peers_array[] = $peer['last_name'].' '.$peer['first_name'];
+	}
+
 	$message = 'Thought you might be interested in seeing "'.get_the_title($article_id).'" by '.implode(',',$authors_array).' published in Vol '.get_post_meta($issue_id,'volume',true).', No '.get_post_meta($issue_id,'number',true).' ('.get_post_meta($issue_id,'year',true).') of '.get_bloginfo('name').' at "'.get_permalink($article_id).'".';
 	
 	$headers = array();
@@ -501,12 +509,17 @@ function render_articles_metabox($post) {
 	wp_nonce_field( 'article_meta_box_nonce', 'meta_box_nonce' );
 	?>
 	<style>
-		.author-section p {margin-bottom: 15px}
+		.author-section p {margin-bottom: 15px},
+		.peers-section p {margin-bottom: 15px}
 	</style>
 	<script>
 		function add_more_authors(invoker) {
             var caller = jQuery(invoker);
 			jQuery(".author-section").append(jQuery(".author-section table").first().clone().find("input:text").val("").end().find('input:checkbox').removeAttr('checked').end());
+        }
+		function add_more_peers(invoker) {
+            var caller = jQuery(invoker);
+			jQuery(".peers-section").append(jQuery(".peers-section table").first().clone().find("input:text").val("").end().find('input:checkbox').removeAttr('checked').end());
         }
 		
 		function remove_author_box(invoker) {
@@ -514,6 +527,17 @@ function render_articles_metabox($post) {
 			
 			if (caller.closest('.author-section').find('table').length < 2) {
                 alert("Atleast one author is required");
+				return false;
+            }
+			
+			caller.closest('table').remove();
+        }
+
+		function remove_peers_box(invoker) {
+            var caller = jQuery(invoker);
+			
+			if (caller.closest('.peers-section').find('table').length < 2) {
+                alert("Atleast one peer is required");
 				return false;
             }
 			
@@ -625,15 +649,9 @@ function render_articles_metabox($post) {
 									<input type="text" class="large-text" name="authors[biography][]" value="" >
 								</td>
 							</tr>
-                            <tr>
-                                <td colspan="4">
-                                    <label>Peer Review</label>
-                                    <input type="text" placeholder="peer review" class="large-text" name="authors[peer_review][]" value="" >
-                                </td>
-                            </tr>
+                            
                         </table>
-						
-						
+
 						<?php } else{ 
 							$authors_array = array();
 							foreach($authors as $author) {
@@ -683,14 +701,9 @@ function render_articles_metabox($post) {
 											<input type="text" class="large-text" name="authors[biography][]" value="<?php echo $author['biography']; ?>" >
 										</td>
 									</tr>
-									<tr>
-										<td colspan="4">
-											<label>Peer Review</label>
-											<input type="text" placeholder="peer review" class="large-text" name="authors[peer_review][]" value="" >
-										</td>
-									</tr>
-									
 								</table>
+
+								
 								<!--<p>
 									<input type="text" placeholder="First name" name="authors[first_name][]" value="<?php echo $author['first_name']; ?>" >
 									<input type="text" placeholder="Middle name" name="authors[middle_name][]" value="<?php echo $author['middle_name']; ?>" >
@@ -714,6 +727,144 @@ function render_articles_metabox($post) {
 					</div>
 					<p>
 						<a href="javascript:void(0);" class="button" onclick="return add_more_authors(this);">Add More</a>
+					</p>
+				</td>
+			</tr>
+			<!-- Peer Reviewer section -->
+			<tr>
+				<th scope="row">
+					<label>Peer Reviewers</label>
+				</th>
+			 
+				<td>
+					<div class="peers-section">
+						<style>
+							.peers-table {
+								background: #f7f7f7;
+								margin-bottom: 15px;
+								width: 100%;
+							}
+							.peers-table label {
+								display: block;
+								font-weight: 700;
+							}
+							.peers-table td {
+								padding: 5px 10px;
+							}
+						</style>
+						<?php
+						$peers = get_post_meta($post->ID, 'peers', true);
+						
+						if (empty($peers)) { ?>
+						
+						<table class="peers-table">
+							<tr>
+								<td>
+									<label>First Name</label>
+									<input type="text" placeholder="First name" name="peers[first_name][]" value="" >
+								</td>
+								<td>
+									<label>Middle Name</label>
+									<input type="text" placeholder="Middle name" name="peers[middle_name][]" value="" >
+								</td>
+								<td>
+									<label>Last Name</label>
+									<input type="text" placeholder="Last name" name="peers[last_name][]" value="" >
+								</td>
+								<td>
+									<input type="checkbox" name="peers[primary_contact][]" checked value="1" />Primary &nbsp;
+									<a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<label>Affiliation</label>
+									<input type="text" placeholder="Affiliation" class="large-text" name="peers[affiliation][]" value="" >
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Country</label>
+									<input type="text" placeholder="Eg: IN" name="peers[country][]" value="" >
+								</td>
+								<td>
+									<label>Competing Interest</label>
+									<input type="text" name="peers[competing_interests][]" value="" >
+								</td>
+								<td colspan="2">
+									<label>Email</label>
+									<input type="text" name="peers[email][]" value="" >
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<label>Biography</label>
+									<input type="text" class="large-text" name="peers[biography][]" value="" >
+								</td>
+							</tr>
+                            
+                        </table>
+						
+						<?php } else{ 
+							$peers_array = array();
+							foreach($peers as $peer) {
+								?>
+								<table class="peers-table">
+									<tr>
+										<td>
+											<label>First Name</label>
+											<input type="text" placeholder="First name" name="peers[first_name][]" value="<?php echo $peer['first_name']; ?>" >
+										</td>
+										<td>
+											<label>Middle Name</label>
+											<input type="text" placeholder="Middle name" name="peers[middle_name][]" value="<?php echo $peer['middle_name']; ?>" >
+										</td>
+										<td>
+											<label>Last Name</label>
+											<input type="text" placeholder="Last name" name="peers[last_name][]" value="<?php echo $peer['last_name']; ?>" >
+										</td>
+										<td>
+											<input type="checkbox" name="authors[primary_contact][]" <?php if(!empty($peer['primary_contact'])) echo "checked"; ?> value="1" />Primary &nbsp;
+											<a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<label>Affiliation</label>
+											<input type="text" placeholder="Affiliation" class="large-text" name="peers[affiliation][]" value="<?php echo $peer['affiliation']; ?>" >
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label>Country</label>
+											<input type="text" placeholder="Eg: IN" name="peers[country][]" value="<?php echo $peer['country']; ?>" >
+										</td>
+										<td>
+											<label>Competing Interest</label>
+											<input type="text" name="peers[competing_interests][]" value="<?php echo $peer['competing_interests']; ?>" >
+										</td>
+										<td colspan="2">
+											<label>Email</label>
+											<input type="text" name="peers[email][]" value="<?php echo $peer['email']; ?>" >
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<label>Biography</label>
+											<input type="text" class="large-text" name="peers[biography][]" value="<?php echo $peer['biography']; ?>" >
+										</td>
+									</tr>
+									
+								</table>
+
+													<!-- End of Peer review section-->
+								<?php
+							}    
+						}							
+						?>						
+					</div>
+					<p>
+						<a href="javascript:void(0);" class="button" onclick="return add_more_peers(this);">Add More Peers</a>
 					</p>
 				</td>
 			</tr>
