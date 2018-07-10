@@ -107,21 +107,6 @@ echo "<div><br></div>"	;
                                                 ?>
                                             </div>
                                         </div>	
-                                         <!-- Peer Review 
-                                         <div class="row">
-                                            <div class="col-md-12 onlineFirst">
-                                                <?php
-                                                $peers = get_post_meta($t_post->ID, 'peers', true);
-                                                $peers_array = array();
-												//print_r($authors);
-												if (is_array($peers)) {
-                                                foreach($peers as $peer) $peers_array[] = $peer['first_name'].' '.$peer['middle_name'].' '.$author['last_name'];
-                                                echo implode(', ',$peers_array);
-												}
-                                                ?>
-                                            </div>
-                                        </div> -->
-                                        <!-- End Peer Review -->
 										<div class="row">
                                             <div class="col-md-12">
 											<?php $uri = $_SERVER['REQUEST_URI'];

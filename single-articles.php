@@ -162,23 +162,23 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 											echo $citations; 
 										}else{ ?>
 											<p>There are currently no refbacks.</p>
-										<?php } ?>
-									<!-- Peer Section -->
+										<?php } ?>									
+								</div>
+
+									<!-- Peer Section----1 -->
+                                <div class="peer-section-bottom">
+									<div class="blockTitle"> About the Pear Reviewers </div>
 									<h3>Peer Reviewers</h3>
-								<?php foreach($peers as $key=>$peer) {	?>
+									<?php foreach($peers as $key=>$peer) {	?>
 										<div id="authorBio">
 											<div>
-												<p><em><?php echo $peer['first_name'].' '.$peer['middle_name'].' '.$peer['last_name'] ?></em>
-												<a href="mailto:<?php echo $peer['email']; ?>">
-												(<?php echo $peer['email']; ?>)</a></p>
-												<p><?php echo $peer['biography']; ?></p>
-												<p><?php echo $peer['affiliation']; ?></p>	
+												<p><em><?php echo $peer['name'] ?></em></p>	
 											</div>
 										</div>
 										<div class="separator"></div>
 										<?php } ?>
-									
-								</div>
+								</div>	
+
 							<?php } ?>
                             <?php
                             }
@@ -259,43 +259,8 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									<div class="separator"></div>
 
 									<?php } ?>
-									
-									<!-- Peer section -->
-							<?php
-							$peers = get_post_meta(get_the_ID(), 'peers', true);
-							//print_r($authors);exit;
-							?>
-							<div class="peer-section-bottom">
-								<div class="blockTitle"> About the Peers </div>
-								
-								<?php 
-									$peers = get_post_meta(get_the_ID(), 'peers', true);
-									if(!empty($peers)){
-										foreach($peers as $key=>$peer) {	?>
-											<div id="authorBio">
-												<div>
-													<p><em><?php echo $peer['first_name'].' '.$peer['middle_name'].' '.$peer['last_name'] ?></em> 
-													<a href="mailto:<?php echo $peer['email']; ?>">
-													(<?php echo $peer['email']; ?>)</a></p>
-													<p><?php echo $peer['biography']; ?></p>
-													<p><?php echo $peer['affiliation']; ?></p>	
-												</div>
-											</div>
-											<div class="separator"></div>
-									
-										<?php }
-									
-								} ?>
 
 
-
-									<!--h3>Date of Submission</h3>
-									<p><?php //if(get_field('article_submission_date')){ ?> 
-										<?php //the_field('article_submission_date'); ?>
-										<?php //} 
-										//else { echo "N/A"; }
-										?>
-									</p-->
 									<?php if(get_field('manuscript_editor')){ ?> 
 										<p style="color:#595959"><b>Manuscript Editor: </b> <?php the_field('manuscript_editor'); ?> </p>
 										
@@ -333,8 +298,26 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									<p>There are currently no refbacks.</p>
 									<?php } ?>
 							</div>
-							
-							
+                            <!-- Peer section ----2 ------>
+                            <?php
+                            $peers = get_post_meta(get_the_ID(), 'peers', true);
+                            //print_r($authors)
+                            ?>
+                            <?php   if(!empty($peers)){ ?>
+                            <div class="peer-section-bottom">
+                                <div class="blockTitle"> About the Pear Reviewers </div>
+                                <!--                                <h3>Peer Reviewers</h3>-->
+                                <?php foreach($peers as $key=>$peer) {	?>
+                                    <div id="authorBio">
+                                        <div>
+                                            <p><em><?php echo $peer['name'] ?></em></p>
+                                        </div>
+                                    </div>
+                                    <div class="separator"></div>
+                                <?php } ?>
+                            </div>
+                          <?php  }?>
+
 							
                         <?php }
                         else {

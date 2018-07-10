@@ -206,7 +206,7 @@ function mail_article() {
 	}
 
 	if(is_array($peers)) {
-		foreach($peers as $peer) $peers_array[] = $peer['last_name'].' '.$author['first_name'];
+		foreach($peers as $peer) $peers_array[] = $peer['name'];
 	}
 
 	$message = 'Thought you might be interested in seeing "'.get_the_title($article_id).'" by '.implode(',',$authors_array).' published in Vol '.get_post_meta($issue_id,'volume',true).', No '.get_post_meta($issue_id,'number',true).' ('.get_post_meta($issue_id,'year',true).') of '.get_bloginfo('name').' at "'.get_permalink($article_id).'".';
@@ -760,49 +760,13 @@ function render_articles_metabox($post) {
 						<table class="peers-table">
 							<tr>
 								<td>
-									<label>First Name</label>
-									<input type="text" placeholder="First name" name="peers[first_name][]" value="" >
-								</td>
-								<td>
-									<label>Middle Name</label>
-									<input type="text" placeholder="Middle name" name="peers[middle_name][]" value="" >
-								</td>
-								<td>
-									<label>Last Name</label>
-									<input type="text" placeholder="Last name" name="peers[last_name][]" value="" >
-								</td>
-								<td>
-									<input type="checkbox" name="peers[primary_contact][]" checked value="1" />Primary &nbsp;
-									<a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
-								</td>
+									<label>Name</label>
+									<input type="text" placeholder="Name" name="peers[name][]" value="" >
+                                <td>
+                                    <a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
+                                </td>
 							</tr>
-							<tr>
-								<td colspan="4">
-									<label>Affiliation</label>
-									<input type="text" placeholder="Affiliation" class="large-text" name="peers[affiliation][]" value="" >
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label>Country</label>
-									<input type="text" placeholder="Eg: IN" name="peers[country][]" value="" >
-								</td>
-								<td>
-									<label>Competing Interest</label>
-									<input type="text" name="peers[competing_interests][]" value="" >
-								</td>
-								<td colspan="2">
-									<label>Email</label>
-									<input type="text" name="peers[email][]" value="" >
-								</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<label>Biography</label>
-									<input type="text" class="large-text" name="peers[biography][]" value="" >
-								</td>
-							</tr>
-                            
+							                            
                         </table>
 						
 						<?php } else{ 
@@ -813,17 +777,17 @@ function render_articles_metabox($post) {
 									<tr>
 										<td>
 											<label>Name</label>
-											<input type="text" placeholder="First name" name="peers[first_name][]" value="<?php echo $peer['first_name']; ?>" >
+											<input type="text" placeholder="Name" name="peers[name][]" value="<?php echo $peer['name']; ?>" >
 										</td>
-										<td>
-											<a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
-										</td>
-									</tr>
+                                        <td>
+                                            
+                                            <a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
+                                        </td>
 									</tr>
 									
 								</table>
 
-													<!-- End of Peer review section-->
+								<!-- End of Peer review section-->
 								<?php
 							}    
 						}							
@@ -988,18 +952,9 @@ function wpdocs_save_meta_box( $post_id ) {
 	update_post_meta($post_id, 'authors', $author_array);
 
 	$peer_array = array();
-	for($i=0; $i<count($_POST['peers']['first_name']); $i++) {
+	for($i=0; $i<count($_POST['peers']['name']); $i++) {
 		$temp_array2 = array();
-		$temp_array2['first_name'] = $_POST['peers']['first_name'][$i];
-		$temp_array2['middle_name'] = $_POST['peers']['middle_name'][$i];
-		$temp_array2['last_name'] = $_POST['peers']['last_name'][$i];
-		$temp_array2['affiliation'] = $_POST['peers']['affiliation'][$i];
-		$temp_array2['country'] = $_POST['peers']['country'][$i];
-		$temp_array2['email'] = $_POST['peers']['email'][$i];
-		$temp_array2['competing_interests'] = $_POST['peers']['competing_interests'][$i];
-		$temp_array2['biography'] = $_POST['peers']['biography'][$i];
-		$temp_array2['primary_contact'] = !empty($_POST['peers']['primary_contact'][$i]) ? true : false;
-		
+		$temp_array2['name'] = $_POST['peers']['name'][$i];		
 		$peer_array[] = $temp_array2;
 	}
 	update_post_meta($post_id, 'peers', $peer_array);
