@@ -780,7 +780,7 @@ function render_articles_metabox($post) {
 											<input type="text" placeholder="Name" name="peers[name][]" value="<?php echo $peer['name']; ?>" >
 										</td>
                                         <td>
-                                            
+
                                             <a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
                                         </td>
 									</tr>

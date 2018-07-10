@@ -167,7 +167,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
 									<!-- Peer Section----1 -->
                                 <div class="peer-section-bottom">
-									<div class="blockTitle"> About the Pear Reviewers </div>
+									<div class="blockTitle">Peer Reviewers  </div>
 									<h3>Peer Reviewers</h3>
 									<?php foreach($peers as $key=>$peer) {	?>
 										<div id="authorBio">
@@ -305,7 +305,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             ?>
                             <?php   if(!empty($peers)){ ?>
                             <div class="peer-section-bottom">
-                                <div class="blockTitle"> About the Pear Reviewers </div>
+                                <div class="blockTitle"> Peer Reviewers </div>
                                 <!--                                <h3>Peer Reviewers</h3>-->
                                 <?php foreach($peers as $key=>$peer) {	?>
                                     <div id="authorBio">
