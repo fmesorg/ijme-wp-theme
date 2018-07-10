@@ -129,7 +129,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' ){ 
 							
 							}else{ ?>
-								<div class="author-section-bottom">
+								<p class="author-section-bottom">
 									<div class="blockTitle"> About the Authors </div>
 									
 									<?php
@@ -154,6 +154,15 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 											<p style="color:#595959"><b>Manuscript Editor: </b> <?php the_field('manuscript_editor'); ?> </p>
 											
 										<?php } ?>
+                                    <!-- Peer Section----1 -->
+
+                                       <p><b>Peer Reviewers : </b></p>
+                                        <?php foreach($peers as $key=>$peer) {	?>
+                                            <p><em><?php echo $peer['name'].' '; ?></em></p>
+                                        <?php } ?>
+
+
+
 								
 									<h3>Refbacks</h3>
 									<?php 
@@ -165,19 +174,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 										<?php } ?>									
 								</div>
 
-									<!-- Peer Section----1 -->
-                                <div class="peer-section-bottom">
-									<div class="blockTitle">Peer Reviewers  </div>
-									<h3>Peer Reviewers</h3>
-									<?php foreach($peers as $key=>$peer) {	?>
-										<div id="authorBio">
-											<div>
-												<p><em><?php echo $peer['name'] ?></em></p>	
-											</div>
-										</div>
-										<div class="separator"></div>
-										<?php } ?>
-								</div>	
+
 
 							<?php } ?>
                             <?php
@@ -265,6 +262,19 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 										<p style="color:#595959"><b>Manuscript Editor: </b> <?php the_field('manuscript_editor'); ?> </p>
 										
 									<?php } ?>
+                               <?php
+                                $peers = get_post_meta(get_the_ID(), 'peers', true);
+                                ?>
+                                <?php   if(!empty($peers)) { ?>
+                                    <p style="color:#595959"><b>Peer Reviewers : </b> <em>
+                                    <?php foreach ($peers as $key => $peer) { ?>
+                                       <?php echo $peer['name'] . ', '; ?>
+                                    <?php }?>
+                                    </em></p>
+
+                               <?php }?>
+
+
 									<h3>Keywords</h3>
 									<?php
 									$articleTags = wp_get_post_tags(get_the_ID()); 
@@ -299,26 +309,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									<?php } ?>
 							</div>
                             <!-- Peer section ----2 ------>
-                            <?php
-                            $peers = get_post_meta(get_the_ID(), 'peers', true);
-                            //print_r($authors)
-                            ?>
-                            <?php   if(!empty($peers)){ ?>
-                            <div class="peer-section-bottom">
-                                <div class="blockTitle"> Peer Reviewers </div>
-                                <!--                                <h3>Peer Reviewers</h3>-->
-                                <?php foreach($peers as $key=>$peer) {	?>
-                                    <div id="authorBio">
-                                        <div>
-                                            <p><em><?php echo $peer['name'] ?></em></p>
-                                        </div>
-                                    </div>
-                                    <div class="separator"></div>
-                                <?php } ?>
-                            </div>
-                          <?php  }?>
 
-							
                         <?php }
                         else {
                             ?>
