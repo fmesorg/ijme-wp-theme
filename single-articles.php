@@ -134,6 +134,8 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									
 									<?php
 										$authors = get_post_meta(get_the_ID(), 'authors', true);
+										$peers = get_post_meta(get_the_ID(), 'peers', true);
+
 										$out = array();
 										//print_r($authors);exit;
 										foreach($authors as $key=>$author) {	?>
@@ -161,7 +163,20 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 										}else{ ?>
 											<p>There are currently no refbacks.</p>
 										<?php } ?>
-									
+									<!-- Peer Section -->
+									<h3>Peer Reviewers</h3>
+								<?php foreach($peers as $key=>$peer) {	?>
+										<div id="authorBio">
+											<div>
+												<p><em><?php echo $peer['first_name'].' '.$peer['middle_name'].' '.$peer['last_name'] ?></em>
+												<a href="mailto:<?php echo $peer['email']; ?>">
+												(<?php echo $peer['email']; ?>)</a></p>
+												<p><?php echo $peer['biography']; ?></p>
+												<p><?php echo $peer['affiliation']; ?></p>	
+											</div>
+										</div>
+										<div class="separator"></div>
+										<?php } ?>
 									
 								</div>
 							<?php } ?>
@@ -244,6 +259,36 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									<div class="separator"></div>
 
 									<?php } ?>
+									
+									<!-- Peer section -->
+							<?php
+							$peers = get_post_meta(get_the_ID(), 'peers', true);
+							//print_r($authors);exit;
+							?>
+							<div class="peer-section-bottom">
+								<div class="blockTitle"> About the Peers </div>
+								
+								<?php 
+									$peers = get_post_meta(get_the_ID(), 'peers', true);
+									if(!empty($peers)){
+										foreach($peers as $key=>$peer) {	?>
+											<div id="authorBio">
+												<div>
+													<p><em><?php echo $peer['first_name'].' '.$peer['middle_name'].' '.$peer['last_name'] ?></em> 
+													<a href="mailto:<?php echo $peer['email']; ?>">
+													(<?php echo $peer['email']; ?>)</a></p>
+													<p><?php echo $peer['biography']; ?></p>
+													<p><?php echo $peer['affiliation']; ?></p>	
+												</div>
+											</div>
+											<div class="separator"></div>
+									
+										<?php }
+									
+								} ?>
+
+
+
 									<!--h3>Date of Submission</h3>
 									<p><?php //if(get_field('article_submission_date')){ ?> 
 										<?php //the_field('article_submission_date'); ?>
