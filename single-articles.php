@@ -155,11 +155,15 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 											
 										<?php } ?>
                                     <!-- Peer Section----1 -->
+                                        <?php if(!empty($peers[0]['name'])){ ?>
 
-                                       <p><b>Peer Reviewers : </b></p>
-                                        <?php foreach($peers as $key=>$peer) {	?>
-                                            <p><em><?php echo $peer['name'].' '; ?></em></p>
-                                        <?php } ?>
+                                            <p><b>Peer Reviewers : </b></p>
+                                            <?php foreach($peers as $key=>$peer) {	?>
+                                                <p><em><?php echo $peer['name'].' '; ?></em></p>
+                                            <?php } ?>
+
+                                       <?php } ?>
+
 
 
 
@@ -265,7 +269,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                <?php
                                 $peers = get_post_meta(get_the_ID(), 'peers', true);
                                 ?>
-                                <?php   if(!empty($peers)) { ?>
+                                <?php   if(!empty($peers[0]['name'])) { ?>
                                     <p style="color:#595959"><b>Peer Reviewers : </b> <em>
                                     <?php foreach ($peers as $key => $peer) { ?>
                                        <?php echo $peer['name'] . ', '; ?>
