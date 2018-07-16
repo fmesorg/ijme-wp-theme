@@ -129,54 +129,79 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' ){ 
 							
 							}else{ ?>
-								<p class="author-section-bottom">
-									<div class="blockTitle"> About the Authors </div>
-									
-									<?php
-										$authors = get_post_meta(get_the_ID(), 'authors', true);
-										$peers = get_post_meta(get_the_ID(), 'peers', true);
+                                    <div class="author-section-bottom">
+                                        <div class="blockTitle"> About the Authors </div>
 
-										$out = array();
-										//print_r($authors);exit;
-										foreach($authors as $key=>$author) {	?>
-										<div id="authorBio">
-											<div>
-												<p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
-												<a href="mailto:<?php echo $author['email']; ?>">
-												(<?php echo $author['email']; ?>)</a></p>
-												<p><?php echo $author['biography']; ?></p>
-												<p><?php echo $author['affiliation']; ?></p>	
-											</div>
-										</div>
-										<div class="separator"></div>
-										<?php } ?>
-										<?php if(get_field('manuscript_editor')){ ?> 
-											<p style="color:#595959"><b>Manuscript Editor: </b> <?php the_field('manuscript_editor'); ?> </p>
-											
-										<?php } ?>
-                                    <!-- Peer Section----1 -->
-                                        <?php if(!empty($peers[0]['name'])){ ?>
+                                        <?php
+                                        $authors = get_post_meta(get_the_ID(), 'authors', true);
+                                        $out = array();
+                                        //print_r($authors);exit;
+                                        foreach($authors as $key=>$author) {	?>
+                                            <div id="authorBio">
+                                                <div>
+                                                    <p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
+                                                        <a href="mailto:<?php echo $author['email']; ?>">
+                                                            (<?php echo $author['email']; ?>)</a></p>
+                                                    <p><?php echo $author['biography']; ?></p>
+                                                    <p><?php echo $author['affiliation']; ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="separator"></div>
 
-                                            <p><b>Peer Reviewers : </b></p>
-                                            <?php foreach($peers as $key=>$peer) {	?>
-                                                <p><em><?php echo $peer['name'].' '; ?></em></p>
-                                            <?php } ?>
-
-                                       <?php } ?>
+                                        <?php } ?>
 
 
+                                        <?php if(get_field('manuscript_editor')){ ?>
+                                            <p style="color:#595959"><b>Manuscript Editor: </b> <?php the_field('manuscript_editor'); ?> </p>
+
+                                        <?php } ?>
+                                        <?php
+//                                        Peer section for pdf
+                                        $peers = get_post_meta(get_the_ID(), 'peers', true);
+                                        ?>
+                                                                        <?php   if(!empty($peers[0]['name'])) { ?>
+                                                                            <p style="color:#595959"><b>Peer Reviewers: </b> <em>
+                                                                            <?php foreach ($peers as $key => $peer) { ?>
+                                                                               <?php echo $peer['name'] . ', '; ?>
+                                                                            <?php }?>
+                                                                            </em></p>
+
+                                                                       <?php }?>
 
 
-								
-									<h3>Refbacks</h3>
-									<?php 
-										$citations = get_post_meta(get_the_ID(), 'citations', true);
-										if($citations ){
-											echo $citations; 
-										}else{ ?>
-											<p>There are currently no refbacks.</p>
-										<?php } ?>									
-								</div>
+                                        <h3>Keywords</h3>
+                                        <?php
+                                        $articleTags = wp_get_post_tags(get_the_ID());
+                                        if($articleTags) {
+                                            $keywords = '';
+                                            foreach($articleTags as $articleTag) {
+                                                if($articleTag) {
+                                                    $keywords .= $articleTag->name.', ';
+                                                }
+                                                else {
+                                                    $keywords .= "N/A";
+                                                }
+                                            }
+                                            ?>
+
+                                            <p><?php  echo substr(trim($keywords), 0, -1); ?></p>
+                                            <?php
+                                        }
+                                        else {
+                                            echo "<p>N/A</p>";
+                                        }
+
+                                        ?>
+
+                                        <h3>Refbacks</h3>
+                                        <?php
+                                        $citations = get_post_meta(get_the_ID(), 'citations', true);
+                                        if($citations ){
+                                            echo $citations;
+                                        }else{ ?>
+                                            <p>There are currently no refbacks.</p>
+                                        <?php } ?>
+                                    </div>
 
 
 
@@ -270,7 +295,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                 $peers = get_post_meta(get_the_ID(), 'peers', true);
                                 ?>
                                 <?php   if(!empty($peers[0]['name'])) { ?>
-                                    <p style="color:#595959"><b>Peer Reviewers : </b> <em>
+                                    <p style="color:#595959"><b>Peer Reviewers: </b> <em>
                                     <?php foreach ($peers as $key => $peer) { ?>
                                        <?php echo $peer['name'] . ', '; ?>
                                     <?php }?>
