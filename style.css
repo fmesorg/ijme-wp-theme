@@ -92,6 +92,17 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 
 #online-4 {display:none;}
 
+
+.articleHistory-item{
+    background:  #e6e6e6;
+    color: black;
+    padding-left: 2px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 0px;
+    border: solid 1px #d9d9d9;
+}
+
 .sidebar-ads-banner {
     border: 1px solid #ccc;
     margin-bottom: 20px;

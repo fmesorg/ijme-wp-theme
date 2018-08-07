@@ -200,7 +200,7 @@ function mail_article() {
 
 	$peers = get_post_meta($article_id, 'peers', true);
 	$peers_array = array();
-	
+
 	if(is_array($authors)) {
 		foreach($authors as $author) $authors_array[] = $author['last_name'].' '.$author['first_name'];
 	}
@@ -565,19 +565,33 @@ function render_articles_metabox($post) {
                     //jQuery('.uploaded-reports-attachment-id').val(image_id); 
                 });
             });    
-        });        
+        });
     </script>
 	<table class="form-table">
 		<tbody>
-			<!--<tr>
+
+        <?php
+         $ojsArticleID = get_post_meta($post->ID, 'ojsArticleId', true);?>
+
+
+            <tr>
 				<th scope="row">
-					<label>Author String</label>
+					<label>Article ID from OJS</label>
 				</th>
-			 
+           <?php if(empty($ojsArticleID)){?>
 				<td>
-					<input type="text" class="large-text" placeholder="John Doe" name="my-text-field">
+					<input type="text" class="medium-text" placeholder="Article ID" name="ojs_article_id" value ="">
 				</td>
-			</tr>-->
+                <?php } else{?>
+
+                <td>
+                    <input type="text" class="medium-text" placeholder="Article ID" name="ojs_article_id" value="<?php echo $ojsArticleID; ?> ">
+                </td>
+                <?php
+                }?>
+			</tr>
+
+
 			<tr>
 				<th scope="row">
 					<label>Authors</label>
@@ -780,7 +794,7 @@ function render_articles_metabox($post) {
 											<input type="text" placeholder="Name" name="peers[name][]" value="<?php echo $peer['name']; ?>" >
 										</td>
                                         <td>
-
+                                            
                                             <a href="javascript:void(0);" onclick="return remove_peers_box(this);">Delete</a>
                                         </td>
 									</tr>
@@ -958,6 +972,11 @@ function wpdocs_save_meta_box( $post_id ) {
 		$peer_array[] = $temp_array2;
 	}
 	update_post_meta($post_id, 'peers', $peer_array);
+
+
+    $ojsArticleId = $_POST['ojs_article_id'];
+	update_post_meta($post_id,'ojsArticleId',$ojsArticleId);
+
 }
 add_action( 'save_post', 'wpdocs_save_meta_box' );
 
@@ -1304,4 +1323,32 @@ function get_removed_search_filter_param_link($param_to_remove) {
 	return site_url().'?'.http_build_query($all_search_params);
 }
 
+
+function get_publication_history($publication_id){
+    $args = array(
+        'method'      => 'POST',
+        'body'  => array(
+        'publication_id' => $publication_id)
+    );
+
+
+    $response = wp_remote_post('http://ijme.in/submission/plugins/API/get_article_history.php',$args);
+    return wp_remote_retrieve_body($response);
+}
+
+
+function get_submission_date($publication_id){
+    $response = json_decode(get_publication_history($publication_id));
+    echo $response->submission_date;
+}
+
+
+function get_published_date($publication_id){
+    $response = json_decode(get_publication_history($publication_id));
+    echo $response->published_date;
+}
+
+function get_ojs_article_ID($article_ID){
+    return get_post_meta($article_ID, 'ojsArticleId', true);
+}
 remove_action( 'wp_head', 'rel_canonical' );

@@ -380,11 +380,18 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             </div>
 							<?php if( get_the_ID() != '16706' && !is_front_page()){  ?>
                             <div id="articleFullText">
-                                <h4>Full Text:</h4>
+                                <h4>Full Text</h4>
                                 <a class="file" href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">HTML</a>
                                 <a class="file" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>">PDF</a>
                             </div>
-							<?php } ?>
+                           <?php
+                            if(get_ojs_article_ID(get_the_ID()) > 0 ){; ?>
+                            <div id="articleHistory">
+                                <h4>Article History</h4>
+                                <p class="articleHistory-item">Date Submitted:<?php echo get_submission_date(get_ojs_article_ID(get_the_ID()));?></p>
+                                <p class="articleHistory-item">Date Published: <?php echo get_published_date(get_ojs_article_ID(get_the_ID()));?></p>
+                            </div>
+							<?php } }?>
 							<div class="separator"></div>
 							
 							<!--h3>Date of Submission</h3>
