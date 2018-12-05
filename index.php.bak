@@ -79,7 +79,7 @@ echo "<div><br></div>"	;
                        ?>
                             <?php 
                             foreach($postArray as $t_post) { //echo "<pre>"; var_dump($t_post);
-								if($t_post->post_status != "trash" and $t_post->post_status !="inherit") {
+								if($t_post->post_status != "trash") { 
                                 ?>
                                 <div class="row" id="online-<?php echo $t_post->ID;?>">
                                     <div class="col-md-8 col-sm-8 article-section-title-author"> 
