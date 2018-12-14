@@ -1352,3 +1352,365 @@ function get_ojs_article_ID($article_ID){
     return get_post_meta($article_ID, 'ojsArticleId', true);
 }
 remove_action( 'wp_head', 'rel_canonical' );
+
+
+
+//adding rest XML API
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'xmlGenerator/v1', '/xml/(?P<id>\d+)', array(
+        'methods' => 'GET',
+        'callback' => 'post_xml_generator',
+    ),false );
+} );
+
+
+function post_xml_generator( $data ) {
+
+    $post_id = $data['id'];
+    $post = get_post($data['id']);
+    //return get_post_meta($post_id);
+
+    $publisher_name     =   get_post_meta($post_id, 'xml_publisher_name', true);
+    $journal_title      =   get_post_meta($post_id, 'xml_journal_title', true);
+    $issn               =   get_post_meta($post_id, 'xml_issn', true);
+
+    $pubdate            =   get_post_meta($post_id, 'xml_pub_date', true);
+    $article_title      =   $post->post_title;
+    $pdf_first_page     =   get_post_meta($post_id, 'xml_pdf_first_page', true);
+    $pdf_last_page      =   get_post_meta($post_id, 'xml_pdf_last_page', true);
+    $ELocationID        =   get_post_meta($post_id, 'xml_elocation_id', true);
+    $language           =   get_post_meta($post_id, 'xml_language', true);
+    $pii_id             =   get_post_meta($post_id, 'xml_pii_id',true);
+    $doi_id             =   get_post_meta($post_id, 'xml_doi_id',true);
+    $abstract           =   get_post_meta($post_id, 'xml_abstract',true);
+
+    if(!empty(get_post_meta($post_id, 'xml_issue',true))){
+
+    }else{
+        $issue = "-";
+    }
+
+    if(!empty(get_post_meta($post_id, 'xml_volume', true))){
+        $volume =   get_post_meta($post_id, 'xml_volume', true);
+    }else{
+        $volume             =   "-";
+    }
+
+
+    $domImpl = new DOMImplementation();
+    $dtd = $domImpl ->createDocumentType("ArticleSet","-//NLM//DTD PubMed 2.0//EN",'http://www.ncbi.nlm.nih.gov:80/entrez/query/static/PubMed.dtd');
+
+
+    $xml = $domImpl->createDocument("","",$dtd);
+    $xml->formatOutput=true;
+    $xml->encoding = 'UTF-8';
+    $articleSet = $xml->createElement("ArticleSet");
+    $xml->appendChild($articleSet);
+
+    $article = $xml->createElement("Article");
+    $articleSet->appendChild($article);
+
+
+    $journal = $xml->createElement("Journal");
+    $article->appendChild($journal);
+
+    $PublisherName  = $xml->createElement("PublisherName",$publisher_name);
+    $JournalTitle   = $xml->createElement("JournalTitle",$journal_title);
+    $Issn           = $xml->createElement("Issn",$issn); //this value need to be added to wordpress so that we can fetch from the db
+    $Volume         = $xml->createElement("Volume",$volume);
+    $Issue          = $xml->createElement("Issue",$issue);
+    $journal->appendChild($PublisherName);
+    $journal->appendChild($JournalTitle);
+    $journal->appendChild($Issn);
+    $journal->appendChild($Volume);
+    $journal->appendChild($Issue);
+
+
+    $PubDate        = $xml->createElement("PubDate");
+    $PubDate->setAttribute("PubStatus","aheadofprint");
+    $journal->appendChild($PubDate);
+
+    $pub_year = "";
+    $pub_month = "";
+    $pub_day = "";
+
+    if(!empty($pubdate)){
+
+        $date = explode("-",$pubdate);
+        $pub_year = $date[0];
+        $pub_month = $date[1];
+        $pub_day = $date[2];
+
+    }
+
+    $PubDate->appendChild($xml->createElement("Year",$pub_year));
+    $PubDate->appendChild($xml->createElement("Month", $pub_month));
+    $PubDate->appendChild($xml->createElement("Day", $pub_day));
+
+    $article->appendChild($xml->createElement("ArticleTitle", $article_title));
+    $article->appendChild($xml->createElement("FirstPage", $pdf_first_page)); // Page numeber is from pdff, need to add a field for these
+    $article->appendChild($xml->createElement("LastPage", $pdf_last_page));
+    $ELocationID = $xml->createElement("ELocationID", $ELocationID);
+    $ELocationID->setAttribute("EIdType","doi");
+    $article->appendChild($ELocationID);
+
+    $article->appendChild($xml->createElement("Language", $language));
+    $AuthorList = $article->appendChild($xml->createElement("AuthorList"));
+
+    $no_authors =  get_post_meta($post_id, 'xml_authors',true);
+
+    if($no_authors != 0){
+        for($i = 0; $i< $no_authors;$i++){
+            $Author = $xml->createElement("Author");
+            $AuthorList->appendChild($Author);
+
+
+
+            $firstname      = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_first_name",true);
+            $lastname       = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_last_name",true);
+            $affilitation   = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_affiliation",true);
+
+
+              $Author->appendChild($xml->createElement("FirstName",$firstname));
+              $Author->appendChild($xml->createElement("LastName", $lastname));
+              $Author->appendChild($xml->createElement("Affiliation", $affilitation));
+
+        }
+    }
+
+
+    $ArticleIdList  = $article->appendChild($xml->createElement("ArticleIdList"));
+    $ArticleIdpii = $xml->createElement("ArticleId", $pii_id);
+    $ArticleIddoi = $xml->createElement("ArticleId", $doi_id);
+    $ArticleIdpii->setAttribute("IdType","pii"); //ocs website - //add as field to wordpress
+    $ArticleIddoi->setAttribute("IdType","doi");
+
+    $ArticleIdList->appendChild($ArticleIdpii);
+    $ArticleIdList->appendChild($ArticleIddoi); //fetch from the wordpress
+
+    $Abstract   = $xml->createElement("Abstract",$abstract);
+    $article->appendChild($Abstract);
+
+//    Download the xml file
+//    header('Content-Disposition: attachment;filename=' . $article_title.".xml");
+//    header('Content-Type: text/xml');
+//    echo $xml->saveXML();
+
+    echo $xml->saveXML(); //print xml
+
+
+    return "<--------------------------------XML ENDS HERE, copy till above------------------------------------>";
+
+}
+
+
+
+
+//adding rest XML API
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'xmlGeneratorIssue/v1', '/xml/(?P<id>\d+)', array(
+        'methods' => 'GET',
+        'callback' => 'issue_xml_generator',
+    ),false );
+} );
+
+
+function issue_xml_generator( $data ) {
+
+    $issue_id = $data['id'];
+
+
+    $args = array(
+        'numberposts'	=> -1,
+        'post_type'		=> 'articles',
+        'meta_key'		=> 'issue_post_id',
+        'meta_value'	=> $issue_id
+    );
+
+
+//initialize xml dom
+
+    $domImpl = new DOMImplementation();
+    $dtd = $domImpl ->createDocumentType("ArticleSet","-//NLM//DTD PubMed 2.0//EN",'http://www.ncbi.nlm.nih.gov:80/entrez/query/static/PubMed.dtd');
+
+
+    $xml = $domImpl->createDocument("","",$dtd);
+    $xml->formatOutput=true;
+    $xml->encoding = 'UTF-8';
+    $articleSet = $xml->createElement("ArticleSet");
+    $xml->appendChild($articleSet);
+
+    $PubYear = get_post_meta($issue_id,'pubYear',true);  //add in wp issue
+    $PubMonth = get_post_meta($issue_id,'pubMonth',true); // add in wp issue
+
+
+// query
+    $query = new WP_Query( $args );
+
+    while( $query->have_posts() ) {
+        $query->the_post();
+        $post_id = get_the_ID();
+        $post = get_post($post_id);
+
+            $publisher_name     =   get_post_meta($post_id, 'xml_publisher_name', true);
+            $journal_title      =   get_post_meta($post_id, 'xml_journal_title', true);
+            $issn               =   get_post_meta($post_id, 'xml_issn', true);
+
+            $article_pubdate    =   get_post_meta($post_id, 'xml_pub_date', true);
+            $article_title      =   $post->post_title;
+            $pdf_first_page     =   get_post_meta($post_id, 'xml_pdf_first_page', true);
+            $pdf_last_page      =   get_post_meta($post_id, 'xml_pdf_last_page', true);
+            $ELocationID        =   get_post_meta($post_id, 'xml_elocation_id', true);
+            $language           =   get_post_meta($post_id, 'xml_language', true);
+            $pii_id             =   get_post_meta($post_id, 'xml_pii_id',true);
+            $doi_id             =   get_post_meta($post_id, 'xml_doi_id',true);
+            $abstract           =   get_post_meta($post_id, 'xml_abstract',true);
+
+            if(!empty(get_post_meta($issue_id, 'issue_id',true))){
+                $issue =   get_post_meta($issue_id, 'issue_id', true);
+
+            }else{
+                $issue = "-";
+            }
+
+            if(!empty(get_post_meta($issue_id, 'volume', true))){
+                $volume =   get_post_meta($issue_id, 'volume', true);
+            }else{
+                $volume             =   "-";
+            }
+
+
+
+            $article = $xml->createElement("Article");
+            $articleSet->appendChild($article);
+
+
+            $journal = $xml->createElement("Journal");
+            $article->appendChild($journal);
+
+            $PublisherName  = $xml->createElement("PublisherName",$publisher_name);
+            $JournalTitle   = $xml->createElement("JournalTitle",$journal_title);
+            $Issn           = $xml->createElement("Issn",$issn); //this value need to be added to wordpress so that we can fetch from the db
+            $Volume         = $xml->createElement("Volume",$volume);
+            $Issue          = $xml->createElement("Issue",$issue);
+            $journal->appendChild($PublisherName);
+            $journal->appendChild($JournalTitle);
+            $journal->appendChild($Issn);
+            $journal->appendChild($Volume);
+            $journal->appendChild($Issue);
+
+
+            $PubDate        = $xml->createElement("PubDate");
+            $PubDate->setAttribute("PubStatus","ppublish");
+            $journal->appendChild($PubDate);
+
+
+            $PubDate->appendChild($xml->createElement("Year",$PubYear));
+            $PubDate->appendChild($xml->createElement("Month", $PubMonth));
+
+
+
+
+        $article->appendChild($xml->createElement("ArticleTitle", $article_title));
+            $article->appendChild($xml->createElement("FirstPage", $pdf_first_page)); // Page numeber is from pdff, need to add a field for these
+            $article->appendChild($xml->createElement("LastPage", $pdf_last_page));
+            $ELocationID = $xml->createElement("ELocationID", $ELocationID);
+            $ELocationID->setAttribute("EIdType","doi");
+            $article->appendChild($ELocationID);
+
+            $article->appendChild($xml->createElement("Language", $language));
+            $AuthorList = $article->appendChild($xml->createElement("AuthorList"));
+
+            $no_authors =  get_post_meta($post_id, 'xml_authors',true);
+
+            if($no_authors != 0){
+                for($i = 0; $i< $no_authors;$i++){
+                    $Author = $xml->createElement("Author");
+                    $AuthorList->appendChild($Author);
+
+
+
+                    $firstname      = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_first_name",true);
+                    $lastname       = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_last_name",true);
+                    $affilitation   = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_affiliation",true);
+
+
+                      $Author->appendChild($xml->createElement("FirstName",$firstname));
+                      $Author->appendChild($xml->createElement("LastName", $lastname));
+                      $Author->appendChild($xml->createElement("Affiliation", $affilitation));
+
+                }
+            }
+
+
+            $ArticleIdList  = $article->appendChild($xml->createElement("ArticleIdList"));
+            $ArticleIdpii = $xml->createElement("ArticleId", $pii_id);
+            $ArticleIddoi = $xml->createElement("ArticleId", $doi_id);
+            $ArticleIdpii->setAttribute("IdType","pii"); //ocs website - //add as field to wordpress
+            $ArticleIddoi->setAttribute("IdType","doi");
+
+            $ArticleIdList->appendChild($ArticleIdpii);
+            $ArticleIdList->appendChild($ArticleIddoi); //fetch from the wordpress
+
+            $history        = $xml->createElement("Histroy");
+            $article->appendChild($history);
+            $hist_PubDate        = $xml->createElement("PubDate");
+            $hist_PubDate->setAttribute("PubStatus","aheadofprint");
+            $history->appendChild($hist_PubDate);
+
+            $article_pub_year = "";
+            $article_pub_month = "";
+            $article_pub_day = "";
+
+            if(!empty($article_pubdate)){
+
+                $date = explode("-",$article_pubdate);
+                $article_pub_year = $date[0];
+                $article_pub_month = $date[1];
+                $article_pub_day = $date[2];
+
+            }
+
+            $hist_PubDate->appendChild($xml->createElement("Year",$article_pub_year));
+            $hist_PubDate->appendChild($xml->createElement("Month", $article_pub_month));
+            $hist_PubDate->appendChild($xml->createElement("Day", $article_pub_day));
+
+            $Abstract   = $xml->createElement("Abstract",$abstract);
+            $article->appendChild($Abstract);
+
+    } //End of while
+    echo "<xmp>".$xml->saveXML()."</xmp>"; //print xml
+
+////    Download the xml file
+////    header('Content-Disposition: attachment;filename=' . $article_title.".xml");
+////    header('Content-Type: text/xml');
+////    echo $xml->saveXML();
+//
+//    echo $xml->saveXML(); //print xml
+//
+//
+   return "<--------------------------------XML ENDS HERE, copy till above------------------------------------>";
+
+}
+
+
+
+add_action( 'post_submitbox_start', 'generate_xml_btn' );
+
+function generate_xml_btn(){
+    $article_id = get_the_ID();
+    $post_type = get_post_type();
+
+    if($post_type == 'articles'){
+    ?>
+    <div>
+        <input name="save" type="button" class="button-large button-primary" value="Generat XML" onclick="window.open('<?php echo "http://ijme.in/wp-json/xmlGenerator/v1/xml/".$article_id;?>','_blank');" />
+    </div>
+    <?php }
+    elseif ($post_type == 'issues'){ ?>
+        <div>
+            <input name="save" type="button" class="button-large button-primary" value="Generat ISSUE XML" onclick="window.open('<?php echo "http://ijme.in/wp-json/xmlGeneratorIssue/v1/xml/".$article_id;?>','_blank');" />
+        </div>
+        <?php
+    }
+}

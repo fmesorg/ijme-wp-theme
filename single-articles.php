@@ -168,7 +168,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
                                                                        <?php }?>
 
-
                                         <h3>Keywords</h3>
                                         <?php
                                         $articleTags = wp_get_post_tags(get_the_ID());
