@@ -89,7 +89,7 @@ echo "<div><br></div>"	;
 												<?php $new_post=get_post_meta($t_post->ID, 'show_new_button', true);
 												if($new_post==1){
 												?>
-													<img src="http://ijme.in/images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
+													<img src="./images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
 												<?php } ?>
 												<?php echo $t_post->post_title; ?></a>
                                             </div>
@@ -192,7 +192,7 @@ echo "<div><br></div>"	;
 												<?php $new_post=get_post_meta($t_post->ID, 'show_new_button', true);
 												if($new_post==1){
 												?>
-													<img src="http://ijme.in/images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
+													<img src="./images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
 												<?php } ?>
 												<?php echo $t_post->post_title; ?></a>
                                             </div>
@@ -272,32 +272,32 @@ echo "<div><br></div>"	;
                                     <h4 class="blockTitle">Article Tools</h4>
                                     <?php if( get_post_meta(get_the_ID(),'pdf_file',true) ) { ?>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/abstract.png" class="articleToolIcon">
+                                        <img src="../plugins/blocks/readingTools/icons/abstract.png" class="articleToolIcon">
                                         <a target="_blank" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>" class="file" target="_parent">PDF</a><br>
                                     </div>
                                     <?php } ?>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/printArticle.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">Print this article</a>
+                                        <img src="../plugins/blocks/readingTools/icons/printArticle.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">Print this article</a>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/metadata.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">Indexing metadata</a><br>
+                                        <img src="../plugins/blocks/readingTools/icons/metadata.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">Indexing metadata</a><br>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/citeArticle.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">How to cite item</a><br>
+                                        <img src="../plugins/blocks/readingTools/icons/citeArticle.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">How to cite item</a><br>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/findingReferences.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">Finding References</a>
+                                        <img src="../plugins/blocks/readingTools/icons/findingReferences.png" class="articleToolIcon"> <a target="_blank" href="javascript:void(0);">Finding References</a>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/emailArticle.png" class="articleToolIcon">
+                                        <img src="../plugins/blocks/readingTools/icons/emailArticle.png" class="articleToolIcon">
                                         Email this article <span style="font-size: 0.8em">(Login required)</span> 
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/emailArticle.png" class="articleToolIcon">
+                                        <img src="../plugins/blocks/readingTools/icons/emailArticle.png" class="articleToolIcon">
                                         Email the author <span style="font-size: 0.8em">(Login required)</span> 
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="http://ijme.in/plugins/blocks/readingTools/icons/postComment.png" class="articleToolIcon">
+                                        <img src="../plugins/blocks/readingTools/icons/postComment.png" class="articleToolIcon">
                                         <a target="_blank" href="javascript:void(0);">Post a Comment</a> 
                                     </div>
                                 </div>
