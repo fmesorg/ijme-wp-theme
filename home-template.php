@@ -128,7 +128,7 @@
 	</div>
     <div class="col-md-8 pd-xs-0">
     <div id="online_first" class="blocks online-first">
-		<div class="title-bar"><h3><a href="http://ijme.in/issues/online-first/"> Online First </a></h3></div>
+		<div class="title-bar"><h3><a href="/issues/online-first/"> Online First </a></h3></div>
 
 		<?php
 		global $post;
@@ -153,7 +153,7 @@
 					$new_post = get_post_meta($post->ID, 'show_new_button', true);
 					if($new_post == 1) {
 				?>
-				<img src="http://ijme.in/images/tag-new-icon.jpg"/>
+				<img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg"/>
 				<?php } ?>
 				
 				<?php echo wp_trim_words(get_the_title(), 8); ?></a></h4>

@@ -89,7 +89,7 @@ echo "<div><br></div>"	;
 												<?php $new_post=get_post_meta($t_post->ID, 'show_new_button', true);
 												if($new_post==1){
 												?>
-													<img src="./images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
+													<img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
 												<?php } ?>
 												<?php echo $t_post->post_title; ?></a>
                                             </div>
@@ -192,7 +192,7 @@ echo "<div><br></div>"	;
 												<?php $new_post=get_post_meta($t_post->ID, 'show_new_button', true);
 												if($new_post==1){
 												?>
-													<img src="./images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
+													<img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg" alt="tag-new-icon.jpg">
 												<?php } ?>
 												<?php echo $t_post->post_title; ?></a>
                                             </div>
