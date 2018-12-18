@@ -92,8 +92,8 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                     
                     <div id="content">
                         <div class="addthis_container">
-                            <a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '<?php echo get_the_title(); ?>')" onmouseout="addthis_close()" onclick="return addthis_sendto()"> <img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0"> </a>
-                            <script type="text/javascript" src="http://s7.addthis.com/js/200/addthis_widget.js"></script>
+                            <a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '<?php echo get_the_title(); ?>')" onmouseout="addthis_close()" onclick="return addthis_sendto()"> <img src="https://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0"> </a>
+                            <script type="text/javascript" src="https://s7.addthis.com/js/200/addthis_widget.js"></script>
                         </div>
                         <?php
                         if(isset($_GET['galley']) && $_GET['galley'] == 'pdf') {
