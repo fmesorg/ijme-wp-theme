@@ -123,7 +123,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									
 							<div class="separator"><br></div>
 							<div class="visible-xs visible-sm">
-							<iframe id="pdfviewer" src="http://docs.google.com/gview?embedded=true&url=<?php echo $pdf_file; ?>&amp;embedded=true" 
+							<iframe id="pdfviewer" src="https://docs.google.com/gview?embedded=true&url=<?php echo $pdf_file; ?>&amp;embedded=true"
 							frameborder="0" width="100%" height="400px"></iframe>
 							</div>
 							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' ){ 
