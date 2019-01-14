@@ -374,7 +374,8 @@ function render_issues_metabox($post) {
 								
 					$articles_id = get_post_meta(get_the_ID(), 'articles', true); 
 					$strArticalList	= '';
-					//print_r($articles_id);exit; 
+					//print_r($articles_id);exit;
+                    //Why is it checking if the first post is (0th post) is set and not a number,then define the array again. ****Bug****
 					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
 						$articles_id	= array();
 					}
@@ -473,6 +474,7 @@ function render_issues_metabox($post) {
 	<?php
 }
 
+//savign the ordered articles for an issue. update the new order for an issue(post) key as "articles"
 function save_issues_meta_box( $post_id ) {
     if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'issues_meta_box_nonce' ) ) return;
 	
@@ -718,22 +720,7 @@ function render_articles_metabox($post) {
 								</table>
 
 								
-								<!--<p>
-									<input type="text" placeholder="First name" name="authors[first_name][]" value="<?php echo $author['first_name']; ?>" >
-									<input type="text" placeholder="Middle name" name="authors[middle_name][]" value="<?php echo $author['middle_name']; ?>" >
-									<input type="text" placeholder="Last name" name="authors[last_name][]" value="<?php echo $author['last_name']; ?>" > &nbsp;
-									<input type="checkbox" name="authors[primary_contact][]" <?php if(!empty($author['primary_contact'])) echo "checked"; ?> value="1" />Primary &nbsp;
-									<a href="javascript:void(0);" onclick="return remove_author_box(this);">Delete</a>
-									<br/>
-									<input type="text" placeholder="Affiliation" class="large-text" name="authors[affiliation][]" value="<?php echo $author['affiliation']; ?>" >
-									<br/>
-									<input type="text" placeholder="Country" name="authors[country][]" value="<?php echo $author['country']; ?>" >
-									<input type="text" placeholder="Competing Interest" name="authors[competing_interests][]" value="<?php echo $author['competing_interests']; ?>" >								
-									<input type="text" placeholder="Email" name="authors[email][]" value="<?php echo $author['email']; ?>" >
-									<br/>
-									<input type="text" placeholder="Biography" class="large-text" name="authors[biography][]" value="<?php echo $author['biography']; ?>" >
-									<input type="text" placeholder="Test" class="large-text" name="authors[test][]" value="<?php echo $author['test']; ?>" >								
-								</p>-->							
+
 								<?php
 							}    
 						}							
@@ -912,7 +899,7 @@ function render_articles_metabox($post) {
 	</table>
 	<?php
 }
-
+//generate array for articles issues
 /**
  * Save meta box content.
  *
@@ -925,21 +912,22 @@ function wpdocs_save_meta_box( $post_id ) {
 	update_post_meta($post_id, 'citations', $_POST['citations']);
 	
 	$previous_issue_id = get_post_meta($post_id, 'issue_post_id', true);
-	if($previous_issue_id != $_POST['issue_post_id'] ) {
+	if($previous_issue_id != $_POST['issue_post_id'] ) { //if previous Issue_post_id is different then change else leave it as is. issue_post_id remain for an article in the Db when set initially. Hence it does not go inside this block to add it to articles. ***bug**
 		
-		//remove from previous one
+		//Get the old Issue's "articles" and search for current article. if found remove from previous one
 		$issue_articles_id = get_post_meta($previous_issue_id, 'articles', true);
 		if(($key = array_search($post_id, $issue_articles_id)) !== false) {
 			unset($issue_articles_id[$key]);
 		}
+		//no need to update the old post if not found the current article listed in the old Issue(previous_issue_id)
 		update_post_meta($previous_issue_id, 'articles', $issue_articles_id);	
 
-		//add to new one
+		//add to new one.
 		$issue_articles_id = get_post_meta($_POST['issue_post_id'], 'articles', true);
-		if(empty($issue_articles_id))
-		$issue_articles_id = array();
-		$issue_articles_id[] = $post_id;
-		update_post_meta($_POST['issue_post_id'], 'articles', $issue_articles_id);	
+        if (empty($issue_articles_id)) //check if "articles" field is empty for the issue
+            $issue_articles_id = array();
+        $issue_articles_id[] = $post_id;
+		update_post_meta($_POST['issue_post_id'], 'articles', $issue_articles_id);
 		
 		update_post_meta($post_id, 'issue_post_id', $_POST['issue_post_id']);	
 	}
