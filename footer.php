@@ -30,7 +30,7 @@
             </div>
             <div class="container">
 			    <div class="footer-copys">
-                &copy <?php echo date('Y'); ?>. All rights reserved | Designed &amp; Developed by <a class="company-link" href="http://www.z-aksys.com" target="_blank">Z-Aksys Solutions</a> | <a class="company-link" href="http://ijme.in/index.php/ijme/pages/view/disclaimer">Disclaimer</a>	
+                &copy <?php echo date('Y'); ?>. All rights reserved | Designed &amp; Developed by <a class="company-link" href="/about-us/fmes/overview/" target="_blank">FMES</a> | <a class="company-link" href="http://ijme.in/index.php/ijme/pages/view/disclaimer">Disclaimer</a>
 				</div>
 				
 				<div class="social-links">
