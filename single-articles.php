@@ -44,7 +44,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 					 <a href="javascript:void(0)">FMES Brochure</a>
 					</div>
 					
-				<?php }elseif( get_the_ID() =='2176' || get_the_ID() =='16745' ){ ?>
+				<?php }elseif( get_the_ID() =='2176' || get_the_ID() =='16745' || get_the_ID()== '17727'){ ?>
 					<div id="breadcrumb">
 					 <a href="<?php echo site_url(); ?>" >Home</a> &gt; 
 					 <a href="javascript:void(0)">About us</a> &gt; 
@@ -126,7 +126,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							<iframe id="pdfviewer" src="https://docs.google.com/gview?embedded=true&url=<?php echo $pdf_file; ?>&amp;embedded=true"
 							frameborder="0" width="100%" height="400px"></iframe>
 							</div>
-							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' ){ 
+							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' || get_the_ID() == '17727' ){
 							
 							}else{ ?>
                                     <div class="author-section-bottom">
