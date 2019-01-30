@@ -262,28 +262,31 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							
 							<?php
                                     $authors = get_post_meta(get_the_ID(), 'authors', true);
-									//print_r($authors);exit;
-									?>
-							<div class="author-section-bottom">
+                            if(empty($authors)){
+                               echo '<div class="author-section-bottom">';
+                               echo	'<div class="blockTitle"> </div>';
+                            }else{
+                                ?>
+							    <div class="author-section-bottom">
 								<div class="blockTitle"> About the Authors </div>
 								
-								<?php
+								<?php }
 									$authors = get_post_meta(get_the_ID(), 'authors', true);
 									$out = array();
-									//print_r($authors);exit;
+									if(!empty($authors)){
 									foreach($authors as $key=>$author) {	?>
 									<div id="authorBio">
 										<div>
-											<p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em> 
+											<p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
 											<a href="mailto:<?php echo $author['email']; ?>">
 											(<?php echo $author['email']; ?>)</a></p>
 											<p><?php echo $author['biography']; ?></p>
-											<p><?php echo $author['affiliation']; ?></p>	
+											<p><?php echo $author['affiliation']; ?></p>
 										</div>
 									</div>
 									<div class="separator"></div>
 
-									<?php } ?>
+									<?php }} ?>
 
 
 									<?php if(get_field('manuscript_editor')){ ?> 
@@ -347,16 +350,17 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                     <?php
                                     $authors = get_post_meta(get_the_ID(), 'authors', true);
 									$out = array();
-                                    foreach($authors as $key=>$author) {										
-										$authStr=$author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
-                                        //if($author['primary_contact']) {
-											array_push($out, $authStr);
-											//$author['first_name'].' '.$author['middle_name'].' '.$author['last_name']
-                                           // break;
-                                        //}
+									if(!empty($authors)){
+                                        foreach($authors as $key=>$author) {
+                                            $authStr=$author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
+                                            //if($author['primary_contact']) {
+                                            array_push($out, $authStr);
+                                            //$author['first_name'].' '.$author['middle_name'].' '.$author['last_name']
+                                            // break;
+                                            //}
+                                        }
+                                        echo implode(', ', $out);
                                     }
-									echo implode(', ', $out);
-
                                     ?>
                                 </em>
 								<p><?php if(get_field('doi')){ ?> 
