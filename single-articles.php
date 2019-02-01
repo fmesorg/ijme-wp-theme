@@ -140,8 +140,10 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             <div id="authorBio">
                                                 <div>
                                                     <p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
+                                                        <?php  if(array_key_exists("email",$author)){?>
                                                         <a href="mailto:<?php echo $author['email']; ?>">
                                                             (<?php echo $author['email']; ?>)</a></p>
+                                                    <?php }else echo ""; ?>
                                                     <p><?php echo $author['biography']; ?></p>
                                                     <p><?php echo $author['affiliation']; ?></p>
                                                 </div>
@@ -278,8 +280,10 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									<div id="authorBio">
 										<div>
 											<p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
-											<a href="mailto:<?php echo $author['email']; ?>">
+                                                <?php  if(array_key_exists("email",$author)){?>
+                                                <a href="mailto:<?php echo $author['email']; ?>">
 											(<?php echo $author['email']; ?>)</a></p>
+                                               <?php }else echo ""; ?>
 											<p><?php echo $author['biography']; ?></p>
 											<p><?php echo $author['affiliation']; ?></p>
 										</div>

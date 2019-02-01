@@ -617,7 +617,7 @@ function render_articles_metabox($post) {
 						</style>
 						<?php
 						$authors = get_post_meta($post->ID, 'authors', true);
-						
+
 						if (empty($authors)) { ?>
 						
 						<table class="authors-table">
@@ -708,7 +708,7 @@ function render_articles_metabox($post) {
 										</td>
 										<td colspan="2">
 											<label>Email</label>
-											<input type="text" name="authors[email][]" value="<?php echo $author['email']; ?>" >
+											<input type="text" name="authors[email][]" value="<?php  if(array_key_exists("email",$author)){echo $author['email'];}else echo ""; ?>" >
 										</td>
 									</tr>
 									<tr>
