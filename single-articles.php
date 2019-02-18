@@ -151,7 +151,9 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             </div>
                                             <div class="separator"></div>
 
-                                        <?php }} ?>
+                                        <?php }}else{
+                                    echo "";
+                                } ?>
 
 
                                         <?php if(get_field('manuscript_editor')){ ?>
