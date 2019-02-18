@@ -30,9 +30,10 @@ if ( have_posts() ) {
             $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
             $authors = get_post_meta(get_the_ID(), 'authors', true);
             $authors_array = array();
+            if(!empty($authors)){
             foreach($authors as $author)
             $authors_array[] = '%A '.$author['last_name'].', '.$author['first_name'];
-            echo PHP_EOL.implode('\n', $authors_array);
+            echo PHP_EOL.implode('\n', $authors_array);} else { echo "";}
             ?>
 %D <?php echo get_the_date('Y'); ?><?php echo PHP_EOL; ?>
 %T <?php echo get_the_title(); ?><?php echo PHP_EOL; ?>
@@ -60,8 +61,9 @@ TY  - JOUR<?php echo PHP_EOL; ?>
 <?php
 $authors = get_post_meta(get_the_ID(), 'authors', true);
 $authors_array = array();
+if(!empty($authors)){
 foreach($authors as $author)
-echo 'AU - '.$author['last_name'].', '.$author['first_name'];
+echo 'AU - '.$author['last_name'].', '.$author['first_name'];} else { echo "";}
 ?><?php echo PHP_EOL; ?>
 PY  - <?php echo get_the_date('Y'); ?><?php echo PHP_EOL; ?>
 TI  - <?php echo get_the_title(); ?><?php echo PHP_EOL; ?>
@@ -82,8 +84,12 @@ TY  - JOUR<?php echo PHP_EOL; ?>
 <?php
 $authors = get_post_meta(get_the_ID(), 'authors', true);
 $authors_array = array();
+if(!empty($authors)){
 foreach($authors as $author)
 echo 'AU - '.$author['last_name'].', '.$author['first_name'];
+}else{
+echo 'AU - ';
+}
 ?><?php echo PHP_EOL; ?>
 PY  - <?php echo get_the_date('Y/m/d/'); ?><?php echo PHP_EOL; ?>
 TI  - <?php echo get_the_title(); ?><?php echo PHP_EOL; ?>
@@ -165,10 +171,14 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     <?php
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
                     $authors_array[] = strtoupper($author['last_name']).', '.substr($author['first_name'], 0, 1).'.';
                     ?>
-                    <?php echo implode(', ',$authors_array).'   '; ?>.
+                    <?php echo implode(', ',$authors_array).'   '; }
+                    else{
+                        echo "";
+                    }?>.
                     <?php echo get_the_date('(Y)'); ?>.
                     <?php echo get_the_title(); ?>.
                     <?php
@@ -191,9 +201,12 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
         author = {<?php
         $authors = get_post_meta(get_the_ID(), 'authors', true);
         $authors_array = array();
+        if(!empty($authors)){
         foreach($authors as $author)
         $authors_array[] = $author['first_name'].' '.$author['last_name'];
-        echo implode(' and ', $authors_array);
+        echo implode(' and ', $authors_array);}else{
+            echo "";
+        }
         ?>},
         title = {<?php echo get_the_title(); ?>},
         journal = {<?php echo get_bloginfo('name'); ?>},                        
@@ -214,9 +227,12 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
                     $authors_array[] = strtoupper($author['last_name']).', '.substr($author['first_name'], 0, 1).'.';
-                    echo implode(', ', $authors_array);
+                    echo implode(', ', $authors_array);}else{
+                        echo "";
+                    }
                     ?>
                     <?php echo get_the_date('Y M d'); ?>.
                     <?php echo get_the_title(); ?>
@@ -231,9 +247,10 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
                     $authors_array[] = '%A '.$author['last_name'].', '.$author['first_name'];
-                    echo implode('\n', $authors_array);
+                    echo implode('\n', $authors_array);}else{ echo "";}
                     ?>
                     %D <?php echo get_the_date('Y'); ?>
                     %T <?php echo get_the_title(); ?>
@@ -256,9 +273,10 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
                     $authors_array[] = $author['last_name'].' '.$author['first_name'];
-                    echo implode(', ', $authors_array);
+                    echo implode(', ', $authors_array);}else { echo "";}
                     ?>.
                     "<?php echo get_the_title(); ?>."
                     <em><?php echo get_bloginfo('name'); ?></em> [Online],
@@ -280,8 +298,9 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     <?php
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
-                    echo 'AU - '.$author['last_name'].', '.$author['first_name'];
+                    echo 'AU - '.$author['last_name'].', '.$author['first_name'];}else{ echo 'AU - ';}
                     ?>
                     PY  - <?php echo get_the_date('Y'); ?>
                     TI  - <?php echo get_the_title(); ?>
@@ -298,8 +317,9 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
-                    $authors_array[] = $author['last_name'].', '.substr($author['first_name'], 0, 1).'.';
+                    $authors_array[] = $author['last_name'].', '.substr($author['first_name'], 0, 1).'.';}else{ echo "";}
                     ?>
                     <form action="http://www.refworks.com/express/expressimport.asp?vendor=Public%20Knowledge%20Project&filter=BibTeX&encoding=65001" method="post" target="RefWorksMain">
                         <textarea name="ImportData" rows=15 cols=70>@article{{IJME}{<?php echo get_the_ID(); ?>},
@@ -327,8 +347,12 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     <?php
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
-                    foreach($authors as $author)
-                    echo 'AU - '.$author['last_name'].', '.$author['first_name'];
+                    if(!empty($authors)) {
+                        foreach ($authors as $author)
+                            echo 'AU - ' . $author['last_name'] . ', ' . $author['first_name'];
+                    }else{
+                        echo 'AU - ';
+                    }
                     ?>
                     PY  - <?php echo get_the_date('Y/m/d/'); ?>
                     TI  - <?php echo get_the_title(); ?>
@@ -345,9 +369,10 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                     $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                     $authors_array = array();
+                    if(!empty($authors)){
                     foreach($authors as $author)
                     $authors_array[] = $author['last_name'].', '.$author['first_name'];
-                    echo implode(', ', $authors_array);
+                    echo implode(', ', $authors_array);}else{ echo "";}
                     ?>.                
                     "<?php echo get_the_title(); ?>"
                     <em>{<?php echo get_bloginfo('name'); ?></em> [Online],
