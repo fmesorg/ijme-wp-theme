@@ -134,10 +134,16 @@ UR  - <?php echo get_permalink(); echo PHP_EOL;
                 <div class="citation-abnt">
                     <?php
                     $authors = get_post_meta(get_the_ID(), 'authors', true);
-                    $authors_array = array();
+                    if(!empty($authors)){
+                        $authors_array = array();
                     foreach($authors as $author) $authors_array[] = strtoupper($author['last_name']).', '.$author['first_name'].' '.$author['middle_name'];
+                                        echo implode('; ',$authors_array);
+
+            }else{
+                        echo ".";
+
+                    }
                     ?>
-                    <?php echo implode('; ',$authors_array); ?>.
                     <?php echo get_the_title(); ?>.
                     <?php
                     $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
