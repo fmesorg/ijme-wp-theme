@@ -151,8 +151,10 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             </div>
                                             <div class="separator"></div>
 
-                                        <?php }}else{
-                                    echo "";
+                                        <?php }}else{?>
+                                    <div class="author-section-bottom">
+                                        <div class="blockTitle"></div>
+                                    </div>
                                 } ?>
 
 
