@@ -128,15 +128,16 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							</div>
 							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' || get_the_ID() == '17727' ){
 							
-							}else{ ?>
+							}else{
+                                $authors = get_post_meta(get_the_ID(), 'authors', true);
+                                $out = array();
+                                if(!empty($authors)){?>
+
                                     <div class="author-section-bottom">
                                         <div class="blockTitle"> About the Authors </div>
 
                                         <?php
-                                        $authors = get_post_meta(get_the_ID(), 'authors', true);
-                                        $out = array();
-                                        //print_r($authors);exit;
-                                        foreach($authors as $key=>$author) {	?>
+                                    foreach($authors as $key=>$author) {	?>
                                             <div id="authorBio">
                                                 <div>
                                                     <p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
@@ -150,7 +151,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             </div>
                                             <div class="separator"></div>
 
-                                        <?php } ?>
+                                        <?php }} ?>
 
 
                                         <?php if(get_field('manuscript_editor')){ ?>
