@@ -62,7 +62,7 @@ ob_start();
                                     <h3><?php the_title(); ?></h3>
                                 </div>
                                 <div class="share-pdflink">
-                                    <a  href="<?php echo site_url(); ?>/wp-content/uploads/2019/02/fmes-dp-v2.pdf" target="_blank" title = "Download PDF" > <img src="<?php echo THEME_URL; ?>/images/download-pdf.png" width="95" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0" > </a>
+                                    <a  href="<?php echo site_url(); ?>/wp-content/uploads/2019/02/public-engagement-meeting-program-schedule-flyer.pdf" target="_blank" title = "Download PDF" > <img src="<?php echo THEME_URL; ?>/images/download-pdf.png" width="95" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0" > </a>
                                     <a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '<?php echo $addExtraString; ?>?@ijme.in', '<?php echo get_the_title(); ?>')" onmouseout="addthis_close()" onclick="return addthis_sendto()"> <img src="https://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0"> </a>
                                     <script type="text/javascript" src="https://s7.addthis.com/js/200/addthis_widget.js"></script>
                                 </div>
