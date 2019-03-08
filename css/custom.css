@@ -185,3 +185,46 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     z-index: 1;}
 .header-marquee{padding: 10px 10px;background-color: #f1f1f1}
 .container {clear:both;}
+
+
+
+.suppport_box_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#supportBox{
+    border: #2B2B2B solid 1px;
+    max-width: 500px;
+    display: flex;
+    flex: 1;
+}
+
+#supportBox a:hover{
+    color: yellow!important;
+}
+
+#articleFullText{
+    flex:1;
+}
+
+#sup_button{
+    flex: 40%;
+    background-color: #E01F1F;
+
+}
+
+#sup_desc{
+    flex: 60%;
+    padding-left: 3px;
+    margin: 2px;
+}
+
+.sup_btn{
+    color: white!important;
+    font-size: 20px;
+    padding-left: 5px;
+    position: absolute;
+    padding-top: 20px;
+}

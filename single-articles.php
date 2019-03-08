@@ -386,11 +386,22 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                 <div><?php the_excerpt(); ?></div>
                             </div>
 							<?php if( get_the_ID() != '16706' && !is_front_page()){  ?>
+                        <div class="suppport_box_wrapper">
                             <div id="articleFullText">
                                 <h4>Full Text</h4>
                                 <a class="file" href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">HTML</a>
                                 <a class="file" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>">PDF</a>
                             </div>
+
+                            <div id="supportBox">
+                                <div id = "sup_button">
+                                    <a href="/IjmeFeesCollectionApp/index.php" class="sup_btn" target="_blank" data-toggle="tooltip" data-placement="top" title="Support us, Pay What you want">Support Us</a>
+                                </div>
+                                <div id = "sup_desc">
+                                    Full Article processing fees is $150(Rs10,000), you can pay what you want.
+                                </div>
+                            </div>
+                        </div>
                            <?php
                             if(get_ojs_article_ID(get_the_ID()) > 0 ){; ?>
                             <div id="articleHistory">
