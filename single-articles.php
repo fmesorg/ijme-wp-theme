@@ -398,7 +398,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                     <a href="/IjmeFeesCollectionApp/index.php" class="sup_btn" target="_blank" data-toggle="tooltip" data-placement="top" title="Support us, Pay What you want">Support Us</a>
                                 </div>
                                 <div id = "sup_desc">
-                                    Full Article processing fees is $150(Rs10,000), you can pay what you want.
+                                   To view Full article, please support us. You can pay what you want.
                                 </div>
                             </div>
                         </div>
