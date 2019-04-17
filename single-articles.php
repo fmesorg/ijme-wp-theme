@@ -394,12 +394,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             </div>
 
                             <div id="supportBox">
-                                <div id = "sup_button">
-                                    <a href="/IjmeFeesCollectionApp/index.php" class="sup_btn" target="_blank" data-toggle="tooltip" data-placement="top" title="Support us, Pay What you want">Support Us</a>
-                                </div>
-                                <div id = "sup_desc">
-                                   To view Full article, please support us. You can pay what you want.
-                                </div>
+                                    <a href="/IjmeFeesCollectionApp/index.php" class="sup_btn" target="_blank" data-toggle="tooltip" data-placement="top" title="Support us">Support us in publishing these articles</a>
                             </div>
                         </div>
                            <?php

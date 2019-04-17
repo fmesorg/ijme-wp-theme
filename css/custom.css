@@ -195,10 +195,13 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 }
 
 #supportBox{
-    border: #2B2B2B solid 1px;
-    max-width: 500px;
     display: flex;
     flex: 1;
+    background-color: #E01F1F;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow: 0px 2px 2px grey;
+    margin-top: 14px;
 }
 
 #supportBox a:hover{
@@ -209,22 +212,8 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     flex:1;
 }
 
-#sup_button{
-    flex: 40%;
-    background-color: #E01F1F;
-
-}
-
-#sup_desc{
-    flex: 60%;
-    padding-left: 3px;
-    margin: 2px;
-}
-
 .sup_btn{
     color: white!important;
-    font-size: 20px;
-    padding-left: 5px;
-    position: absolute;
-    padding-top: 10px;
+    font-size: 21px;
+    margin: 10px;
 }
