@@ -204,6 +204,10 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                         }else{ ?>
                                             <p>There are currently no refbacks.</p>
                                         <?php } ?>
+                                        <h3>Article Views</h3>  <!-- pdf -->
+                                        <div class="lds-ellipsis" id="place-holder"><p id ="article_count"></p><div></div><div></div><div></div><div></div></div>
+
+
                                     </div>
 
 
@@ -233,7 +237,12 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             $('a.new-window').click(function() {
                                                 window.open($(this).attr('href'),'title', 'width=700, height=400');
                                                 return false;
-                                            });   
+                                            });
+
+                                            $.get("ijmewp/ArticleCountAPI/article_count_api.php", function (data) {
+                                                $(".result").html(data);
+                                                console.log("api called")
+                                            })
                                         });
                                     </script>
                                     <div class="articleToolItem">
@@ -344,6 +353,11 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									}else{ ?>
 									<p>There are currently no refbacks.</p>
 									<?php } ?>
+
+                                    <h3>Article Views</h3>  <!-- html -->
+                                    <p id ="article_count"></p>
+                                    <div class="lds-ellipsis" id="place-holder"><div></div><div></div><div></div><div></div></div>
+
 							</div>
                             <!-- Peer section ----2 ------>
 
@@ -441,11 +455,11 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 								}else{ ?>
 									<p>There are currently no refbacks.</p>
 							<?php } ?>
-							
-							
-							
-                            <?php
-                            
+
+                                <h3>Article Views</h3>  <!-- html -->
+                                <div class="lds-ellipsis" id="place-holder"><p id ="article_count"></p><div></div><div></div><div></div><div></div></div>
+                                <?php
+
                         }
                         
                         ?>
@@ -462,6 +476,20 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
         } // end if
         ?>        
     </div>
+        <div class="col-md-3 article-count-container">
+            <script>
+                jQuery(document).ready(function($) {
+                    let post_slug = "<?php echo $slug = get_post_field( 'post_name', get_post() ); ?>";
+                    console.log(post_slug);
+                    url = "/ArticleCountAPI/article_count_api.php?article_name="+post_slug;
+                    $.get(url,function (data) {
+                        $(".result").html(data);
+                        document.getElementById('place-holder').classList.remove('lds-ellipsis') ;
+                        document.getElementById('article_count').innerText = JSON.parse(data).pageView;
+                    })
+                });
+            </script>
+        </div>
 	<div class="clearfix visible-xs visible-sm"></div>
     <div class="col-md-3">
         <?php get_sidebar(); ?>
