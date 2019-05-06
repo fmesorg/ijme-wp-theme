@@ -296,3 +296,33 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     font-size: 21px;
     margin: 10px;
 }
+
+
+#paymentFooter {
+    left: 0px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 7px 10px;
+    flex: 1;
+}
+
+#paymentFooterContainer{
+    display: flex;
+    position: sticky;
+    bottom: 0px;
+    margin-bottom: -31px;
+    background-color: transparent;
+}
+
+#footerClose{
+    align-content: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: yellow;
+}
+
+#footerClose:hover{
+    color:white;
+}

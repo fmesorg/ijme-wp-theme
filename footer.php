@@ -20,8 +20,14 @@
             </div>
         </div>
     </div>
+        <div id = "paymentFooterContainer">
+            <div id="paymentFooter">Click here to support US &nbsp;
+               <a href="https://www.payumoney.com/paybypayumoney/#/322913" target="_blank"><button class="btn">Support Us</button></a>
+            </div>
+            <div id="footerClose" onclick="hideBox()">Close</div>
+        </div>
 		<!-- submission modal -->
-		
+
         <div class="footer">            
             <div class="scroll-to-top" style="display: block;">
                 <!--<a href="#scroll-to-top"><img src="http://ijme.in/images/theme/scroll-to-top-btn.png"></a>-->

@@ -165,3 +165,7 @@ function show_submission_closed_modal() {
     $('#submission-closed-modal').modal();
 	return false;
 }
+
+function hideBox() {
+    document.getElementById("paymentFooterContainer").style.display="none";
+}
