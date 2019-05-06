@@ -403,14 +403,36 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                         <div class="suppport_box_wrapper">
                             <div id="articleFullText">
                                 <h4>Full Text</h4>
-                                <a class="file" href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">HTML</a>
-                                <a class="file" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>">PDF</a>
+                                <a class="file" data-toggle="modal" data-target="#myModal" href="#">HTML</a>
+                                <a class="file" data-toggle="modal" data-target="#myModal" href="#">PDF</a>
                             </div>
 
                             <div id="supportBox">
                                     <a href="/IjmeFeesCollectionApp/index.php" class="sup_btn" target="_blank" data-toggle="tooltip" data-placement="top" title="Support us">Support us in publishing these articles</a>
                             </div>
                         </div>
+                                <!-- Modal -->
+                                <div id="myModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Support Us</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Request to pay what you want.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</a>
+                                                <a type="button" class="btn btn-default"  href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">HTML</a>
+                                                <a type="button" class="btn btn-default" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>">PDF</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                            <?php
                             if(get_ojs_article_ID(get_the_ID()) > 0 ){; ?>
                             <div id="articleHistory">
@@ -502,4 +524,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
 
 <?php get_footer(); ?>
+
+
         
