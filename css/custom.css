@@ -313,7 +313,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     position: sticky;
     bottom: 0px;
     margin-bottom: -31px;
-    background-color: transparent;
+    background-color:#e01f1f;
 }
 
 #footerClose{
