@@ -200,6 +200,10 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     font-size: medium;
 }
 
+#pdfDownloadCount{
+    font-size: medium;
+}
+
 @keyframes placeHolderShimmer{
     0%{
         background-position: -468px 0
