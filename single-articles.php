@@ -130,15 +130,13 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							
 							}else{ ?>
                                     <div class="author-section-bottom">
-
+                                        <div class="blockTitle"> About the Authors </div>
 
                                         <?php
                                         $authors = get_post_meta(get_the_ID(), 'authors', true);
                                         $out = array();
                                         //print_r($authors);exit;
-                                        if(!empty($authors)){ ?>
-                                        <div class="blockTitle"> About the Authors </div>
-                                       <?php foreach($authors as $key=>$author) {	?>
+                                        foreach($authors as $key=>$author) {	?>
                                             <div id="authorBio">
                                                 <div>
                                                     <p><em><?php echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'] ?></em>
@@ -152,7 +150,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             </div>
                                             <div class="separator"></div>
 
-                                        <?php } }?>
+                                        <?php } ?>
 
 
                                         <?php if(get_field('manuscript_editor')){ ?>
@@ -206,6 +204,8 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                         <?php } ?>
                                         <h3>Article Views</h3>  <!-- pdf -->
                                         <div class="lds-ellipsis" id="place-holder"><p id ="article_count"></p><div></div><div></div><div></div><div></div></div>
+                                        <h3>PDF Downloads</h3>  <!-- pdf -->
+                                        <div class="lds-ellipsis" id="pdf-place-holder"><p id ="pdfDownloadCount"></p><div></div><div></div><div></div><div></div></div>
 
 
                                     </div>
@@ -241,7 +241,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
                                             $.get("ijmewp/ArticleCountAPI/article_count_api.php", function (data) {
                                                 $(".result").html(data);
-                                                console.log("api called")
                                             })
                                         });
                                     </script>
@@ -358,7 +357,11 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                     <p id ="article_count"></p>
                                     <div class="lds-ellipsis" id="place-holder"><div></div><div></div><div></div><div></div></div>
 
-							</div>
+                                    <h3>PDF Downloads</h3>  <!-- pdf -->
+                                    <div class="lds-ellipsis" id="pdf-place-holder"><p id ="pdfDownloadCount"></p><div></div><div></div><div></div><div></div></div>
+
+
+                                </div>
                             <!-- Peer section ----2 ------>
 
                         <?php }
@@ -458,6 +461,9 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
                                 <h3>Article Views</h3>  <!-- html -->
                                 <div class="lds-ellipsis" id="place-holder"><p id ="article_count"></p><div></div><div></div><div></div><div></div></div>
+                                <h3>PDF Downloads</h3>  <!-- pdf -->
+                                <div class="lds-ellipsis" id="pdf-place-holder"><p id ="pdfDownloadCount"></p><div></div><div></div><div></div><div></div></div>
+
                                 <?php
 
                         }
@@ -480,12 +486,13 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
             <script>
                 jQuery(document).ready(function($) {
                     let post_slug = "<?php echo $slug = get_post_field( 'post_name', get_post() ); ?>";
-                    console.log(post_slug);
                     url = "/ArticleCountAPI/article_count_api.php?article_name="+post_slug;
                     $.get(url,function (data) {
                         $(".result").html(data);
                         document.getElementById('place-holder').classList.remove('lds-ellipsis') ;
                         document.getElementById('article_count').innerText = JSON.parse(data).pageView;
+                        document.getElementById('pdf-place-holder').classList.remove('lds-ellipsis') ;
+                        document.getElementById('pdfDownloadCount').innerText = JSON.parse(data).pdfView;
                     })
                 });
             </script>
@@ -498,4 +505,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
 
 <?php get_footer(); ?>
+
+
         
