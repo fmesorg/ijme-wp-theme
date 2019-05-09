@@ -85,9 +85,7 @@
 <div class="marquee-container" onmouseover="this.stop();" onmouseout="this.start();">
     <span class="red-badge">Announcements</span>
     <marquee onmouseover="this.stop();" onmouseout="this.start();" class="header-marquee">
-        <img src="http://ijme.in/images/tag-new-icon.gif"> <a
-            href="https://ijme.in/announcements/vacancy-announcement-editorial-coordinatorwebsite-manager-at-ijme/"
-            target="_blank">Vacancy announcement: EDITORIAL COORDINATOR/WEBSITE MANAGER at IJME</a>&nbsp;
+       
         
     </marquee>
 </div>
