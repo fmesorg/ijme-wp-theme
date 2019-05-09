@@ -55,12 +55,15 @@ function enqueue_front_end_scripts() {
     //wp_enqueue_style( 'bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" );
     wp_enqueue_style( 'main', get_stylesheet_uri(), [], '3.7.1.0' );
     wp_enqueue_style( 'media-css', THEME_URL . '/css/media.css' );
-    
+    wp_enqueue_style( 'jBox-css', THEME_URL . '/css/jBox.all.min.css' );
+
     wp_enqueue_script( 'jquery');
     wp_enqueue_script( 'owl-js', THEME_URL . '/js/owl.carousel.min.js' );
     wp_enqueue_script( 'bootstrap-js', THEME_URL . '/js/bootstrap.min.js' );
     wp_enqueue_script( 'pdf-js', THEME_URL . '/js/pdf.min.js' );
     wp_enqueue_script( 'custom', THEME_URL . '/js/custom.js' );
+    wp_enqueue_script( 'jBox-js', THEME_URL . '/js/jBox.all.min.js' );
+
     //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_front_end_scripts' );
@@ -372,20 +375,19 @@ function render_issues_metabox($post) {
 					$category_array = array();
 					$category_obj_array = array();
 								
-					$articles_id = get_post_meta(get_the_ID(), 'articles', true); 
+					$articles_id = get_post_meta(get_the_ID(), 'articles', true);
 					$strArticalList	= '';
-					//print_r($articles_id);exit;
                     //Why is it checking if the first post is (0th post) is set and not a number,then define the array again. ****Bug****
 					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
 						$articles_id	= array();
 					}
-					
+
 					if((isset($articles_id)) && (!empty($articles_id))) { 
 						$strArticalList	= implode(',',$articles_id);
-						 
+
 						foreach($articles_id as $id) {
 							$t_post = get_post($id);
-							
+
 							/* $category = get_the_category($t_post->ID);
 							if(!isset($category_array[$category[0]->cat_name]))
 							$category_array[$category[0]->cat_name] = array();
@@ -477,10 +479,12 @@ function render_issues_metabox($post) {
 //savign the ordered articles for an issue. update the new order for an issue(post) key as "articles"
 function save_issues_meta_box( $post_id ) {
     if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'issues_meta_box_nonce' ) ) return;
-	
+
+
 	$articles = explode(",", $_POST["article_order"]);
 	$articles = array_unique($articles);
-	if(!empty($articles)) {
+
+	if($articles[0]!="") {
 		update_post_meta($post_id, 'articles', $articles);	
 	}
 	
@@ -808,7 +812,7 @@ function render_articles_metabox($post) {
 					$issue_id = get_post_meta($post->ID, 'issue_post_id', true);
 					$all_issues = get_posts(array(
 										'post_type'=>'issues',
-										'post_status'=>'publish',
+										'post_status'=>'any',
 										'posts_per_page' => -1
 									));
 					?>

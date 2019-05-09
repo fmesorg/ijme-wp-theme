@@ -22,7 +22,7 @@
     </div>
         <div id = "paymentFooterContainer">
             <div id="paymentFooter">Click here to support US &nbsp;
-               <a href="https://www.payumoney.com/paybypayumoney/#/322913" target="_blank"><button class="btn">Support Us</button></a>
+               <button class="btn" onclick="showContryModal()" >Support Us</button></>
             </div>
             <div id="footerClose" onclick="hideBox()">Close</div>
         </div>

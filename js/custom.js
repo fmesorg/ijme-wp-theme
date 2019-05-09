@@ -157,8 +157,8 @@ jQuery(document).ready(function($) {
 	loop:true,
     autoWidth: false,
 	singleItem:false
-	}); 
-	
+	});
+
 });
 
 function show_submission_closed_modal() {
@@ -168,4 +168,38 @@ function show_submission_closed_modal() {
 
 function hideBox() {
     document.getElementById("paymentFooterContainer").style.display="none";
+}
+
+function showSupportModal(url) {
+    let confirmBox = new jBox('Confirm',{
+        confirmButton: 'Pay Now',
+        cancelButton: 'Later',
+        closeOnClick:"body",
+        confirm: function () {
+            let paymentUrl = "https://ijme.in/IjmeFeesCollectionApp/index.php?refrer_url="+url;
+            // console.log(paymentUrl);
+            window.location = paymentUrl;
+        },
+        cancel: function () {
+            window.location = url;
+        },
+        closeButton:"box",
+        content: "Please Support us to continue publishing such articles."
+    });
+
+    confirmBox.open();
+}
+
+
+function showContryModal() {
+    let countryBox = new jBox('Confirm',{
+        confirmButton: 'Continue',
+        cancelButton: 'Cancel',
+        closeOnClick:"body",
+        confirm: function () {
+            window.open("https://www.payumoney.com/paybypayumoney/#/322913");
+        },
+        closeButton:"box",
+        content:"Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
+    }).open();
 }

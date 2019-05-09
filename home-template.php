@@ -186,10 +186,13 @@
 					}else  { ?>
 					
 					<a class="" href="<?php echo get_permalink($post->ID); ?>">ABSTRACT</a>
-					<?php } ?>
-					<a class="tocGalleyFile" href="<?php echo add_query_arg( 'galley', 'html', get_permalink($post->ID) ); ?>">HTML</a>
+					<?php }
+					$pdfUrl = add_query_arg( 'galley', 'pdf', get_permalink($post->ID) );
+					$htmlUrl = add_query_arg( 'galley', 'html', get_permalink($post->ID) );
+                    ?>
+					<a class="tocGalleyFile" onclick="showSupportModal('<?php echo $htmlUrl ?>')" href="#">HTML</a>
 					<?php if(get_post_meta($post->ID,'pdf_file',true)) { ?>
-					<a class="tocGalleyFile" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink($post->ID) ); ?>">PDF</a>
+					<a class="tocGalleyFile" onclick="showSupportModal('<?php echo $pdfUrl?>')" href="#">PDF</a>
 					<?php } ?>
 				</div>
 				<?php } ?>
