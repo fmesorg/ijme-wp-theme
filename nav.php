@@ -76,6 +76,40 @@
     </div>
 	
 </nav><!-- #site-navigation -->
+
+<?php $announcements = get_posts(array(
+    'posts_per_page' => -1,
+    'post_type' => 'announcements'
+));
+
+// The Query
+$the_query = new WP_Query( array( 'post_type' => 'announcements','posts_per_page'=>'-1' ) );
+
+?>
+<div class="marquee-container" onmouseover="this.stop();" onmouseout="this.start();">
+    <span class="red-badge">Announcements</span>
+    <marquee onmouseover="this.stop();" onmouseout="this.start();" class="header-marquee">
+    <?php
+// The Loop
+if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();
+        if(get_post_meta(get_the_ID(),'show_in_ticker',true)){
+    ?>
+            <img src="https://ijme.in/images/tag-new-icon.gif"> <a href="<?php  get_permalink();?>" target="_blank"><?php echo get_the_title(); ?></a>
+        <?php
+        }
+    }
+} else {
+    // no posts found
+}
+/* Restore original Post Data */
+wp_reset_postdata();
+
+?>
+    </marquee>
+</div>
+
 <!--
 <?php if(get_the_ID() == '16406' ){ ?>
 	<?php $post   = get_post( 16974 );  ?>
