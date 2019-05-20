@@ -24,7 +24,7 @@
             <div id="paymentFooter">Click here to support US &nbsp;
                <button class="btn" onclick="showContryModal()" >Support Us</button></>
             </div>
-            <div id="footerClose" onclick="hideBox()">Close</div>
+<!--            <div id="footerClose" onclick="hideBox()">Close</div>-->
         </div>
 		<!-- submission modal -->
 

@@ -457,16 +457,13 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
                                 $pdfUrl =  add_query_arg('galley', 'pdf', get_permalink(get_the_ID()));
 
                                 ?>
+                                <?php if($htmlUrl){?>
                                 <a class="file" id="htmlBtn" onclick="showSupportModal('<?php echo $htmlUrl; ?>');"  href="#">HTML</a>
+                            <?php } if(get_post_meta(get_the_ID(),'pdf_file',true)){?>
                                 <a class="file" onclick="showSupportModal('<?php echo $pdfUrl; ?>');"  href="#">PDF</a>
-<!--                                <a class="file" data-toggle="modal" data-target="#myModal" hrex`f="#">PDF</a>-->
+                                <?php } ?>
                             </div>
 
-                            <div id="supportBox">
-                                <a href="/IjmeFeesCollectionApp/index.php" class="sup_btn" target="_blank"
-                                   data-toggle="tooltip" data-placement="top" title="Support us">Support us in
-                                    publishing these articles</a>
-                            </div>
                         </div>
                         <!-- Modal -->
                         <div id="myModal" class="modal fade" role="dialog">
