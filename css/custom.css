@@ -183,7 +183,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 .marquee-container .red-badge{position: absolute;left: 0;top: 0;bottom: 0;color: #fff;background-color: #d14351;
     padding: 10px 15px;
     z-index: 1;}
-.header-marquee{padding: 10px 10px;background-color: #f1f1f1}
+.header-marquee{padding: 10px 10px;background-color: #f1f1f1;height:40px}
 .container {clear:both;}
 
 
