@@ -184,7 +184,7 @@ function showSupportModal(url) {
             window.location = url;
         },
         closeButton:"box",
-        content: "Please Support us to continue publishing such articles."
+        content: "[Text to be changed] Please Support us to continue publishing such articles."
     });
 
     confirmBox.open();
@@ -200,6 +200,6 @@ function showContryModal() {
             window.open("https://www.payumoney.com/paybypayumoney/#/322913");
         },
         closeButton:"box",
-        content:"Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
+        content:"[Text to be changed] Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
     }).open();
 }

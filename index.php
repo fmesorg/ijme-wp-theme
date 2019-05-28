@@ -156,15 +156,19 @@ echo "<div><br></div>"	;
                             }
 						}
                     }
+
 					 
 					// Code for current issue
 					if(get_post_type() == 'issues' && !is_archive() && get_the_ID() != 4) {
-                        
+
                         $category_array = array();
                         //echo get_the_ID(); /**/
                        // $articles_id = get_post_meta(get_the_ID(), 'articles', true);
                         $articles_id = get_post_meta(get_the_ID(), 'articles', true);
-					//print_r($articles_id);
+
+					    echo "Issue id: ".get_the_ID();
+                        echo "ARticle ids"; print_r($articles_id);
+
                         foreach($articles_id as $id) {
                             $t_post = get_post($id);
                             $category = get_the_category($t_post->ID);

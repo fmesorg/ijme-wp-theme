@@ -21,7 +21,7 @@
         </div>
     </div>
         <div id = "paymentFooterContainer">
-            <div id="paymentFooter">Click here to support US &nbsp;
+            <div id="paymentFooter">[Text to be changed] Click here to support US &nbsp;
                <button class="btn" onclick="showContryModal()" >Support Us</button></>
             </div>
 <!--            <div id="footerClose" onclick="hideBox()">Close</div>-->
@@ -47,20 +47,6 @@
         </div>
         <?php wp_footer(); ?>
         <script>
-       /*  jQuery(document).ready(function($) {
-            var owl = $("#carousel");
-            owl.owlCarousel({
-            autoPlay : 3000, //Set AutoPlay to 3 seconds
-            items : 3,
-            itemsDesktop : [1500, 3],
-            itemsDesktopSmall : [980, 3],
-            itemsTablet : [550, 3],
-            itemsMobile : [400, 2],
-            itemsMobileSmall : [310, 1],
-            pagination : false
-            });
-        
-        }); */
         </script>  
     </body>
 </html>
