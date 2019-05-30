@@ -191,7 +191,7 @@ function showSupportModal(url) {
 }
 
 
-function showContryModal() {
+function showCountryModal() {
     let countryBox = new jBox('Confirm',{
         confirmButton: 'Continue',
         cancelButton: 'Cancel',
