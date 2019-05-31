@@ -176,9 +176,8 @@ function showSupportModal(url) {
         cancelButton: 'Later',
         closeOnClick:"body",
         confirm: function () {
-            let paymentUrl = "https://ijme.in/IjmeFeesCollectionApp/index.php?refrer_url="+url;
-            // console.log(paymentUrl);
-            window.location = paymentUrl;
+            let paymentUrl = "/IjmeFeesCollectionApp/index.php?refrer_url="+url;
+            window.open(paymentUrl,"_self");
         },
         cancel: function () {
             window.location = url;
