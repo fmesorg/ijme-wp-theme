@@ -172,8 +172,8 @@ function hideBox() {
 
 function showSupportModal(url) {
     let confirmBox = new jBox('Confirm',{
-        confirmButton: 'Pay Now',
-        cancelButton: 'Later',
+        confirmButton: 'Pay Now$$',
+        cancelButton: 'Later$$',
         closeOnClick:"body",
         confirm: function () {
             let paymentUrl = "/IjmeFeesCollectionApp/index.php?refrer_url="+url;
@@ -183,7 +183,7 @@ function showSupportModal(url) {
             window.location = url;
         },
         closeButton:"box",
-        content: "[Text to be changed] Please Support us to continue publishing such articles."
+        content: "$$Please Support us to continue publishing such articles."
     });
 
     confirmBox.open();
@@ -192,13 +192,13 @@ function showSupportModal(url) {
 
 function showCountryModal() {
     let countryBox = new jBox('Confirm',{
-        confirmButton: 'Continue',
-        cancelButton: 'Cancel',
+        confirmButton: 'Continue$$',
+        cancelButton: 'Cancel$$',
         closeOnClick:"body",
         confirm: function () {
             window.open("https://www.payumoney.com/paybypayumoney/#/322913");
         },
         closeButton:"box",
-        content:"[Text to be changed] Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
+        content:"$$Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
     }).open();
 }
