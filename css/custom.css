@@ -184,7 +184,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     padding: 10px 15px;
     z-index: 1;}
 .header-marquee{padding: 10px 10px;background-color: #f1f1f1;height:40px}
-.container {width: 100%; clear:both;}
+.container {clear:both;}
 
 
 /*.article-count-container{*/
