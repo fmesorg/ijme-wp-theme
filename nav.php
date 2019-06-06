@@ -92,13 +92,20 @@ $the_query = new WP_Query( array( 'post_type' => 'announcements','posts_per_page
     <?php
 // The Loop
 if ( $the_query->have_posts() ) {
+    $i=1;
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
         if(get_post_meta(get_the_ID(),'show_in_ticker',true)){
     ?>
-            <img src="https://ijme.in/images/tag-new-icon.gif"> <a href=" <?php echo get_post_permalink(get_the_ID());?> " target="_blank"><?php echo get_the_title(); ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <?php
+           <?php if($i==1) { ?>
+               <img src="https://ijme.in/images/tag-new-icon.gif"> <a href=" <?php echo get_post_permalink(get_the_ID());?> " target="_blank"><?php echo get_the_title(); ?></a>
+          <?php  }else{
+                echo "&nbsp;&nbsp;|&nbsp;&nbsp;" ; ?>
+        <img src="https://ijme.in/images/tag-new-icon.gif"> <a href=" <?php echo get_post_permalink(get_the_ID());?> " target="_blank"><?php echo get_the_title(); ?></a>
+       <?php }
+            $i++;
         }
+
     }
 } else {
     // no posts found
