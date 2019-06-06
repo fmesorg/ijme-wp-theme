@@ -25,6 +25,7 @@ if ( have_posts() ) {
                 <td>Author's name, affiliation, country</td>
                 <td><?php
                 $authors = get_post_meta(get_the_ID(), 'authors', true);
+                if(!empty($authors)){
                 foreach($authors as $author) {
                     if($author['primary_contact']) {
                         echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
@@ -33,7 +34,10 @@ if ( have_posts() ) {
                         if(!empty($author['country']))
                         echo '; '.$author['country'];
                         break;
+                        }
                     }
+                }else{
+                    echo "";
                 }
                 ?></td>
             </tr>

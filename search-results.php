@@ -53,17 +53,12 @@
                     <td colspan="3" class="author-name" style="font-style: italic;">-
                         <?php
                         $authors = get_post_meta(get_the_ID(), 'authors', true);
+                        if(!empty($authors)){
                         $authors_array = array();
                         foreach($authors as $author) {
                             $authors_array[] = $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
-                            /*
-                            if($author['primary_contact']) {
-                                echo $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
-                                break;
-                            }
-                            */
                         }
-                        echo implode(', ', $authors_array);
+                        echo implode(', ', $authors_array); }else {echo "";}
                         ?>
                     </td>
                 </tr>

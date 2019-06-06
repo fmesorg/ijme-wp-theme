@@ -105,9 +105,14 @@ if ( have_posts() ) {
                             <?php
                             $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                             $authors = get_post_meta(get_the_ID(), 'authors', true);
-                            $authors_array = array();
-                            foreach($authors as $author) $authors_array[] = $author['last_name'].' '.$author['first_name'];
-                            $message = 'Thought you might be interested in seeing "'.get_the_title().'" by '.implode(',',$authors_array).' published in Vol '.get_post_meta($issue_id,'volume',true).', No '.get_post_meta($issue_id,'number',true).' ('.get_post_meta($issue_id,'year',true).') of '.get_bloginfo('name').' at "'.get_permalink().'".';
+                           if(!empty($authors)) {
+                               $authors_array = array();
+                               foreach ($authors as $author) $authors_array[] = $author['last_name'] . ' ' . $author['first_name'];
+                               $message = 'Thought you might be interested in seeing "'.get_the_title().'" by '.implode(',',$authors_array).' published in Vol '.get_post_meta($issue_id,'volume',true).', No '.get_post_meta($issue_id,'number',true).' ('.get_post_meta($issue_id,'year',true).') of '.get_bloginfo('name').' at "'.get_permalink().'".';
+                           }else{
+                               $message = 'Thought you might be interested in seeing "'.get_the_title().'published in Vol '.get_post_meta($issue_id,'volume',true).', No '.get_post_meta($issue_id,'number',true).' ('.get_post_meta($issue_id,'year',true).') of '.get_bloginfo('name').' at "'.get_permalink().'".';
+                           }
+                            
                             ?>
                             <td class="value"><textarea name="body" cols="50" rows="15" class="textArea"><?php echo htmlentities($message); ?></textarea></td>
                         </tr>

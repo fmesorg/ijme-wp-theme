@@ -377,6 +377,7 @@ function render_issues_metabox($post) {
 								
 					$articles_id = get_post_meta(get_the_ID(), 'articles', true);
 					$strArticalList	= '';
+					//print_r($articles_id);exit;
                     //Why is it checking if the first post is (0th post) is set and not a number,then define the array again. ****Bug****
 					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
 						$articles_id	= array();
@@ -479,8 +480,7 @@ function render_issues_metabox($post) {
 //savign the ordered articles for an issue. update the new order for an issue(post) key as "articles"
 function save_issues_meta_box( $post_id ) {
     if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'issues_meta_box_nonce' ) ) return;
-
-
+	
 	$articles = explode(",", $_POST["article_order"]);
 	$articles = array_unique($articles);
 
@@ -812,7 +812,7 @@ function render_articles_metabox($post) {
 					$issue_id = get_post_meta($post->ID, 'issue_post_id', true);
 					$all_issues = get_posts(array(
 										'post_type'=>'issues',
-										'post_status'=>'any',
+										'post_status'=>'publish',
 										'posts_per_page' => -1
 									));
 					?>

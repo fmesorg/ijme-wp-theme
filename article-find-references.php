@@ -48,9 +48,13 @@ if ( have_posts() ) {
                         <?php
                         $authors = get_post_meta(get_the_ID(), 'authors', true);
                         $authors_array = array();
+                        if(!empty($authors)){
                         foreach($authors as $author) $authors_array[] = $author['last_name'].' '.$author['first_name'];
                         ?>
                         <td class="value" width="80%"><input name="author" id="author" type="text" size="20" maxlength="40" class="textField" value="<?php echo implode(',', $authors_array) ?>" /></td>
+                        <?php }else{ ?>
+                            <td class="value" width="80%"><input name="author" id="author" type="text" size="20" maxlength="40" class="textField" value=" " /></td>
+                     <?php   } ?>
                     </tr>
                     <tr valign="top">
                         <td class="label"><label for="title">Title</label></td>
