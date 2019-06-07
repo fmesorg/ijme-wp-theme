@@ -268,7 +268,7 @@ select {
 .span9.main-content {
 	width: 77%;}
 p, li {
-	font-size: 13px;	margin: 0 0 13px;	line-height: 17px;	color: #2B2B2B;}
+	font-size: 14px;	margin: 0 0 14px;	line-height: 17px;	color: #2B2B2B;}
 
 ol {	padding-left: 30px;}
 
@@ -298,9 +298,7 @@ ul.menu {
 	font-size: 14px;	text-shadow: 1px 1px 1px #757575;}
 ul.menu a {
 	text-transform: none;}
-.nav li {
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%); /* FF3.6+ */	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */	background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */	background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%); /* IE10+ */	background: linear-gradient(to bottom, rgba(179, 54, 54, 0) 0%,rgba(179, 15, 15, 1) 50%,rgba(255,255,255,0) 100%); /* W3C */	/*background-color: rgba(179, 15, 15, 1);*/
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */	background-size: 1px 100%;	background-repeat: no-repeat;	margin-bottom: 0;}
+
 .nav li:first-child {
 	background: none;}
 .navbar .nav {
@@ -308,7 +306,7 @@ ul.menu a {
 .navbar .nav > li:first-child > a {
 	padding-left: 26px;}
 .navbar .brand, .navbar .nav > li > a {
-	color: #fff !important;	font-weight: bold !important;	text-decoration: none;	text-shadow: 0px 0px 1px #400000 !important;}
+	color: #fff !important;	font-weight: bold !important;	text-decoration: none;}
 .navbar .brand, .navbar .nav > li > a:hover {
 	transition: all 0.19s ease-in 0s !important;	color: #D4D4D4 !important;}
 ul.menu li {
@@ -392,7 +390,7 @@ blockquote p{
 .issue-thumb {
 	border: 1px solid #d0d0d0;}
 .blocks {
-	border: 1px solid #c3c3c3;	padding: 14px 14px 0;	margin-bottom: 12px; padding-bottom: 14px;}
+	border: none;	padding: 14px 14px 0;	margin-bottom: 12px; padding-bottom: 14px;}
 .blocks h4 
 	color: #df1f1f;}
 /* Reference */
@@ -944,11 +942,11 @@ background: #E01F1F;
 	color: #fff !important;
 }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
-	background-color: #B32F2F !important;
+	/*background-color: #B32F2F !important;*/
 	background-image: none !important;
 }
 .dropdown-menu, .dropdown-menu>li>a, .navbar-nav>.open>a {
-    background-color: #E01F1F !important;
+    /*background-color: #E01F1F !important;*/
     color:#fff !important;
  }
 

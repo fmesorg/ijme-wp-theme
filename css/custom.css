@@ -4,7 +4,7 @@ img{max-width:100%}
 .i-header-banner img{width:468px;height:60px;float:right}
 .navbar .nav{margin:0}
 .navbar .nav > li > a{padding:9px 23px;text-transform:uppercase}
-.navbar.navbar-default{background:#E01F1F;border-radius:0;border:1px solid #A80000!important;margin-top:0}
+.navbar.navbar-default{margin-top:0}
 .navbar{min-height:0}
 .nav-top-btn{float:none;margin-top:0}
 .nav-top-btn-container{text-align:right;margin-top:0}
@@ -184,7 +184,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     padding: 10px 15px;
     z-index: 1;}
 .header-marquee{padding: 10px 10px;background-color: #f1f1f1;height:40px}
-.container {clear:both;}
+.container {clear:both; width: 100%;}
 
 
 /*.article-count-container{*/
@@ -329,4 +329,19 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 
 #footerClose:hover{
     color:white;
+}
+
+.nav>li>a:hover, .nav>li>a:focus{
+    background-color:#fff;
+}
+
+.navbar-nav > .open > a{
+    background-color: #fff!important;
+}
+
+.icon-bar{background-color:#000000!important;}
+
+.main-container-background{
+    background-color: #FBFBFB;
+    margin-top: 5px;
 }

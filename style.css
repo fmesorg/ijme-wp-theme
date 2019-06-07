@@ -1,11 +1,11 @@
 body{overflow-x:hidden}
 .lhs_img {float:left; margin:0 15px 15px 0;}
 .rhs_img {float:right; margin:0 0 15px 15px;}
-.navbar.navbar-default{background:#E01F1F;border-radius:0;border:1px solid #A80000!important;margin-top:15px; margin-bottom: 10px;}
+.navbar.navbar-default{margin-top:15px; margin-bottom: 10px;}
 .navbar .nav > li > a{padding:9px 23px;text-transform:uppercase}
-.navbar .brand,.navbar .nav > li > a{color:#fff!important;font-weight:700!important;text-decoration:none;text-shadow:0 0 1px #400000!important}
-.navbar-brand{display:none;color:#fff!important;text-transform:uppercase;text-shadow:0 0 1px #400000!important;font-weight:700;font-size:13px;padding-left:10px}
-.navbar-brand:hover{color:#fff!important}
+.navbar .brand,.navbar .nav > li > a{color:#000000!important;font-weight:500!important;text-decoration:none;}
+.navbar-brand{display:none;color:#000000!important;text-transform:uppercase;font-weight:700;font-size:13px;padding-left:10px}
+.navbar-brand:hover{color:#000000!important}
 #navbar{-moz-border-bottom-colors:none;-moz-border-left-colors:none;-moz-border-right-colors:none;-moz-border-top-colors:none;background-color:#E01F1F;border-color:#9D1616;border-image:none;border-radius:5px 5px 5px 5px;border-style:solid;border-width:2px 2px 1px;box-shadow:0 -3px 5px rgba(0,0,0,0.137) inset;padding:5px;border-left:none;border-right:none;margin:0 10%}
 #navbar li a{color:#fff;font-weight:700;padding-left:15px}
 #navbar li a:hover{color:#E9E9E9!important}
@@ -14,12 +14,12 @@ body{overflow-x:hidden}
 ul.menu{padding:1px 12px 4px 5px}
 #navbar a{font-size:14px;text-shadow:1px 1px 1px #757575}
 ul.menu a{text-transform:none}
-.nav li{background:-moz-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(255,255,255,0)),color-stop(50%,rgba(255,255,255,1)),color-stop(100%,rgba(255,255,255,0)));background:-webkit-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:-o-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:-ms-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:linear-gradient(to bottom,rgba(179,54,54,0) 0%,rgba(179,15,15,1) 50%,rgba(255,255,255,0) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#00ffffff',GradientType=0);background-size:1px 100%;background-repeat:no-repeat;margin-bottom:0}
+
 .nav li:first-child{background:none}
 .navbar .nav{margin:0}
 .navbar .nav > li:first-child > a{padding-left:26px}
-.navbar .brand,.navbar .nav > li > a{color:#fff!important;font-weight:700!important;text-decoration:none;text-shadow:0 0 1px #400000!important}
-.navbar .brand,.navbar .nav > li > a:hover{transition:all .19s ease-in 0!important;color:#D4D4D4!important}
+.navbar .brand,.navbar .nav > li > a{color:#000000!important;font-weight:500!important;text-decoration:none;}
+.navbar .brand,.navbar .nav > li > a:hover{transition:all .19s ease-in 0!important;color:#e01f1f!important}
 ul.menu li{padding:6px}
 .cover-img{width:300px;float:left;margin-right:15px}
 .cover-img img{max-width:100%;height:auto;border:1px solid #CCC;box-shadow:3px 3px 3px #CCC}
@@ -53,7 +53,7 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 .sidebar-box li{border-bottom:1px solid #ccc;padding-bottom:10px}
 #sidebar .title-bar h3{color:#FFF!important;font-size:15px!important;line-height:28px;margin:0 0 0 5px;padding:0!important;text-transform:uppercase;overflow:auto}
 #sidebar .title-bar a{color:#FFF!important;font-size:15px!important;line-height:18px;margin:0 0 0 5px;padding:0!important;text-transform:uppercase;overflow:auto;font-weight:400}
-#rightSidebar{border:1px solid #ccc;padding:15px;max-height:751px;overflow:auto}
+#rightSidebar{border:none #ccc;padding:15px;max-height:751px;overflow:auto}
 #rightSidebar #accordion .panel{border:none}
 #rightSidebar #accordion .panel-body{padding:0;border:none}
 #rightSidebar #accordion .panel-body .sidebar-box{padding:0;border:none}
@@ -66,13 +66,11 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 #exTab2 .nav li a{background:#fff;padding:7px 10px;font-size:13px!important;border:none;border-radius:0;border-right:1px solid #ccc;text-align:center;margin:0;font-weight:700}
 #exTab2 .nav>li>a:hover,#exTab2 .nav>li>a:focus,#exTab2 .nav-tabs>li.active>a,#exTab2.nav-tabs>li.active>a:hover,#exTab2 .nav-tabs>li.active>a:focus{color:#fff!important;background-color:#575757}
 .extraLinks{margin:7px 0 0;font-size:12px}
-.i-header-logo img{height:78px;padding-left:6px}
+.i-header-logo img{padding-left:6px; max-width: 130%}
 .nav.navbar-nav{position:relative;z-index:5}
 .navheader{position:relative}
 .header{margin-top:15px}
-.search-icon{width:42px;height:42px;float:right;background-color:#b31212}
-.dropnav .navbar-nav li ul li ul{left:157px;top:-3px}
-.btnContainer{right:0;position:fixed;top:215px;width:50px;z-index:100}
+.dropnav .navbar-nav li ul li ul{right:157px;top:-3px}
 .authorsName{padding:6px 0 0}
 .onlineFirst{margin:8px 0 4px}
 .bread_crumb{margin:0;padding:.8em 0 .5em;clear:both;height:20px}

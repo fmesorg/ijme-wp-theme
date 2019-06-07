@@ -86,33 +86,12 @@
                 
             </div>
             <div class="row">
-			  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 i-header-logo">
-                    <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg" alt="Page Header"></a> 
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo"><a
+                            href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg"
+                                                                  alt="Page Header"></a>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 nav-top-btn-container">
-                    <!--<div class="top-nav-btnI"><a href="<?php //echo get_permalink(4199); ?>"><img src="<?php //echo THEME_URL; ?>/images/Disclaimer.jpg" alt="Disclaimer"></a></div>
-                    <div class="top-nav-btnI"><a href="<?php //echo get_permalink(4223); ?>"><img src="<?php //echo THEME_URL; ?>/images/subscribe_btn.jpg" alt="Subscribe"></a></div>-->
-                    <!--<div class="top-nav-btnI"><a href="<?php //echo get_permalink(4201); ?>"><img src="<?php //echo THEME_URL; ?>/images/donate_btn.jpg" alt="Donate"></a></div>
-                    <div class="top-nav-btnI"><a href="<?php //echo get_permalink(4195); ?>"><img src="<?php //echo THEME_URL; ?>/images/banneFr_ad_btn.jpg" alt="Advertise with us"></a></div>-->
-					
-					<div class="top-nav-btnI top-nbc-logo">
-						<a href="http://ijme.in/nbc-20140321/index.php/14th-wcb-india/index/pages/view/home-page">
-						<img src="<?php echo THEME_URL; ?>/images/nbc.jpg" alt=""></a>
-					</div>
-					<div class="top-nav-btnI border"><a href="http://ijme.in/nbc-20140321/index.php/14th-wcb-india/index/pages/view/home-page"><img src="<?php echo THEME_URL; ?>/images/14-world-congress-of-bioethics-logo.jpg" alt="14th-wcb"></a></div>
-                    <div class="top-nav-btnI border"><a href="<?php echo site_url(); ?>/about-us/fmes/overview/"><img src="<?php echo THEME_URL; ?>/images/search.jpg" alt="fmes"></a></div>
-					
-                </div>
-				<div class="btnContainer">
-					<a href="<?php echo site_url(); ?>/contact/" title="Contact Us">
-						<img src="<?php echo THEME_URL; ?>/images/contact_icon.jpg" alt="Contact Us"></a>
-					<a href="<?php echo site_url(); ?>/advertise/" title="Advertise">
-						<img src="<?php echo THEME_URL; ?>/images/advertise_icon.jpg" alt="Advertise"></a>
-					<!--a href="<?php //echo site_url(); ?>/donate/" title="Donate"-->
-					<a href="https://www.payumoney.com/paybypayumoney/#/322913" target="_blank" title="Donate">
-						<img src="<?php echo THEME_URL; ?>/images/donate-icon.jpg" alt="Donate"></a>
-				</div>
+                <?php require 'nav.php'; ?>
             </div>
-            
-            <?php require 'nav.php'; ?>
+
+
         
