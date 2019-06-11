@@ -730,21 +730,16 @@ blockquote p {
     font-size: 16px !important;
 }
 
-.title-bar {
-    background-color: #575757;
-    padding: 2px 5px 0;
-    margin-bottom: 18px;
-}
 
-#content .title-bar h3 {
-    color: #FFFFFF !important;
-    font-size: 15px !important;
-    line-height: 28px;
-    margin: 0 0 0 5px;
-    padding: 0 !important;
-    text-transform: uppercase;
-    overflow: auto;
-}
+/*#content .title-bar h3 {*/
+/*    color: #FFFFFF !important;*/
+/*    font-size: 15px !important;*/
+/*    line-height: 28px;*/
+/*    margin: 0 0 0 5px;*/
+/*    padding: 0 !important;*/
+/*    text-transform: uppercase;*/
+/*    overflow: auto;*/
+/*}*/
 
 .issue-thumb {
     border: 1px solid #d0d0d0;

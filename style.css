@@ -47,7 +47,6 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 #main h3 a{font-size:17px}
 .issue-slider .owl-item .item{text-align:center;padding:5px;display:block;width:100%;height:auto}
 .issue-slider .owl-carousel .owl-item{float:left}
-.media-coverage>ul{max-height:460px;overflow-y:scroll}
 #online_first .article-list-item{padding-bottom:10px!important;border-bottom:1px solid #ccc;margin-bottom:10px}
 #online_first .article-list-item:last-child{padding-bottom:0!important;border-bottom:none;margin-bottom:0}
 .sidebar-box li{border-bottom:1px solid #ccc;padding-bottom:10px}

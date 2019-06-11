@@ -345,3 +345,47 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     background-color: #FBFBFB;
     margin-top: 5px;
 }
+
+.home-text{
+    background-color: white;
+    margin-top: 10px;
+    height: 100px;
+}
+
+.title-bar-home{
+    text-transform: uppercase;
+}
+
+.current-issue{
+    padding-left: 14px;
+}
+
+.header-advertisement{
+    border: solid 1px black;
+    height: 100%;
+    text-align: center;
+}
+
+.announcement{
+    min-height: 300px;
+}
+
+.news-block{
+    border-left: 1px solid darkgray;
+    min-height: 300px;
+}
+
+.media-coverage>ul{
+    overflow: hidden;
+}
+
+.announcement-list-item>a{
+    font-size: 13px;
+    font-weight: 400!important;
+}
+
+.announcement-tag{
+    font-size: 10px;
+    color: darkgray;
+    text-transform: none;
+}
