@@ -165,10 +165,6 @@ echo "<div><br></div>"	;
                         //echo get_the_ID(); /**/
                        // $articles_id = get_post_meta(get_the_ID(), 'articles', true);
                         $articles_id = get_post_meta(get_the_ID(), 'articles', true);
-
-					    echo "Issue id: ".get_the_ID();
-                        echo "ARticle ids"; print_r($articles_id);
-
                         foreach($articles_id as $id) {
                             $t_post = get_post($id);
                             $category = get_the_category($t_post->ID);
