@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+        </div>
         <div id = "paymentFooterContainer">
             <div id="paymentFooter">[Text to be changed] Click here to support US &nbsp;
                <button class="btn" onclick="showCountryModal()" >Support Us</button></>
