@@ -1,5 +1,6 @@
         </div><!--#container-->
 
+
 		<!-- submission modal -->
         <div id="myModal" class="modal fade in" aria-hidden="false">
         <div class="modal-dialog">
@@ -23,24 +24,30 @@
         </div>
 		<!-- submission modal -->
 
-        <div class="footer">            
+        <div class="footer">
+            <?php  get_template_part('template-parts/nav-footer'); ?>
+
             <div class="scroll-to-top" style="display: block;">
                 <!--<a href="#scroll-to-top"><img src="http://ijme.in/images/theme/scroll-to-top-btn.png"></a>-->
                 <a href="#scroll-to-top"><img src="<?php echo THEME_URL; ?>/images/scroll-to-top-btn.png"></a>
                 <!--<script src="http://ijme.in/js/custom.js"></script>-->
             </div>
-            <div class="container">
-			    <div class="footer-copys">
+        </div>
+        <div class="footer-social-container">
+            <div class="footer-copys">
                 &copy <?php echo date('Y'); ?>. All rights reserved | Designed &amp; Developed by <a class="company-link" href="/about-us/fmes/overview/" target="_blank">FMES</a> | <a class="company-link" href="http://ijme.in/index.php/ijme/pages/view/disclaimer">Disclaimer</a>
-				</div>
-				
-				<div class="social-links">
-				<a href="https://www.facebook.com/Indian-Journal-of-Medical-Ethics-364396217255084/" target="_blank" style="padding-right:10px;"><img src="<?php echo THEME_URL; ?>/images/facebook.png"></i></a>
-				<a href="https://twitter.com/indjmedethics" target="_blank"><img src="<?php echo THEME_URL; ?>/images/twitter.png"></i></a>
-				</div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/Indian-Journal-of-Medical-Ethics-364396217255084/" target="_blank" style="padding-right:10px;"><img src="<?php echo THEME_URL; ?>/images/facebook.png"></i></a>
+                <a href="https://twitter.com/indjmedethics" target="_blank"><img src="<?php echo THEME_URL; ?>/images/twitter.png"></i></a>
             </div>
         </div>
-        <?php wp_footer(); ?>
+        <?php
+
+        wp_footer();
+
+        ?>
         <script>
         </script>  
     </body>

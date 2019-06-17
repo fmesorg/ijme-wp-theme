@@ -26,7 +26,7 @@ get_header(); ?>
                                 <div class="col-md-12 blocks">
                                     <div class="announcement">
                                         <div class="title-bar-home col-md-8">
-                                            <h3><a href="/issues/online-first/">Events & Announcements</a></h3>
+                                            <h3><a href="/announcements/">Events & Announcements</a></h3>
                                             <div>
                                                 <?php get_template_part('template-parts/events-announcements');?>
                                             </div>

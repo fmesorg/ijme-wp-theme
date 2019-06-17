@@ -74,6 +74,7 @@ function register_menus() {
     register_nav_menus( array(
         'main' => 'Main menu',
         'header_menu' => 'Header menu',
+        'footer'=> 'Footer menu'
     ) );
 }
 
@@ -812,7 +813,7 @@ function render_articles_metabox($post) {
 					$issue_id = get_post_meta($post->ID, 'issue_post_id', true);
 					$all_issues = get_posts(array(
 										'post_type'=>'issues',
-										'post_status'=>'publish',
+										'post_status'=>'any',
 										'posts_per_page' => -1
 									));
 					?>

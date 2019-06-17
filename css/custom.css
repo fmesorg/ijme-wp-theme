@@ -389,3 +389,66 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     color: darkgray;
     text-transform: none;
 }
+
+.footer>.container{
+    position: relative;
+    /*bottom: -100px;*/
+}
+
+.site-navigation-footer{
+    position: relative;
+    top:130px;
+}
+
+.footer-nav-container{
+    margin-top: 10px;
+}
+
+.footer-nav-menu{
+    display: flex;
+    list-style-type: none;
+}
+
+.footer-nav-menu>li>a{
+    color: white;
+    padding-left: 50px;
+}
+
+
+
+.sub-menu{
+    margin-left: 50px;
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.sub-menu>li{
+    margin: 0 0 5px;
+}
+
+.sub-menu>li>a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer-social-container{
+    position: relative;
+    bottom: 30px;
+    color: white;
+    padding:0px 10px;
+}
+
+.footer-copys{
+    position: absolute;
+}
+
+.social-links{
+    position: absolute;
+    width: 100%!important;
+    float: right!important;
+    padding-right: 30px;
+}
+
+.company-link{
+    color: #e24321!important;
+}
