@@ -377,7 +377,7 @@ function render_issues_metabox($post) {
 								
 					$articles_id = get_post_meta(get_the_ID(), 'articles', true);
 					$strArticalList	= '';
-					//print_r($articles_id);exit;
+//					print_r($articles_id);
                     //Why is it checking if the first post is (0th post) is set and not a number,then define the array again. ****Bug****
 					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
 						$articles_id	= array();
@@ -1465,7 +1465,7 @@ function post_xml_generator( $data ) {
 
               $Author->appendChild($xml->createElement("FirstName",$firstname));
               $Author->appendChild($xml->createElement("LastName", $lastname));
-              $Author->appendChild($xml->createElement("Affiliation", $affilitation));
+              $Author->appendChild($xml->createElement("Affiliation", htmlspecialchars($affilitation)));
 
         }
     }
@@ -1480,13 +1480,9 @@ function post_xml_generator( $data ) {
     $ArticleIdList->appendChild($ArticleIdpii);
     $ArticleIdList->appendChild($ArticleIddoi); //fetch from the wordpress
 
-    $Abstract   = $xml->createElement("Abstract",$abstract);
+    $Abstract   = $xml->createElement("Abstract",htmlspecialchars($abstract));
     $article->appendChild($Abstract);
 
-//    Download the xml file
-//    header('Content-Disposition: attachment;filename=' . $article_title.".xml");
-//    header('Content-Type: text/xml');
-//    echo $xml->saveXML();
 
     echo $xml->saveXML(); //print xml
 
@@ -1671,16 +1667,8 @@ function issue_xml_generator( $data ) {
             $article->appendChild($Abstract);
 
     } //End of while
-    echo "<xmp>".$xml->saveXML()."</xmp>"; //print xml
+    echo $xml->saveXML(); //print xml
 
-////    Download the xml file
-////    header('Content-Disposition: attachment;filename=' . $article_title.".xml");
-////    header('Content-Type: text/xml');
-////    echo $xml->saveXML();
-//
-//    echo $xml->saveXML(); //print xml
-//
-//
    return "<--------------------------------XML ENDS HERE, copy till above------------------------------------>";
 
 }
