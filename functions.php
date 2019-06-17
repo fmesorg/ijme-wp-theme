@@ -1483,10 +1483,6 @@ function post_xml_generator( $data ) {
     $Abstract   = $xml->createElement("Abstract",$abstract);
     $article->appendChild($Abstract);
 
-//    Download the xml file
-//    header('Content-Disposition: attachment;filename=' . $article_title.".xml");
-//    header('Content-Type: text/xml');
-//    echo $xml->saveXML();
 
     echo $xml->saveXML(); //print xml
 
@@ -1671,16 +1667,8 @@ function issue_xml_generator( $data ) {
             $article->appendChild($Abstract);
 
     } //End of while
-    echo "<xmp>".$xml->saveXML()."</xmp>"; //print xml
+    echo $xml->saveXML(); //print xml
 
-////    Download the xml file
-////    header('Content-Disposition: attachment;filename=' . $article_title.".xml");
-////    header('Content-Type: text/xml');
-////    echo $xml->saveXML();
-//
-//    echo $xml->saveXML(); //print xml
-//
-//
    return "<--------------------------------XML ENDS HERE, copy till above------------------------------------>";
 
 }
