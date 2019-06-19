@@ -1440,7 +1440,7 @@ function post_xml_generator( $data ) {
     $PubDate->appendChild($xml->createElement("Month", $pub_month));
     $PubDate->appendChild($xml->createElement("Day", $pub_day));
 
-    $article->appendChild($xml->createElement("ArticleTitle", $article_title));
+    $article->appendChild($xml->createElement("ArticleTitle", htmlentities($article_title,ENT_COMPAT,'UTF-8')));
     $article->appendChild($xml->createElement("FirstPage", $pdf_first_page)); // Page numeber is from pdff, need to add a field for these
     $article->appendChild($xml->createElement("LastPage", $pdf_last_page));
     $ELocationID = $xml->createElement("ELocationID", $ELocationID);
@@ -1466,7 +1466,7 @@ function post_xml_generator( $data ) {
 
               $Author->appendChild($xml->createElement("FirstName",$firstname));
               $Author->appendChild($xml->createElement("LastName", $lastname));
-              $Author->appendChild($xml->createElement("Affiliation", htmlspecialchars($affilitation)));
+              $Author->appendChild($xml->createElement("Affiliation", htmlentities($affilitation,ENT_COMPAT,'UTF-8')));
 
         }
     }
@@ -1481,7 +1481,7 @@ function post_xml_generator( $data ) {
     $ArticleIdList->appendChild($ArticleIdpii);
     $ArticleIdList->appendChild($ArticleIddoi); //fetch from the wordpress
 
-    $Abstract   = $xml->createElement("Abstract",htmlspecialchars($abstract));
+    $Abstract   = $xml->createElement("Abstract",htmlentities($abstract,ENT_COMPAT,'UTF-8'));
     $article->appendChild($Abstract);
 
 
