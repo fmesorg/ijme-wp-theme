@@ -242,20 +242,16 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                         <img src="<?php echo THEME_URL; ?>/images/printArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'print', get_permalink(get_the_ID()) ); ?>">Print this article</a>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="<?php echo THEME_URL; ?>/images/metadata.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'index', get_permalink(get_the_ID()) ); ?>" onclick="window.open('<?php echo add_query_arg( 'galley', 'index', get_permalink(get_the_ID()) ); ?>')">Indexing metadata</a><br>
+                                        <img src="<?php echo THEME_URL; ?>/images/metadata.png" class="articleToolIcon"> <a href="#" onclick="window.open('<?php echo add_query_arg( 'galley', 'index', get_permalink(get_the_ID()) ); ?>','_blank')">Indexing metadata</a><br>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="<?php echo THEME_URL; ?>/images/citeArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'citations', get_permalink(get_the_ID()) ); ?>" class="new-window">How to cite item</a><br>
+                                        <img src="<?php echo THEME_URL; ?>/images/citeArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'citations', get_permalink(get_the_ID()) ); ?>" target="_blank" >How to cite item</a><br>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="<?php echo THEME_URL; ?>/images/findingReferences.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'references', get_permalink(get_the_ID()) ); ?>" class="new-window">Finding References</a>
-                                    </div>                                    
-                                    <div class="articleToolItem">
-                                        <img src="<?php echo THEME_URL; ?>/images/emailArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'mail', get_permalink(get_the_ID()) ); ?>" class="new-window">Email this article</a>
-                                        <!--Email the author <span style="font-size: 0.8em">(Login required)</span> -->
+                                        <img src="<?php echo THEME_URL; ?>/images/findingReferences.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'references', get_permalink(get_the_ID()) ); ?>" target="_blank" >Finding References</a>
                                     </div>
                                     <div class="articleToolItem">
-                                        <img src="<?php echo THEME_URL; ?>/images/emailArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'mail', get_permalink(get_the_ID()) ).'&to=author'; ?>" class="new-window">Email the author</a>
+                                        <img src="<?php echo THEME_URL; ?>/images/emailArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'mail', get_permalink(get_the_ID()) ).'&to=author'; ?>" target="_blank">Email the author</a>
                                         <!--Email the author <span style="font-size: 0.8em">(Login required)</span> -->
                                     </div>
                                     <div class="articleToolItem">
