@@ -1506,6 +1506,7 @@ function issue_xml_generator( $data ) {
 
     $args = array(
         'numberposts'	=> -1,
+        'posts_per_page'=>'-1',
         'post_type'		=> 'articles',
         'meta_key'		=> 'issue_post_id',
         'meta_value'	=> $issue_id
