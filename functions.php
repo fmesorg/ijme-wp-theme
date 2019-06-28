@@ -262,220 +262,220 @@ function register_issues_meta_box() {
 add_action( 'add_meta_boxes', 'register_issues_meta_box' );
 
 function render_issues_metabox($post) {
-	
-	wp_nonce_field( 'issues_meta_box_nonce', 'meta_box_nonce' );
-	?>
-	<style>
-		.category-sortable > li {
-			border: 1px solid #ddd;
-			background: #f7f7f7;
-			padding: 5px 10px;
-		}
-		#poststuff .article-section > h3 {
-			padding: 5px 0;
-		}
-		.article-sortable > li {
-			border: 1px solid #ccc;
-			background: #eee;
-			padding: 5px;
-		}
-		.article-title {
-			float: left;
-			margin-top: 5px;
-		}
-		.article-page-range {
-			float: right;			
-		}
-		.clearfix {
-			clear: both;
-		}
-	</style>
-	<table class="form-table">
-		<tbody>
-			<tr>
-				<th scope="row">
-					<label>Number</label>
-				</th>
-			 
-				<td>
-					<input type="text" class="regular-text" name="number" value="<?php echo get_post_meta($post->ID, 'number', true); ?>">
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label>Volume</label>
-				</th>
-			 
-				<td>
-					<input type="text" class="regular-text" name="volume" value="<?php echo get_post_meta($post->ID, 'volume', true); ?>">
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label>Year</label>
-				</th>
-			 
-				<td>
-					<input type="text" class="regular-text" name="year" value="<?php echo get_post_meta($post->ID, 'year', true); ?>">
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label>Published Date</label>
-				</th>			 
-				<td>
-					<?php
-					$issue_pub_date = get_post_meta($post->ID,'issue_publish_date',true);
-					?>
-					<select name="issue_pub_date[day]">
-						<option value="0">Day</option>
-						<?php
-						for($i=1; $i<32; $i++) {
-							?>
-							<option value="<?php echo str_pad($i, 2, "0", STR_PAD_LEFT); ?>" <?php if(date('d',strtotime($issue_pub_date)) == $i) echo "selected"; ?> ><?php echo $i; ?></option>
-							<?php
-						}
-						?>
-					</select>
-					<select name="issue_pub_date[month]">
-						<option value="0">Month</option>
-						<?php
-						$month_array = array(
-							"1" => "January", "2" => "February", "3" => "March", "4" => "April",
-							"5" => "May", "6" => "June", "7" => "July", "8" => "August",
-							"9" => "September", "10" => "October", "11" => "November", "12" => "December",
-						);
-						foreach($month_array as $value=>$month) {
-							?>
-							<option value="<?php echo $value; ?>" <?php if(date('n',strtotime($issue_pub_date)) == $value) echo "selected"; ?>><?php echo $month; ?></option>
-							<?php
-						}
-						?>
-					</select>
-					<select name="issue_pub_date[year]">
-						<option value="0">Year</option>
-						<?php
-						$year_array = range(1995, (int)date('Y') + 5);
-						foreach ($year_array as $year) {
-							?>
-							<option value="<?php echo $year; ?>" <?php if(date('Y',strtotime($issue_pub_date)) == $year) echo "selected"; ?>><?php echo $year; ?></option>
-							<?php
-						}
-						?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row" colspan="2">
-					<label>Sort Articles order</label>
-				</th>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<?php
-					$category_array = array();
-					$category_obj_array = array();
-								
-					$articles_id = get_post_meta(get_the_ID(), 'articles', true);
-					$strArticalList	= '';
-//					print_r($articles_id);
-                    //Why is it checking if the first post is (0th post) is set and not a number,then define the array again. ****Bug****
-					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
-						$articles_id	= array();
-					}
 
-					if((isset($articles_id)) && (!empty($articles_id))) {
-						$strArticalList	= implode(',',$articles_id);
+    wp_nonce_field( 'issues_meta_box_nonce', 'meta_box_nonce' );
+    ?>
+    <style>
+        .category-sortable > li {
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            padding: 5px 10px;
+        }
+        #poststuff .article-section > h3 {
+            padding: 5px 0;
+        }
+        .article-sortable > li {
+            border: 1px solid #ccc;
+            background: #eee;
+            padding: 5px;
+        }
+        .article-title {
+            float: left;
+            margin-top: 5px;
+        }
+        .article-page-range {
+            float: right;
+        }
+        .clearfix {
+            clear: both;
+        }
+    </style>
+    <table class="form-table">
+        <tbody>
+        <tr>
+            <th scope="row">
+                <label>Number</label>
+            </th>
 
-						foreach($articles_id as $id) {
-							$t_post = get_post($id);
+            <td>
+                <input type="text" class="regular-text" name="number" value="<?php echo get_post_meta($post->ID, 'number', true); ?>">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label>Volume</label>
+            </th>
 
-							/* $category = get_the_category($t_post->ID);
-							if(!isset($category_array[$category[0]->cat_name]))
-							$category_array[$category[0]->cat_name] = array();
-							
-							if(!isset($category_obj_array[$category[0]->cat_name]))
-							$category_obj_array[$category[0]->cat_name] = $category[0]; */
-							
-							$category_array[] = $t_post;
-						}
-						?>
-						<ul class="category-sortable">
-						<?php
-						//foreach($category_array as $category_name=>$t_post_array) {
-							?>
-							<li class="article-section" id="<?php //echo $category_obj_array[$category_name]->cat_ID ?>">
-								<h3><?php //echo $category_name; ?></h3>
-								<ul class="article-sortable">
-								<?php
-								foreach($category_array as $t_post) {
-									?>
-									<li id="<?php echo $t_post->ID; ?>">
-										<div class="article-title">
-											<?php echo $t_post->post_title; ?>	
-										</div>
-										<div class="article-page-range">
-											<input type="text" name="page_range[<?php echo $t_post->ID ?>]" value="<?php echo get_post_meta($t_post->ID,'page_range', true); ?>" placeholder="Page range">
-										</div>
-										<div class="clearfix"></div>
-									</li>
-									<?php
-								}
-								?>
-								</ul>
-							</li>
-							<?php
-						//}
-					} 
-					?>
-					</ul>
-					<input type="hidden" name="category_order" >
-					<input type="hidden" name="article_order" value="<?php echo $strArticalList ?>" >
-					<script>
-						jQuery(document).ready(function($){
-							$( ".category-sortable" ).sortable({
-								start: function (event, ui) {
-									update_index();
-									//$(ui.item).data("startindex", ui.item.index());
-								},
-								stop: function (event, ui) {
-									update_index();
-									//self.sendUpdatedIndex(ui.item);
-								}
-							});
-							$( ".article-sortable" ).sortable({
-								start: function (event, ui) {
-									update_index();
-									//$(ui.item).data("startindex", ui.item.index());
-								},
-								stop: function (event, ui) {
-									update_index();
-									//self.sendUpdatedIndex(ui.item);
-								}
-							});
-						});
-						function update_index() {
-							
-							var category_order = jQuery(".category-sortable").sortable("toArray");
-							
-							var all_article_order = [];
-							jQuery(".article-sortable").each(function(){
-								var article_order = jQuery(this).sortable("toArray");
-								//all_article_order += article_order.join(",");
-								jQuery.merge(all_article_order,article_order)
-							});
-							var article_order = jQuery(".article-sortable").sortable("toArray");
-							
-							jQuery('input[name="category_order"]').val(category_order.join(","));
-							//jQuery('input[name="article_order"]').val(all_article_order);
-							jQuery('input[name="article_order"]').val(all_article_order.join(","));
-						}
-					</script>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<?php
+            <td>
+                <input type="text" class="regular-text" name="volume" value="<?php echo get_post_meta($post->ID, 'volume', true); ?>">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label>Year</label>
+            </th>
+
+            <td>
+                <input type="text" class="regular-text" name="year" value="<?php echo get_post_meta($post->ID, 'year', true); ?>">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label>Published Date</label>
+            </th>
+            <td>
+                <?php
+                $issue_pub_date = get_post_meta($post->ID,'issue_publish_date',true);
+                ?>
+                <select name="issue_pub_date[day]">
+                    <option value="0">Day</option>
+                    <?php
+                    for($i=1; $i<32; $i++) {
+                        ?>
+                        <option value="<?php echo str_pad($i, 2, "0", STR_PAD_LEFT); ?>" <?php if(date('d',strtotime($issue_pub_date)) == $i) echo "selected"; ?> ><?php echo $i; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+                <select name="issue_pub_date[month]">
+                    <option value="0">Month</option>
+                    <?php
+                    $month_array = array(
+                        "1" => "January", "2" => "February", "3" => "March", "4" => "April",
+                        "5" => "May", "6" => "June", "7" => "July", "8" => "August",
+                        "9" => "September", "10" => "October", "11" => "November", "12" => "December",
+                    );
+                    foreach($month_array as $value=>$month) {
+                        ?>
+                        <option value="<?php echo $value; ?>" <?php if(date('n',strtotime($issue_pub_date)) == $value) echo "selected"; ?>><?php echo $month; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+                <select name="issue_pub_date[year]">
+                    <option value="0">Year</option>
+                    <?php
+                    $year_array = range(1995, (int)date('Y') + 5);
+                    foreach ($year_array as $year) {
+                        ?>
+                        <option value="<?php echo $year; ?>" <?php if(date('Y',strtotime($issue_pub_date)) == $year) echo "selected"; ?>><?php echo $year; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" colspan="2">
+                <label>Sort Articles order</label>
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <?php
+                $category_array = array();
+                $category_obj_array = array();
+
+                $articles_id = get_post_meta(get_the_ID(), 'articles', true);
+                $strArticalList	= '';
+                //					print_r($articles_id);
+                //Why is it checking if the first post is (0th post) is set and not a number,then define the array again. ****Bug****
+                if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
+                    $articles_id	= array();
+                }
+
+                if((isset($articles_id)) && (!empty($articles_id))) {
+                $strArticalList	= implode(',',$articles_id);
+
+                foreach($articles_id as $id) {
+                    $t_post = get_post($id);
+
+                    /* $category = get_the_category($t_post->ID);
+                    if(!isset($category_array[$category[0]->cat_name]))
+                    $category_array[$category[0]->cat_name] = array();
+
+                    if(!isset($category_obj_array[$category[0]->cat_name]))
+                    $category_obj_array[$category[0]->cat_name] = $category[0]; */
+
+                    $category_array[] = $t_post;
+                }
+                ?>
+                <ul class="category-sortable">
+                    <?php
+                    //foreach($category_array as $category_name=>$t_post_array) {
+                    ?>
+                    <li class="article-section" id="<?php //echo $category_obj_array[$category_name]->cat_ID ?>">
+                        <h3><?php //echo $category_name; ?></h3>
+                        <ul class="article-sortable">
+                            <?php
+                            foreach($category_array as $t_post) {
+                                ?>
+                                <li id="<?php echo $t_post->ID; ?>">
+                                    <div class="article-title">
+                                        <?php echo $t_post->post_title; ?>
+                                    </div>
+                                    <div class="article-page-range">
+                                        <input type="text" name="page_range[<?php echo $t_post->ID ?>]" value="<?php echo get_post_meta($t_post->ID,'page_range', true); ?>" placeholder="Page range">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </li>
+                    <?php
+                    //}
+                    }
+                    ?>
+                </ul>
+                <input type="hidden" name="category_order" >
+                <input type="hidden" name="article_order" value="<?php echo $strArticalList ?>" >
+                <script>
+                    jQuery(document).ready(function($){
+                        $( ".category-sortable" ).sortable({
+                            start: function (event, ui) {
+                                update_index();
+                                //$(ui.item).data("startindex", ui.item.index());
+                            },
+                            stop: function (event, ui) {
+                                update_index();
+                                //self.sendUpdatedIndex(ui.item);
+                            }
+                        });
+                        $( ".article-sortable" ).sortable({
+                            start: function (event, ui) {
+                                update_index();
+                                //$(ui.item).data("startindex", ui.item.index());
+                            },
+                            stop: function (event, ui) {
+                                update_index();
+                                //self.sendUpdatedIndex(ui.item);
+                            }
+                        });
+                    });
+                    function update_index() {
+
+                        var category_order = jQuery(".category-sortable").sortable("toArray");
+
+                        var all_article_order = [];
+                        jQuery(".article-sortable").each(function(){
+                            var article_order = jQuery(this).sortable("toArray");
+                            //all_article_order += article_order.join(",");
+                            jQuery.merge(all_article_order,article_order)
+                        });
+                        var article_order = jQuery(".article-sortable").sortable("toArray");
+
+                        jQuery('input[name="category_order"]').val(category_order.join(","));
+                        //jQuery('input[name="article_order"]').val(all_article_order);
+                        jQuery('input[name="article_order"]').val(all_article_order.join(","));
+                    }
+                </script>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <?php
 }
 
 //savign the ordered articles for an issue. update the new order for an issue(post) key as "articles"
@@ -485,22 +485,22 @@ function save_issues_meta_box( $post_id ) {
     $articles = explode(",", $_POST["article_order"]);
     $articles = array_unique($articles);
 
-	if($articles[0]!="") {
-		update_post_meta($post_id, 'articles', $articles);
-	}
-	
-	update_post_meta($post_id, 'number', $_POST['number']);
-	update_post_meta($post_id, 'volume', $_POST['volume']);
-	update_post_meta($post_id, 'year', $_POST['year']);
-	
-	update_post_meta($post_id, 'issue_publish_date', $_POST['issue_pub_date']['year'].'-'.$_POST['issue_pub_date']['month'].'-'.$_POST['issue_pub_date']['day'].' 00:00:00');
-	
-	if(!empty($_POST['page_range'])) {
-		foreach($_POST['page_range'] as $id=>$value) {
-			update_post_meta($id, 'page_range', $value);
-		}
-	}
-	
+    if($articles[0]!="") {
+        update_post_meta($post_id, 'articles', $articles);
+    }
+
+    update_post_meta($post_id, 'number', $_POST['number']);
+    update_post_meta($post_id, 'volume', $_POST['volume']);
+    update_post_meta($post_id, 'year', $_POST['year']);
+
+    update_post_meta($post_id, 'issue_publish_date', $_POST['issue_pub_date']['year'].'-'.$_POST['issue_pub_date']['month'].'-'.$_POST['issue_pub_date']['day'].' 00:00:00');
+
+    if(!empty($_POST['page_range'])) {
+        foreach($_POST['page_range'] as $id=>$value) {
+            update_post_meta($id, 'page_range', $value);
+        }
+    }
+
 }
 add_action( 'save_post', 'save_issues_meta_box' );
 
@@ -1531,6 +1531,8 @@ function issue_xml_generator( $data ) {
 
     $PubYear = get_post_meta($issue_id,'pubYear',true);  //add in wp issue
     $PubMonth = get_post_meta($issue_id,'pubMonth',true); // add in wp issue
+    $Issue_volume = get_post_meta($issue_id,'issue_volume',true); // add in wp issue
+    $Issue_number = get_post_meta($issue_id,'issue_number',true); // add in wp issue
 
 
 // query
@@ -1558,18 +1560,18 @@ function issue_xml_generator( $data ) {
         $abstract           =   get_post_meta($post_id, 'xml_abstract',true);
         $pubmedId           =   get_post_meta($post_id, 'issue_xml_pubmed_id',true);
 
-        if(!empty(get_post_meta($issue_id, 'issue_id',true))){
-            $issue =   get_post_meta($issue_id, 'issue_id', true);
-
-        }else{
-            $issue = "-";
-        }
-
-        if(!empty(get_post_meta($issue_id, 'volume', true))){
-            $volume =   get_post_meta($issue_id, 'volume', true);
-        }else{
-            $volume             =   "-";
-        }
+//        if(!empty(get_post_meta($issue_id, 'issue_id',true))){
+//            $issue =   get_post_meta($issue_id, 'issue_id', true);
+//
+//        }else{
+//            $issue = "-";
+//        }
+//
+//        if(!empty(get_post_meta($issue_id, 'volume', true))){
+//            $volume =   get_post_meta($issue_id, 'volume', true);
+//        }else{
+//            $volume             =   "-";
+//        }
 
 
 
@@ -1583,8 +1585,8 @@ function issue_xml_generator( $data ) {
         $PublisherName  = $xml->createElement("PublisherName",$publisher_name);
         $JournalTitle   = $xml->createElement("JournalTitle",$journal_title);
         $Issn           = $xml->createElement("Issn",$issn); //this value need to be added to wordpress so that we can fetch from the db
-        $Volume         = $xml->createElement("Volume",$volume);
-        $Issue          = $xml->createElement("Issue",$issue);
+        $Volume         = $xml->createElement("Volume",$Issue_volume);
+        $Issue          = $xml->createElement("Issue",$Issue_number);
         $journal->appendChild($PublisherName);
         $journal->appendChild($JournalTitle);
         $journal->appendChild($Issn);
