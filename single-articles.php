@@ -79,17 +79,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                     </div>
 
 				<?php } ?>
-                   
-                    <?php //if(isset($_GET['galley']) && ($_GET['galley'] == 'html' || $_GET['galley'] == 'pdf') ) { ?>
-                    <!-- <div id="breadcrumb">
-                        <a href="<?php echo site_url(); ?>" target="_parent">Home</a> &gt;
-                        <?php if($volume) { ?>
-                        <a href="<?php echo get_permalink($issue_id); ?>" target="_parent">Vol <?php echo get_post_meta($issue_id,'volume',true); ?>, No <?php echo get_post_meta($issue_id,'number',true); ?> (NS) (<?php echo get_post_meta($issue_id,'year',true); ?>)</a> &gt;
-                        <?php } ?>
-                        <a href="<?php echo get_permalink(); ?>" class="current" target="_parent">Mariaselvam</a>
-                    </div> --> 
-                    <?php //} ?>
-                    
+
                     <div id="content">
                         <div class="addthis_container">
                             <a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '<?php echo get_the_title(); ?>')" onmouseout="addthis_close()" onclick="return addthis_sendto()"> <img src="https://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0"> </a>
@@ -102,7 +92,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             ?>
 							
                             <div id="pdfDownloadLinkContainer">
-                               <!-- <a class="action pdf" id="pdfDownloadLink" target="_parent" onclick="_gaq.push([‘_trackEvent’,’Download’,’PDF’,this.href]);" href="<?php echo $pdf_file; ?>">Download this PDF file</a> -->
                                 <a class="action pdf" id="pdfDownloadLink" target="_parent" onclick="ga('send', 'event','pdf', 'downloads', 'pdf downloads', 0,{'nonInteraction': 1})" href="<?php echo $pdf_file; ?>">Download this PDF file</a>
                             </div>
 							<div>
@@ -118,7 +107,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							</div>
 							<?php
                                     $authors = get_post_meta(get_the_ID(), 'authors', true);
-									//print_r($authors);exit;
 									?>
 									
 							<div class="separator"><br></div>
@@ -135,7 +123,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                         <?php
                                         $authors = get_post_meta(get_the_ID(), 'authors', true);
                                         $out = array();
-                                        //print_r($authors);exit;
                                         foreach($authors as $key=>$author) {	?>
                                             <div id="authorBio">
                                                 <div>
@@ -170,38 +157,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
                                                                        <?php }?>
 
-                                        <h3>Keywords</h3>
-                                        <?php
-                                        $articleTags = wp_get_post_tags(get_the_ID());
-                                        if($articleTags) {
-                                            $keywords = '';
-                                            foreach($articleTags as $articleTag) {
-                                                if($articleTag) {
-                                                    $keywords .= $articleTag->name.', ';
-                                                }
-                                                else {
-                                                    $keywords .= "N/A";
-                                                }
-                                            }
-                                            ?>
 
-                                            <p><?php  echo substr(trim($keywords), 0, -1); ?></p>
-                                            <?php
-                                        }
-                                        else {
-                                            echo "<p>N/A</p>";
-                                        }
-
-                                        ?>
-
-                                        <h3>Refbacks</h3>
-                                        <?php
-                                        $citations = get_post_meta(get_the_ID(), 'citations', true);
-                                        if($citations ){
-                                            echo $citations;
-                                        }else{ ?>
-                                            <p>There are currently no refbacks.</p>
-                                        <?php } ?>
                                     </div>
 
 
@@ -211,7 +167,53 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             }
                         }
                         elseif(isset($_GET['galley']) && $_GET['galley'] == 'html') {
+
+                            if(get_the_ID()>=17690){
                             ?>
+                            <div id="articleTitle"><h3><?php echo get_the_title(); ?></h3></div>
+                            <div id="authorString">
+                                <em>
+                                    <?php
+                                    $authors = get_post_meta(get_the_ID(), 'authors', true);
+                                    $out = array();
+                                    if(!empty($authors)){
+                                        foreach($authors as $key=>$author) {
+                                            $authStr=$author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
+                                            //if($author['primary_contact']) {
+                                            array_push($out, $authStr);
+                                        }
+                                        echo implode(', ', $out);
+                                    }
+                                    ?>
+                                </em>
+                                <p>
+                                    <span class="article_publish_date pull-left">Published On : <?php echo get_the_date('d-m-Y') ?></span>
+
+                                    <?php if (get_field('doi')) { ?>
+                                        <span class="pull-right"> DOI: <a href="<?php the_field('doi_link'); ?>"
+                                                                          class="doi"><?php the_field('doi'); ?></a></span>
+                                    <?php } else { ?>
+                                    <?php } ?>
+
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="article_count_container">
+                                <div class="article-count-wrapper">
+                                    Article Views:&nbsp;
+                                    <div class="lds-ellipsis" id="place-holder"><p id="article_count"></p>
+                                        <div></div>
+                                    </div>
+
+                                    &nbsp;&nbsp;,PDF Downloads:&nbsp;
+                                    <div class="lds-ellipsis" id="pdf-place-holder"><p id="pdfDownloadCount"></p>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                          <?php  }
+                            else{
+                            }?>
 							
                             <script>
                                 jQuery(document).ready(function($){$(".section").first().prepend($(".about-author-content").html());});
@@ -252,7 +254,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                     </div>
                                     <div class="articleToolItem">
                                         <img src="<?php echo THEME_URL; ?>/images/emailArticle.png" class="articleToolIcon"> <a href="<?php echo add_query_arg( 'galley', 'mail', get_permalink(get_the_ID()) ).'&to=author'; ?>" target="_blank">Email the author</a>
-                                        <!--Email the author <span style="font-size: 0.8em">(Login required)</span> -->
                                     </div>
                                     <div class="articleToolItem">
                                         <img src="<?php echo THEME_URL; ?>/images/postComment.png" class="articleToolIcon">
@@ -309,39 +310,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
                                <?php }?>
 
-
-									<h3>Keywords</h3>
-									<?php
-									$articleTags = wp_get_post_tags(get_the_ID()); 
-									if($articleTags) {
-									$keywords = '';
-									foreach($articleTags as $articleTag) {
-										if($articleTag) {
-											$keywords .= $articleTag->name.', ';
-										}
-										else {
-											$keywords .= "N/A";
-										}
-									}
-									?>
-									
-									<p><?php  echo substr(trim($keywords), 0, -1); ?></p>
-									<?php
-									}
-									else {
-										echo "<p>N/A</p>";
-									}
-									
-									?>
-									
-									<h3>Refbacks</h3>
-									<?php 
-									$citations = get_post_meta(get_the_ID(), 'citations', true);
-									if($citations ){
-										echo $citations; 
-									}else{ ?>
-									<p>There are currently no refbacks.</p>
-									<?php } ?>
                                 </div>
                             <!-- Peer section ----2 ------>
 
@@ -359,22 +327,37 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                             $authStr=$author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
                                             //if($author['primary_contact']) {
                                             array_push($out, $authStr);
-                                            //$author['first_name'].' '.$author['middle_name'].' '.$author['last_name']
-                                            // break;
-                                            //}
                                         }
                                         echo implode(', ', $out);
                                     }
                                     ?>
                                 </em>
-								<p><?php if(get_field('doi')){ ?> 
-										DOI: <a href="<?php the_field('doi_link'); ?>" class="doi"><?php the_field('doi'); ?></a>
-									<?php } else { ?>
-									<?php } ?>
-								</p>
-								
-								
+								<p>
+                                    <span class="article_publish_date pull-left">Published On : <?php echo get_the_date('d-m-Y') ?></span>
+
+                                    <?php if (get_field('doi')) { ?>
+                                        <span class="pull-right"> DOI: <a href="<?php the_field('doi_link'); ?>"
+                                                                          class="doi"><?php the_field('doi'); ?></a></span>
+                                    <?php } else { ?>
+                                    <?php } ?>
+
+                                </p>
                             </div>
+                        <div class="clearfix"></div>
+                        <div class="article_count_container">
+                            <div class="article-count-wrapper">
+                            Article Views:&nbsp;
+                            <div class="lds-ellipsis" id="place-holder"><p id="article_count"></p>
+                                <div></div>
+                            </div>
+
+                                &nbsp;&nbsp;,PDF Downloads:&nbsp;
+                            <div class="lds-ellipsis" id="pdf-place-holder"><p id="pdfDownloadCount"></p>
+                                <div></div>
+                            </div>
+                            </div>
+                        </div>
+
                             <br/>
 							<?php if( get_the_ID() == '16706' && !is_front_page() ){  ?>
                             <div id="articleAbstract1" style = "padding: 30px 0 0px !important;">
@@ -399,51 +382,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                 <p class="articleHistory-item">Date Published: <?php echo get_published_date(get_ojs_article_ID(get_the_ID()));?></p>
                             </div>
 							<?php } }?>
-							<div class="separator"></div>
-							
-							<!--h3>Date of Submission</h3>
-							<p><?php //if(get_field('article_submission_date')){ ?> 
-								<?php //the_field('article_submission_date'); ?>
-								<?php //} 
-								//else { echo "N/A"; }
-								?>
-							</p-->
-							
-							<h3>Keywords</h3>
-							<?php
-							$articleTags = wp_get_post_tags(get_the_ID()); 
-								if($articleTags) {
-								$keywords = '';
-								foreach($articleTags as $articleTag) {
-									if($articleTag) {
-										$keywords .= $articleTag->name.', ';
-									}
-									else {
-										$keywords .= "N/A";
-									}
-								}
-								?>
-								<p><?php  echo substr(trim($keywords), 0, -1); ?></p>
-								<?php
-								}
-								else {
-									echo "<p>N/A</p>";
-								}							
-							?>
-							
-							<h3>Refbacks</h3>
-							<?php 
-								$citations = get_post_meta(get_the_ID(), 'citations', true);
-								if($citations ){
-									echo $citations; 
-								}else{ ?>
-									<p>There are currently no refbacks.</p>
-							<?php } ?>
-
-                                <h3>Article Views</h3>  <!-- html -->
-                                <div class="lds-ellipsis" id="place-holder"><p id ="article_count"></p><div></div><div></div><div></div><div></div></div>
-                                <h3>PDF Downloads</h3>  <!-- pdf -->
-                                <div class="lds-ellipsis" id="pdf-place-holder"><p id ="pdfDownloadCount"></p><div></div><div></div><div></div><div></div></div>
 
                                 <?php
 

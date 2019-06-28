@@ -1,37 +1,90 @@
 <?php get_header(); ?>
 
-<div class="row">
-    <div class="col-md-9">
-        <div id="main" class="last-2">
-            <div id="content">
-                <h4>Archives</h4>
-                
-                <div class="table-responsive">
-                    
-                    <h2>Indian Journal of Medical Ethics (New Series 2016 - onwards)</h2>
-                    <?php year_archive_table(array(2016,'','','')); ?>
-                    
-                    <h2>Indian Journal of Medical Ethics (2004 - present)</h2>
-                    <?php year_archive_table(array(2015, 2014, 2013, 2012)); ?>
-                    <?php year_archive_table(array(2011, 2010, 2009, 2008)); ?>
-                    <?php year_archive_table(array(2007, 2006, 2005, 2004)); ?>
-                    
-                    <h2>Issues in Medical Ethics (1996 - 2003)</h2>
-                    <?php year_archive_table(array(2003, 2002, 2001, 2000)); ?>
-                    <?php year_archive_table(array(1998, 1997, 1996)); ?>
-                    
-                    <h2>Medical Ethics: Journal of Forum for Medical Ethics Society (1993 - 1995)</h2>
-                    <?php year_archive_table(array(1995, 1994, 1993)); ?>
-                    
+    <div class="container-block">
+        <div class="content blocks  ">
+
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle dropdown-width" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Select Year
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Current Year</a></li>
+                            <li><a href="#">Last Year</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">2019</a></li>
+                            <li><a href="#">2018</a></li>
+                            <li><a href="#">2017</a></li>
+                            <li><a href="#">2016</a></li>
+                        </ul>
+                    </div>
                 </div>
-                
+                <!--    <div class="clearfix"></div>-->
+                <div class="row">
+                    <div class="issues-wrapper">
+                        <div class="">
+                            <div class="row">
+                                <div class="issue-box">
+                                            <?php
+                                            global $post;
+                                            $articles = get_posts(array(
+                                                'posts_per_page' => 4,
+                                                'post_type' => 'issues'
+                                            ));
+
+                                            if ($articles) {
+                                                foreach ($articles as $post) :
+                                                    setup_postdata($post);
+                                                    if (has_post_thumbnail()):
+                                                        ?>
+                                                    <div class="issue">
+                                                        <div class="issue-image">
+                                                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                                                        </div>
+                                                        <div class="issue-content">
+                                                            <div class="issue-title"><h3 class="home-title-1"><a
+                                                                            href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="issue-detail"><?php echo wp_trim_words(get_the_excerpt(), 500); ?></div>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                    endif;
+                                                endforeach;
+                                                wp_reset_postdata();
+
+                                            }
+                                            ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <?php get_sidebar(); ?>
             </div>
         </div>
     </div>
-    <div class="clearfix visible-xs visible-sm"></div>
-	<div class="col-md-3">
-        <?php get_sidebar(); ?>
-    </div>
-</div>
-
 <?php get_footer(); ?>
+
+<script>
+    jQuery(document).ready( function($) {
+
+        $.ajax({
+            type:'POST',
+            url: <?php echo admin_url('admin-ajax.php');?>,
+            data:{
+                selected_year:'2018'
+            },
+            success: function( data ) {
+                alert( 'ajax response success');
+            }
+        })
+
+    })
+</script>

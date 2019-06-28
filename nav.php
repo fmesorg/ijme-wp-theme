@@ -24,9 +24,9 @@
             );
         ?>
 		</div>
-		
+
 		<div class="visible-xs visible-sm">
-		<?php
+            <?php
             wp_nav_menu( array(
                 'menu'              => 'Mobile Main Menu',
                 //'theme_location'    => 'header',
@@ -39,9 +39,17 @@
                 'walker'            => new wp_bootstrap_navwalker())
             );
         ?>
-		</div>
-        <?php
-        ?>
-    </div>
+        </div>
+
+        <div>
+            <form method="get" action="<?php echo site_url(); ?>" id="searchform" class="search-form" role="search">
+                <div class="input-group add-on">
+                    <input class="form-control" placeholder="Search" name="s" id="srch-term" type="text">
+                    <div class="input-group-btn">
+                        <button class="btn search-submit" type="submit">search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 	
 </nav><!-- #site-navigation -->

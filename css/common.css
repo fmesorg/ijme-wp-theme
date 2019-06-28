@@ -391,7 +391,7 @@ blockquote p{
 	border: 1px solid #d0d0d0;}
 .blocks {
 	border: none; border-radius: 5px;	padding: 14px 14px 0;	margin-bottom: 12px;
-	margin-top: 15px;
+	margin-top: 10px;
 	padding-bottom: 14px; background-color: #fff}
 .blocks h4 
 	color: #df1f1f;}
@@ -559,7 +559,7 @@ font-weight: bold !important; line-height: 6px;
 /*table of content html inside page 26oct13 css end*/
 /*table of content title inside page 28oct13 css start*/
 #authorString {
-	border-bottom: 1px solid #CCCCCC;	padding-bottom: 5px;}
+	border-bottom: none;	padding-bottom: 5px;}
 #authorString em {
 	font-size: 13px;	color: #575757;	font-style: normal;}
 #articles-page #articleAbstract h4 {

@@ -5,7 +5,7 @@ img{max-width:100%}
 .navbar .nav{margin:0}
 .navbar .nav > li > a{padding:9px 23px;text-transform:uppercase}
 .navbar.navbar-default{margin-top:0}
-.navbar{min-height:0}
+.navbar{min-height:0;    padding-bottom: 5px;}
 .nav-top-btn{float:none;margin-top:0}
 .nav-top-btn-container{text-align:right;margin-top:0}
 #menu-main-menu .open>.dropdown-menu{display:block!important}
@@ -197,11 +197,15 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 /*}*/
 
 #article_count{
-    font-size: medium;
+    font-size: small;
+    font-weight: bold;
+    display: inline;
 }
 
 #pdfDownloadCount{
-    font-size: medium;
+    font-size: small;
+    font-weight: bold;
+    display: inline;
 }
 
 @keyframes placeHolderShimmer{
@@ -217,14 +221,15 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 .lds-ellipsis {
     display: inline-block;
     position: relative;
-    width: 64px;
-    height: 10px;
+    /*width: 1em;*/
+    /*height: 10px;*/
+    margin-right: 2em;
 }
 .lds-ellipsis div {
     position: absolute;
-    top: -8px;
-    width: 11px;
-    height: 11px;
+    top: 0px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: #E01F1F;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
@@ -237,14 +242,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     left: 6px;
     animation: lds-ellipsis2 0.6s infinite;
 }
-.lds-ellipsis div:nth-child(3) {
-    left: 26px;
-    animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(4) {
-    left: 45px;
-    animation: lds-ellipsis3 0.6s infinite;
-}
+
 @keyframes lds-ellipsis1 {
     0% {
         transform: scale(0);
@@ -253,7 +251,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
         transform: scale(1);
     }
 }
-@keyframes lds-ellipsis3 {
+@keyframes lds-ellipsis2 {
     0% {
         transform: scale(1);
     }
@@ -261,15 +259,6 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
         transform: scale(0);
     }
 }
-@keyframes lds-ellipsis2 {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(19px, 0);
-    }
-}
-
 /*------*/
 /*.suppport_box_wrapper{*/
 /*    display: flex;*/
@@ -349,7 +338,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 .home-text{
     background-color: white;
     margin-top: 10px;
-    height: 100px;
+    min-height: 100px;
 }
 
 .title-bar-home{
@@ -364,16 +353,22 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     border: solid 1px black;
     height: 100%;
     text-align: center;
+    min-height: 80px;
 }
 
 .announcement{
     min-height: 300px;
 }
 
-.news-block{
-    border-left: 1px solid darkgray;
-    min-height: 300px;
+
+
+@media all and (min-width: 700px) {
+    .news-block{
+        border-left: 1px solid darkgray;
+        min-height: 300px;
+    }
 }
+
 
 .media-coverage>ul{
     overflow: hidden;
@@ -451,4 +446,72 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 
 .company-link{
     color: #e24321!important;
+}
+
+.article_publish_date{
+    color: darkgray;
+    font-weight: bold;
+}
+
+#place-holder{
+    /*width: 3em;*/
+}
+
+.article_count_container{
+    border-bottom: 1px solid #CCCCCC;	padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+
+.article-count-wrapper{
+    display: flex;
+    float: right;
+}
+
+.container-block{
+    display: flex;
+    background-color: #FBFBFB;
+}
+
+.wrapper-white{
+    display: flex;
+}
+
+.dropdown-width {
+    width: 250px !important;
+}
+
+.issues-wrapper{
+    margin-top: 20px;
+    display: flex;
+}
+
+.issue-box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.issue-image{
+    margin: 20px;
+    min-width: 232px;
+    border: 1px solid black;
+}
+
+
+.issue-content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left:65px;
+
+}
+
+.issue{
+    display: flex;
+    border-top: 1px solid gray;
+}
+
+.issue-title{
+
 }

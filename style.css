@@ -42,7 +42,29 @@ next{float:right;padding-right:15px}
 .alignleft{float:left;padding:0 10px 10px 0}
 ul.search_box{float:right;height:42px;width:395px;margin-bottom:0;position:absolute;right:0;top:0;z-index:1}
 span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.png);background-repeat:no-repeat;background-position:top left;display:block;float:left;background-position:0 0;margin-top:10px;margin-left:10px}
-.search-form{position:absolute;width:100%;right:0;background:#d8d8d8;padding:10px;top:42px;z-index:1;max-width:500px;position:absolute;width:100%;right:0;background:#d8d8d8;padding:10px;top:42px;z-index:1;max-width:500px}
+
+.search-form {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 40px;
+    z-index: 1;
+    max-width: 400px;
+    padding-right: 28px;
+}
+
+@media all and (max-width: 850px) {
+    .search-form {
+        position: absolute;
+        width: 85%;
+        right: 60px;
+        top: 40px;
+        z-index: 1;
+        max-width: 500px;
+        padding-right: 28px;
+    }
+}
+
 .search-submit{background:#e01f1f;color:#fff;text-transform:uppercase;border-radius:0;margin-left:-10px;color:#fff}
 #main h3 a{font-size:17px}
 .issue-slider .owl-item .item{text-align:center;padding:5px;display:block;width:100%;height:auto}

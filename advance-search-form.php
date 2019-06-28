@@ -167,32 +167,39 @@
                                     
                                     <?php if(empty($_REQUEST['authors'])) { ?>
                                     <div class="col-md-4">
-                                        <input type="text" name="authors" id="authors" size="40" maxlength="255" placeholder="authors" value="<?php echo !empty($_REQUEST['authors']) ? $_REQUEST['authors'] : ''; ?>" class="textField">
+                                        <label for="authors">Author</label>
+                                        <input type="text" name="authors" id="authors" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['authors']) ? $_REQUEST['authors'] : ''; ?>" class="textField">
                                     </div>
                                     <?php } ?>
                                     
                                     <?php if(empty($_REQUEST['title'])) { ?>
                                     <div class="col-md-4">
-                                        <input type="text" name="title" id="title" size="40" maxlength="255" placeholder="title" value="<?php echo !empty($_REQUEST['title']) ? $_REQUEST['title'] : ''; ?>" class="textField">
+                                        <label for="title">Title</label>
+                                        <input type="text" name="title" id="title" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['title']) ? $_REQUEST['title'] : ''; ?>" class="textField">
                                     </div>
                                     <?php } ?>
                                     
                                     <?php if(empty($_REQUEST['abstract'])) { ?>
                                     <div class="col-md-4">
-                                        <input type="text" name="abstract" id="abstract" size="40" maxlength="255" placeholder="abstract" value="<?php echo !empty($_REQUEST['abstract']) ? $_REQUEST['abstract'] : ''; ?>" class="textField">
+                                        <label for="abstract">Abstract</label>
+                                        <input type="text" name="abstract" id="abstract" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['abstract']) ? $_REQUEST['abstract'] : ''; ?>" class="textField">
                                     </div>
                                     <?php } ?>
                                     
                                     <?php if(empty($_REQUEST['galleyFullText'])) { ?>
                                     <div class="col-md-4">
-                                        <input type="text" name="galleyFullText" id="galleyFullText" size="40" maxlength="255" placeholder="galleyFullText" value="<?php echo !empty($_REQUEST['galleyFullText']) ? $_REQUEST['galleyFullText'] : ''; ?>" class="textField">
+                                        <label for="galleyFullText">Galley Full Text</label>
+                                        <input type="text" name="galleyFullText" id="galleyFullText" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['galleyFullText']) ? $_REQUEST['galleyFullText'] : ''; ?>" class="textField">
                                     </div>
+
                                     <?php } ?>
                                     
                                     <?php if(empty($_REQUEST['suppFiles'])) { ?>
                                     <div class="col-md-4">
-                                        <input type="text" name="suppFiles" id="suppFiles" size="40" maxlength="255" placeholder="suppFiles" value="<?php echo !empty($_REQUEST['suppFiles']) ? $_REQUEST['suppFiles'] : ''; ?>" class="textField">
+                                        <label for="suppFiles">Supp Files</label>
+                                        <input type="text" name="suppFiles" id="suppFiles" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['suppFiles']) ? $_REQUEST['suppFiles'] : ''; ?>" class="textField">
                                     </div>
+
                                     <?php } ?>
                                     
                                 </div>
@@ -302,31 +309,36 @@
                                             
                                             <?php if(empty($_REQUEST['discipline'])) { ?>
                                             <div class="col-md-4">
-                                                <input type="text" name="discipline" id="discipline" size="40" maxlength="255" placeholder="discipline" value="<?php echo !empty($_REQUEST['discipline']) ? $_REQUEST['discipline'] : ''; ?>" class="textField">
+                                                <label for="discipline">Discipline</label>
+                                                <input type="text" name="discipline" id="discipline" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['discipline']) ? $_REQUEST['discipline'] : ''; ?>" class="textField">
                                             </div>
                                             <?php } ?>
                                             
                                             <?php if(empty($_REQUEST['subject'])) { ?>
                                             <div class="col-md-4">
-                                                <input type="text" name="subject" id="subject" size="40" maxlength="255" placeholder="subject" value="<?php echo !empty($_REQUEST['subject']) ? $_REQUEST['subject'] : ''; ?>" class="textField">
+                                                <label for="subject">Subject</label>
+                                                <input type="text" name="subject" id="subject" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['subject']) ? $_REQUEST['subject'] : ''; ?>" class="textField">
                                             </div>
                                             <?php } ?>
                                             
                                             <?php if(empty($_REQUEST['type'])) { ?>
                                             <div class="col-md-4">
-                                                <input type="text" name="type" id="type" size="40" maxlength="255" placeholder="type" value="<?php echo !empty($_REQUEST['type']) ? $_REQUEST['type'] : ''; ?>" class="textField">
+                                                <label for="type">Type</label>
+                                                <input type="text" name="type" id="type" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['type']) ? $_REQUEST['type'] : ''; ?>" class="textField">
                                             </div>
                                             <?php } ?>
                                             
                                             <?php if(empty($_REQUEST['coverage'])) { ?>
-                                            <div class="col-md-4">
-                                                <input type="text" name="coverage" id="coverage" size="40" maxlength="255" placeholder="coverage" value="<?php echo !empty($_REQUEST['coverage']) ? $_REQUEST['coverage'] : ''; ?>" class="textField">
+                                                <div class="col-md-4">
+                                                    <label for="coverage">Coverage</label>
+                                                    <input type="text" name="coverage" id="coverage" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['coverage']) ? $_REQUEST['coverage'] : ''; ?>" class="textField">
                                             </div>
                                             <?php } ?>
                                             
                                             <?php if(empty($_REQUEST['indexTerms'])) { ?>
                                             <div class="col-md-4">
-                                                <input type="text" name="indexTerms" id="indexTerms" size="40" maxlength="255" placeholder="indexTerms" value="<?php echo !empty($_REQUEST['indexTerms']) ? $_REQUEST['indexTerms'] : ''; ?>" class="textField">
+                                                <label for="indexTerms">IndexTerms</label>
+                                                <input type="text" name="indexTerms" id="indexTerms" size="40" maxlength="255"  value="<?php echo !empty($_REQUEST['indexTerms']) ? $_REQUEST['indexTerms'] : ''; ?>" class="textField">
                                             </div>
                                             <?php } ?>
                                             
