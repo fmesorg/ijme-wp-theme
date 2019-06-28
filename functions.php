@@ -1456,10 +1456,12 @@ function post_xml_generator( $data ) {
 
             $firstname      = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_first_name",true);
             $lastname       = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_last_name",true);
+            $middleName     = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_middle_name",true);
             $affilitation   = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_affiliation",true);
 
 
             $Author->appendChild($xml->createElement("FirstName",$firstname));
+            $Author->appendChild($xml->createElement("MiddleName",$middleName));
             $Author->appendChild($xml->createElement("LastName", $lastname));
             $Author->appendChild($xml->createElement("Affiliation", htmlentities($affilitation,ENT_COMPAT,'UTF-8')));
 
@@ -1630,10 +1632,12 @@ function issue_xml_generator( $data ) {
 
                 $firstname      = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_first_name",true);
                 $lastname       = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_last_name",true);
+                $middleName     = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_middle_name",true);
                 $affilitation   = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_affiliation",true);
 
 
                 $Author->appendChild($xml->createElement("FirstName",$firstname));
+                $Author->appendChild($xml->createElement("MiddleName",$middleName));
                 $Author->appendChild($xml->createElement("LastName", $lastname));
                 $Author->appendChild($xml->createElement("Affiliation", htmlentities($affilitation,ENT_COMPAT,'UTF-8')));
             }
