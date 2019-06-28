@@ -1527,6 +1527,8 @@ function issue_xml_generator( $data ) {
 
     $PubYear = get_post_meta($issue_id,'pubYear',true);  //add in wp issue
     $PubMonth = get_post_meta($issue_id,'pubMonth',true); // add in wp issue
+    $Issue_volume = get_post_meta($issue_id,'issue_volume',true); // add in wp issue
+    $Issue_number = get_post_meta($issue_id,'issue_number',true); // add in wp issue
 
 
 // query
@@ -1554,18 +1556,18 @@ function issue_xml_generator( $data ) {
         $abstract           =   get_post_meta($post_id, 'xml_abstract',true);
         $pubmedId           =   get_post_meta($post_id, 'issue_xml_pubmed_id',true);
 
-        if(!empty(get_post_meta($issue_id, 'issue_id',true))){
-            $issue =   get_post_meta($issue_id, 'issue_id', true);
-
-        }else{
-            $issue = "-";
-        }
-
-        if(!empty(get_post_meta($issue_id, 'volume', true))){
-            $volume =   get_post_meta($issue_id, 'volume', true);
-        }else{
-            $volume             =   "-";
-        }
+//        if(!empty(get_post_meta($issue_id, 'issue_id',true))){
+//            $issue =   get_post_meta($issue_id, 'issue_id', true);
+//
+//        }else{
+//            $issue = "-";
+//        }
+//
+//        if(!empty(get_post_meta($issue_id, 'volume', true))){
+//            $volume =   get_post_meta($issue_id, 'volume', true);
+//        }else{
+//            $volume             =   "-";
+//        }
 
 
 
@@ -1579,8 +1581,8 @@ function issue_xml_generator( $data ) {
         $PublisherName  = $xml->createElement("PublisherName",$publisher_name);
         $JournalTitle   = $xml->createElement("JournalTitle",$journal_title);
         $Issn           = $xml->createElement("Issn",$issn); //this value need to be added to wordpress so that we can fetch from the db
-        $Volume         = $xml->createElement("Volume",$volume);
-        $Issue          = $xml->createElement("Issue",$issue);
+        $Volume         = $xml->createElement("Volume",$Issue_volume);
+        $Issue          = $xml->createElement("Issue",$Issue_number);
         $journal->appendChild($PublisherName);
         $journal->appendChild($JournalTitle);
         $journal->appendChild($Issn);
