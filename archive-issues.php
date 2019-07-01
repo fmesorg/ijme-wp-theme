@@ -5,20 +5,13 @@
 
             <div class="col-md-9">
                 <div class="row">
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle dropdown-width" type="button" id="dropdownMenu1"
+                    <div class="dropdown pull-right"><span>Please choose the year</span>
+                        <button class="btn btn-default dropdown-toggle dropdown-width" type="button" id="year-drop-down-menu"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Select Year
-                            <span class="caret"></span>
+                            Choose Year<span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" id="year-dropdown" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">Current Year</a></li>
-                            <li><a href="#">Last Year</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">2019</a></li>
-                            <li><a href="#">2018</a></li>
-                            <li><a href="#">2017</a></li>
-                            <li><a href="#">2016</a></li>
+                            <?php populateDropdown(); ?>
                         </ul>
                     </div>
                 </div>
@@ -28,37 +21,7 @@
                         <div class="">
                             <div class="row">
                                 <div class="issue-box" id="issue-box">
-                                            <?php
-                                            global $post;
-                                            $articles = get_posts(array(
-                                                'posts_per_page' => 4,
-                                                'post_type' => 'issues'
-                                            ));
 
-                                            if ($articles) {
-                                                foreach ($articles as $post) :
-                                                    setup_postdata($post);
-                                                    if (has_post_thumbnail()):
-                                                        ?>
-                                                    <div class="issue">
-                                                        <div class="issue-image">
-                                                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
-                                                        </div>
-                                                        <div class="issue-content">
-                                                            <div class="issue-title"><h3 class="home-title-1"><a
-                                                                            href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-                                                                </h3>
-                                                            </div>
-                                                            <div class="issue-detail"><?php echo wp_trim_words(get_the_excerpt(), 500); ?></div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    endif;
-                                                endforeach;
-                                                wp_reset_postdata();
-
-                                            }
-                                            ?>
                                 </div>
                             </div>
                         </div>
@@ -76,9 +39,14 @@
 <script type="text/javascript">
     jQuery(function($) {
 
-        $('#year-dropdown li').on('click', function(e) {
+        $(document).ready(function(){
+            $("#current-year").trigger("click");
+        });
+
+        $('#year-dropdown li a').on('click', function(e) {
             e.preventDefault();
-            let selected_year = $(this).text();
+            let selected_year = $(this).data('value');
+            console.log("selected",selected_year);
 
             let ajaxUrl = '<?php echo admin_url( 'admin-ajax.php' );?>';
             $.ajax({
@@ -98,11 +66,39 @@
                 }
             });
 
-        })
+        });
+
+        $('#year-dropdown a').click(function(){
+            $('#year-drop-down-menu').text($(this).text());
+        });
+
 
     });
     
     function removeOldData() {
         jQuery(".issue").remove();
     }
+
+
+
 </script>
+
+<?php
+function populateDropdown() {
+    $currentYear = date("Y");
+    $lastyear    =   $currentYear-1;
+
+    $dropDownHtml = '<li><a href="#" data-value="'.$currentYear.'" id="current-year">Current Year</a></li>';
+    $dropDownHtml .= '<li><a href="#" data-value="'.$lastyear.'" id="current-year">Last Year</a></li>';
+    $dropDownHtml .= '<li role="separator" class="divider"></li>';
+
+    $year = $currentYear;
+    while ($year>$currentYear-10){
+        $dropDownHtml .= '<li><a href="#" data-value="'.$year.'">'.$year.'</a></li>';
+        $year--;
+    }
+
+    echo $dropDownHtml;
+}
+
+?>

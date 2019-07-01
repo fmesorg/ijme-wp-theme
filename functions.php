@@ -1713,10 +1713,73 @@ function display_year_issues(){
         }else{
             $selected_year = date("Y");
         }
+                                            global $post;
+                                            $articles = get_posts(array(
+                                                'posts_per_page' => 4,
+                                                'post_type' => 'issues',
+                                                'year'      => $selected_year
+                                            ));
+                                            if ($articles) {
+                                                foreach ($articles as $post) :
+                                                    setup_postdata($post);
+                                                    if (has_post_thumbnail()):
+                                                        ?>
+                                                    <div class="issue">
+                                                        <div class="issue-image">
+                                                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                                                        </div>
+                                                        <div class="issue-content">
+                                                            <div class="issue-title"><h3 class="home-title-1"><a
+                                                                            href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                                                                </h3>
+                                                                <span class="issue-tag">Volume:<?php echo get_post_meta(get_the_ID(), 'volume', true); ?> Issue:&nbsp;<?php get_issue_quarter(get_post_meta(get_the_ID(), 'number', true)); ?></span>
+                                                               <p><span class="issue-tag">Published Date: <?php echo date('Y-m-d',strtotime( get_post_meta(get_the_ID(), 'issue_publish_date', true))); ?></span></p>
+                                                            </div>
+                                                            <div class="issue-detail"><?php echo wp_trim_words(get_the_excerpt(), 500); ?></div>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                    endif;
+                                                endforeach;
+                                                wp_reset_postdata();
 
-        echo "<h2>displaying issues for year ".$selected_year."</h2>";
+                                            }else{ ?>
+                                                <div class="issue">
+                                                    <div class="issue-content">
+                                                        <div class="issue-title"><h3 class="home-title-1">No Issue Available for Selected Year
+                                                            </h3>
+                                                        </div>
+                                                        <div class="issue-detail">Please select some other issue.</div>
+                                                    </div>
+                                                </div>
+                                           <?php }
+
         die();
 }
 
 add_action('wp_ajax_display_year_issues', 'display_year_issues');
 add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');
+
+function get_issue_quarter($i){
+    switch($i) {
+        case 1:
+            echo $i." Jan-Mar";
+            break;
+
+        case 2:
+            echo $i." April-June";
+            break;
+
+        case 3:
+            echo $i." July-Sept";
+            break;
+
+        case 4:
+            echo $i." Oct-Dec";
+            break;
+
+        default:
+            echo $i;
+            break;
+    }
+}

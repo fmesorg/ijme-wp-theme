@@ -478,7 +478,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 }
 
 .dropdown-width {
-    width: 250px !important;
+    width: 160px !important;
 }
 
 .issues-wrapper{
@@ -509,9 +509,15 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 
 .issue{
     display: flex;
-    border-top: 1px solid gray;
+    border-top: 1px solid #e8e8e8;
 }
 
 .issue-title{
 
+}
+
+.issue-tag {
+    font-size: 14px;
+    color: darkgray;
+    text-transform: none;
 }
