@@ -1,11 +1,9 @@
 <?php get_header(); ?>
-
     <div class="container-block">
-        <div class="content blocks  ">
-
+        <div class="content blocks">
             <div class="col-md-9">
                 <div class="row">
-                    <div class="dropdown pull-right"><span>Please choose the year</span>
+                    <div class="dropdown pull-right"><span>Select Year</span>
                         <button class="btn btn-default dropdown-toggle dropdown-width" type="button" id="year-drop-down-menu"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Choose Year<span class="caret"></span>
@@ -32,7 +30,9 @@
                 <?php get_sidebar(); ?>
             </div>
         </div>
+        <div class="loader" id="loader"></div>
     </div>
+
 <?php get_footer(); ?>
 
 
@@ -45,8 +45,8 @@
 
         $('#year-dropdown li a').on('click', function(e) {
             e.preventDefault();
+            showLoader();
             let selected_year = $(this).data('value');
-            console.log("selected",selected_year);
 
             let ajaxUrl = '<?php echo admin_url( 'admin-ajax.php' );?>';
             $.ajax({
@@ -57,8 +57,8 @@
                     selected_year: selected_year
                 },
                 success:function(data){
+                    hideLoader();
                     removeOldData();
-                    console.log(data);
                     jQuery("#issue-box").html(data);
                 },
                 error: function(errorThrown){
@@ -69,7 +69,7 @@
         });
 
         $('#year-dropdown a').click(function(){
-            $('#year-drop-down-menu').text($(this).text());
+            $('#year-drop-down-menu').html($(this).text()+'<span class="caret caret-white"></span>');
         });
 
 
@@ -77,6 +77,14 @@
     
     function removeOldData() {
         jQuery(".issue").remove();
+    }
+
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
+
+    function hideLoader() {
+        document.getElementById("loader").style.display = "none";
     }
 
 

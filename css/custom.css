@@ -479,6 +479,28 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 
 .dropdown-width {
     width: 160px !important;
+    background-color: #e24321 ;
+    color: #fff;
+    border-color: #e24321;
+}
+
+.btn-default{
+    background-color: #e24321 !important;
+    color: #fff!important;
+}
+
+.btn-default:hover {
+    background-color: #e24321 !important;
+    color: #fff!important;
+}
+.btn-default:focus {
+    background-color: #e24321 !important;
+    color: #fff!important;
+}
+
+.caret-white{
+    border-top-color: white!important;
+    margin-left: 5px!important;
 }
 
 .issues-wrapper{
@@ -520,4 +542,22 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     font-size: 14px;
     color: darkgray;
     text-transform: none;
+}
+
+.loader {
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    z-index: 999;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #575757; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
