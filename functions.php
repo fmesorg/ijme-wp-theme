@@ -1703,3 +1703,20 @@ function generate_xml_btn(){
         <?php
     }
 }
+
+
+
+
+function display_year_issues(){
+        if(isset( $_POST['selected_year'])){
+            $selected_year = $_POST['selected_year'];
+        }else{
+            $selected_year = date("Y");
+        }
+
+        echo "<h2>displaying issues for year ".$selected_year."</h2>";
+        die();
+}
+
+add_action('wp_ajax_display_year_issues', 'display_year_issues');
+add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');

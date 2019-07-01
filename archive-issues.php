@@ -11,7 +11,7 @@
                             Select Year
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <ul class="dropdown-menu" id="year-dropdown" aria-labelledby="dropdownMenu1">
                             <li><a href="#">Current Year</a></li>
                             <li><a href="#">Last Year</a></li>
                             <li role="separator" class="divider"></li>
@@ -27,7 +27,7 @@
                     <div class="issues-wrapper">
                         <div class="">
                             <div class="row">
-                                <div class="issue-box">
+                                <div class="issue-box" id="issue-box">
                                             <?php
                                             global $post;
                                             $articles = get_posts(array(
@@ -72,19 +72,37 @@
     </div>
 <?php get_footer(); ?>
 
-<script>
-    jQuery(document).ready( function($) {
 
-        $.ajax({
-            type:'POST',
-            url: <?php echo admin_url('admin-ajax.php');?>,
-            data:{
-                selected_year:'2018'
-            },
-            success: function( data ) {
-                alert( 'ajax response success');
-            }
+<script type="text/javascript">
+    jQuery(function($) {
+
+        $('#year-dropdown li').on('click', function(e) {
+            e.preventDefault();
+            let selected_year = $(this).text();
+
+            let ajaxUrl = '<?php echo admin_url( 'admin-ajax.php' );?>';
+            $.ajax({
+                type:"POST",
+                url: ajaxUrl,
+                data: {
+                    action: "display_year_issues",
+                    selected_year: selected_year
+                },
+                success:function(data){
+                    removeOldData();
+                    console.log(data);
+                    jQuery("#issue-box").html(data);
+                },
+                error: function(errorThrown){
+                    alert(errorThrown);
+                }
+            });
+
         })
 
-    })
+    });
+    
+    function removeOldData() {
+        jQuery(".issue").remove();
+    }
 </script>
