@@ -82,8 +82,10 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
                     <div id="content">
                         <div class="addthis_container">
-                            <a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', '<?php echo get_the_title(); ?>')" onmouseout="addthis_close()" onclick="return addthis_sendto()"> <img src="https://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="Bookmark and Share" style="border:0;padding:0"> </a>
-                            <script type="text/javascript" src="https://s7.addthis.com/js/200/addthis_widget.js"></script>
+
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox"></div>
+
                         </div>
                         <?php
                         if(isset($_GET['galley']) && $_GET['galley'] == 'pdf') {
@@ -415,6 +417,8 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                     })
                 });
             </script>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d1b0148a07aaf99"></script>
         </div>
 	<div class="clearfix visible-xs visible-sm"></div>
     <div class="col-md-3">
