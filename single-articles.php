@@ -392,8 +392,14 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							<?php if( get_the_ID() != '16706' && !is_front_page()){  ?>
                             <div id="articleFullText">
                                 <h4>Full Text</h4>
-                                <a class="file" href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">HTML</a>
-                                <a class="file" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>">PDF</a>
+                                <?php
+                                $pdfUrl = add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) );
+                                $htmlUrl = add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) );
+                                ?>
+                                <a class="file" onclick="showSupportModal('<?php echo $htmlUrl ?>')" href="#">HTML</a>
+                                <?php if(!empty($pdfUrl)) { ?>
+                                    <a class="file" onclick="showSupportModal('<?php echo $pdfUrl?>')" href="#">PDF</a>
+                                <?php } ?>
                             </div>
                            <?php
                             if(get_ojs_article_ID(get_the_ID()) > 0 ){; ?>

@@ -196,7 +196,10 @@ function showCountryModal() {
         cancelButton: 'Cancel$$',
         closeOnClick:"body",
         confirm: function () {
-            window.open("https://www.payumoney.com/paybypayumoney/#/322913");
+            window.open("./support/");
+        },
+        onClose(){
+            window.open("./support/");
         },
         closeButton:"box",
         content:"$$Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
