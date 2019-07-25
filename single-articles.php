@@ -35,50 +35,6 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                 $volume = get_post_meta($issue_id,'volume',true);
                 ?>
                 <div id="main">
-				<?php if( get_the_ID() =='2177'){ ?>
-				
-					<div id="breadcrumb">
-					 <a href="<?php echo site_url(); ?>" >Home</a> &gt; 
-					 <a href="javascript:void(0)">About us</a> &gt; 
-					 <a href="javascript:void(0)">FMES</a> &gt; 
-					 <a href="javascript:void(0)">FMES Brochure</a>
-					</div>
-					
-				<?php }elseif( get_the_ID() =='2176' || get_the_ID() =='16745' || get_the_ID()== '17727'){ ?>
-					<div id="breadcrumb">
-					 <a href="<?php echo site_url(); ?>" >Home</a> &gt; 
-					 <a href="javascript:void(0)">About us</a> &gt; 
-					 <a href="javascript:void(0)">FMES</a> &gt; 
-					 <a href="javascript:void(0)">Annual Report</a>
-					</div>
-				<?php }else{ ?>
-				
-					<div id="breadcrumb">
-                        <a href="<?php echo site_url(); ?>" target="_parent">Home</a> 
-                        <?php if($volume) { ?>
-                        &gt;<a href="<?php echo get_permalink($issue_id); ?>" target="_parent"> Vol <?php echo get_post_meta($issue_id,'volume',true); ?>, No <?php echo get_post_meta($issue_id,'number',true); ?>  (<?php echo get_post_meta($issue_id,'year',true); ?>)</a> 
-                        <?php } elseif(get_post_type() == 'articles'){ 
-						$categories = get_the_category();
-						if ( ! empty( $categories ) ) {
-							$cat= esc_html( $categories[0]->name );  
-							if($cat=="Opportunities" ){ ?>
-							&gt; <a href="<?php echo site_url(); ?>/issues/opportunities/">Opportunities</a>
-								
-							<?php }					
-						} else{
-						?> 
-						&gt; <a href="<?php echo site_url(); ?>/issues/online-first/">Online First</a>
-						<?php 
-							}
-						}	?>
-						
-						<?php $authors = get_post_meta(get_the_ID(), 'authors', true); ?>
-							&gt; <a href="<?php echo get_permalink(); ?>"><?php echo $authors[0]['last_name'] ?></a>
-						<?php  ?>
-                        
-                    </div>
-
-				<?php } ?>
 
                     <div id="content">
                         <div class="addthis_container">

@@ -16,12 +16,7 @@ ob_start();
                 $volume = get_post_meta($issue_id,'volume',true);
                 ?>
                 <div id="main">
-				
-                    <div id="breadcrumb">
-                        <a href="<?php echo site_url(); ?>" target="_parent">Home</a> 
-						&gt; <a href="<?php echo get_permalink($issue_id); ?>" target="_parent"> Announcements </a>&gt; <a href="<?php echo get_permalink($issue_id); ?>" target="_parent"><?php the_title(); ?></a>
-                    </div>
-					
+
 					<div style="padding-bottom:15px"></div>
                    
                     <?php

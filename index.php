@@ -24,23 +24,7 @@
 						<div id="breadcrumb">
 							<!--a href="<?php //echo site_url(); ?>" class="current" target="_parent">Home</a-->  							
 							<?php $uri = $_SERVER['REQUEST_URI'];
-							$issue_id=get_the_ID();
-							$volume = get_post_meta(get_the_ID(),'volume',true);
-							if (strpos($uri, 'online-first') !== false) { ?>
-								<a href=" <?php echo get_permalink(); ?>" class="current" target="_parent">Online First</a>
-							<?php }elseif (strpos($uri, 'opportunities') !== false) { ?>
-								<a href="<?php echo site_url(); ?>/archives" class="current" target="_parent">Archives</a>
-								 &gt; <a href="<?php echo get_permalink(); ?>" class="current" target="_parent">Opportunities</a> 
-							<?php }elseif (strpos($uri, 'issues/fmes') !== false) { ?>
-								<a href="<?php echo site_url(); ?>/archives" class="current" target="_parent">Archives</a>		
-								&gt; <a href="<?php echo the_permalink(); ?>" class="current" target="_parent"><?php the_title(); ?> </a>			
-							<?php }elseif($volume) { ?>
-								<a href="<?php echo site_url(); ?>/archives" class="current" target="_parent">Archives</a>
-								 &gt; <a href="<?php echo get_permalink($issue_id); ?>" class="current" target="_parent">Vol <?php echo get_post_meta($issue_id,'volume',true); ?>, No <?php echo get_post_meta($issue_id,'number',true); ?>  (<?php echo get_post_meta($issue_id,'year',true); ?>)</a> 							
-							<?php } elseif(is_page()) { ?>
-								<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
-								<!--a href="<?php //echo the_permalink(); ?>" class="current" target="_parent"><?php //the_title(); ?> </a-->
-							<?php } ?>
+							 ?>
 							</a>							
 						</div> 
 						
@@ -99,7 +83,6 @@ echo "<div><br></div>"	;
                                                 <?php
                                                 $authors = get_post_meta($t_post->ID, 'authors', true);
                                                 $authors_array = array();
-												//print_r($authors);
 												if (is_array($authors)) {
                                                 foreach($authors as $author) $authors_array[] = $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
                                                 echo implode(', ',$authors_array);
