@@ -19,6 +19,14 @@
                         <div class="sidebar-box media-coverage">
                             <ul>
                                 <li style="padding-left: 0 !important;">
+                                    <a href="https://www.thehindu.com/opinion/op-ed/draft-new-education-policy-offers-contentious-remedies-for-a-structural-malady-in-medical-studies/article28701741.ece
+" target="_blank" style="font-weight: 300">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg"> George Thomas
+                                        <strong>Draft New Education Policy offers contentious remedies for a structural malady in medical studies</strong>
+                                        <em>The Hindu </em> July 25, 2019:
+                                        Read More..</a>
+                                </li>
+                                <li style="padding-left: 0 !important;">
                                     <a href="https://www.thehindu.com/news/cities/mumbai/should-doctors-go-beyond-advising-patients/article28630056.ece
 " target="_blank" style="font-weight: 300">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg"> Jyoti Shelar. <strong>Should doctors go beyond advising patients?</strong> <em>The Hindu </em> July 22, 2019:
