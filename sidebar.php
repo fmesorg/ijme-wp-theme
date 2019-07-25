@@ -18,7 +18,13 @@
                     <div class="panel-body">
                         <div class="sidebar-box media-coverage">
                             <ul>
-                            <li style="padding-left: 0 !important;"><img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg"> Sarah Newey. <strong>Students paid up to £3,500 to catch potentially deadly diseases for science.</strong> <em>The Telegraph.</em> February 6, 2019: 
+                                <li style="padding-left: 0 !important;">
+                                    <a href="https://www.thehindu.com/news/cities/mumbai/should-doctors-go-beyond-advising-patients/article28630056.ece
+" target="_blank" style="font-weight: 300">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg"> Jyoti Shelar. <strong>Should doctors go beyond advising patients?</strong> <em>The Hindu </em> July 22, 2019:
+                                    Read More..</a></li>
+
+                            <li style="padding-left: 0 !important;">Sarah Newey. <strong>Students paid up to £3,500 to catch potentially deadly diseases for science.</strong> <em>The Telegraph.</em> February 6, 2019:
                               <a href="https://www.telegraph.co.uk/news/0/students-paid-3500-catch-potentially-deadly-diseases-science/amp/?__twitter_impression=true" target="_blank">https://www.telegraph.co.uk/news/0/students-paid-3500-catch-potentially-deadly-diseases-science/amp/?__twitter_impression=true</a></li>
                             
                             <li style="padding-left: 0 !important;"> All India Drug Action Network (AIDAN): <strong><a href="/press-release/" target="_blank">Press Release - Patients affected by Johnson & Johnson faulty ASR hip implants demand seat at the table in deciding their fate; demand accountability and ask for participation in the process.</a></strong> September 15, 2018.</li>

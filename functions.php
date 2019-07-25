@@ -382,13 +382,13 @@ function render_issues_metabox($post) {
 					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
 						$articles_id	= array();
 					}
-
+					
 					if((isset($articles_id)) && (!empty($articles_id))) { 
 						$strArticalList	= implode(',',$articles_id);
-
+						 
 						foreach($articles_id as $id) {
 							$t_post = get_post($id);
-
+							
 							/* $category = get_the_category($t_post->ID);
 							if(!isset($category_array[$category[0]->cat_name]))
 							$category_array[$category[0]->cat_name] = array();
@@ -483,10 +483,9 @@ function save_issues_meta_box( $post_id ) {
 	
 	$articles = explode(",", $_POST["article_order"]);
 	$articles = array_unique($articles);
-
-	if($articles[0]!="") {
-		update_post_meta($post_id, 'articles', $articles);	
-	}
+    if($articles[0]!="") {
+        update_post_meta($post_id, 'articles', $articles);
+    }
 	
 	update_post_meta($post_id, 'number', $_POST['number']);
 	update_post_meta($post_id, 'volume', $_POST['volume']);
@@ -812,7 +811,7 @@ function render_articles_metabox($post) {
 					$issue_id = get_post_meta($post->ID, 'issue_post_id', true);
 					$all_issues = get_posts(array(
 										'post_type'=>'issues',
-										'post_status'=>'publish',
+										'post_status'=>'any',
 										'posts_per_page' => -1
 									));
 					?>
