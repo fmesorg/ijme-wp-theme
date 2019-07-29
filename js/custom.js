@@ -196,10 +196,10 @@ function showCountryModal() {
         cancelButton: 'Cancel$$',
         closeOnClick:"body",
         confirm: function () {
-            window.open("./support/");
+            window.open("./support/","_self");
         },
         onClose(){
-            window.open("./support/");
+            window.open("./support/","_self");
         },
         closeButton:"box",
         content:"$$Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
