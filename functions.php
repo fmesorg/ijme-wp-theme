@@ -47,6 +47,7 @@ function enqueue_front_end_scripts() {
     wp_enqueue_style( 'sidebar', THEME_URL . '/css/sidebar.css' );
     wp_enqueue_style( 'rightSidebar', THEME_URL . '/css/rightSidebar.css' );
     wp_enqueue_style( 'custom', THEME_URL . '/css/custom.css', [], '4.6.10' );
+    wp_enqueue_style( 'g-font','https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 
     wp_enqueue_style( 'owl-theme', THEME_URL . '/css/owl.theme.css' );
     wp_enqueue_style( 'owl-css', THEME_URL . '/css/owl.carousel.css' );
@@ -1783,3 +1784,54 @@ function get_issue_quarter($i){
             break;
     }
 }
+
+// Product Custom Post Type
+function blog_init() {
+    // set up product labels
+    $labels = array(
+        'name' => 'Blogs',
+        'singular_name' => 'Blog',
+        'add_new' => 'Add New Blog Post',
+        'add_new_item' => 'Add New Blog Post',
+        'edit_item' => 'Edit Blog',
+        'new_item' => 'New Post',
+        'all_items' => 'All Blog Posts',
+        'view_item' => 'View Blog Post',
+        'search_items' => 'Search Posts',
+        'not_found' =>  'No Blog Post Found',
+        'not_found_in_trash' => 'No Post found in Trash',
+        'parent_item_colon' => '',
+        'menu_name' => 'Blogs',
+    );
+
+    // register post type
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'blog'),
+        'query_var' => true,
+        'menu_icon' => 'dashicons-randomize',
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'custom-fields',
+            'comments',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes'
+        )
+    );
+    register_post_type( 'blog', $args );
+
+    // register taxonomy
+    register_taxonomy('blog_category', 'blog', array('hierarchical' => true, 'label' => 'Category', 'query_var' => true, 'rewrite' => array( 'slug' => 'blog-category' )));
+}
+add_action( 'init', 'blog_init' );
+
+
