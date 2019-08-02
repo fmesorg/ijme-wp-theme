@@ -13,6 +13,7 @@
 
 </head>
 <body>
+
 <div class="container">
 
     <div class="jumbotron overlay-darker">
@@ -45,7 +46,9 @@
         <?php endwhile; endif; ?>
     </div>
 
-</div>
+
+
+    </div>
 <?php get_footer();?>
 </body>
 </html>
