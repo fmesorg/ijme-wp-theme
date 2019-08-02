@@ -27,7 +27,7 @@
                 <div class="padding-sub-featured">
                     <div class="blog-post-summary">
                         <strong class="d-inline-block mb-2 text-primary">Category</strong>
-                        <h3 class="mb-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                        <h3 class="mb-0"><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(),5); ?></a></h3>
                         <div class="text-muted">
                             <?php echo date("F j, Y", strtotime($post->post_date)); ?></div>
                         <div class="sub-featured-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></div>

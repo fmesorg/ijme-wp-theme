@@ -282,3 +282,7 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 .blog-post-summary{
     flex:1;
 }
+
+.sub-featured-continue{
+    margin-bottom: 5px;
+}
