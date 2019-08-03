@@ -39,7 +39,6 @@
                 </div>
                 <div class="sub-featured-image">
                     <a href="<?php the_permalink();?>">
-<!--                    <img src="--><?php //echo get_template_directory_uri();?><!--/images/image-placeholder.svg" alt="...">-->
                     </a>
                 </div>
             </div>
