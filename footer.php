@@ -21,7 +21,7 @@
         </div>
     </div>
         <div id = "paymentFooterContainer">
-            <div id="paymentFooter">Click here to support US &nbsp;a
+            <div id="paymentFooter">Click here to support US &nbsp;
                <button class="btn" onclick="showCountryModal()" >Support Us</button></>
             </div>
 <!--            <div id="footerClose" onclick="hideBox()">Close</div>-->
