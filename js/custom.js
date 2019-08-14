@@ -196,12 +196,14 @@ function showCountryModal() {
         cancelButton: 'Cancel',
         closeOnClick:"body",
         confirm: function () {
-            window.open("./support/","_self");
+            window.open("/index/support/","_self");
         },
-        onClose(){
-            window.open("./support/","_self");
+        cancel:function (){
+            window.open("/index/subscribe/","_self");
         },
         closeButton:"box",
         content:"Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
-    }).open();
+    });
+
+    countryBox.open();
 }

@@ -146,9 +146,13 @@ echo "<div><br></div>"	;
 										
                                         <a class="tocAbstract" href="<?php echo get_permalink($t_post->ID); ?>">Abstract</a>
 										<?php } ?>
-                                        <a class="tocGalleyFile" href="<?php echo add_query_arg( 'galley', 'html', get_permalink($t_post->ID) ); ?>">Full text</a>
+                                        <?php
+                                        $pdfUrl = add_query_arg( 'galley', 'pdf', get_permalink($t_post->ID));
+                                        $htmlUrl = add_query_arg( 'galley', 'html', get_permalink($t_post->ID));
+                                        ?>
+                                        <a class="tocGalleyFile" onclick="showSupportModal('<?php echo $htmlUrl ?>')" href="#">Full text</a>
                                         <?php if(get_post_meta($t_post->ID,'pdf_file',true)) { ?>
-                                        <a class="tocGalleyFile" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink($t_post->ID) ); ?>">PDF</a>
+                                        <a class="tocGalleyFile" onclick="showSupportModal('<?php echo $pdfUrl?>')" href="#">PDF</a>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -157,7 +161,7 @@ echo "<div><br></div>"	;
 						}
                     }
 
-					 
+
 					// Code for current issue
 					if(get_post_type() == 'issues' && !is_archive() && get_the_ID() != 4) {
 
@@ -235,9 +239,14 @@ echo "<div><br></div>"	;
 										
                                         <a class="tocAbstract" href="<?php echo get_permalink($t_post->ID); ?>">Abstract</a>
 										<?php } ?>
-                                        <a class="tocGalleyFile" href="<?php echo add_query_arg( 'galley', 'html', get_permalink($t_post->ID) ); ?>">Full text</a>
-                                        <?php if(get_post_meta($t_post->ID,'pdf_file',true)) { ?>
-                                        <a class="tocGalleyFile" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink($t_post->ID) ); ?>">PDF</a>
+                                    <?php
+                                    $pdfUrl = add_query_arg( 'galley', 'pdf', get_permalink($t_post->ID));
+                                    $htmlUrl = add_query_arg( 'galley', 'html', get_permalink($t_post->ID));
+                                    ?>
+                                    <a class="tocGalleyFile" onclick="showSupportModal('<?php echo $htmlUrl ?>')" href="#">Full text</a>
+                                    <?php if(get_post_meta($t_post->ID,'pdf_file',true)) { ?>
+                                        <a class="tocGalleyFile" onclick="showSupportModal('<?php echo $pdfUrl?>')" href="#">PDF</a>
+                                    <?php } ?>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -342,7 +351,7 @@ echo "<div><br></div>"	;
                 <?php
                 
                 
-            } // end while
+            // end while
         } // end if
         ?>        
     </div>
