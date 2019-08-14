@@ -183,7 +183,7 @@ function showSupportModal(url) {
             window.location = url;
         },
         closeButton:"box",
-        content: "Please Support us to continue publishing such articles."
+        content: "As a reader you can also support IJME in bringing the articles and issues to everyone for free - by paying small voluntary amounts as a reader fee."
     });
 
     confirmBox.open();
@@ -202,7 +202,7 @@ function showCountryModal() {
             window.open("/index/subscribe/","_self");
         },
         closeButton:"box",
-        content:"Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
+        content:"Currently we are able to accept support only from Indian Readers, Please continue if you are from India."
     });
 
     countryBox.open();
