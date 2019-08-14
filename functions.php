@@ -1464,10 +1464,12 @@ function post_xml_generator( $data ) {
 
             $firstname      = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_first_name",true);
             $lastname       = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_last_name",true);
+            $middleName     = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_middle_name",true);
             $affilitation   = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_affiliation",true);
 
 
             $Author->appendChild($xml->createElement("FirstName",$firstname));
+            $Author->appendChild($xml->createElement("MiddleName",$middleName));
             $Author->appendChild($xml->createElement("LastName", $lastname));
             $Author->appendChild($xml->createElement("Affiliation", htmlentities($affilitation,ENT_COMPAT,'UTF-8')));
 
@@ -1514,6 +1516,7 @@ function issue_xml_generator( $data ) {
 
     $args = array(
         'numberposts'	=> -1,
+        'posts_per_page'=>'-1',
         'post_type'		=> 'articles',
         'meta_key'		=> 'issue_post_id',
         'meta_value'	=> $issue_id
@@ -1534,6 +1537,8 @@ function issue_xml_generator( $data ) {
 
     $PubYear = get_post_meta($issue_id,'pubYear',true);  //add in wp issue
     $PubMonth = get_post_meta($issue_id,'pubMonth',true); // add in wp issue
+    $Issue_volume = get_post_meta($issue_id,'issue_volume',true); // add in wp issue
+    $Issue_number = get_post_meta($issue_id,'issue_number',true); // add in wp issue
 
 
 // query
@@ -1561,18 +1566,18 @@ function issue_xml_generator( $data ) {
         $abstract           =   get_post_meta($post_id, 'xml_abstract',true);
         $pubmedId           =   get_post_meta($post_id, 'issue_xml_pubmed_id',true);
 
-        if(!empty(get_post_meta($issue_id, 'issue_id',true))){
-            $issue =   get_post_meta($issue_id, 'issue_id', true);
-
-        }else{
-            $issue = "-";
-        }
-
-        if(!empty(get_post_meta($issue_id, 'volume', true))){
-            $volume =   get_post_meta($issue_id, 'volume', true);
-        }else{
-            $volume             =   "-";
-        }
+//        if(!empty(get_post_meta($issue_id, 'issue_id',true))){
+//            $issue =   get_post_meta($issue_id, 'issue_id', true);
+//
+//        }else{
+//            $issue = "-";
+//        }
+//
+//        if(!empty(get_post_meta($issue_id, 'volume', true))){
+//            $volume =   get_post_meta($issue_id, 'volume', true);
+//        }else{
+//            $volume             =   "-";
+//        }
 
 
 
@@ -1586,8 +1591,8 @@ function issue_xml_generator( $data ) {
         $PublisherName  = $xml->createElement("PublisherName",$publisher_name);
         $JournalTitle   = $xml->createElement("JournalTitle",$journal_title);
         $Issn           = $xml->createElement("Issn",$issn); //this value need to be added to wordpress so that we can fetch from the db
-        $Volume         = $xml->createElement("Volume",$volume);
-        $Issue          = $xml->createElement("Issue",$issue);
+        $Volume         = $xml->createElement("Volume",$Issue_volume);
+        $Issue          = $xml->createElement("Issue",$Issue_number);
         $journal->appendChild($PublisherName);
         $journal->appendChild($JournalTitle);
         $journal->appendChild($Issn);
@@ -1635,10 +1640,12 @@ function issue_xml_generator( $data ) {
 
                 $firstname      = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_first_name",true);
                 $lastname       = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_last_name",true);
+                $middleName     = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_middle_name",true);
                 $affilitation   = get_post_meta($post_id ,"xml_authors_".$i."_xml_author_affiliation",true);
 
 
                 $Author->appendChild($xml->createElement("FirstName",$firstname));
+                $Author->appendChild($xml->createElement("MiddleName",$middleName));
                 $Author->appendChild($xml->createElement("LastName", $lastname));
                 $Author->appendChild($xml->createElement("Affiliation", htmlentities($affilitation,ENT_COMPAT,'UTF-8')));
             }
