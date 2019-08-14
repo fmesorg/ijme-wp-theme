@@ -331,7 +331,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 .icon-bar{background-color:#000000!important;}
 
 .main-container-background{
-    background-color: #FBFBFB;
+    background-color: #e2e2e2;
     margin-top: 5px;
 }
 
@@ -404,9 +404,22 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     list-style-type: none;
 }
 
+@media all and (max-width:786px) {
+
+    .footer-nav-menu{
+        flex-direction: column;
+    }
+}
+
 .footer-nav-menu>li>a{
     color: white;
     padding-left: 50px;
+}
+
+@media all and (max-width:786px ){
+    .footer-nav-menu>li>a{
+        padding-left: 0px;
+    }
 }
 
 
@@ -428,9 +441,16 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 
 .footer-social-container{
     position: relative;
-    bottom: 30px;
+    bottom: -25px;
     color: white;
-    padding:0px 10px;
+    margin-left:20px;
+}
+
+@media all and (max-width:786px){
+    .footer-social-container{
+        bottom: 10px;
+        font-size: smaller;
+    }
 }
 
 .footer-copys{
@@ -442,6 +462,12 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     width: 100%!important;
     float: right!important;
     padding-right: 30px;
+}
+
+@media all and (max-width: 786px){
+    .social-links{
+        margin-top: 5px;
+    }
 }
 
 .company-link{

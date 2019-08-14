@@ -12,7 +12,11 @@ get_header(); ?>
             <div id="main">
 
                 <div id="content">
-                    <div>
+                    <div class="carousel-container">
+                        <div class="main-carousel">
+                            <?php get_template_part('template-parts/home-carousel-content');?>
+                        </div>
+                    </div>
                         <div class="col-md-12 home-text ">
                             <div class="col-md-9">
                                 <h3>IJME</h3>
@@ -212,9 +216,6 @@ get_header(); ?>
 
 
                     </div>
-                    <!--        <div class="col-md-4 pd-xs-0"><div id="sidebar">-->
-                    <?php //get_sidebar();?><!--</div></div>-->
-
                 </div>
             </div>
         </div>

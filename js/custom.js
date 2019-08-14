@@ -159,6 +159,14 @@ jQuery(document).ready(function($) {
 	singleItem:false
 	});
 
+	//Carousel on Homepage
+    $('.main-carousel').flickity({
+        // options
+        cellAlign: 'center',
+        wrapAround: true,
+        contain: true
+    });
+
 });
 
 function show_submission_closed_modal() {
@@ -202,3 +210,5 @@ function showCountryModal() {
         content:"$$Currently we are able to accept support only from Indian Readers, If you are Indian please click continue."
     }).open();
 }
+
+

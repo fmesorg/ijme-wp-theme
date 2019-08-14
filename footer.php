@@ -32,7 +32,6 @@
                 <a href="#scroll-to-top"><img src="<?php echo THEME_URL; ?>/images/scroll-to-top-btn.png"></a>
                 <!--<script src="http://ijme.in/js/custom.js"></script>-->
             </div>
-        </div>
         <div class="footer-social-container">
             <div class="footer-copys">
                 &copy <?php echo date('Y'); ?>. All rights reserved | Designed &amp; Developed by <a class="company-link" href="/about-us/fmes/overview/" target="_blank">FMES</a> | <a class="company-link" href="http://ijme.in/index.php/ijme/pages/view/disclaimer">Disclaimer</a>
@@ -43,6 +42,8 @@
                 <a href="https://twitter.com/indjmedethics" target="_blank"><img src="<?php echo THEME_URL; ?>/images/twitter.png"></i></a>
             </div>
         </div>
+        </div>
+
         <?php
 
         wp_footer();
