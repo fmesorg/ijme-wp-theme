@@ -7,7 +7,7 @@ define('IJME_URL', get_site_url ().'/submission');
 define('ISSN', '0975-5691');
 
 function ijme_theme_setup() {
-    add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );	
 }
 add_action( 'after_setup_theme', 'ijme_theme_setup' );
 
@@ -34,13 +34,13 @@ require_once('wp_bootstrap_navwalker.php');
  * Enqueue scripts and styles for front end
  */
 function enqueue_front_end_scripts() {
-
-
+    
+    
     wp_enqueue_style( 'pkp-common', THEME_URL . '/css/pkp-common.css', [], '4.7.0' );
     wp_enqueue_style( 'rt', THEME_URL . '/css/rt.css' );
-
-    wp_enqueue_style( 'common-pkp', THEME_URL . '/css/common.css', [], '4.8.1' );
-
+    
+	wp_enqueue_style( 'common-pkp', THEME_URL . '/css/common.css', [], '4.8.1' );
+    
     wp_enqueue_style( 'compiled', THEME_URL . '/css/compiled.css' );
     wp_enqueue_style( 'bootstrap', THEME_URL . '/css/bootstrap.min.css' );
 
@@ -386,13 +386,13 @@ function render_issues_metabox($post) {
 					if(isset($articles_id[0]) && (!is_numeric($articles_id[0]))){
 						$articles_id	= array();
 					}
-
-					if((isset($articles_id)) && (!empty($articles_id))) {
+					
+					if((isset($articles_id)) && (!empty($articles_id))) { 
 						$strArticalList	= implode(',',$articles_id);
-
+						 
 						foreach($articles_id as $id) {
 							$t_post = get_post($id);
-
+							
 							/* $category = get_the_category($t_post->ID);
 							if(!isset($category_array[$category[0]->cat_name]))
 							$category_array[$category[0]->cat_name] = array();
@@ -484,13 +484,12 @@ function render_issues_metabox($post) {
 //savign the ordered articles for an issue. update the new order for an issue(post) key as "articles"
 function save_issues_meta_box( $post_id ) {
     if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'issues_meta_box_nonce' ) ) return;
-
-    $articles = explode(",", $_POST["article_order"]);
-    $articles = array_unique($articles);
-
-	if($articles[0]!="") {
-		update_post_meta($post_id, 'articles', $articles);
-	}
+	
+	$articles = explode(",", $_POST["article_order"]);
+	$articles = array_unique($articles);
+    if($articles[0]!="") {
+        update_post_meta($post_id, 'articles', $articles);
+    }
 	
 	update_post_meta($post_id, 'number', $_POST['number']);
 	update_post_meta($post_id, 'volume', $_POST['volume']);
