@@ -23,14 +23,15 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
 <?php get_header(); ?>
 
-<div class="row">
-    <div class="col-md-9">
+<div class="row dp-flex">
+    <div class="col-md-9 blocks margin-lr-10">
+        <div class="col-md-12">
 	
-        <?php 
+        <?php
         if ( have_posts() ) {
             while ( have_posts() ) {
                 the_post();
-                
+
                 $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                 $volume = get_post_meta($issue_id,'volume',true);
                 ?>
@@ -48,12 +49,12 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             $pdf_file = get_post_meta(get_the_ID(),'pdf_file',true);
                             if( $pdf_file ) {
                             ?>
-							
+
                             <div id="pdfDownloadLinkContainer">
                                 <a class="action pdf" id="pdfDownloadLink" target="_parent" onclick="ga('send', 'event','pdf', 'downloads', 'pdf downloads', 0,{'nonInteraction': 1})" href="<?php echo $pdf_file; ?>">Download this PDF file</a>
                             </div>
 							<div>
-								<p><?php if(get_field('doi')){ ?> 
+								<p><?php if(get_field('doi')){ ?>
 										DOI: <a href="<?php the_field('doi_link'); ?>" class="doi"><?php the_field('doi'); ?></a>
 									<?php } else { ?>
 									<?php } ?>
@@ -66,14 +67,14 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 							<?php
                                     $authors = get_post_meta(get_the_ID(), 'authors', true);
 									?>
-									
+
 							<div class="separator"><br></div>
 							<div class="visible-xs visible-sm">
 							<iframe id="pdfviewer" src="https://docs.google.com/gview?embedded=true&url=<?php echo $pdf_file; ?>&amp;embedded=true"
 							frameborder="0" width="100%" height="400px"></iframe>
 							</div>
 							<?php if( get_the_ID() == '2176' || get_the_ID() == '16745' || get_the_ID() == '17727' ){
-							
+
 							}else{ ?>
                                     <div class="author-section-bottom">
                                         <div class="blockTitle"> About the Authors </div>
@@ -172,7 +173,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                           <?php  }
                             else{
                             }?>
-							
+
                             <script>
                                 jQuery(document).ready(function($){$(".section").first().prepend($(".about-author-content").html());});
                             </script>
@@ -185,7 +186,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                         <a href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>" class="file" target="_parent">PDF</a><br>
                                     </div>
                                     <?php } ?>
-                                    
+
                                     <script>
                                         jQuery(document).ready(function($) {
                                             $('a.new-window').click(function() {
@@ -215,12 +216,12 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                     </div>
                                     <div class="articleToolItem">
                                         <img src="<?php echo THEME_URL; ?>/images/postComment.png" class="articleToolIcon">
-                                        <a href="#comments">Post a Comment</a> 
+                                        <a href="#comments">Post a Comment</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="singleContentArticle"><?php the_content(); ?></div>
-							
+
 							<?php
                                     $authors = get_post_meta(get_the_ID(), 'authors', true);
                             if(empty($authors)){
@@ -230,7 +231,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                 ?>
 							    <div class="author-section-bottom">
 								<div class="blockTitle"> About the Authors </div>
-								
+
 								<?php }
 									$authors = get_post_meta(get_the_ID(), 'authors', true);
 									$out = array();
@@ -252,9 +253,9 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 									<?php }} ?>
 
 
-									<?php if(get_field('manuscript_editor')){ ?> 
+									<?php if(get_field('manuscript_editor')){ ?>
 										<p style="color:#595959"><b>Manuscript Editor: </b> <?php the_field('manuscript_editor'); ?> </p>
-										
+
 									<?php } ?>
                                <?php
                                 $peers = get_post_meta(get_the_ID(), 'peers', true);
@@ -319,11 +320,11 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                             <br/>
 							<?php if( get_the_ID() == '16706' && !is_front_page() ){  ?>
                             <div id="articleAbstract1" style = "padding: 30px 0 0px !important;">
-                                
-							<?php }else{ ?> 
+
+							<?php }else{ ?>
 							<div id="articleAbstract">
-                                <h4>Abstract</h4>	
-							<?php } ?> 
+                                <h4>Abstract</h4>
+							<?php } ?>
                                 <div><?php the_excerpt(); ?></div>
                             </div>
 							<?php if( get_the_ID() != '16706' && !is_front_page()){  ?>
@@ -350,43 +351,50 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                 <?php
 
                         }
-                        
+
                         ?>
-                        
+
                         <?php if(get_post_type() == 'page') the_content(); ?>
                     </div><!--content-->
                 </div><!--main-->
-                
+
                 <div class="clearfix"></div>
-                <?php                
+                <?php
                 comments_template();
-                
+
             } // end while
         } // end if
-        ?>        
-    </div>
-        <div class="col-md-3 article-count-container">
-            <script>
-                jQuery(document).ready(function($) {
-                    let post_slug = "<?php echo $slug = get_post_field( 'post_name', get_post() ); ?>";
-                    url = "/ArticleCountAPI/article_count_api.php?article_name="+post_slug;
-                    $.get(url,function (data) {
-                        $(".result").html(data);
-                        document.getElementById('place-holder').classList.remove('lds-ellipsis') ;
-                        document.getElementById('article_count').innerText = JSON.parse(data).pageView;
-                        document.getElementById('pdf-place-holder').classList.remove('lds-ellipsis') ;
-                        document.getElementById('pdfDownloadCount').innerText = JSON.parse(data).pdfView;
-                    })
-                });
-            </script>
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d1b0148a07aaf99"></script>
+        ?>
         </div>
-	<div class="clearfix visible-xs visible-sm"></div>
-    <div class="col-md-3">
+            <div class="col-md-3 article-count-container">
+                <script>
+                    jQuery(document).ready(function($) {
+                        let post_slug = "<?php echo $slug = get_post_field( 'post_name', get_post() ); ?>";
+                        url = "/ArticleCountAPI/article_count_api.php?article_name="+post_slug;
+                        $.get(url,function (data) {
+                            $(".result").html(data);
+                            document.getElementById('place-holder').classList.remove('lds-ellipsis') ;
+                            document.getElementById('article_count').innerText = JSON.parse(data).pageView;
+                            document.getElementById('pdf-place-holder').classList.remove('lds-ellipsis') ;
+                            document.getElementById('pdfDownloadCount').innerText = JSON.parse(data).pdfView;
+                        })
+                    });
+                </script>
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d1b0148a07aaf99"></script>
+            </div>
+        </div>
+
+
+<!--            <div class="clearfix visible-xs visible-sm"></div>-->
+
+
+    <div class="col-md-3 blocks">
         <?php get_sidebar(); ?>
     </div>
+
 </div>
+
 
 
 <?php get_footer(); ?>

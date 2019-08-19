@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<div class="row">
-    <div class="col-md-9">
+<div class="row dp-flex">
+    <div class="col-md-9 blocks margin-lr-10">
         <?php 
         if ( have_posts() ) {
             while ( have_posts() ) {
@@ -339,7 +339,7 @@ echo "<div><br></div>"	;
         ?>        
     </div>
 	<div class="clearfix visible-xs visible-sm"></div>
-    <div class="col-md-3">
+    <div class="col-md-3 blocks">
         <?php get_sidebar(); ?>
     </div>
 </div>

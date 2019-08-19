@@ -80,12 +80,12 @@
 	
         <div class="container">
             
-            <div class="row header">
-		      <div class="col-md-12 i-header-banner">                    
-                </div>
-                
-            </div>
-            <div class="row">
+<!--            <div class="row header">-->
+<!--		      <div class="col-md-12 i-header-banner">                    -->
+<!--                </div>-->
+<!--                -->
+<!--            </div>-->
+            <div class="row background-white">
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo"><a
                             href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg"
                                                                   alt="Page Header"></a>

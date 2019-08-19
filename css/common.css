@@ -390,8 +390,8 @@ blockquote p{
 .issue-thumb {
 	border: 1px solid #d0d0d0;}
 .blocks {
-	border: none; border-radius: 5px;	padding: 14px 14px 0;	margin-bottom: 12px;
-	margin-top: 10px;
+	border: none;	padding: 14px 14px 0;	margin-bottom: 12px;
+	margin-top: 5px;
 	padding-bottom: 14px; background-color: #fff}
 .blocks h4 
 	color: #df1f1f;}
@@ -532,7 +532,7 @@ font-style: italic;
 	padding-bottom: 20px; padding-right:15px;}
 .home-current-online .blocks {
 	/*margin: 0 !important;*/
-	margin-top: 15px!important;
+	margin-top: 5px!important;
 }
 .home-text {
 	padding-top: 15px;}
@@ -1498,4 +1498,5 @@ display: none;
 		height: auto !important;
 	}
 }
+
 

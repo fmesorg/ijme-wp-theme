@@ -4,15 +4,15 @@
  */
 get_header(); ?>
 
-    <div class="container main-container">
+    <div class="main-container">
     <div class="row main-container-background">
 
 
-        <div class="col-md-12">
+        <div class="margin-lr-10">
             <div id="main">
 
                 <div id="content">
-                    <div class="carousel-container">
+                        <div class="carousel-container">
                         <div class="main-carousel">
                             <?php get_template_part('template-parts/home-carousel-content');?>
                         </div>
@@ -26,25 +26,9 @@ get_header(); ?>
                             <div class="col-md-3 header-advertisement">Advertisement</div>
                         </div>
                         <div class="row home-current-online">
-                            <div class="col-md-9">
-                                <div class="col-md-12 blocks">
-                                    <div class="announcement">
-                                        <div class="title-bar-home col-md-8">
-                                            <h3><a href="/announcements/">Events & Announcements</a></h3>
-                                            <div>
-                                                <?php get_template_part('template-parts/events-announcements');?>
-                                            </div>
-                                        </div>
-                                        <div class="title-bar-home col-md-4 news-block">
-                                            <h3><a href="/issues/online-first/">News</a></h3>
-                                            <div>
-                                                <?php get_template_part('template-parts/news');?>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
+<!--                            Left Column -->
+                            <div class="col-md-9 pd-r-5">
+<!--    Online first -->
                                 <div class="col-md-12 pd-xs-0 blocks">
                                     <div id="online_first" class="blocks online-first">
                                         <div class="title-bar-home"><h3><a href="/issues/online-first/"> Online
@@ -132,7 +116,73 @@ get_header(); ?>
                                         </div>
                                     </div>
                                 </div>
+<!--                                Blogs -->
+                                <div class="col-md-12 pd-xs-0 blocks">
+                                    <div >
+                                        <div class="title-bar-home"><h3><a href="/blog"> Blogs</a></h3></div>
+                                        <?php
+                                        global $post;
+                                        $blogs = get_posts(array(
+                                            'posts_per_page' => 4,
+                                            'post_type' => 'blog'
+                                        ));
+
+                                        if ($blogs) {
+                                            foreach ($blogs as $post) :
+                                                setup_postdata($post);
+                                                ?>
+                                                <div class="article-list-item">
+
+                                                    <h4 class="home-article-title"><a href="<?php the_permalink(); ?>">
+
+                                                            <?php
+                                                            $new_post = get_post_meta($post->ID, 'show_new_button', true);
+                                                            if ($new_post == 1) {
+                                                                ?>
+                                                                <img src="<?php echo get_template_directory_uri(); ?>/images/tag-new-icon.jpg"/>
+                                                            <?php } ?>
+
+                                                            <?php echo wp_trim_words(get_the_title(), 8); ?></a></h4>
+
+                                                    <div class="authorsName onlineFirst">
+                                                        <p class="online-first-date pull-right">
+                                                            <?php echo date('F d, Y', strtotime($post->post_date)); ?>
+                                                        </p>
+                                                    </div>
+
+
+                                                    <?php echo wp_trim_words(get_the_excerpt(), 40); ?>
+                                                    <?php if (get_the_ID() != '16706') { ?>
+                                                        <div class="extraLinks">
+                                                            <?php $uri = $_SERVER['REQUEST_URI'];
+                                                            if (strpos($uri, 'opportunities') !== false || strpos($uri, 'issues/fmes') !== false) {
+
+                                                            } else { ?>
+
+                                                                <a class=""
+                                                                   href="<?php echo get_permalink($post->ID); ?>">Read More...</a>
+                                                            <?php }
+                                                            ?>
+                                                        </div>
+                                                    <?php } ?>
+                                                </div>
+                                            <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        }
+
+                                        ?>
+
+                                    </div>
+                                </div>
+<!--    About Us -->
+                                <div class="col-md-12 pd-xs-0 blocks">
+                                    <div >
+                                        <div class="title-bar-home"><h3><a href="#"> About Us</a></h3></div>
+                                    </div>
+                                </div>
                             </div>
+<!--                            Right Column -->
                             <div class="col-md-3 pd-xs-0 current-issue-panel blocks">
                                 <div class="current-issue">
                                     <?php
@@ -211,8 +261,26 @@ get_header(); ?>
                                     </div>
                                 </div>
                             </div>
-
+<!--                            Events & Announcement -->
+                            <div class="col-md-3 blocks">
+                                <div class="title-bar-home col-md-12">
+                                    <h3><a href="/announcements/">Events & Announcements</a></h3>
+                                    <div>
+                                        <?php get_template_part('template-parts/events-announcements');?>
+                                    </div>
+                                </div>
+                            </div>
+<!--                            News -->
+                            <div class="col-md-3 pd-xs-0 blocks pull-right">
+                                <div class="title-bar-home col-md-12">
+                                    <h3><a href="/issues/online-first/">News</a></h3>
+                                    <div>
+                                        <?php get_template_part('template-parts/news');?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
 
 
                     </div>
