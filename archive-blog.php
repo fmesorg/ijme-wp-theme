@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container background-white margin-top-5">
 
     <div class="jumbotron overlay-darker">
         <h1 class="featured-title">Hello, world!</h1>

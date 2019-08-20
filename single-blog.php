@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="blog-page-container">
+<div class="blog-page-container background-white">
     <div class="jumbotron overlay-dark">
         <div class="blog-title">
             <h2><?php the_title(); ?></h2>

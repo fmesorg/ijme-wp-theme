@@ -393,7 +393,7 @@ blockquote p{
 	border: none;	padding: 14px 14px 0;	margin-bottom: 12px;
 	margin-top: 5px;
 	padding-bottom: 14px; background-color: #fff}
-.blocks h4 
+.blocks h4 {
 	color: #df1f1f;}
 /* Reference */
 .well {
@@ -1496,6 +1496,10 @@ display: none;
 	}
 	.i-header-logo img {
 		height: auto !important;
+	}
+
+	.events-announcements{
+		margin-right: 5px!important; margin-left: 15px!important;
 	}
 }
 

@@ -96,7 +96,10 @@ table.responsive-table{width:100%!important;table-layout:fixed}
 @media(max-width: 767px) {
 .navbar-brand{display:block}
 #myModal:before{height:36%}
-.home-current-online .current-issue-panel{margin-bottom:10px!important}
+.home-current-online .current-issue-panel{margin-bottom:10px!important;margin-right: 5px!important; margin-left: 15px!important;}
+.events-announcements{
+    margin-right: 5px!important; margin-left: 15px!important;
+}
 .navbar-collapse{padding-left:0}
 .i-header-logo{text-align:center}
 p,li{line-height:19px}

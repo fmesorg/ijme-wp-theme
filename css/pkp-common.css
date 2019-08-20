@@ -1063,6 +1063,12 @@ form {
     margin: 0 !important;
 }
 
+@media all and (max-width: 767px){
+    .events-announcements{
+        margin-right: 5px!important; margin-left: 15px!important;
+    }
+}
+
 .home-text {
     padding-top: 15px;
 }

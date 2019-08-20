@@ -29,7 +29,7 @@ get_header(); ?>
 <!--                            Left Column -->
                             <div class="col-md-9 pd-r-5">
 <!--    Online first -->
-                                <div class="col-md-12 pd-xs-0 blocks">
+                                <div class="col-md-12 blocks">
                                     <div id="online_first" class="blocks online-first">
                                         <div class="title-bar-home"><h3><a href="/issues/online-first/"> Online
                                                     First </a></h3></div>
@@ -117,7 +117,7 @@ get_header(); ?>
                                     </div>
                                 </div>
 <!--                                Blogs -->
-                                <div class="col-md-12 pd-xs-0 blocks">
+                                <div class="col-md-12 blocks">
                                     <div >
                                         <div class="title-bar-home"><h3><a href="/blog"> Blogs</a></h3></div>
                                         <?php
@@ -176,14 +176,14 @@ get_header(); ?>
                                     </div>
                                 </div>
 <!--    About Us -->
-                                <div class="col-md-12 pd-xs-0 blocks">
+                                <div class="col-md-12 blocks">
                                     <div >
                                         <div class="title-bar-home"><h3><a href="#"> About Us</a></h3></div>
                                     </div>
                                 </div>
                             </div>
 <!--                            Right Column -->
-                            <div class="col-md-3 pd-xs-0 current-issue-panel blocks">
+                            <div class="col-md-3 pd-xs-0 current-issue-panel blocks margin-15-5">
                                 <div class="current-issue">
                                     <?php
                                     global $post;
@@ -262,7 +262,7 @@ get_header(); ?>
                                 </div>
                             </div>
 <!--                            Events & Announcement -->
-                            <div class="col-md-3 blocks">
+                            <div class="col-md-3 blocks events-announcements">
                                 <div class="title-bar-home col-md-12">
                                     <h3><a href="/announcements/">Events & Announcements</a></h3>
                                     <div>
@@ -271,7 +271,7 @@ get_header(); ?>
                                 </div>
                             </div>
 <!--                            News -->
-                            <div class="col-md-3 pd-xs-0 blocks pull-right">
+                            <div class="col-md-3 blocks pull-right">
                                 <div class="title-bar-home col-md-12">
                                     <h3><a href="/issues/online-first/">News</a></h3>
                                     <div>
