@@ -118,6 +118,12 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 
 
                                     </div>
+                                    <div>
+                                        <p>If you are an Indian national, you may support us by making donation. If you are a foreign national
+                                            you can buy subscription of the print edition of the journal for yourself as well as gift subscriptions to others.
+
+                                            All (Indians as well as foreigners) who can afford to are also requested to use our Pay What You Want system as an author you are submitting your manuscript for publication (pay a processing fee) or as a reader when you are accessing the full text or pdf of an article (pay an access fee).</p>
+                                    </div>
 
 
 
@@ -270,6 +276,12 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
                                <?php }?>
 
                                 </div>
+                            <div>
+                                <p><em>If you are an Indian national, you may support us by making donation. If you are a foreign national
+                                    you can buy subscription of the print edition of the journal for yourself as well as gift subscriptions to others.
+
+                                        All (Indians as well as foreigners) who can afford to are also requested to use our Pay What You Want system as an author you are submitting your manuscript for publication (pay a processing fee) or as a reader when you are accessing the full text or pdf of an article (pay an access fee).</em></p>
+                            </div>
                             <!-- Peer section ----2 ------>
 
                         <?php }
@@ -389,7 +401,7 @@ elseif(isset($_GET['galley']) && $_GET['galley'] == 'mail') {
 <!--            <div class="clearfix visible-xs visible-sm"></div>-->
 
 
-    <div class="col-md-3 blocks">
+    <div class="col-md-3 blocks margin-r-10">
         <?php get_sidebar(); ?>
     </div>
 

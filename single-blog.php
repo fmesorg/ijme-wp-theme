@@ -13,7 +13,6 @@
         <div class="blog-container">
             <div class="blog-content">
                 <?php echo $post->post_content;?>
-<!--                --><?php // var_dump($post);?>
             </div>
 
         </div>

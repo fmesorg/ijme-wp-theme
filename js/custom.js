@@ -191,7 +191,7 @@ function showSupportModal(url) {
             window.location = url;
         },
         closeButton:"box",
-        content: "As a reader you can also support IJME in bringing the articles and issues to everyone for free - by paying small voluntary amounts as a reader fee."
+        content: "IJME is sustained by donation and voluntary payment of fees and subscription. If you can Afford to, please use our Pay What You Want (PWYW) system to pay a fee for the full-text access or pdf download of this article."
     });
 
     confirmBox.open();

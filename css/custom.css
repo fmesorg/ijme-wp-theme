@@ -309,7 +309,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     position: sticky;
     bottom: 0px;
     margin-bottom: -31px;
-    background-color:#e01f1f;
+    background-color:#494949e8;
 }
 
 #footerClose{
@@ -324,11 +324,11 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 }
 
 .nav>li>a:hover, .nav>li>a:focus{
-    background-color:#fff;
+    background-color:transparent;
 }
 
 .navbar-nav > .open > a{
-    background-color: #fff!important;
+    background-color: transparent!important;
 }
 
 .icon-bar{background-color:#000000!important;}
@@ -357,6 +357,13 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
     height: 100%;
     text-align: center;
     min-height: 80px;
+}
+
+.header-advertisement>p{
+    font-size: large;
+    font-weight: bolder;
+    align-self: center;
+    padding-top: 30px;
 }
 
 .announcement{

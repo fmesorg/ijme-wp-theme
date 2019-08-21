@@ -17,8 +17,8 @@
     </div>
         </div>
         <div id = "paymentFooterContainer">
-            <div id="paymentFooter">Click here to support US &nbsp;
-               <button class="btn" onclick="showCountryModal()" >Support Us</button></>
+            <div id="paymentFooter">Help IJME keep its content free. You can support us from as little as Rs. 500&nbsp;
+               <button class="btn" onclick="showCountryModal()" >Make a donation</button></>
             </div>
 <!--            <div id="footerClose" onclick="hideBox()">Close</div>-->
         </div>

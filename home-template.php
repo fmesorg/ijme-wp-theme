@@ -23,7 +23,9 @@ get_header(); ?>
                                 <p><em>The Indian Journal of Medical Ethics is peer reviewed and indexed in Medline, The
                                         Philosopher's Index, Scopus and other databases.</em></p>
                             </div>
-                            <div class="col-md-3 header-advertisement">Advertisement</div>
+                            <div class="col-md-3 header-advertisement">
+                               <p> Advertise Here !! </p>
+                            </div>
                         </div>
                         <div class="row home-current-online">
 <!--                            Left Column -->
