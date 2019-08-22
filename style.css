@@ -353,12 +353,12 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 
 .carousel-cell-post-type{
     color: white;
-    border: 1px solid #34495e;
+    border: 1px solid #595959;
     border-radius: 10px;
-    background-color: #34495e;
+    background-color: #595959;
     max-width: 100px;
     text-align: center;
-    padding: 5px;
+    padding: 5px 10px;
     margin-top: 20px;
     display: inline-block;
 }

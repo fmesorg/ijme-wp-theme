@@ -468,7 +468,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 }
 
 .social-links{
-    position: absolute;
+    max-width: 100px;
     width: 100%!important;
     float: right!important;
     padding-right: 30px;
