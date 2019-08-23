@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="row dp-flex">
-    <div class="col-md-9">
+    <div class="col-md-9 margin-lr-10 margin-adjust-5">
         <div class="blocks">
             <h3>Events & Announcement</h3>
             <h4 class="tocSectionTitle">Announcement</h4>
@@ -54,7 +54,7 @@
                 </ul>
         </div>
     </div>
-    <div class="col-md-3 blocks">
+    <div class="col-md-3 blocks margin-r-10">
         <?php get_sidebar(); ?>
     </div>
 </div>

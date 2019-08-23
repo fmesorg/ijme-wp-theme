@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="row dp-flex">
-    <div class="col-md-9 blocks  margin-lr-10">
+    <div class="col-md-9 blocks  margin-lr-10 margin-r-5">
         <div id="main">
             <h4>Search</h4>
             <div id="content">
@@ -21,7 +21,7 @@
         </div>
     </div>
 	<div class="clearfix visible-xs visible-sm"></div>
-    <div class="col-md-3 blocks">
+    <div class="col-md-3 blocks margin-r-10">
         <?php get_sidebar(); ?>
     </div>
 </div>

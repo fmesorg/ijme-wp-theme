@@ -417,6 +417,16 @@ body{
     margin-left: -5px;
 }
 
+.margin-adjust-10{
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.margin-adjust-r-10{
+    margin-right: -10px;
+}
+
+
 .dp-flex{
     display: flex;
 }
