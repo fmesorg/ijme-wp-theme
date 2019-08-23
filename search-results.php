@@ -50,7 +50,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="author-name" style="font-style: italic;">-
+                    <td colspan="3" class="author-name pd-tb-5">
                         <?php
                         $authors = get_post_meta(get_the_ID(), 'authors', true);
                         if(!empty($authors)){
@@ -61,6 +61,9 @@
                         echo implode(', ', $authors_array); }else {echo "";}
                         ?>
                     </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="online-first-date"><?php echo get_the_date("F d, Y") ?></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="separator">&nbsp;</td>

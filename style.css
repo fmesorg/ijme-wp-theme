@@ -412,6 +412,11 @@ body{
     padding-right: 5px;
 }
 
+.pd-tb-5{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .margin-adjust-5{
     margin-right: -5px;
     margin-left: -5px;
