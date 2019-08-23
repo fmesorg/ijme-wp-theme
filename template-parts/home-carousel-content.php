@@ -38,7 +38,7 @@ if ($articles) {
                     ?>
             </div>
             <div class="carousel-cell-post-abstract">
-                <?php echo wp_trim_words(get_the_excerpt(), 30); ?>
+                <?php echo wp_trim_words(get_the_excerpt(), 70); ?>
             </div>
             <div class="carousel-cell-post-extra">
                 <a href="<?php the_permalink(); ?>">Continue Reading...</a></div>
@@ -77,7 +77,7 @@ if ($articles) {
                             <?php echo wp_trim_words(get_the_title(), 8);?>
                         </a></div>
                     <div class="carousel-cell-post-abstract">
-                        <?php echo wp_trim_words(get_the_excerpt(), 30);?>
+                        <?php echo wp_trim_words(get_the_excerpt(), 70);?>
                     </div>
                     <div class="carousel-cell-post-extra">
                         <a href="<?php the_permalink();?>">Continue Reading...</a></div>

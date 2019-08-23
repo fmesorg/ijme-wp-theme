@@ -20,14 +20,14 @@
                         <a href="<?php echo $externalLink; ?>" target="_blank">
                             <?php the_title(); ?>
                         </a>
-                        <span class="announcement-tag"> - Announcement, <?php echo get_the_date('d-m-Y' )?></span>
+                        <span class="announcement-tag">  <?php echo get_the_date('F d, Y' )?></span>
                         <?php
                     }
                     else {
                         ?>
                         <a href="<?php the_permalink(); ?>">
                             <?php the_title();?>
-                            <span class="announcement-tag"> - Announcement, <?php echo get_the_date('d-m-Y' )?></span>
+                            <span class="announcement-tag">  <?php echo get_the_date('F d, Y' )?></span>
                         </a>
                         </li>
                         <?php

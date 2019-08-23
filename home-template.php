@@ -120,7 +120,7 @@ get_header(); ?>
                                 </div>
 <!--                                Blogs -->
                                 <div class="col-md-12 blocks">
-                                    <div >
+                                    <div class="pd-lr-10">
                                         <div class="title-bar-home"><h3><a href="/blog"> Blogs</a></h3></div>
                                         <?php
                                         global $post;
@@ -200,14 +200,14 @@ get_header(); ?>
                                             if (has_post_thumbnail()):
                                                 ?>
 
-                                                <div class="title-bar-home"><h3><a href="<?php the_permalink(); ?>">
+                                                <div class="title-bar-home col-md-12"><h3><a href="<?php the_permalink(); ?>">
                                                             Current Issue </a></h3></div>
                                             <?php
                                             endif;
                                         endforeach;
                                     }
                                     ?>
-                                    <div class="row">
+                                    <div class="row margin-top-10">
                                         <div class="col-md-12">
                                             <div class="row">
                                                 <div class="col-md-12 text-center">
@@ -245,7 +245,7 @@ get_header(); ?>
                                                                 <h3 class="home-title-1"><a
                                                                             href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 5); ?></a>
                                                                 </h3>
-                                                                <?php echo wp_trim_words(get_the_excerpt(), 30); ?>
+                                                                <?php echo wp_trim_words(get_the_excerpt(), 300); ?>
                                                             </div>
                                                         <?php
                                                         endforeach;

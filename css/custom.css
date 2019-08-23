@@ -349,6 +349,7 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 }
 
 .current-issue{
+    margin-top: 20px;
     padding-left: 14px;
 }
 
@@ -390,8 +391,8 @@ a.nav-pg-link:hover{text-decoration:underline!important;color:#fff!important}
 }
 
 .announcement-tag{
-    font-size: 10px;
-    color: darkgray;
+    font-size: 11px;
+    color: #828282;
     text-transform: none;
 }
 
