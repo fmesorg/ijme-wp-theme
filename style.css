@@ -489,6 +489,7 @@ body{
 }
 
 .events-announcements-body{
+    margin-top: 10px;
     overflow: auto;
     max-height: 300px;
 }
@@ -527,6 +528,10 @@ body{
 .sub-featured-continue a{
     font-weight: bold;
     color: #e01f1f!important;
+}
+
+.about-us-content{
+    font-size: 13px;
 }
 
 

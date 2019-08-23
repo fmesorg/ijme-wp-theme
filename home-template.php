@@ -178,9 +178,16 @@ get_header(); ?>
                                     </div>
                                 </div>
 <!--    About Us -->
-                                <div class="col-md-12 blocks">
+                                <div class="blocks col-md-12">
                                     <div >
                                         <div class="title-bar-home"><h3><a href="#"> About Us</a></h3></div>
+                                        <div class="about-us-content">The Indian Journal of Medical Ethics (formerly Issues in Medical Ethics) is a
+                                            platform for discussion on healthcare ethics, with special reference to the
+                                            problems of developing countries such as India. It hopes to involve all
+                                            cadres of, and beneficiaries from, this system, and strengthen the hands of
+                                            those with ethical values and concern for the underprivileged.
+                                            The Journal is owned and published by the Forum for Medical Ethics
+                                            Society, a not-for-profit, voluntary organisation.</div>
                                     </div>
                                 </div>
                             </div>

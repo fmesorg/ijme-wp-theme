@@ -16,7 +16,7 @@
         </div>
         <!--                            News -->
         <div class="col-md-12 top-line pd-lr-2">
-            <div class="title-bar-home col-md-12 padding-lr-resetf">
+            <div class="title-bar-home col-md-12 padding-lr-reset">
                 <h3><a href="/category/news/">News</a></h3>
                 <div>
                     <?php get_template_part('template-parts/news');?>
