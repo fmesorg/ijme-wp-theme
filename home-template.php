@@ -263,23 +263,9 @@ get_header(); ?>
                                     </div>
                                 </div>
                             </div>
-<!--                            Events & Announcement -->
-                            <div class="col-md-3 blocks events-announcements">
-                                <div class="title-bar-home col-md-12">
-                                    <h3><a href="/announcements/">Events & Announcements</a></h3>
-                                    <div>
-                                        <?php get_template_part('template-parts/events-announcements');?>
-                                    </div>
-                                </div>
-                            </div>
-<!--                            News -->
-                            <div class="col-md-3 blocks pull-right">
-                                <div class="title-bar-home col-md-12">
-                                    <h3><a href="/issues/online-first/">News</a></h3>
-                                    <div>
-                                        <?php get_template_part('template-parts/news');?>
-                                    </div>
-                                </div>
+
+                            <div class="col-md-3 blocks margin-r-10">
+                                <?php get_sidebar(); ?>
                             </div>
                         </div>
 

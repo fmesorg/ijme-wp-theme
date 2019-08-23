@@ -76,7 +76,7 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 .sidebar-box li{border-bottom:1px solid #ccc;padding-bottom:10px}
 #sidebar .title-bar h3{color:#FFF!important;font-size:15px!important;line-height:28px;margin:0 0 0 5px;padding:0!important;text-transform:uppercase;overflow:auto}
 #sidebar .title-bar a{color:#FFF!important;font-size:15px!important;line-height:18px;margin:0 0 0 5px;padding:0!important;text-transform:uppercase;overflow:auto;font-weight:400}
-#rightSidebar{border:none #ccc;padding:15px;max-height:751px;overflow:auto}
+#rightSidebar{border:none #ccc;padding:10px;max-height:751px;overflow:auto}
 #rightSidebar #accordion .panel{border:none}
 #rightSidebar #accordion .panel-body{padding:0;border:none}
 #rightSidebar #accordion .panel-body .sidebar-box{padding:0;border:none}
@@ -109,7 +109,7 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 .single-article-block h5 a{color:#535353;font-weight:700}
 .breadCrumLink{pointer-events:none}
 .tail{cursor:default}
-.home-current-online #online_first,#rightSidebar{min-height:700px}
+.home-current-online #online_first,#rightSidebar{max-height:700px}
 .footer-copys {float: left;width: 50%;}
 .social-links{float: left;width: 50%;text-align: right;}
 
@@ -272,8 +272,14 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 
 .sub-featured-image{
     flex: 1;
-    background-color: #474747;
     height: 100%;
+}
+
+.sub-featured-image img{
+    padding: 2px;
+    border: 1px solid;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .padding-sub-featured{
@@ -318,7 +324,7 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 
 
 .carousel-cell-post-title{
-    margin-top: 40px;
+    margin-top: 30px;
     font-family: 'Roboto', sans-serif;
     font-size: xx-large;
     font-weight: bold;
@@ -433,4 +439,45 @@ body{
     .dp-flex{
         flex-direction: column;
     }
+}
+
+.events-announcements-body{
+    overflow: auto;
+    max-height: 300px;
+}
+
+.top-line{
+    margin-top: 20px;
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+
+.announcement-archive-list{
+    list-style: none;
+    padding-left: 10px;
+    flex-direction: column;
+}
+
+.announcement-archive-list-item{
+    font-weight: bold;
+    padding-top: 20px;
+    display: flex;
+}
+
+.announcement-archive-list-item-title{
+    flex: 0.9;
+}
+
+.announcement-archive-list-item-date{
+    flex: 0.1;
+}
+
+.pd-lr-2{
+    padding-left: 2px!important;
+    padding-right: 2px!important;
+}
+
+.sub-featured-continue a{
+    font-weight: bold;
+    color: #e01f1f!important;
 }

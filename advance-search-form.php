@@ -144,7 +144,7 @@
         <div class="advance-search-panel" style="padding: 5px 15px;
             background: #575757; text-transform: uppercase; font-size: 16px;
             color: #FFF;">
-            Advance Search
+            Advanced Search
         </div>
         <div id="emptyFilters" class="pkp_controllers_extrasOnDemand">
             <div class="toggleExtras">

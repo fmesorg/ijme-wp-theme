@@ -20,6 +20,7 @@
                         <a href="<?php echo $externalLink; ?>" target="_blank">
                             <?php the_title(); ?>
                         </a>
+                        <span class="announcement-tag"> - Announcement, <?php echo get_the_date('d-m-Y' )?></span>
                         <?php
                     }
                     else {

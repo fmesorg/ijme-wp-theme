@@ -28,19 +28,34 @@
                 <div class="padding-sub-featured">
                     <div class="blog-post-summary">
                         <strong class="d-inline-block mb-2 text-primary">Category</strong>
-                        <h3 class="mb-0"><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(),5); ?></a></h3>
+                        <h3 class="mb-0"><a href="<?php the_permalink(); ?>"><?php
+                                if(has_post_thumbnail()){
+                                    echo wp_trim_words(get_the_title(),5);
+                                }else{
+                                    echo get_the_title();
+                                }
+                                ?></a></h3>
                         <div class="text-muted">
                             <?php echo date("F j, Y", strtotime($post->post_date)); ?></div>
-                        <div class="sub-featured-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></div>
+                        <div class="sub-featured-excerpt"><?php
+                            if(has_post_thumbnail()){
+                                echo wp_trim_words(get_the_excerpt(), 20);
+                            }else{
+                                echo wp_trim_words(get_the_excerpt(), 40);
+                            }
+                            ?></div>
                     </div>
                     <div class="sub-featured-continue">
-                        <a href="<?php the_permalink();?>" class="stretched-link">Continue reading</a>
+                        <a href="<?php the_permalink();?>" class="stretched-link">Continue reading...</a>
                     </div>
                 </div>
-                <div class="sub-featured-image">
-                    <a href="<?php the_permalink();?>">
-                    </a>
-                </div>
+                <?php if ( has_post_thumbnail() ) { ?>
+                        <div class="sub-featured-image">
+                            <a href="<?php the_permalink();?>">
+                                <?php the_post_thumbnail(); ?>
+                            </a>
+                        </div>
+                     <?php } ?>
             </div>
         <?php endwhile; endif; ?>
     </div>
