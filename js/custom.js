@@ -182,6 +182,9 @@ function showSupportModal(url) {
         cancel: function () {
             window.location = url;
         },
+        onClose:function () {
+            window.location = url;
+        },
         closeButton:"box",
         content: "As a reader you can also support IJME in bringing the articles and issues to everyone for free - by paying small voluntary amounts as a reader fee."
     });
@@ -199,6 +202,9 @@ function showCountryModal() {
             window.open("/index/support/","_self");
         },
         cancel:function (){
+            window.open("/index/subscribe/","_self");
+        },
+        onClose:function () {
             window.open("/index/subscribe/","_self");
         },
         closeButton:"box",
