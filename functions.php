@@ -1919,7 +1919,7 @@ function html_generator($data)
 
 
     }
-    echo "<br></tbody></table>";
+    echo "<br></tbody></table>   <br>Is this email not displaying correctly? <a href='{sp-browser-url}'>View it in your browser</a><br><br><a href='{sp-unsubscribe-url}'>unsubscribe from this list</a><br>";
     exit();
 
 
