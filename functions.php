@@ -1919,7 +1919,10 @@ function html_generator($data)
 
 
     }
-    echo "<br></tbody></table>";
+    echo "<br></tbody></table> 
+
+<br>Is this email not displaying correctly? <a href='{sp-browser-url}'>View it in your browser</a><br><br><a href='{sp-unsubscribe-url}'>unsubscribe from this list</a><br>
+";
     exit();
 
 
@@ -2102,6 +2105,20 @@ function blog_init()
     // register taxonomy
     register_taxonomy('blog_category', 'blog', array('hierarchical' => true, 'label' => 'Category', 'query_var' => true, 'rewrite' => array('slug' => 'blog-category')));
 }
+
+
+////For Custom SEO (Adding the Keywords)
+//add_action('wp_head','keywords_and_desc');
+//function keywords_and_desc(){
+//    global $post;
+//    if (is_single()||is_page()){
+//        if(get_post_meta($post->ID,'my_keywords',true) != '')
+//            echo    '<meta content="'.get_post_meta($post->ID,'my_keywords',true).'" name="keywords">';
+//        if(get_post_meta($post->ID,'my_description',true) != '')
+//            echo    '<meta content="'.get_post_meta($post->ID,'my_description',true).'" name="description">';
+//    }
+//}
+
 
 add_action('init', 'blog_init');
 
