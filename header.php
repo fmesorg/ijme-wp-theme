@@ -96,7 +96,9 @@
                     <div class="top-nav-btnI"><a href="<?php //echo get_permalink(4195); ?>"><img src="<?php //echo THEME_URL; ?>/images/banneFr_ad_btn.jpg" alt="Advertise with us"></a></div>-->
 
 					<div class="top-nav-btnI top-nbc-logo">
+                        <a href="http://ijme.in/nbc-20140321/index.php/14th-wcb-india/index/pages/view/home-page">
 						<img src="<?php echo THEME_URL; ?>/images/nbc.jpg" alt="">
+                        </a>
 					</div>
 					<div class="top-nav-btnI border"><a href="#"><img src="<?php echo THEME_URL; ?>/images/14-world-congress-of-bioethics-logo.jpg" alt="14th-wcb"></a></div>
                     <div class="top-nav-btnI border"><a href="<?php echo site_url(); ?>/about-us/fmes/overview/"><img src="<?php echo THEME_URL; ?>/images/search.jpg" alt="fmes"></a></div>
