@@ -1822,25 +1822,33 @@ function html_generator($data)
     $pstImage = wp_get_attachment_image_src(get_post_thumbnail_id($pstInfo->ID), 'single-post-thumbnail');
 
 
-    echo '<table width="700px" align="center" style=" padding-bottom: 70px; background-color: #ebebeb;margin-top: 10px; padding-top: 100px; padding-left: 20px;padding-right: 20px">
-                <tbody style="background-color: white;padding-left: 30px;"><tr  style=" "><td><h1 align="center" style="font-family: Helvetica Neue Helvetica,Arial,sans-serif ;font-size:32px; color: black;padding-top: 30px;padding-bottom: 0px;">Indian Journal of Medical Ethics</h1>
-               <span ><h3 style=" font-size:17px;padding-top:10px ; padding-bottom: 20px; margin-top:0px; margin-bottom:0px; background: white;padding-left:30px"> IJME ISSUE<br/> 
+    echo '<table width="100%" align="center" style=" padding-bottom: 0px; background-color: white;margin-top: 0px; padding-top: 0px; padding-left: 0px;padding-right: 0px">
+                <tbody style="background-color: white;padding-left: 30px;">
+                 <tr>
+        <td>    
+            <center><a href="http://test.ijme.in"><img src="http://test.ijme.in/wp-content/themes/ijme/images/logo.jpg"  width="90%" style="padding: 20  10 10 10"></a></center>
+        </td>
+
+    </tr>
+                <tr  style=" "><td>               <span ><h3 style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:17px;padding-top:10px ; padding-bottom: 20px; margin-top:0px; margin-bottom:0px; background: white;padding-left:30px"> IJME ISSUE<br/> 
                <span style="font-size: 15px;padding-top: 5px;">Pub: ' . $pstPubDate . '</span></h3></span></td></tr>
                 ';
 
     //for the thumbnail,title and abstract
 
     echo '
-         <tr style="position:relative; float: left;
+         <tr style="position:relative; 
           width: 98%; background: white; padding-left: 10px; padding-top: 10px; "> 
             <td style="position:relative;
                 background: white; ">
                <center> <img align="center" src=" ' . $pstImage[0] . '"  width="50%" ></center>
             
             </td>
+         </tr>
+         <tr>
             <td style=" padding-left: 5px; position:relative; float: right;
                 width: 98%; background: white; ">
-                <h2 align="center" style="font-family: Helvetica Neue Helvetica,Arial,sans-serif ; font-size:27px; margin-top: 0px">' . $pstTitle . '</h2>
+                <h2 align="center" style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:27px; margin-top: 10px">' . $pstTitle . '</h2>
                 <p  >' . $pstAbst . '</p>
             
             </td>
@@ -1849,13 +1857,15 @@ function html_generator($data)
         ';
 
     $allCategories = array_keys($catArrayMulti);
-    foreach ($allCategories as $category) {
+foreach ($allCategories
 
-        ?>
+         as $category) {
 
+    ?>
+    <tr>
         <td style=" position:relative; float: left;
           width:96%; background: white; padding-left: 10px;padding-right: 10px;"><h4
-                    style="text-decoration:none; background-color: #404040; color: white; padding-right: 10px;padding-left: 10px;  line-height: 20px; font-size: 22px; padding-top:3px; padding-bottom:3px;"><?php echo $category; ?></h4>
+                    style="text-decoration:none; background-color: #404040; color: white; padding-right: 10px;padding-left: 10px;  line-height: 20px; font-size: 18px; padding-top:3px; padding-bottom:3px; font-family: Times New Roman, Times, serif;"><?php echo $category; ?></h4>
         </td>
         <?php
         foreach ($catArrayMulti[$category] as $key => $post) {
@@ -1867,44 +1877,62 @@ function html_generator($data)
             $pstName = $post->post_title;
             $pstAbstract = get_permalink($post->ID);
             echo '<td style=" width: 94.5%;float: left;position:relative;margin-bottom: 0px;padding-left: 25px;background: white;">  
-            <a href="' . $html . '" style="text-decoration: none;color:#2B2B2B;font-family: Helvetica Neue Helvetica,Arial,sans-serif ;font-size: 20px;  font-weight: 700;vertical-align: text-top;line-height: normal;position: relative;min-height: 1px; width: 66.66666666666666%;" >' . $pstName . '</a>';
+            <a href="' . $html . '" style="text-decoration: none;color: #1a1a1a;
+                            font-family: Times New Roman, Times, serif;
+                            font-size: 18px;
+                            font-weight: normal;vertical-align: text-top;line-height: normal;position: relative;min-height: 1px; width: 66.66666666666666%;" >' . $pstName . '</a><br/>';
             if (is_array($authors)) {
                 foreach ($authors as $author) $authors_array[] = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
-                echo ' <br/> <h4  style=" text-decoration:none;color: #404040;  font-size:16px; font-family: Calibri; font-weight: 500;padding-bottom:2px;padding-top:0px;margin-top:0px; ">' . implode(', ', $authors_array) . ' </h4>';
+                echo '  <p  style=" text-decoration:none;
+                            color: #999999;
+                            font-family: Helvetica, Arial, sans-serif;
+                            font-size: 14px;
+                            font-weight: normal;
+                            font-weight: normal;
+                            padding-bottom:0px;
+                            padding-top:2px;
+                            margin-top:0px;
+                            margin-bottom: 0px">' . implode(', ', $authors_array) . ' </p>';
             }
-            echo '<a style="
-                   padding: 1px 1px;text-align: right; font-weight: 700;
-                   color: #404040!important;
+            echo '<br><a style="
+                   padding: 1px 1px;text-align: right; 
+                   color: #1a1a1a;
+                   font-family: Helvetica, Arial, sans-serif;
+                   font-size: 14px;
                    vertical-align: text-top;
                    text-decoration: none;
                    padding-top: 0px;
                    padding-bottom: 0px;
                    margin: 0 0 0 0;
-                   font-size: 16px;" href="' . $pstAbstract . '">Abstract &nbsp; | &nbsp; </a>
+                   " href="' . $pstAbstract . '">Abstract &nbsp; | &nbsp; </a>
                    
                    
                 <a style="
                    padding: 1px 1px; 
-                   text-align: right; font-weight: 700;
-                   color: #404040!important;
+                   text-align: right;
+                   color: #1a1a1a;
+                   font-family: Helvetica, Arial, sans-serif;
+                   font-size: 14px;
                    vertical-align: text-top;
                    text-decoration: none;
                    padding-top: 0px;
                    padding-bottom: 0px;
                    margin: 0 0 0 0;
-                   font-size: 16px;" href="' . $html . '"> HTML &nbsp; | &nbsp;</a>
+                   " href="' . $html . '"> HTML &nbsp; | &nbsp;</a>
                    
                    
                 <a style=" 
                    padding: 1px 1px;
-                   text-align: right; font-weight: 700;
-                   color: #404040!important;
+                   text-align: right; 
+                   color: #1a1a1a;
+                   font-family: Helvetica, Arial, sans-serif;
+                   font-size: 14px;
                    vertical-align: text-top;
                    text-decoration: none;
                    padding-top: 0px;
                    padding-bottom: 0px;
                    margin: 0 0 0 0;
-                   font-size: 16px;" href="' . $pdf . '">PDF &nbsp;  </a> ';
+                   " href="' . $pdf . '">PDF &nbsp;  </a> ';
             ?><?php
             $len = count($catArrayMulti[$category]);
             if ($len != $key + 1) {
@@ -1918,104 +1946,116 @@ function html_generator($data)
         }
 
 
-    }
-    echo "<br></tbody></table> 
+        }
+        echo "<br>
+        <tr>
+        <td style=\"margin-bottom: 50px;padding-top: 90px\">
+            <span><br> <a href='{sp-browser-url}'>View it in your browser</a><br><br><a
+                    href='{sp-unsubscribe-url}'>unsubscribe from this list</a></span>
 
-<br>Is this email not displaying correctly? <a href='{sp-browser-url}'>View it in your browser</a><br><br><a href='{sp-unsubscribe-url}'>unsubscribe from this list</a><br>
+                       <a style=\"color: white; background-color: red; padding: 13px; text-decoration: none;float: right;font-size: small\" href=\"/IjmeSubscriptionForm/subscribe.php\" target=\"_blank\">SUBSCRIBE</a>
+
+        </td>
+
+        </tr>
+
+</tbody></table> 
+
+
 ";
-    exit();
+        exit();
 
 
-}
+        }
 
 
-add_action('post_submitbox_start', 'generate_xml_btn');
+        add_action('post_submitbox_start', 'generate_xml_btn');
 
-function generate_xml_btn()
-{
-    $article_id = get_the_ID();
-    $post_type = get_post_type();
+        function generate_xml_btn()
+        {
+            $article_id = get_the_ID();
+            $post_type = get_post_type();
 
-    if ($post_type == 'articles') {
-        ?>
-        <div>
-            <input name="save" type="button" class="button-large button-primary" style="margin-bottom: 10px"
-                   value="Generate XML"
-                   onclick="window.open('<?php echo "/wp-json/xmlGenerator/v1/xml/" . $article_id; ?>','_blank');"/>
-        </div>
-    <?php } elseif ($post_type == 'issues') { ?>
-        <div>
-            <input name="save" type="button" class="button-large button-primary" style="margin-bottom: 10px"
-                   value="Generate ISSUE XML"
-                   onclick="window.open('<?php echo "/wp-json/xmlGeneratorIssue/v1/xml/" . $article_id; ?>','_blank');"/>
-        </div>
-        <?php
-    }
-}
-
-add_action('post_submitbox_start', 'generate_html_btn');
-
-function generate_html_btn()
-{
-    $article_id = get_the_ID();
-    $post_type = get_post_type();
-
-    if ($post_type == 'articles') {
-        ?>
-        <div>
-            <input name="save" type="button" class="button-large button-primary" value="Generate HTML"
-                   onclick="window.open('<?php echo "/wp-json/HTMLGenerator/v1/" . $article_id; ?>','_blank');"/>
-        </div>
-    <?php } elseif ($post_type == 'issues') { ?>
-        <div>
-            <input name="save" type="button" class="button-large button-primary" value="Generate HTML"
-                   onclick="window.open('<?php echo "/wp-json/htmlgenerator/v1/" . $article_id; ?>','_blank');"/>
-        </div>
-        <?php
-    }
-}
-
-
-function display_year_issues()
-{
-    if (isset($_POST['selected_year'])) {
-        $selected_year = $_POST['selected_year'];
-    } else {
-        $selected_year = date("Y");
-    }
-    global $post;
-    $articles = get_posts(array(
-        'posts_per_page' => 4,
-        'post_type' => 'issues',
-        'year' => $selected_year
-    ));
-    if ($articles) {
-        foreach ($articles as $post) :
-            setup_postdata($post);
-            if (has_post_thumbnail()):
+            if ($post_type == 'articles') {
                 ?>
-                <div class="issue">
-                    <div class="issue-image">
-                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
-                    </div>
-                    <div class="issue-content">
-                        <div class="issue-title"><h3 class="home-title-1"><a
-                                        href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-                            </h3>
-                            <span class="issue-tag">Volume:<?php echo get_post_meta(get_the_ID(), 'volume', true); ?> Issue:&nbsp;<?php get_issue_quarter(get_post_meta(get_the_ID(), 'number', true)); ?></span>
-                            <p>
-                                <span class="issue-tag">Published Date: <?php echo date('Y-m-d', strtotime(get_post_meta(get_the_ID(), 'issue_publish_date', true))); ?></span>
-                            </p>
-                        </div>
-                        <div class="issue-detail"><?php echo wp_trim_words(get_the_excerpt(), 500); ?></div>
-                    </div>
+                <div>
+                    <input name="save" type="button" class="button-large button-primary" style="margin-bottom: 10px"
+                           value="Generate XML"
+                           onclick="window.open('<?php echo "/wp-json/xmlGenerator/v1/xml/" . $article_id; ?>','_blank');"/>
                 </div>
-            <?php
-            endif;
-        endforeach;
-        wp_reset_postdata();
+            <?php } elseif ($post_type == 'issues') { ?>
+                <div>
+                    <input name="save" type="button" class="button-large button-primary" style="margin-bottom: 10px"
+                           value="Generate ISSUE XML"
+                           onclick="window.open('<?php echo "/wp-json/xmlGeneratorIssue/v1/xml/" . $article_id; ?>','_blank');"/>
+                </div>
+                <?php
+            }
+        }
 
-    } else { ?>
+        add_action('post_submitbox_start', 'generate_html_btn');
+
+        function generate_html_btn()
+        {
+            $article_id = get_the_ID();
+            $post_type = get_post_type();
+
+            if ($post_type == 'articles') {
+                ?>
+                <div>
+                    <input name="save" type="button" class="button-large button-primary" value="Generate HTML"
+                           onclick="window.open('<?php echo "/wp-json/HTMLGenerator/v1/" . $article_id; ?>','_blank');"/>
+                </div>
+            <?php } elseif ($post_type == 'issues') { ?>
+                <div>
+                    <input name="save" type="button" class="button-large button-primary" value="Generate HTML"
+                           onclick="window.open('<?php echo "/wp-json/htmlgenerator/v1/" . $article_id; ?>','_blank');"/>
+                </div>
+                <?php
+            }
+        }
+
+
+        function display_year_issues()
+        {
+        if (isset($_POST['selected_year'])) {
+            $selected_year = $_POST['selected_year'];
+        } else {
+            $selected_year = date("Y");
+        }
+        global $post;
+        $articles = get_posts(array(
+            'posts_per_page' => 4,
+            'post_type' => 'issues',
+            'year' => $selected_year
+        ));
+        if ($articles) {
+            foreach ($articles as $post) :
+                setup_postdata($post);
+                if (has_post_thumbnail()):
+                    ?>
+                    <div class="issue">
+                        <div class="issue-image">
+                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                        </div>
+                        <div class="issue-content">
+                            <div class="issue-title"><h3 class="home-title-1"><a
+                                            href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                                </h3>
+                                <span class="issue-tag">Volume:<?php echo get_post_meta(get_the_ID(), 'volume', true); ?> Issue:&nbsp;<?php get_issue_quarter(get_post_meta(get_the_ID(), 'number', true)); ?></span>
+                                <p>
+                                    <span class="issue-tag">Published Date: <?php echo date('Y-m-d', strtotime(get_post_meta(get_the_ID(), 'issue_publish_date', true))); ?></span>
+                                </p>
+                            </div>
+                            <div class="issue-detail"><?php echo wp_trim_words(get_the_excerpt(), 500); ?></div>
+                        </div>
+                    </div>
+                <?php
+                endif;
+            endforeach;
+            wp_reset_postdata();
+
+        } else { ?>
         <div class="issue">
             <div class="issue-content">
                 <div class="issue-title"><h3 class="home-title-1">No Issue Available for Selected Year
@@ -2024,7 +2064,7 @@ function display_year_issues()
                 <div class="issue-detail">Please select some other issue.</div>
             </div>
         </div>
-    <?php }
+<?php }
 
     die();
 }
