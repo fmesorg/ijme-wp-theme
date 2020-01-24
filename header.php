@@ -96,7 +96,7 @@
                     <div class="top-nav-btnI"><a href="<?php //echo get_permalink(4195); ?>"><img src="<?php //echo THEME_URL; ?>/images/banneFr_ad_btn.jpg" alt="Advertise with us"></a></div>-->
 
 					<div class="top-nav-btnI top-nbc-logo">
-                        <a href="https://ijme.in/nbc-20140321/index.php/14th-wcb-india/index/pages/view/about-wcb-fab-and-nbc">
+                        <a href="https://ijme.in/nbc-20140321/index.php/nbc-6/index/pages/view/under_construction">
 						<img src="<?php echo THEME_URL; ?>/images/nbc.jpg" alt="">
                         </a>
 					</div>
