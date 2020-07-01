@@ -21,9 +21,9 @@
 		if($url=="http://ijme.in"){  }else{ ?>
 		<meta name="robots" content="noindex, nofollow">
 		<?php if(is_front_page()){ ?>
-		<link rel="canonical" href="http://ijme.in/"/> 
+                <link rel="canonical" href="http://ijme.in/"/>
 		<?php }else{ ?>
-		<link rel="canonical" href="http://ijme.in<?php echo $_SERVER['REQUEST_URI'] ?>" /> 
+                <link rel="canonical" href="http://ijme.in<?php echo $_SERVER['REQUEST_URI'] ?>"/>
 		<?php } ?>
 		<?php } ?>
 				
@@ -48,50 +48,34 @@
 
 					 ga('create', 'UA-42369332-1', 'auto');
 					 ga('send', 'pageview');
-				</script>		
-		<?php }elseif(($site_url== "http://medicalethicsindia.org/") || ($site_url== "http://www.medicalethicsindia.org/")) { ?>
-				<script>
-					 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-					 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-					 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-					 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+                </script>
+            <?php } ?>
 
-					 ga('create', 'UA-90349823-1', 'auto');
-					 ga('send', 'pageview');
-				</script>					
-		<?php }elseif(($site_url== "http://issuesinmedicalethics.com/") || ($site_url== "http://www.issuesinmedicalethics.org/")){?>
-				<script>
-					 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-					 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-					 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-					 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-					 ga('create', 'UA-90344917-1', 'auto');
-					 ga('send', 'pageview');
-				</script>				
-		<?php }
-		?>
-		
-		
-		
 
     </head>
     <body>
-	
-        <div class="container">
-            
-<!--            <div class="row header">-->
-<!--		      <div class="col-md-12 i-header-banner">                    -->
-<!--                </div>-->
-<!--                -->
-<!--            </div>-->
-            <div class="row background-white">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo"><a
-                            href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg"
+
+    <div class="container-fluid">
+        <div class="row background-white padding-left-24">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo dp-flex align-items-center flex-nowrap"><a
+                        href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.png"
                                                                   alt="Page Header"></a>
+                <div class="nav-logo-text">
+                    <span>ISSN: 0975-5091 (Online);</span>
+                    <span>0974-8466 (Print)</span>
+                    <span>RNI Reg No. MAHENG/2016/67188</span>
+                </div>
                 </div>
                 <?php require 'nav.php'; ?>
+            <div class="header-social-media-wrapper">
+                <img width="12" src="<?php echo THEME_URL; ?>/images/header-social-media/facebook-f.svg"
+                     alt="Page Header">
+                <img width="12" src="<?php echo THEME_URL; ?>/images/header-social-media/twitter.svg" alt="Page Header">
+                <img width="12" src="<?php echo THEME_URL; ?>/images/header-social-media/medium-m.svg"
+                     alt="Page Header">
+                <img width="12" src="<?php echo THEME_URL; ?>/images/header-social-media/linkedin-in.svg"
+                     alt="Page Header">
+            </div>
             </div>
 
 
-        

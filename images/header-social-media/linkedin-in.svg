@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Brands/linkedin-in</title>
+    <defs>
+        <path d="M132.3,480 L39.4,480 L39.4,180.9 L132.3,180.9 L132.3,480 Z M85.8,140.1 C56.1,140.1 32,115.5 32,85.8 C32,56.1 56.1,32 85.8,32 C115.5,32 139.6,56.1 139.6,85.8 C139.6,115.5 115.5,140.1 85.8,140.1 Z M480,480 L387.3,480 L387.3,334.4 C387.3,299.7 386.6,255.2 339,255.2 C290.7,255.2 283.3,292.9 283.3,331.9 L283.3,480 L190.5,480 L190.5,180.9 L279.6,180.9 L279.6,221.7 L280.9,221.7 C293.3,198.2 323.6,173.4 368.8,173.4 C462.8,173.4 480.1,235.3 480.1,315.7 L480.1,480 L480,480 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brands/linkedin-in/Default">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#767676" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

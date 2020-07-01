@@ -37,39 +37,43 @@ require_once('wp_bootstrap_navwalker.php');
  */
 function enqueue_front_end_scripts()
 {
-
-
+    
+    
     wp_enqueue_style('pkp-common', THEME_URL . '/css/pkp-common.css', [], '4.7.0');
     wp_enqueue_style('rt', THEME_URL . '/css/rt.css');
 
-    wp_enqueue_style('common-pkp', THEME_URL . '/css/common.css', [], '4.8.1');
+//    wp_enqueue_style('common-pkp', THEME_URL . '/css/common.css', [], '4.8.1');
 
-    wp_enqueue_style('compiled', THEME_URL . '/css/compiled.css');
+//    wp_enqueue_style('compiled', THEME_URL . '/css/compiled.css');
     wp_enqueue_style('bootstrap', THEME_URL . '/css/bootstrap.min.css');
 
     wp_enqueue_style('sidebar', THEME_URL . '/css/sidebar.css');
     wp_enqueue_style('rightSidebar', THEME_URL . '/css/rightSidebar.css');
-    wp_enqueue_style('custom', THEME_URL . '/css/custom.css', [], '4.6.10');
+//    wp_enqueue_style('custom', THEME_URL . '/css/custom.css', [], '4.6.10');
     wp_enqueue_style('g-font', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
 
-    wp_enqueue_style('owl-theme', THEME_URL . '/css/owl.theme.css');
-    wp_enqueue_style('owl-css', THEME_URL . '/css/owl.carousel.css');
+//    wp_enqueue_style('owl-theme', THEME_URL . '/css/owl.theme.css');
+//    wp_enqueue_style('owl-css', THEME_URL . '/css/owl.carousel.css');
 
 
     //wp_enqueue_style( 'bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" );
     wp_enqueue_style('main', get_stylesheet_uri(), [], '3.7.1.0');
     wp_enqueue_style('media-css', THEME_URL . '/css/media.css');
     wp_enqueue_style('jBox-css', THEME_URL . '/css/jBox.all.min.css');
-    wp_enqueue_style('flickity', THEME_URL . '/css/flickity.min.css');
+//    wp_enqueue_style('flickity', THEME_URL . '/css/flickity.min.css');
 
     wp_enqueue_script('jquery');
-    wp_enqueue_script('owl-js', THEME_URL . '/js/owl.carousel.min.js');
+//    wp_enqueue_script('owl-js', THEME_URL . '/js/owl.carousel.min.js');
     wp_enqueue_script('bootstrap-js', THEME_URL . '/js/bootstrap.min.js');
-    wp_enqueue_script('pdf-js', THEME_URL . '/js/pdf.min.js');
-    wp_enqueue_script('custom', THEME_URL . '/js/custom.js');
+//    wp_enqueue_script('pdf-js', THEME_URL . '/js/pdf.min.js');
+//    wp_enqueue_script('custom', THEME_URL . '/js/custom.js');
     wp_enqueue_script('jBox-js', THEME_URL . '/js/jBox.all.min.js');
-    wp_enqueue_script('flickity', THEME_URL . '/js/flickity.pkgd.min.js');
-
+//    wp_enqueue_script('flickity', THEME_URL . '/js/flickity.pkgd.min.js');
+    
+    wp_enqueue_style('common-ijme', THEME_URL . '/css/common-ijme.css', [], '1.0.0');
+    wp_enqueue_style('navbar-ijme', THEME_URL . '/css/navbar.css', [], '1.0.0');
+    
+    
     //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
 }
 
@@ -1825,20 +1829,20 @@ function html_generator($data)
     echo '<table width="100%" align="center" style=" padding-bottom: 0px; background-color: white;margin-top: 0px; padding-top: 0px; padding-left: 0px;padding-right: 0px">
                 <tbody style="background-color: white;padding-left: 30px;">
                  <tr>
-        <td>    
+        <td>
             <center><a href="http://test.ijme.in"><img src="http://test.ijme.in/wp-content/themes/ijme/images/logo.jpg"  width="90%" style="padding: 20  10 10 10"></a></center>
         </td>
 
     </tr>
-                <tr  style=" "><td>               <span ><h3 style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:17px;padding-top:10px ; padding-bottom: 20px; margin-top:0px; margin-bottom:0px; background: white;padding-left:30px"> IJME ISSUE<br/> 
+                <tr  style=" "><td>               <span ><h3 style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:17px;padding-top:10px ; padding-bottom: 20px; margin-top:0px; margin-bottom:0px; background: white;padding-left:30px"> IJME ISSUE<br/>
                <span style="font-size: 15px;padding-top: 5px;">Pub: ' . $pstPubDate . '</span></h3></span></td></tr>
                 ';
 
     //for the thumbnail,title and abstract
 
     echo '
-         <tr style="position:relative; 
-          width: 98%; background: white; padding-left: 10px; padding-top: 10px; "> 
+         <tr style="position:relative;
+          width: 98%; background: white; padding-left: 10px; padding-top: 10px; ">
             <td style="position:relative;
                 background: white; ">
                <center> <img align="center" src=" ' . $pstImage[0] . '"  width="50%" ></center>
@@ -1876,7 +1880,7 @@ foreach ($allCategories
             $authors_array = array();
             $pstName = $post->post_title;
             $pstAbstract = get_permalink($post->ID);
-            echo '<td style=" width: 94.5%;float: left;position:relative;margin-bottom: 0px;padding-left: 25px;background: white;">  
+            echo '<td style=" width: 94.5%;float: left;position:relative;margin-bottom: 0px;padding-left: 25px;background: white;">
             <a href="' . $html . '" style="text-decoration: none;color: #1a1a1a;
                             font-family: Times New Roman, Times, serif;
                             font-size: 18px;
@@ -1895,7 +1899,7 @@ foreach ($allCategories
                             margin-bottom: 0px">' . implode(', ', $authors_array) . ' </p>';
             }
             echo '<br><a style="
-                   padding: 1px 1px;text-align: right; 
+                   padding: 1px 1px;text-align: right;
                    color: #1a1a1a;
                    font-family: Helvetica, Arial, sans-serif;
                    font-size: 14px;
@@ -1908,7 +1912,7 @@ foreach ($allCategories
                    
                    
                 <a style="
-                   padding: 1px 1px; 
+                   padding: 1px 1px;
                    text-align: right;
                    color: #1a1a1a;
                    font-family: Helvetica, Arial, sans-serif;
@@ -1921,9 +1925,9 @@ foreach ($allCategories
                    " href="' . $html . '"> HTML &nbsp; | &nbsp;</a>
                    
                    
-                <a style=" 
+                <a style="
                    padding: 1px 1px;
-                   text-align: right; 
+                   text-align: right;
                    color: #1a1a1a;
                    font-family: Helvetica, Arial, sans-serif;
                    font-size: 14px;
@@ -1959,7 +1963,7 @@ foreach ($allCategories
 
         </tr>
 
-</tbody></table> 
+</tbody></table>
 
 
 ";
