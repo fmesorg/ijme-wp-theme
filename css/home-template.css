@@ -1,0 +1,84 @@
+.home-about-wrapper {
+    min-height: 62px;
+    align-items: center;
+    opacity: 0.5;
+    background: #F4F4F4;
+}
+
+.home-about-wrapper > p {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 14px;
+    color: #111010;
+    line-height: 20px;
+    text-align: center;
+}
+
+#current-issue-left-panel-wrapper {
+    background-color: #F4F4F4;
+    padding: 16px 20px 20px 42px;
+}
+
+#issue-description {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: #111010;
+    line-height: 18px;
+    padding-left: 13px;
+}
+
+.current-issue-section-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #E01F1F;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    line-height: 20px;
+}
+
+.current-issue-title a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #111010;
+    line-height: 28px;
+    font-weight: bold;
+}
+
+.current-issue-image-cover img {
+    width: 90px;
+    height: 117px;
+    object-fit: cover;
+}
+
+#current-issue-container::after {
+    content: ' ';
+    width: 100%;
+    height: 1px;
+    background: #E01F1F;
+    box-shadow: 0 1px 2px 0 rgba(224, 31, 31, 0.26);
+    display: block;
+}
+
+.current-issue-category{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    color: #111010!important;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+.current-issue-article-title {
+    font-family: Roboto;
+    font-size: 15px;
+    color: #0A0A0A!important;
+    line-height: 20px;
+}
+
+.current-issue-article-author {
+    font-family: Roboto;
+    font-style: italic;
+    font-size: 14px;
+    color: #625D5D!important;
+    line-height: 20px;
+    margin-bottom: 20px;
+}

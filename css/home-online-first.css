@@ -1,0 +1,64 @@
+#online-first-panel-wrapper {
+    background-color: white;
+    padding: 17px 20px;
+}
+
+#online-first-section-title {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 24px;
+    color: #111010 !important;
+    line-height: 32px;
+    margin-bottom: 10px;
+}
+
+#online-first-view-all {
+    font-family: Roboto;
+    font-size: 14px;
+    color: #262020 !important;
+    letter-spacing: 0.4px;
+}
+
+.onlineFirst-article-wrapper {
+    background: #FFFFFF !important;
+    border: 1px solid #EBEBEB !important;
+    box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.40);
+    border-radius: 4px;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.onlineFirst-article-wrapper:not(:last-child){
+    margin-bottom: 11px;
+}
+
+.online-first-date {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 14px;
+    color: #E01F1F;
+}
+
+.online-first-article-title {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    color: #111010;
+    line-height: 24px;
+}
+
+.online-first-article-abstract {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 15px;
+    color: #111010;
+    line-height: 20px;
+}
+
+.online-first-article-author {
+    font-family: Roboto;
+    font-style: italic;
+    font-size: 14px;
+    color: #767676;
+    line-height: 20px;
+}
