@@ -62,14 +62,11 @@
                 <div class="current-issue-category"><?php echo $category; ?></div>
                 <?php foreach ($posts as $post) {
                     setup_postdata($post);
-                    $authors = get_post_meta(get_the_ID(), 'authors', true);
-                    if(!empty($authors)) {
-                        $authors_array = array();
-                        foreach ($authors as $author) $authors_array[] = $author['last_name'] .' '. $author['middle_name']. ' ' . $author['first_name'];}
+                    $authors_list = get_author_list(get_the_ID());
                     ?>
                  <div class="current-issue-article-title"><?php echo  get_the_title(); ?> </div>
                  <div class="current-issue-article-author"><?php
-                        foreach ($authors_array as $author) echo $author;
+                        foreach ($authors_list as $author) echo $author;
                      ?></div>
                 <?php } ?>
                 </div>

@@ -2169,3 +2169,13 @@ function blog_init()
 add_action('init', 'blog_init');
 
 
+function get_author_list($post_id)
+{
+    $authors = get_post_meta($post_id, 'authors', true);
+    if (!empty($authors)) {
+        $authors_array = array();
+        foreach ($authors as $author) $authors_array[] = $author['last_name'] . ' ' . $author['middle_name'] . ' ' . $author['first_name'];
+    }
+    
+    return $authors_array;
+}

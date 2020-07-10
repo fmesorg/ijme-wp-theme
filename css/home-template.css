@@ -18,6 +18,11 @@
     padding: 16px 20px 20px 42px;
 }
 
+#current-issue-right-panel-wrapper{
+    background-color: #F4F4F4;
+    padding: 20px 42px 20px 20px;
+}
+
 #issue-description {
     font-family: Roboto, sans-serif;
     font-size: 14px;
@@ -80,5 +85,33 @@
     font-size: 14px;
     color: #625D5D!important;
     line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.contemporarily-relevant-section-title {
+    font-family: Roboto-Bold;
+    font-size: 24px;
+    color: #111010;
+    line-height: 30px;
+    margin-bottom: 12px;
+}
+
+.contemporarily-article-name{
+    font-family: Roboto-Regular;
+    font-size: 15px;
+    color: #0A0A0A;
+    line-height: 20px;
+}
+
+.contemporarily-article-author{
+    font-family: Roboto;
+    font-style: italic;
+    font-size: 14px;
+    color: #625D5D!important;
+    line-height: 20px;
+    margin-top: 6px;
+}
+
+.contemporarily-article-wrapper:not(:last-child){
     margin-bottom: 20px;
 }

@@ -23,7 +23,6 @@
         if ($articles) {
             foreach ($articles as $post) :
                 setup_postdata($post); ?>
-
                 <div class="onlineFirst-article-wrapper dp-flex flex-column">
                     <div class="online-first-date">
                         <?php echo date('F d, Y', strtotime($post->post_date)); ?>
@@ -43,13 +42,8 @@
                     </div>
                     <div class="online-first-article-author">
                         <?php
-                            $authors = get_post_meta(get_the_ID(), 'authors', true);
-                            $out = array();
-                            foreach ($authors as $key => $author) {
-                                $authStr = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
-                                array_push($out, $authStr);
-                            }
-                            echo implode(', ', $out);
+                            $authors_list = get_author_list(get_the_ID());
+                            foreach ($authors_list as $author) echo $author;
                         ?>
                     </div>
                 </div>

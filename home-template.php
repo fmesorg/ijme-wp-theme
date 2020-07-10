@@ -11,15 +11,15 @@ get_header(); ?>
                 Philosopher’s Index, Scopus, etc.
             </p>
         </div>
-        <div class="">
+        <div class="row" style="margin-left: 15px;">
             <div class="row no-gutters">
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 dp-flex">
                     <?php get_template_part('template-parts/home-left-panel'); ?>
                 </div>
-                <div class="col-md-6 col-sm-12" style="background-color: #ffffff">
+                <div class="col-md-6 col-sm-12 dp-flex">
                     <?php get_template_part('template-parts/home-onlinefirst-center-panel'); ?>
                 </div>
-                <div class="col-md-3 col-sm-12 " style="background-color: #005cbf">
+                <div class="col-md-3 col-sm-12 dp-flex">
                     <?php get_template_part('template-parts/home-right-panel'); ?>
                 </div>
             </div>
