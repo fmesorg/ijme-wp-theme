@@ -88,6 +88,10 @@
     margin-bottom: 20px;
 }
 
+#contemporarily-relevant-wrapper {
+    padding: 21px 0;
+}
+
 .contemporarily-relevant-section-title {
     font-family: Roboto-Bold;
     font-size: 24px;
@@ -114,4 +118,130 @@
 
 .contemporarily-article-wrapper:not(:last-child){
     margin-bottom: 20px;
+}
+
+#horizontal-advertisement-bar {
+    background-color: #ffffff;
+}
+
+#subscribe-box-wrapper {
+    background-color: #ffffff;
+}
+
+#subscribe-box-form {
+    background: #F7F7F7;
+    border: 1px solid #D8D8D8;
+    padding: 29px 42px;
+}
+
+.subscribe-text {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    color: #111010;
+    line-height: 24px;
+}
+
+.blog-wrapper {
+    background-color: #ffffff;
+    padding: 44px;
+}
+
+#blog-section-title {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 24px;
+    color: #111010;
+    line-height: 32px;
+}
+
+.blog-item-wrapper{
+    margin-top: 16px;
+}
+
+.blog-item {
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    box-shadow: 0 4px 8px 0 rgba(225, 225, 225, 0.40);
+    border-radius: 4px;
+    border-radius: 4px;
+    width: 440px;
+    height: 105px;
+    padding: 20px;
+}
+
+.blog-item-date {
+    font-family: Roboto;
+    font-size: 14px;
+    color: #767676;
+    letter-spacing: 0;
+}
+
+.blog-item-author {
+    font-family: Roboto;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 0;
+}
+
+.blog-description {
+    font-family: Roboto;
+    font-size: 14px;
+    color: #262020;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+
+.view-all-text{
+    font-family: Roboto;
+    font-size: 14px;
+    color: #262020!important;
+    letter-spacing: 0.4px;
+}
+.view-all-wrapper{
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    font-weight: normal;
+}
+.view-all-icon{
+    color: #E01F1F;
+}
+
+
+.media-wrapper{
+    background-color: #ffffff;
+    padding: 44px;
+}
+
+.media-item-wrapper{
+    margin-top: 16px;
+}
+
+.media-item{
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    box-shadow: 0 4px 8px 0 rgba(225,225,225,0.40);
+    border-radius: 4px;
+    width: 440px;
+    height: 130px;
+    padding: 20px;
+}
+.media-authors{
+    font-family: Roboto;
+    font-style: italic;
+    font-size: 14px;
+    color: #767676;
+    line-height: 20px;
+    margin-top: 6px;
+}
+
+.media-title{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+    color: #111010;
+    line-height: 28px;
+    margin-top: 12px;
 }

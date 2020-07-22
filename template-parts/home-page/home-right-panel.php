@@ -6,7 +6,6 @@
 ?>
 
 <?php
-    global $post;
     $posts = get_posts(array(
       'numberposts' => -1,
       'post_type' => 'articles',
@@ -14,7 +13,13 @@
       'meta_value' => '1'
     )); ?>
 <div id="current-issue-right-panel-wrapper">
-    <div>Advertisement</div>
+    <div class="dp-flex">
+        <?php
+            $frontpage_id = get_option('page_on_front');
+            if (get_field('sidebar_advertisement', $frontpage_id)): ?>
+                <img src="<?php the_field('sidebar_advertisement', $frontpage_id); ?>" width="100%"/>
+            <?php endif; ?>
+    </div>
     <div id="contemporarily-relevant-wrapper">
         <div class="contemporarily-relevant-section-title">Contemporarily Relevant</div>
         <?php
@@ -32,6 +37,7 @@
                 </div>
             <?php
             endforeach;
+            wp_reset_postdata();
         ?>
     </div>
 </div>

@@ -11,18 +11,36 @@ get_header(); ?>
                 Philosopher’s Index, Scopus, etc.
             </p>
         </div>
-        <div class="row" style="margin-left: 15px;">
-            <div class="row no-gutters">
-                <div class="col-md-3 col-sm-12 dp-flex">
-                    <?php get_template_part('template-parts/home-left-panel'); ?>
-                </div>
-                <div class="col-md-6 col-sm-12 dp-flex">
-                    <?php get_template_part('template-parts/home-onlinefirst-center-panel'); ?>
-                </div>
-                <div class="col-md-3 col-sm-12 dp-flex">
-                    <?php get_template_part('template-parts/home-right-panel'); ?>
-                </div>
+        <div class="row no-gutters">
+            <div class="col-md-3 col-sm-12 dp-flex">
+                <?php get_template_part('template-parts/home-page/home-left-panel'); ?>
+            </div>
+            <div class="col-md-6 col-sm-12 dp-flex">
+                <?php get_template_part('template-parts/home-page/home-onlinefirst-center-panel'); ?>
+            </div>
+            <div class="col-md-3 col-sm-12 dp-flex">
+                <?php get_template_part('template-parts/home-page/home-right-panel'); ?>
             </div>
         </div>
+        <div class="row">
+            <?php get_template_part('template-parts/home-page/horizontal-advertisement'); ?>
+        </div>
+        <div class="row">
+            <?php get_template_part('template-parts/home-page/mostread-bytopic'); ?>
+        </div>
+        <div class="row">
+            <?php get_template_part('template-parts/home-page/subscribe-box'); ?>
+        </div>
+        <div class="row">
+            <?php get_template_part('template-parts/home-page/mostread-bycategory'); ?>
+        </div>
+        <div class="row">
+            <?php get_template_part('template-parts/home-page/home-blog'); ?>
+        </div>
+        
+        <div class="row">
+            <?php get_template_part('template-parts/home-page/home-media'); ?>
+        </div>
+        
     </div>
 <?php //get_footer(); ?>
