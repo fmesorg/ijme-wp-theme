@@ -56,7 +56,7 @@
     <body>
 
     <div class="">
-        <div class="row background-white padding-left-24">
+        <div class="row background-white padding-left-24 header-shadow">
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo dp-flex align-items-center flex-nowrap"><a
                         href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.png"
                                                                   alt="Page Header"></a>

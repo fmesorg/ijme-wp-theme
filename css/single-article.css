@@ -1,0 +1,186 @@
+.article-wrapper {
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 0 4px 20px 0 rgba(216, 216, 216, 0.50) inset;
+}
+
+#article-date-of-publication {
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 15px;
+    color: #403C3C;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+#article-volume-label {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 15px;
+    color: #403C3C;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+#red-oval {
+    background-color: #E01F1F;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 8px;
+
+}
+
+#article-header-label {
+    display: flex;
+}
+
+#article-header-left-details {
+    display: flex;
+    align-items: center;
+}
+
+#article-doi {
+    margin-left: auto;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 15px;
+    color: #111010;
+    text-align: right;
+    line-height: 20px;
+}
+
+#article-doi-link {
+    color: #E01F1F !important;
+}
+
+#articleTitle {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 32px;
+    color: #111010;
+    line-height: 42px;
+    margin-top: 16px;
+}
+
+#authorString {
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    color: #403C3C;
+    line-height: 24px;
+    margin-top: 16px;
+}
+
+#article-abstract-wrapper {
+    margin-top: 8px;
+}
+
+#abstract-label {
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    color: #111010;
+    line-height: 26px;
+}
+
+#article-abstract {
+    margin-top: 8px;
+    font-family: Roboto;
+    font-size: 18px;
+    color: #111010;
+    line-height: 28px;
+}
+
+#articleToolsInContent {
+    background-color: rgba(247, 247, 247, 0.6);
+    padding: 24px;
+}
+
+#article-tools-title {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    color: #111010;
+    line-height: 24px;
+}
+
+.articleToolItem{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+
+
+.article-tool-item-name{
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: #403C3C!important;
+    line-height: 16px;
+    padding-left: 8px;
+}
+
+.articleToolIcon{
+    width: 16px;
+    height: 16px;
+}
+
+/*Ellipsis loader*/
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    /*width: 1em;*/
+    /*height: 10px;*/
+    margin-right: 2em;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 0px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #E01F1F;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.article_count_container {
+    margin-top: 24px;
+    display: flex;
+}
+
+#place-holder {
+    display: flex;
+}

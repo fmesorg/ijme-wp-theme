@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Print this article</title>
+    <defs>
+        <path d="M464,192 L448,192 L448,81.941 C447.999967,75.576062 445.471575,69.4718068 440.971,64.971 L383.029,7.029 C378.528193,2.52842515 372.423938,0 366.059,0 L88,0 C74.745,0 64,10.745 64,24 L64,192 L48,192 C21.49,192 0,213.49 0,240 L0,372 C0,378.627 5.373,384 12,384 L64,384 L64,488 C64,501.255 74.745,512 88,512 L424,512 C437.255,512 448,501.255 448,488 L448,384 L500,384 C506.627,384 512,378.627 512,372 L512,240 C512,213.49 490.51,192 464,192 Z M384,448 L128,448 L128,352 L384,352 L384,448 Z M128,224 L128,64 L320,64 L320,104 C320,117.2 330.8,128 344,128 L384,128 L384,224 L128,224 Z M432,296 C418.746,296 408,285.254 408,272 C408,258.746 418.746,248 432,248 C445.254,248 456,258.746 456,272 C456,285.254 445.254,296 432,296 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Print-this-article/Default">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#262020" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
