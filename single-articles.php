@@ -77,10 +77,11 @@
                                 </em>
                             </div>
                             <div class="article_count_container">
+                                <img src="<?php echo THEME_URL; ?>/images/icons/View.svg" class="viewIcon">
                                     <div class="lds-ellipsis" id="place-holder"><p id="article_count"></p>
                                         <div></div>
                                     </div>
-                                <div style="margin-left: 12px;">Views</div>
+                                <div style="margin-left: 3px;">Views</div>
 
                                 <script>
                                   jQuery(document).ready(function ($) {

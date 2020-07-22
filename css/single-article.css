@@ -98,6 +98,9 @@
 #articleToolsInContent {
     background-color: rgba(247, 247, 247, 0.6);
     padding: 24px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 50px;
 }
 
 #article-tools-title {
@@ -127,6 +130,12 @@
 .articleToolIcon{
     width: 16px;
     height: 16px;
+}
+
+.viewIcon{
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
 }
 
 /*Ellipsis loader*/
@@ -179,6 +188,10 @@
 .article_count_container {
     margin-top: 24px;
     display: flex;
+    font-family: Roboto,sans-serif;
+    font-size: 15px;
+    color: #767676;
+    line-height: 20px;
 }
 
 #place-holder {
