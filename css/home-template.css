@@ -157,7 +157,10 @@
 
 .blog-item-wrapper{
     margin-top: 16px;
+    display: flex;
+    margin-left: -16px;
 }
+
 
 .blog-item {
     background: #FFFFFF;
@@ -168,6 +171,13 @@
     width: 440px;
     height: 105px;
     padding: 20px;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-item-details{
+    margin-top:auto;
 }
 
 .blog-item-date {

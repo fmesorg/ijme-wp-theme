@@ -15,14 +15,14 @@
     justify-content: space-evenly;
     margin-left: auto;
     padding-right: 24px;
-    width: 98px;
+    width: 140px;
 }
 
 .navbar .nav > li > a {
     color: #262020 !important;
     font-size: 15px;
     font-family: 'Roboto', sans-serif !important;
-    font-weight: 200 !important;
+    font-weight: 300 !important;
 }
 
 
