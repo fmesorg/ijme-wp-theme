@@ -10,7 +10,7 @@
 /**
  * Notifications
  * FIXME: (Re)move once OJS styles are consolidated with new styles and themes
- 
+
 @import url("../lib/pkp/styles/themes/default/pnotify.css");
 @import url("../lib/pkp/styles/themes/default/notificationIcons.css");*/
 .ui-pnotify-title {
@@ -239,11 +239,11 @@ a, a:visited, a:link {
 a:hover {
 	color: #E01F1F;}
 
-.doi {font-size:12px;}	
+.doi {font-size:12px;}
 
 .doi:hover {
-	color: #428bca !important;}	
-	
+	color: #428bca !important;}
+
 #authorString p { padding:10px 0 0 0;}
 .singleContentArticle p a:hover { color: #428bca !important;}
 
@@ -360,7 +360,7 @@ ul.menu li {
 }
 
 .reference h4 {	padding: 5px 0 4px 10px;}
-	
+
 .row .last-4 #content .row-fluid h5 {
     font-size: 12px !important;
 	font-style: italic;
@@ -379,7 +379,7 @@ blockquote p{
 }
 .author {
 	color: #8a8a8a !important;	font-style: normal !important;	font-weight: 900 !important;	font-size: 15px !important;}
-	
+
 	#content h4.author {
     font-size: 16px !important;
 }
@@ -450,7 +450,7 @@ blockquote p{
 	border-left: 1px solid #dddddd;}
 .caption {
 	margin-bottom: 20px;	background-color: #DBDBDB;	padding: 5px;}
-	
+
 .table_custom tr:first-child {
 	background: none repeat scroll 0 0 #ffffff;}
 .table_custom tr td:first-child {
@@ -549,7 +549,7 @@ font-style: italic;
 /*table of content html inside page 26oct13 css start*/
 #content .section > h4 {
 color: #333333;	font-size: 15px !important;	padding-left: 0 !important;
-font-weight: bold; 
+font-weight: bold;
 line-height: 120%;
 padding-top: 6px;
 }
@@ -852,7 +852,7 @@ width: 256px !important;
 
 @media only screen and (max-width: 960px) {
 
-	
+
 		.navbar .nav > li > a {
     padding: 9px !important;
 	font-size: 13px;
@@ -1016,7 +1016,7 @@ label{
 /*sujata 15jan14 register.tpl css start*/
 
 #register-pg-form{
-	
+
 }
 #register-pg-form p{
 	font-family:Arial, Helvetica, sans-serif;
@@ -1102,7 +1102,7 @@ span.instruct{
 	border: 1px solid #dfdfdf!important;
 }
 .regi-button{
-	padding-left:145px;	
+	padding-left:145px;
 }
 .register-spn {
 	padding:0;
@@ -1157,7 +1157,7 @@ input.defaultButton {
 }
 .defaultSkin table.mceLayout{
 	margin-top:5px;
-	
+
 }
 #privacyStatement{
 	border-top:1px solid #e0e0e0;
@@ -1209,7 +1209,7 @@ background-color: #404040;
 
 /*submission step2 css start*/
 .sub-step-2{
-	
+
 }
 .sub-step-2 input{
 	display:inline-block!important;
@@ -1239,7 +1239,7 @@ background-color: #404040;
 }
 .sub-step-3-add-author{
 	padding-left:25%;
-	margin-top: 10px;	
+	margin-top: 10px;
 }
 .sub-step-3-SaveCancelBut{
 	padding-left:10%;
@@ -1467,7 +1467,7 @@ display: none;
 #indexing{
 	display: none;
 }
-.value > .register-spn:nth-child(3) { 
+.value > .register-spn:nth-child(3) {
 	display: none;
 }
 
@@ -1477,11 +1477,11 @@ display: none;
 
 
 @media all and (max-width: 1400px) and (min-width: 980px) {
-	
+
 .navbar .nav > li > a {
 	padding: 11px 18px !important;
 }
-	
+
 }
 
 @media (max-width: 767px){
@@ -1494,9 +1494,6 @@ display: none;
 	.top-nbc-logo img {
 		margin-top: 4px;
 		height: 36px !important;
-	}
-	.i-header-logo img {
-		height: auto !important;
 	}
 
 	.events-announcements{

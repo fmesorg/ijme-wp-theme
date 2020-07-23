@@ -11,3 +11,11 @@ a {
     padding: 0!important;
 
 }
+
+.custom-navigation-header{
+    height: 104px;
+}
+
+.i-header-logo img{
+    width: 190px;
+}

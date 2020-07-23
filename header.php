@@ -56,17 +56,19 @@
     <body>
 
     <div class="">
-        <div class="row background-white padding-left-24 header-shadow">
-            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo dp-flex align-items-center flex-nowrap"><a
-                        href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.png"
-                                                                  alt="Page Header"></a>
+        <div class="row background-white padding-left-24 header-shadow custom-navigation-header">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 i-header-logo dp-flex align-items-center flex-nowrap">
+                <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.png"
+                                                         alt="Page Header"></a>
                 <div class="nav-logo-text">
                     <span>ISSN: 0975-5091 (Online);</span>
                     <span>0974-8466 (Print)</span>
                     <span>RNI Reg No. MAHENG/2016/67188</span>
                 </div>
-                </div>
-                <?php require 'nav.php'; ?>
+            </div>
+        
+            <?php require 'nav.php'; ?>
+
             <div class="header-social-media-wrapper">
                 <img width="12" src="<?php echo THEME_URL; ?>/images/header-social-media/facebook-f.svg"
                      alt="Page Header">

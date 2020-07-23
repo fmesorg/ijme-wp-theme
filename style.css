@@ -2,7 +2,7 @@ body{overflow-x:hidden}
 .lhs_img {float:left; margin:0 15px 15px 0;}
 .rhs_img {float:right; margin:0 0 15px 15px;}
 .navbar.navbar-default{margin-top:15px; margin-bottom: 10px;}
-.navbar .nav > li > a{padding:9px 23px;text-transform:uppercase}
+.navbar .nav > li > a{padding:4px 16px;text-transform:uppercase}
 .navbar .brand,.navbar .nav > li > a{color:#000000!important;font-weight:500!important;text-decoration:none;}
 .navbar-brand{display:none;color:#000000!important;text-transform:uppercase;font-weight:700;font-size:13px;padding-left:10px}
 .navbar-brand:hover{color:#000000!important}
@@ -89,7 +89,6 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 #exTab2 .nav li a{background:#fff;padding:7px 10px;font-size:13px!important;border:none;border-radius:0;border-right:1px solid #ccc;text-align:center;margin:0;font-weight:700}
 #exTab2 .nav>li>a:hover,#exTab2 .nav>li>a:focus,#exTab2 .nav-tabs>li.active>a,#exTab2.nav-tabs>li.active>a:hover,#exTab2 .nav-tabs>li.active>a:focus{color:#fff!important;background-color:#575757}
 .extraLinks{margin:7px 0 0;font-size:12px}
-.i-header-logo img{padding-left:6px; max-width: 100%}
 .nav.navbar-nav{position:relative;z-index:5}
 .navheader{position:relative}
 .header{margin-top:15px;

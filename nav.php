@@ -1,4 +1,4 @@
-<nav id="site-navigation" class="navbar navbar-expand" role="navigation">
+<nav id="site-navigation" class="navbar navbar-expand" style="margin-left: auto;" role="navigation">
     <div class="navheader navbar-right">
         <!--        Full screen menu-->
         <?php
