@@ -24,7 +24,7 @@
             foreach ($articles as $post) :
                 setup_postdata($post); ?>
                 <div class="onlineFirst-article-wrapper dp-flex flex-column">
-                    <div class="online-first-date">
+                    <div class="issue-article-date">
                         <?php echo date('F d, Y', strtotime($post->post_date)); ?>
                         <?php
                             $new_post = get_post_meta($post->ID, 'show_new_button', true);

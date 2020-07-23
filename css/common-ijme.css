@@ -6,3 +6,8 @@ a {
     text-decoration: none !important;
     color:#000000 !important;
 }
+
+.singleContentArticle > .container-fluid {
+    padding: 0!important;
+
+}

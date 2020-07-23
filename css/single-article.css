@@ -1,3 +1,10 @@
+.section-article-title {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: #0A0A0A!important;
+    line-height: 20px;
+}
+
 .article-wrapper {
     background-color: #ffffff;
     padding: 40px;
