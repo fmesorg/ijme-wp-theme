@@ -2182,3 +2182,52 @@ function get_author_list($post_id)
     
     return $authors_array;
 }
+
+
+// Setup Custom media_post
+    function media_post()
+    {
+        // set up product labels
+        $labels = array(
+          'name' => 'Media Post',
+          'singular_name' => 'Media-Post',
+          'add_new' => 'Add New Media Post',
+          'add_new_item' => 'Add New Media Post',
+          'edit_item' => 'Edit Media Post',
+          'new_item' => 'New MediaPost',
+          'all_items' => 'All Media Posts',
+          'view_item' => 'View Media Post',
+          'search_items' => 'Search Posts',
+          'not_found' => 'No Media Post Found',
+          'not_found_in_trash' => 'No Media Post found in Trash',
+          'parent_item_colon' => '',
+          'menu_name' => 'Media Post',
+        );
+        
+        // register post type
+        $args = array(
+          'labels' => $labels,
+          'public' => true,
+          'has_archive' => true,
+          'show_ui' => true,
+          'capability_type' => 'post',
+          'hierarchical' => false,
+          'rewrite' => array('slug' => 'media-post'),
+          'query_var' => true,
+          'menu_icon' => 'dashicons-randomize',
+          'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'custom-fields',
+            'comments',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes'
+          )
+        );
+        register_post_type('media-post', $args);
+    }
+    
+    add_action('init', 'media_post');
