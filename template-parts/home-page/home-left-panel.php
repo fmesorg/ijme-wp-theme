@@ -19,7 +19,6 @@
         $post_articles_array = get_post_meta($id, 'articles', true);//articles in the current issue
         $articles_id = array_slice($post_articles_array, 0, 7, true);
     
-        var_dump($articles_id);
         $category_array = array();
         foreach ($articles_id as $id) {
             $t_post = get_post($id);
