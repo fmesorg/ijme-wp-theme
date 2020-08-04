@@ -1,0 +1,43 @@
+.footer{
+    background-color: #ffffff;
+}
+.sub-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-nav-menu {
+    display: flex;
+    flex-direction: row;
+}
+
+/*footer menu item*/
+
+.footer-nav-container{
+    padding: 1.2% 5.8%;
+}
+
+.footer-nav-container .menu-item {
+    flex: 1;
+}
+
+.menu-item > a {
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    color: #403C3C !important;
+    letter-spacing: 0;
+}
+
+.footer-nav-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-nav-menu > li > a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #403C3C !important;
+    letter-spacing: 0;
+    font-weight: bold;
+
+}

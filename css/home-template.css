@@ -237,9 +237,10 @@
     box-shadow: 0 4px 8px 0 rgba(225,225,225,0.40);
     border-radius: 4px;
     width: 440px;
-    height: 130px;
+    min-height: 130px;
     padding: 20px;
     margin-left: 16px;
+    height: auto;
 }
 .media-authors{
     font-family: Roboto;
