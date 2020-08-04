@@ -57,3 +57,39 @@
     letter-spacing: 0;
     line-height: 10px;
 }
+
+/*Sticky Message*/
+
+.sticky-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    z-index: 9;
+    padding: 8px;
+    background: #E01F1F;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+#donation-button {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: #E01F1F;
+    letter-spacing: 0;
+    line-height: 18px;
+    padding: 7px 16px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+#donation-button:active {
+    background: #dedede;
+}

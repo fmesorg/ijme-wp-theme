@@ -1,6 +1,10 @@
         </div><!--#container-->
 
-        
+        <div class="sticky-message">
+            <span>Subscribe to our alerts now to get updates. </span>
+            <span>Help IJME keep its content free. You can support us from as little as Rs. 500</span>
+            <span id="donation-button">Make a Donation</span>
+        </div>
         <div class="footer">
             <?php  get_template_part('template-parts/nav-footer'); ?>
             <div id="sub-footer">
