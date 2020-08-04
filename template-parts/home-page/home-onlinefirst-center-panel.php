@@ -8,7 +8,11 @@
 <div id="online-first-panel-wrapper">
     <div class="dp-flex justify-content-between align-items-baseline">
         <div id="online-first-section-title">Online First</div>
-        <div id="online-first-view-all">VIEW ALL <span style="color: #E01F1F!important;">></span></div>
+        <div id="online-first-view-all">
+            <a href="/issues/online-first">
+            VIEW ALL <span style="color: #E01F1F!important;">></span>
+            </a>
+        </div>
     </div>
     
     
