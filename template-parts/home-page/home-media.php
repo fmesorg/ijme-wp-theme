@@ -23,12 +23,17 @@
                     setup_postdata($post);
                     $authors = get_post_meta(get_the_ID(), 'media_author', true);
                     $media_type = get_post_meta(get_the_ID(), 'media_type', true);
+                    $media_link = get_post_meta(get_the_ID(), 'media_link', true);
                     ?>
                     <div class="media-item">
                         <div class="media-type">
                             <?php echo $media_type; ?>
                         </div>
-                        <div class="media-title"><?php echo get_the_title(); ?></div>
+                        <div class="media-title">
+                            <a href="<?php echo $media_link; ?>">
+                                <?php echo get_the_title(); ?>
+                            </a>
+                        </div>
                         <div class="media-authors"><?php echo $authors; ?></div>
                     </div>
                 <?php endforeach;

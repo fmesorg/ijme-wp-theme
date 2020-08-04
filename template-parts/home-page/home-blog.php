@@ -24,7 +24,9 @@
                     setup_postdata($post); ?>
                     <div class="blog-item">
                         <div class="blog-description">
+                            <a href="<?php the_permalink(); ?>">
                             <?php echo get_the_title(); ?>
+                            </a>
                         </div>
                         <div class="blog-item-details">
 <!--       Author hidden as not required by FMES Team  <span class="blog-item-author">The Hindu</span>-->

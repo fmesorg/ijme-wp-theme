@@ -28,7 +28,11 @@
                 $authors_list = get_author_list(get_the_ID());
                 ?>
                 <div class="contemporarily-article-wrapper">
-                    <div class="contemporarily-article-name"><?php echo the_title(); ?></div>
+                    <div class="contemporarily-article-name">
+                        <a href="<?php the_permalink(); ?>">
+                        <?php echo the_title(); ?>
+                        </a>
+                    </div>
                     <div class="contemporarily-article-author">
                         <?php
                             foreach ($authors_list as $author) echo $author;

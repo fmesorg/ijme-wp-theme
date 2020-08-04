@@ -65,7 +65,11 @@
                     setup_postdata($post);
                     $authors_list = get_author_list(get_the_ID());
                     ?>
-                 <div class="current-issue-article-title"><?php echo  get_the_title(); ?> </div>
+                    <div class="current-issue-article-title">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php echo get_the_title(); ?>
+                        </a>
+                    </div>
                  <div class="current-issue-article-author"><?php
                         foreach ($authors_list as $author) echo $author;
                      ?></div>
