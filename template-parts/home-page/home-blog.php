@@ -15,7 +15,13 @@
 <div id="blog" class="blog-wrapper col">
     <div id="blog-section-title" class="dp-flex">
         Blog
-        <div class="view-all-wrapper"><span class="view-all-text">VIEW ALL</span> <span class="view-all-icon">></span></div>
+        <div class="view-all-wrapper">
+            <a href="/blog/">
+                <span class="view-all-text">VIEW ALL</span>
+                <span class="view-all-icon">></span>
+            </a>
+
+        </div>
     </div>
     <div class="blog-item-wrapper">
         <?php

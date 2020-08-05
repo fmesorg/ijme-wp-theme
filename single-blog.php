@@ -4,7 +4,7 @@
     <div class="jumbotron overlay-dark">
         <div class="blog-title">
             <h2><?php the_title(); ?></h2>
-            <p class="minor-heading">Blog Description will be displayed here</p>
+            <p class="minor-heading"><?php the_excerpt() ?></p>
             <p class="published-date"><?php
                 echo date("F j, Y",strtotime($post->post_date)); ?></p>
         </div>

@@ -211,16 +211,23 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
     padding-left:30px ;
     padding-right:30px ;
     font-family: 'Roboto', sans-serif;
-    font-size: medium;
     line-height: 1.618;
-    font-size: 20px;
     padding-bottom: 50px;
 }
 
-.blog-content h2,h3{
+.blog-content h2{
+    margin-top: 18px;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-weight: 400;
 }
+
+.blog-content h3{
+    margin-top: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+
 
 .published-date{
     font-family: 'Roboto', sans-serif;
@@ -291,6 +298,7 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 
 .blog-post-summary{
     flex:1;
+    padding: 12px;
 }
 
 .sub-featured-continue{
