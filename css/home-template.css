@@ -259,3 +259,14 @@
     line-height: 28px;
     margin-top: 12px;
 }
+
+
+.media-archive-card-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.media-archive-container{
+    min-height: 40vh;
+}

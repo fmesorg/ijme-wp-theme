@@ -6,7 +6,7 @@
 ?>
 
 <?php
-    $posts = get_posts(array(
+    $contemporarily_relevant_post = get_posts(array(
       'numberposts' => -1,
       'post_type' => 'articles',
       'meta_key' => 'is_contemporarily_relevant',
@@ -22,10 +22,13 @@
                 </a>
             <?php endif; ?>
     </div>
+    <?php
+        if ($contemporarily_relevant_post){
+    ?>
     <div id="contemporarily-relevant-wrapper">
         <div class="contemporarily-relevant-section-title">Contemporarily Relevant</div>
         <?php
-            foreach ($posts as $post):
+            foreach ($contemporarily_relevant_post as $post):
                 setup_postdata($post);
                 $authors_list = get_author_list(get_the_ID());
                 ?>
@@ -47,4 +50,4 @@
         ?>
     </div>
 </div>
-
+<?php } ?>
