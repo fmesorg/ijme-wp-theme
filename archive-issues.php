@@ -28,7 +28,9 @@
             </ul>
         </div>
     </div>
-    <div class="loader" id="loader"></div>
+    <div style="display: flex; justify-content: center">
+        <div class="loader" id="loader"></div>
+    </div>
     <div id="issue-archive-content-container">
         <!--content from ajax-->
     </div>
@@ -45,6 +47,8 @@
 
 
     function getData($years) {
+      showLoader();
+      removeOldData();
       let ajaxUrl = '<?php echo admin_url('admin-ajax.php');?>';
       jQuery(function ($) {
         $.ajax({
@@ -55,8 +59,7 @@
             selected_year: $years
           },
           success: function (data) {
-            // hideLoader();
-            // removeOldData();
+            hideLoader();
             jQuery("#issue-archive-content-container").html(data);
           },
           error: function (errorThrown) {
@@ -105,12 +108,9 @@
       document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
       document.getElementById($id).classList.add('tag-selected');
     }
-    function removeSelected($id) {
-      document.getElementById($id).className = 'tag-item'
-    }
-
+    
     function removeOldData() {
-      // jQuery(".issue").remove();
+      jQuery(".issue-archive-year").remove();
     }
 
     function showLoader() {
