@@ -2025,16 +2025,62 @@ foreach ($allCategories
                 <?php
             }
         }
-
-
-        function display_year_issues()
-        {
-        if (isset($_POST['selected_year'])) {
-            $selected_year = $_POST['selected_year'];
-        } else {
-            $selected_year = array();
-        }
-        global $post;
+    
+    
+            function search_issue_by_name()
+            {
+                if (isset($_POST['issueName'])) {
+                    $issue_name = $_POST['issueName'];
+                } else {
+                    $issue_name = '';
+                }
+                global $wpdb;
+                $articles = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->posts
+                WHERE post_status = 'publish' AND post_title LIKE '%s'", '%' . $wpdb->esc_like($issue_name) . '%'));
+                ?>
+                <div class="year-content">
+                    <div class="archive-card-container flex-wrap">
+                        <?php
+                            global $post;
+                            foreach ($articles as $post) :
+                                setup_postdata($post);
+                                ?>
+                                <div class="issue-archive-card mt-4">
+                                    <div class="issue-archive-thumbnail">
+                                        <?php if (has_post_thumbnail()): ?>
+                                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail([80]); ?></a>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="issue-archive-details">
+                                        <div class="issue-archive-number"><?php echo get_post_meta(get_the_ID(), 'number', true); ?></div>
+                                        <div class="issue-archive-title">
+                                            <a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            endforeach;
+                            wp_reset_postdata();
+                        ?>
+                    </div>
+                </div>
+            <?php
+            die();
+            }
+    
+            add_action('wp_ajax_search_issue_by_name', 'search_issue_by_name');
+            add_action('wp_ajax_nopriv_search_issue_by_name', 'search_issue_by_name');
+    
+    
+            //            For Archive filter
+            function display_year_issues()
+            {
+            if (isset($_POST['selected_year'])) {
+                $selected_year = $_POST['selected_year'];
+            } else {
+                $selected_year = array();
+            }
+            global $post;
             $posts_array = get_posts(array(
               'meta_query' => array(
                 array(
@@ -2044,7 +2090,8 @@ foreach ($allCategories
                 )
               ),
               'post_type' => 'issues',
-              'posts_per_page' => -1
+              'posts_per_page' => -1,
+              'post_title' => ''
             ));
     
     
@@ -2068,11 +2115,6 @@ foreach ($allCategories
             foreach ($year_keyed_posts_array as $key => $value) {
                 $issue_category[set_issue_category($key)][$key] = $value;
             }
-            //        $articles = get_posts(array(
-            //            'posts_per_page' => 4,
-            //            'post_type' => 'issues',
-            //            'year' => $selected_year
-            //        ));
             if ($issue_category){
             foreach ($issue_category as $category => $years) {
                 ?>

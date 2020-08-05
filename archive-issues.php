@@ -15,8 +15,9 @@
 
     <div id="issue-archive-search">
         <div id="search-box">
-            <input type="text" class="input-group-text tag-search-input" placeholder="Search a Volume...">
-            <button class="button tag-search-button">Search</button>
+            <input id="issue-text-field" type="text" class="input-group-text tag-search-input"
+                   placeholder="Search a Volume...">
+            <button class="button tag-search-button" onclick="searchIssueByName()">Search</button>
         </div>
         <div id="issue-search-tags">
             <ul id="tag-list">
@@ -45,8 +46,35 @@
         });
     });
 
+    function searchIssueByName() {
+      let name = document.getElementById("issue-text-field").value;
+      if (name !== '') {
+        showLoader();
+        resetSelectedFilter();
+        removeOldData();
+        let ajaxUrl = '<?php echo admin_url('admin-ajax.php');?>';
+        jQuery(function ($) {
+          $.ajax({
+            type: "POST",
+            url: ajaxUrl,
+            data: {
+              action: "search_issue_by_name",
+              issueName: name
+            },
+            success: function (data) {
+              hideLoader();
+              jQuery("#issue-archive-content-container").html(data);
+            },
+            error: function (errorThrown) {
+              alert(errorThrown);
+            }
+          });
+        });
+      }
+    }
 
     function getData($years) {
+      clearTextField();
       showLoader();
       removeOldData();
       let ajaxUrl = '<?php echo admin_url('admin-ajax.php');?>';
@@ -105,8 +133,20 @@
     }
     
     function setSelected($id) {
-      document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
+      if(document.getElementsByClassName('tag-item tag-selected').length !==0){
+        document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
+      }
       document.getElementById($id).classList.add('tag-selected');
+    }
+
+    function resetSelectedFilter() {
+      if(document.getElementsByClassName('tag-item tag-selected').length !==0){
+        document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
+      }
+    }
+    
+    function clearTextField() {
+      document.getElementById('issue-text-field').value='';
     }
     
     function removeOldData() {
