@@ -1,5 +1,53 @@
 <?php get_header(); ?>
-    <div class="container-block">
+<div class="issue-archive-container">
+    <div id="issue-archive-header">
+        <div id="issue-archive-title">Archives</div>
+        <div id="issue-archive-description">
+            [Text to Replace]
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nulla augue, volutpat eu ornare sed,
+            fermentum eu neque. Suspendisse pellentesque ac est in sodales. Cras odio lectus, dictum eleifend
+            fermentum ut, malesuada at nibh. Proin nisl velit, tempus volutpat sem placerat, mattis suscipit quam.
+            Cras fermentum luctus dolor, nec tincidunt orci gravida vel. Vivamus volutpat aliquet orci sit amet
+            lacinia. Fusce in cursus odio. Proin ut ultrices neque. Phasellus efficitur neque nunc, a sodales nisl
+            scelerisque at. Sed vel velit vitae sem venenatis tempor vel eget orci.
+        </div>
+    </div>
+
+    <div id="issue-archive-search">
+        <div id="search-box">
+            <input type="text" class="input-group-text tag-search-input" placeholder="Search a Volume...">
+            <button class="button tag-search-button">Search</button>
+        </div>
+        <div id="issue-search-tags">
+            <ul id="tag-list">
+                <li class="tag-item tag-selected">All Years</li>
+                <li class="tag-item">IJME - New Series (2016 Onwards)</li>
+                <li class="tag-item">IJME - Old Series (2004 - 2015)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="issue-archive-content-container">
+
+        <div class="issue-archive-year">
+            <div class="year-section-title">Indian Journal of Medical Ethics (New Series 2016 – onwards)</div>
+            <div class="year-content">
+                <div class="year-title">2020: Volume 5 <span class="year-subtitle">(Cumulative Vol.28)</span></div>
+                <div class="issue-archive-card">
+                    <div class="issue-archive-thumbnail"></div>
+                    <div class="issue-archive-details">
+                        <div class="issue-archive-number">No. 1</div>
+                        <div class="issue-archive-title">Real life research, real life dilemmas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    ---------------------------------------------
         <div class="content blocks">
             <div class="col-md-9">
                 <div class="row">
@@ -25,9 +73,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <?php get_sidebar(); ?>
             </div>
         </div>
         <div class="loader" id="loader"></div>

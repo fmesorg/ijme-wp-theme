@@ -1,0 +1,157 @@
+.issue-archive-container {
+    padding: 44px;
+}
+
+#issue-archive-title {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #111010 !important;
+    line-height: 32px;
+}
+
+#issue-archive-description {
+    margin-top: 8px;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #403C3C !important;
+    line-height: 20px;
+}
+
+#issue-archive-search {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+#search-box {
+    display: flex;
+}
+
+#issue-search-tags {
+    display: flex;
+    margin-top: 32px;
+}
+
+#tag-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+
+.tag-item {
+    background: #EEEEEE;
+    border: 1px solid #ECE8E8;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #403C3C;
+    letter-spacing: 0;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.tag-item:hover {
+    background: #cbcbcb;
+}
+
+.tag-selected {
+    color: #E01F1F;
+    background: #FFFFFF;
+    border: 1px solid #E01F1F;
+}
+
+.tag-search-button {
+    background: #E01F1F;
+    margin-left: 10px;
+}
+
+.tag-search-input {
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    font-family: Roboto, sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: #767676;
+}
+
+/*Content*/
+
+#issue-archive-content-container {
+    margin-top: 32px;
+}
+
+.year-section-title {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 32px;
+    color: #111010;
+    line-height: 42px;
+}
+
+.year-content {
+    margin-top: 40px;
+}
+
+.year-title {
+    font-family: Roboto-Bold, sans-serif;
+    font-size: 20px;
+    color: #262020;
+    letter-spacing: 0.2px;
+    margin-bottom: 12px;
+}
+
+.year-subtitle {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #767676;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+}
+
+.issue-archive-card {
+    display: flex;
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    box-shadow: 0 4px 8px 0 rgba(225,225,225,0.40);
+    border-radius: 4px;
+    width: 352px;
+    height: 136px;
+    padding: 16px;
+}
+
+.issue-archive-thumbnail {
+    margin-right: auto;
+    width: 80px;
+    height: 104px;
+    object-fit: contain;
+    background-color: #0c3b66;
+    box-shadow: 0 2px 4px 0 rgba(118,118,118,0.16);
+}
+
+.issue-archive-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+
+.issue-archive-number {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: #767676;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+.issue-archive-title {
+    font-family: Roboto-Bold, sans-serif;
+    font-size: 18px;
+    color: #111010;
+    line-height: 22px;
+}
+

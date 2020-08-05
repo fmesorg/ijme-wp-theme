@@ -78,6 +78,7 @@ function enqueue_front_end_scripts()
     wp_enqueue_style('single-article', THEME_URL . '/css/single-article.css', [], '1.0.0');
     wp_enqueue_style('single-issue', THEME_URL . '/css/single-issue.css', [], '1.0.0');
     wp_enqueue_style('nav-footer', THEME_URL . '/css/nav-footer.css', [], '1.0.0');
+    wp_enqueue_style('issue-archive', THEME_URL . '/css/issue-archive.css', [], '1.0.0');
     
     
     //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
