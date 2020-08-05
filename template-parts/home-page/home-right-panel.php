@@ -17,7 +17,9 @@
         <?php
             $frontpage_id = get_option('page_on_front');
             if (get_field('sidebar_advertisement', $frontpage_id)): ?>
-                <img src="<?php the_field('sidebar_advertisement', $frontpage_id); ?>" width="100%"/>
+                <a href="<?php the_field('sidebar_advertisement_link',$frontpage_id); ?>" target="_blank" style="width: inherit">
+                    <img src="<?php the_field('sidebar_advertisement', $frontpage_id); ?>" width="100%"/>
+                </a>
             <?php endif; ?>
     </div>
     <div id="contemporarily-relevant-wrapper">
