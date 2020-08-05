@@ -56,7 +56,8 @@
 }
 
 .tag-item:hover {
-    background: #cbcbcb;
+    background: #E01F1F;
+    color: #ffffff;
 }
 
 .tag-selected {
@@ -120,7 +121,7 @@
     border: 1px solid #EBEBEB;
     box-shadow: 0 4px 8px 0 rgba(225,225,225,0.40);
     border-radius: 4px;
-    width: 352px;
+    width: 302px;
     height: 136px;
     padding: 16px;
 }
@@ -130,7 +131,6 @@
     width: 80px;
     height: 104px;
     object-fit: contain;
-    background-color: #0c3b66;
     box-shadow: 0 2px 4px 0 rgba(118,118,118,0.16);
 }
 
@@ -149,9 +149,19 @@
 }
 
 .issue-archive-title {
+    margin-top: 4px;
     font-family: Roboto-Bold, sans-serif;
     font-size: 18px;
     color: #111010;
     line-height: 22px;
 }
 
+.archive-card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.issue-archive-year{
+    margin-top: 72px;
+}

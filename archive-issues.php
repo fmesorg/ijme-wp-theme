@@ -20,62 +20,17 @@
         </div>
         <div id="issue-search-tags">
             <ul id="tag-list">
-                <li class="tag-item tag-selected">All Years</li>
-                <li class="tag-item">IJME - New Series (2016 Onwards)</li>
-                <li class="tag-item">IJME - Old Series (2004 - 2015)</li>
+                <li class="tag-item tag-selected" id="ALL" onclick="getDataForCategory('ALL')">All Years</li>
+                <li class="tag-item" id="CAT1" onclick="getDataForCategory('CAT1')">IJME - New Series (2016 Onwards)</li>
+                <li class="tag-item" id="CAT2" onclick="getDataForCategory('CAT2')">IJME - Old Series (2004 - 2015)</li>
+                <li class="tag-item" id="CAT3" onclick="getDataForCategory('CAT3')">Issues in Medical Ethics (1996-2003)</li>
+                <li class="tag-item" id="CAT4" onclick="getDataForCategory('CAT4')">Medical Ethics (1993-1995)</li>
             </ul>
         </div>
     </div>
-
+    <div class="loader" id="loader"></div>
     <div id="issue-archive-content-container">
-
-        <div class="issue-archive-year">
-            <div class="year-section-title">Indian Journal of Medical Ethics (New Series 2016 – onwards)</div>
-            <div class="year-content">
-                <div class="year-title">2020: Volume 5 <span class="year-subtitle">(Cumulative Vol.28)</span></div>
-                <div class="issue-archive-card">
-                    <div class="issue-archive-thumbnail"></div>
-                    <div class="issue-archive-details">
-                        <div class="issue-archive-number">No. 1</div>
-                        <div class="issue-archive-title">Real life research, real life dilemmas</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-    ---------------------------------------------
-        <div class="content blocks">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="dropdown pull-right"><span>Select Year</span>
-                        <button class="btn btn-default dropdown-toggle dropdown-width" type="button" id="year-drop-down-menu"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Choose Year<span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="year-dropdown" aria-labelledby="dropdownMenu1">
-                            <?php populateDropdown(); ?>
-                        </ul>
-                    </div>
-                </div>
-                <!--    <div class="clearfix"></div>-->
-                <div class="row">
-                    <div class="issues-wrapper">
-                        <div class="">
-                            <div class="row">
-                                <div class="issue-box" id="issue-box">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="loader" id="loader"></div>
+        <!--content from ajax-->
     </div>
 
 <?php get_footer(); ?>
@@ -83,45 +38,79 @@
 
 <script type="text/javascript">
     jQuery(function($) {
-
         $(document).ready(function(){
-            $("#current-year").trigger("click");
+          getData();
         });
-
-        $('#year-dropdown li a').on('click', function(e) {
-            e.preventDefault();
-            showLoader();
-            let selected_year = $(this).data('value');
-
-            let ajaxUrl = '<?php echo admin_url( 'admin-ajax.php' );?>';
-            $.ajax({
-                type:"POST",
-                url: ajaxUrl,
-                data: {
-                    action: "display_year_issues",
-                    selected_year: selected_year
-                },
-                success:function(data){
-                    hideLoader();
-                    removeOldData();
-                    jQuery("#issue-box").html(data);
-                },
-                error: function(errorThrown){
-                    alert(errorThrown);
-                }
-            });
-
-        });
-
-        $('#year-dropdown a').click(function(){
-            $('#year-drop-down-menu').html($(this).text()+'<span class="caret caret-white"></span>');
-        });
-
-
     });
+
+
+    function getData($years) {
+      let ajaxUrl = '<?php echo admin_url('admin-ajax.php');?>';
+      jQuery(function ($) {
+        $.ajax({
+          type: "POST",
+          url: ajaxUrl,
+          data: {
+            action: "display_year_issues",
+            selected_year: $years
+          },
+          success: function (data) {
+            // hideLoader();
+            // removeOldData();
+            jQuery("#issue-archive-content-container").html(data);
+          },
+          error: function (errorThrown) {
+            alert(errorThrown);
+          }
+        });
+      });
+    }
+
+    function getDataForCategory(category) {
+      let yearArray = [];
+      setSelected(category);
+      switch (category) {
+        case 'CAT1':
+          let currentYear = new Date().getFullYear();
+          for (let i = 2006; i <= currentYear; i++) {
+            yearArray.push(i);
+          }
+          getData(yearArray);
+          break;
+        case 'CAT2':
+          for (let i = 2004; i <= 2015; i++) {
+            yearArray.push(i);
+          }
+          getData(yearArray);
+          break;
+        case 'CAT3':
+          for (let i = 1996; i <= 2003; i++) {
+            yearArray.push(i);
+          }
+          getData(yearArray);
+          break;
+        case 'CAT4':
+          for (let i = 1993; i <= 1995; i++) {
+            yearArray.push(i);
+          }
+          getData(yearArray);
+          break;
+        default:
+          getData();
+          break;
+      }
+    }
     
+    function setSelected($id) {
+      document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
+      document.getElementById($id).classList.add('tag-selected');
+    }
+    function removeSelected($id) {
+      document.getElementById($id).className = 'tag-item'
+    }
+
     function removeOldData() {
-        jQuery(".issue").remove();
+      // jQuery(".issue").remove();
     }
 
     function showLoader() {
@@ -131,27 +120,4 @@
     function hideLoader() {
         document.getElementById("loader").style.display = "none";
     }
-
-
-
 </script>
-
-<?php
-function populateDropdown() {
-    $currentYear = date("Y");
-    $lastyear    =   $currentYear-1;
-
-    $dropDownHtml = '<li><a href="#" data-value="'.$currentYear.'" id="current-year">Current Year</a></li>';
-    $dropDownHtml .= '<li><a href="#" data-value="'.$lastyear.'" id="current-year">Last Year</a></li>';
-    $dropDownHtml .= '<li role="separator" class="divider"></li>';
-
-    $year = $currentYear;
-    while ($year>$currentYear-10){
-        $dropDownHtml .= '<li><a href="#" data-value="'.$year.'">'.$year.'</a></li>';
-        $year--;
-    }
-
-    echo $dropDownHtml;
-}
-
-?>

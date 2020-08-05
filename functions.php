@@ -2032,40 +2032,92 @@ foreach ($allCategories
         if (isset($_POST['selected_year'])) {
             $selected_year = $_POST['selected_year'];
         } else {
-            $selected_year = date("Y");
+            $selected_year = array();
         }
         global $post;
-        $articles = get_posts(array(
-            'posts_per_page' => 4,
-            'post_type' => 'issues',
-            'year' => $selected_year
-        ));
-        if ($articles) {
-            foreach ($articles as $post) :
-                setup_postdata($post);
-                if (has_post_thumbnail()):
+            $posts_array = get_posts(array(
+              'meta_query' => array(
+                array(
+                  'key' => 'year',
+                  'value' => $selected_year,
+                  'compare' => 'IN'
+                )
+              ),
+              'post_type' => 'issues',
+              'posts_per_page' => -1
+            ));
+    
+    
+            $year_keyed_posts_array = array();
+            $max_posts = 0;
+    
+            foreach ($posts_array as $post_obj) {
+                $year = get_post_meta($post_obj->ID, 'year', true);
+        
+                if (!isset($year_keyed_posts_array[$year])) {
+                    $year_keyed_posts_array[$year] = array();
+                }
+        
+                $year_keyed_posts_array[$year][] = $post_obj;
+        
+                if (count($year_keyed_posts_array[$year]) > $max_posts) $max_posts = count($year_keyed_posts_array[$year]);
+            }
+    
+            $issue_category = array();
+            arsort($year_keyed_posts_array);
+            foreach ($year_keyed_posts_array as $key => $value) {
+                $issue_category[set_issue_category($key)][$key] = $value;
+            }
+            //        $articles = get_posts(array(
+            //            'posts_per_page' => 4,
+            //            'post_type' => 'issues',
+            //            'year' => $selected_year
+            //        ));
+            if ($issue_category){
+            foreach ($issue_category as $category => $years) {
+                ?>
+                <div class="issue-archive-year">
+                    <div class="year-section-title"><?php get_issue_section_title($category); ?></div>
+                    <?php
+                        krsort($years);
+                        foreach ($years as $year => $articles){
                     ?>
-                    <div class="issue">
-                        <div class="issue-image">
-                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                    <div class="year-content">
+                        <div class="year-title">
+                            <?php echo $year; ?>
+                            <!--                        Volume --><?php //echo get_post_meta($sectionArticleId, 'volume', true);
+                            ?>
+<!--                            <span class="year-subtitle">(Cumulative Vol.28)</span>-->
                         </div>
-                        <div class="issue-content">
-                            <div class="issue-title"><h3 class="home-title-1"><a
-                                            href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-                                </h3>
-                                <span class="issue-tag">Volume:<?php echo get_post_meta(get_the_ID(), 'volume', true); ?> Issue:&nbsp;<?php get_issue_quarter(get_post_meta(get_the_ID(), 'number', true)); ?></span>
-                                <p>
-                                    <span class="issue-tag">Published Date: <?php echo date('Y-m-d', strtotime(get_post_meta(get_the_ID(), 'issue_publish_date', true))); ?></span>
-                                </p>
-                            </div>
-                            <div class="issue-detail"><?php echo wp_trim_words(get_the_excerpt(), 500); ?></div>
+                        <div class="archive-card-container">
+                    
+                            <?php
+                                foreach ($articles as $post) :
+                                    setup_postdata($post);
+                                    ?>
+                                    <div class="issue-archive-card">
+                                        <div class="issue-archive-thumbnail">
+                                            <?php if (has_post_thumbnail()): ?>
+                                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail([80]); ?></a>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="issue-archive-details">
+                                            <div class="issue-archive-number"><?php echo get_post_meta(get_the_ID(), 'number', true); ?></div>
+                                            <div class="issue-archive-title">
+                                                <a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                endforeach;
+                            ?>
                         </div>
+                        <?php } ?>
                     </div>
+                </div>
                 <?php
-                endif;
-            endforeach;
-            wp_reset_postdata();
-
+                wp_reset_postdata();
+            }
         } else { ?>
         <div class="issue">
             <div class="issue-content">
@@ -2082,6 +2134,50 @@ foreach ($allCategories
 
 add_action('wp_ajax_display_year_issues', 'display_year_issues');
 add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');
+    
+    
+    function set_issue_category($year)
+    {
+        switch ($year) {
+            case $year >= 2016 :
+                return "CAT1";
+                break;
+            case ($year >= 2004) && ($year <= 2015) :
+                return 'CAT2';
+                break;
+            case ($year >= 1996) && ($year <= 2003) :
+                return 'CAT3';
+                break;
+            case ($year <= 1993) && ($year >= 1995):
+                return 'CAT4';
+                break;
+            default:
+                return 'CAT5';
+                break;
+        }
+    }
+    
+    function get_issue_section_title($category)
+    {
+        switch ($category) {
+            case 'CAT1':
+                echo "Indian Journal of Medical Ethics (New Series 2016 – onwards)";
+                break;
+            case 'CAT2':
+                echo "IJME-Old Series (2004-2015)";
+                break;
+            case 'CAT3':
+                echo "Issues in Medical Ethics (1996-2003)";
+                break;
+            case 'CAT4':
+                echo "Medical Ethics (1993-1995)";
+                break;
+            default:
+                echo "Indian Journal of Medical Ethics Archived Issues";
+                break;
+        }
+    }
+
 
 function get_issue_quarter($i)
 {
