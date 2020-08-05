@@ -10,24 +10,9 @@ get_header();
 
 
 <div class="row">
-    <div class="col-md-9">
-        <div id="main" class="last-2">
-            <div id="content">
-                <h3>It seems we can’t find what you’re looking for.</h3>
-                
-                <div class="table-responsive">
-                    <p>&nbsp;</p>
-                    <p>Oops! We can't find the page you are looking for. This might be because of the following reasons:</p>
-					<p>- We have recently migrated our servers </p>
-					<p>- The URL you have typed might be incorrect. We regret the inconvenience caused to you. Please visit our <a href="<?php bloginfo('url'); ?>">Home Page.</a></p>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <div class="clearfix visible-xs"></div>
-	<div class="col-md-3">
-        <?php get_sidebar(); ?>
+    <div class="col-md-12 dp-flex flex-column align-items-center justify-content-center" style="background-color:#F4F4F4; height: 50vh">
+        <div style="color: #0A0A0A; font-size: 72pt;font-weight: bold; font-family: Roboto, sans-serif">Oops..!</div>
+        <div style="color: #757575; font-size: 32pt; font-weight: normal; font-family: Roboto, sans-serif; ">The Page you're looking for isn't here.</div>
     </div>
 </div>
 
