@@ -42,3 +42,33 @@ a {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+#page-content-wrapper {
+    padding: 48px;
+    font-family: Roboto, sans-serif;
+}
+
+.post-title {
+    font-family: Roboto-Bold, sans-serif;
+    font-size: 32px;
+    color: #111010 !important;
+    line-height: 42px;
+}
+
+.post-date {
+    margin-top: 4px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #403C3C !important;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+.post-content {
+    margin-top: 32px;
+    font-family: Roboto,sans-serif;
+    font-size: 18px;
+    color: #111010!important;
+    line-height: 28px;
+}
