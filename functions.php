@@ -2414,3 +2414,46 @@ function get_author_list($post_id)
         ));
     }
 ?>
+    
+        <?php
+            add_filter('comment_form_default_fields', 'remove_comment_fields');
+            function remove_comment_fields($fields)
+            {
+                if (isset($fields['url']))
+                    unset($fields['url']);
+            
+                return $fields;
+            }
+            
+            
+    
+        ?>
+    
+    
+        <?php
+            //Customize comment dispyay using call back function
+            function my_comments_callback($comment, $args, $depth)
+            {
+                $GLOBALS['comment'] = $comment;
+                ?>
+                <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+                    <div id="comment-<?php comment_ID(); ?>" class="comment">
+                        <div class="comment-details">
+                            <div class="commentor-fields">
+                                <div class="comment-author"><?php echo get_comment_author($comment->comment_ID) ?></div>
+                                <div class="comment-affiliations"><?php echo get_comment_meta($comment->comment_ID, 'affiliation', true) ?>
+                                    , <?php echo get_comment_meta($comment->comment_ID, 'country', true) ?></div>
+                            </div>
+                            <div class="comment-date"><?php echo get_comment_date('d F Y', $comment->comment_ID) ?></div>
+                        </div>
+                        <div class="comment-text"><?php comment_text(); ?></div>
+                        <div class="comment-reply-btn">
+                            <?php comment_reply_link(array_merge($args, array('reply_text' => __('Reply', 'twentyeleven'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+                        </div>
+
+                    </div>
+                </li>
+                <?php
+            }
+    
+        ?>
