@@ -16,6 +16,11 @@
     background-color: #F4F4F4;
     padding: 44px;
     z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: flex-start;
 }
 
 .mostread-title{
@@ -94,9 +99,15 @@
     height: 200px;
 }
 
-.carousel{
+.category-carousel{
     width:90%;
 }
+
+.topic-carousel{
+    width:90%;
+
+}
+
 .slick-slide{
     margin:10px;
 }
@@ -104,6 +115,9 @@
     width:100%;
     border: 2px solid #fff;
 }
-.slick-arrow{
-    display: none!important;
+
+
+.mostread-switch-wrapper {
+    padding-top: 12px;
+    padding-right: 18px;
 }

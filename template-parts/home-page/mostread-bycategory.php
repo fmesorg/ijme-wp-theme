@@ -7,8 +7,14 @@
 <div id="mostread-byCategory" class="mostread-wrapper wrapper">
     <div class="gray-background">
         <div class="mostread-title">Most read by Category</div>
+        <div class="mostread-switch-wrapper">
+            <img class="category-prev" src="<?php echo THEME_URL; ?>/images/switch/switch_left.svg"
+                 alt="slide left">
+            <img class="category-next" src="<?php echo THEME_URL; ?>/images/switch/switch_right.svg"
+                 alt="slide right">
+        </div>
     </div>
-        <div class="carousel category-card-wrapper">
+        <div class="category-carousel category-card-wrapper">
             <div class="category-card">
                 <div class="category-name">RESEARCH ETHICS</div>
                 <div class="category-post-title">Ethical Challenges in Education1</div>

@@ -78,17 +78,17 @@ jQuery(function($){
 
 
 jQuery(document).ready(function($) {
-    $('.carousel').slick({
+  $('.topic-carousel').slick({
                            slidesToShow: 4,
                             slidesToScroll:1,
+                               prevArrow: $('.topic-prev'),
+                               nextArrow: $('.topic-next'),
                            responsive: [
                              {
                                breakpoint: 1024,
                                settings: {
                                  slidesToShow: 3,
                                  slidesToScroll: 3,
-                                 infinite: true,
-                                 dots: true
                                }
                              },
                              {
@@ -107,11 +107,37 @@ jQuery(document).ready(function($) {
                              }
                            ]
                          });
-  // jQuery('.your-class').flickity({
-  //                                     // options
-  //                                     cellAlign: 'left',
-  //                                     contain: true
-  //                                   });
+
+  $('.category-carousel').slick({
+                           slidesToShow: 4,
+                            slidesToScroll:1,
+                               prevArrow: $('.category-prev'),
+                               nextArrow: $('.category-next'),
+                           responsive: [
+                             {
+                               breakpoint: 1024,
+                               settings: {
+                                 slidesToShow: 3,
+                                 slidesToScroll: 3,
+                               }
+                             },
+                             {
+                               breakpoint: 600,
+                               settings: {
+                                 slidesToShow: 2,
+                                 slidesToScroll: 2
+                               }
+                             },
+                             {
+                               breakpoint: 480,
+                               settings: {
+                                 slidesToShow: 1,
+                                 slidesToScroll: 1
+                               }
+                             }
+                           ]
+                         });
+
 
   jQuery(".scroll-to-top").hide();
 	jQuery(window).scroll(function() {
