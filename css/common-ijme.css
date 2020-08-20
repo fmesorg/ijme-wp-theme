@@ -72,3 +72,22 @@ a {
     color: #111010!important;
     line-height: 28px;
 }
+
+.subscribe-text-box{
+    background-color: white;
+    border-radius: 0;
+    border: none;
+    width: 360px;
+    margin-left: 30px;
+    text-align: left;
+}
+
+.subscribe-button{
+    background-color: #E01F1F;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, sans-serif;
+    font-weight: lighter;
+}
