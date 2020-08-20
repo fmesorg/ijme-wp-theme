@@ -60,15 +60,16 @@ function enqueue_front_end_scripts()
     wp_enqueue_style('main', get_stylesheet_uri(), [], '3.7.1.0');
     wp_enqueue_style('media-css', THEME_URL . '/css/media.css');
     wp_enqueue_style('jBox-css', THEME_URL . '/css/jBox.all.min.css');
-//    wp_enqueue_style('flickity', THEME_URL . '/css/flickity.min.css');
+    wp_enqueue_style('flickity', THEME_URL . '/css/flickity.min.css');
 
     wp_enqueue_script('jquery');
 //    wp_enqueue_script('owl-js', THEME_URL . '/js/owl.carousel.min.js');
     wp_enqueue_script('bootstrap-js', THEME_URL . '/js/bootstrap.min.js');
 //    wp_enqueue_script('pdf-js', THEME_URL . '/js/pdf.min.js');
-//    wp_enqueue_script('custom', THEME_URL . '/js/custom.js');
+    wp_enqueue_script('custom', THEME_URL . '/js/custom.js');
     wp_enqueue_script('jBox-js', THEME_URL . '/js/jBox.all.min.js');
-//    wp_enqueue_script('flickity', THEME_URL . '/js/flickity.pkgd.min.js');
+    wp_enqueue_script('flickity', THEME_URL . '/js/flickity.pkgd.min.js');
+//    wp_enqueue_script('slick-js', 'cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
     
     wp_enqueue_style('common-ijme', THEME_URL . '/css/common-ijme.css', [], '1.0.0');
     wp_enqueue_style('navbar-ijme', THEME_URL . '/css/navbar.css', [], '1.0.0');
@@ -79,7 +80,10 @@ function enqueue_front_end_scripts()
     wp_enqueue_style('single-issue', THEME_URL . '/css/single-issue.css', [], '1.0.0');
     wp_enqueue_style('nav-footer', THEME_URL . '/css/nav-footer.css', [], '1.0.0');
     wp_enqueue_style('issue-archive', THEME_URL . '/css/issue-archive.css', [], '1.0.0');
+    wp_enqueue_style('slick-style', THEME_URL . '/css/slick.css', [], '1.0.0');
+    wp_enqueue_style('slick-style', THEME_URL . '/css/slick-theme.css', [], '1.0.0');
     
+    wp_enqueue_script('slick-js', THEME_URL . '/js/slick.min.js');
     
     //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
 }
@@ -563,9 +567,6 @@ function render_articles_metabox($post)
         }
 
         ,
-        .peers-section p {
-            margin-bottom: 15px
-        }
     </style>
     <script>
         function add_more_authors(invoker) {
@@ -657,6 +658,9 @@ function render_articles_metabox($post)
             <td>
                 <div class="author-section">
                     <style>
+                        .peers-section p {
+                            margin-bottom: 15px
+                        }
                         .authors-table {
                             background: #f7f7f7;
                             margin-bottom: 15px;
@@ -2296,6 +2300,7 @@ function blog_init()
 }
 
 
+
 ////For Custom SEO (Adding the Keywords)
 //add_action('wp_head','keywords_and_desc');
 //function keywords_and_desc(){
@@ -2371,3 +2376,41 @@ function get_author_list($post_id)
     }
     
     add_action('init', 'media_post');
+    
+    
+    
+    
+    add_action( 'init', 'create_topic_taxonomies', 0 );
+
+//create two taxonomies, genres and topics for the post type "topic"
+    function create_topic_taxonomies()
+    {
+        // Add new taxonomy, NOT hierarchical (like tags)
+        $labels = array(
+          'name' => _x( 'Topics', 'taxonomy general name' ),
+          'singular_name' => _x( 'Topic', 'taxonomy singular name' ),
+          'search_items' =>  __( 'Search Topics' ),
+          'popular_items' => __( 'Popular Topics' ),
+          'all_items' => __( 'All Topics' ),
+          'parent_item' => null,
+          'parent_item_colon' => null,
+          'edit_item' => __( 'Edit Topic' ),
+          'update_item' => __( 'Update Topic' ),
+          'add_new_item' => __( 'Add New Topic' ),
+          'new_item_name' => __( 'New Topic Name' ),
+          'separate_items_with_commas' => __( 'Separate Topics with commas' ),
+          'add_or_remove_items' => __( 'Add or remove Topics' ),
+          'choose_from_most_used' => __( 'Choose from the most used Topics' ),
+          'menu_name' => __( 'Topics' ),
+        );
+        
+        register_taxonomy('topic','articles',array(
+          'hierarchical' => false,
+          'labels' => $labels,
+          'show_ui' => true,
+          'update_count_callback' => '_update_post_term_count',
+          'query_var' => true,
+          'rewrite' => array( 'slug' => 'topic' ),
+        ));
+    }
+?>

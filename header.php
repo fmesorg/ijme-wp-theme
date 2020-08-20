@@ -39,15 +39,33 @@
 		
 		
 		<?php $site_url= 'http://'.$_SERVER['HTTP_HOST'].'/';
-			if(($site_url== "http://ijme.in/") || ($site_url== "http://www.ijme.in/")){ ?>
+            if (($site_url == "http://ijme.in/") || ($site_url == "http://www.ijme.in/")) {
+                if (is_singular('articles')) {
+                    $this_post = get_queried_object();
+                    $catList = get_the_category($this_post->ID);
+                    $tags = wp_get_post_tags($this_post->ID);
+                    $categoryDimension = "";
+                    foreach ($catList as $single) {
+                        $categoryDimension = $categoryDimension . " " . $single->cat_name . " ";
+                    }
+                    $term_obj_list = get_the_terms($this_post->ID, 'topic');
+                    $terms_string = join(' , ', wp_list_pluck($term_obj_list, 'name')) . " ";
+                }
+                ?>
 				<script>
 					 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 					 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 					 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 					 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
 					 ga('create', 'UA-42369332-1', 'auto');
-					 ga('send', 'pageview');
+                     <?php
+                     if(is_singular('articles')) {?>
+                     ga('set', 'dimension1', '<?php echo $categoryDimension; ?>');
+                     if ($terms_string != " ") {
+                       ga('set', 'dimension2', '<?php echo $terms_string; ?>');
+                     }
+                     <?php } ?>
+                     ga('send', 'pageview');
                 </script>
             <?php } ?>
 

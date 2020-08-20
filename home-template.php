@@ -42,5 +42,9 @@ get_header(); ?>
             <?php get_template_part('template-parts/home-page/home-media'); ?>
         </div>
         
+<!--        <div class="row">-->
+<!--            --><?php //get_template_part('template-parts/home-page/mostread-flick'); ?>
+<!--        </div>-->
+    
     </div>
 <?php get_footer(); ?>

@@ -4,9 +4,10 @@
     flex: 1;
     height: 392px;
     position: relative;
+    width: 100%;
 }
 
-#gray-background {
+.gray-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -85,4 +86,24 @@
     color: #111010;
     line-height: 20px;
     margin-top: 8px;
+}
+
+.card {
+    background-color: #0c3b66;
+    width: 200px;
+    height: 200px;
+}
+
+.carousel{
+    width:90%;
+}
+.slick-slide{
+    margin:10px;
+}
+.item{
+    width:100%;
+    border: 2px solid #fff;
+}
+.slick-arrow{
+    display: none!important;
 }

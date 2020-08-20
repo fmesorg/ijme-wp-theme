@@ -43,8 +43,7 @@ $(document).ready(function() {
 */
 
 
-
-jQuery(document).ready(function($) {	
+jQuery(document).ready(function ($) {
 
     // Dropdown toggle
     $('.dropdown-toggle').click(function(){
@@ -59,8 +58,8 @@ jQuery(document).ready(function($) {
     });
 
     // Add ads banner on sidebar of home page
-    if (window.location.pathname == '/'){ 
-        // $('#sidebar').prepend('<a class="sidebar-ads-banner" target="_blank" href="http://www.ethics.edu.in/yu-fic.html"><img src="http://ijme.in/wp-content/uploads/2018/03/YUFIC-Feature-box-Mar-Apr-2018_final.jpg"></a>') 
+  if (window.location.pathname == '/') {
+    // $('#sidebar').prepend('<a class="sidebar-ads-banner" target="_blank" href="http://www.ethics.edu.in/yu-fic.html"><img src="http://ijme.in/wp-content/uploads/2018/03/YUFIC-Feature-box-Mar-Apr-2018_final.jpg"></a>')
     }
 
 });
@@ -74,12 +73,47 @@ jQuery(document).ready(function($) {
 jQuery(function($){
 	var wh = $(window).width();
 	$('body').attr('style', 'width:' + wh + 'px;');
-}); 
+});
+
+
 
 jQuery(document).ready(function($) {
-	
-	jQuery(".scroll-to-top").hide();
-	
+    $('.carousel').slick({
+                           slidesToShow: 4,
+                            slidesToScroll:1,
+                           responsive: [
+                             {
+                               breakpoint: 1024,
+                               settings: {
+                                 slidesToShow: 3,
+                                 slidesToScroll: 3,
+                                 infinite: true,
+                                 dots: true
+                               }
+                             },
+                             {
+                               breakpoint: 600,
+                               settings: {
+                                 slidesToShow: 2,
+                                 slidesToScroll: 2
+                               }
+                             },
+                             {
+                               breakpoint: 480,
+                               settings: {
+                                 slidesToShow: 1,
+                                 slidesToScroll: 1
+                               }
+                             }
+                           ]
+                         });
+  // jQuery('.your-class').flickity({
+  //                                     // options
+  //                                     cellAlign: 'left',
+  //                                     contain: true
+  //                                   });
+
+  jQuery(".scroll-to-top").hide();
 	jQuery(window).scroll(function() {
 		if (jQuery(this).scrollTop() > 100) {
 			jQuery('.scroll-to-top').fadeIn();
@@ -95,19 +129,19 @@ jQuery(document).ready(function($) {
 		}, 800);
 		return false;
 	});
-	
-	
-    $('.dropdown').hover(function() {
+
+
+  $('.dropdown').hover(function() {
         $(this).addClass('open');
     }, function() {
         $(this).removeClass('open');
     });
-	
-	
-	var width = $('.ticker-text').width(),
+
+
+  var width = $('.ticker-text').width(),
     containerwidth = $('.ticker-container').width(),
     left = containerwidth;
-	
+
 	function tick() {
         if(--left <= -width){
             left = containerwidth;
@@ -121,17 +155,17 @@ jQuery(document).ready(function($) {
      $('.ticker-text').mouseover( function () {
         clearTimeout(myTimeOut);
       });
-     
+
       tick();
-	
-	
-	$(".disable-state > a").attr('title', 'Sorry, we are in the process of migrating the IJME \n Archives data to our new site. This issue should \n be available soon. Please visit www.ijme.in again!');
-	
-	$("#submitStart a").click(function(){
+
+
+  $(".disable-state > a").attr('title', 'Sorry, we are in the process of migrating the IJME \n Archives data to our new site. This issue should \n be available soon. Please visit www.ijme.in again!');
+
+  $("#submitStart a").click(function(){
 		return show_submission_closed_modal();
 	});
-	
-	// js for accordian
+
+  // js for accordian
     function toggleIcon(e) {
         jQuery(e.target)
             .prev('.panel-heading')
@@ -140,14 +174,14 @@ jQuery(document).ready(function($) {
     }
     jQuery('.panel-group').on('hidden.bs.collapse', toggleIcon);
     jQuery('.panel-group').on('shown.bs.collapse', toggleIcon);
-	
-	// js for search
-	
-	$('.search-icon').click(function(){
+
+  // js for search
+
+  $('.search-icon').click(function(){
 		$('.search-form').slideToggle("fast");
 	});
-	
-	var owl = $("#carousel");
+
+  var owl = $("#carousel");
 	owl.owlCarousel({
 	autoPlay : 3000, //Set AutoPlay to 3 seconds
 	items : 2,
@@ -160,12 +194,8 @@ jQuery(document).ready(function($) {
 	});
 
 	//Carousel on Homepage
-    $('.main-carousel').flickity({
-        // options
-        cellAlign: 'center',
-        wrapAround: true,
-        contain: true
-    });
+
+
 
 });
 
@@ -215,3 +245,4 @@ function showCountryModal() {
 
     countryBox.open();
 }
+

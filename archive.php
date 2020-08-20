@@ -2,25 +2,46 @@
     /*
     Template Name: Archives
     */
-    get_header(); ?>
+    get_header();
+    wp_reset_postdata();
+    ?>
 
-    <div id="container">
-        <div id="content" role="main">
-            <?php the_post(); ?>
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            
-            <h2>Archives by Month:</h2>
-            <ul>
-                <?php wp_get_archives('type=monthly'); ?>
-            </ul>
+<h1 class="archive-title">Category: <?php single_cat_title('', true); ?></h1>
 
-            <h2>Archives by Subject:</h2>
-            <ul>
-                <?php wp_list_categories(); ?>
-            </ul>
+<?php
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            the_title();
+        }
+    } else {
+        ?>
+        <div class="col-sm-12">
+            <p>No posts found</p>
+        </div>
+        <?php
+    }
+?>
 
-        </div><!-- #content -->
-    </div><!-- #container -->
 
-<?php get_sidebar(); ?>
+
+
+<!--    <div id="container">-->
+<!--        <div id="content" role="main">-->
+<!--            --><?php //the_post(); ?>
+<!--            <h1 class="entry-title">--><?php //the_title(); ?><!--</h1>-->
+<!--            -->
+<!--            <h2>Archives by Month:</h2>-->
+<!--            <ul>-->
+<!--                --><?php //wp_get_archives('type=monthly'); ?>
+<!--            </ul>-->
+<!---->
+<!--            <h2>Archives by Subject:</h2>-->
+<!--            <ul>-->
+<!--                --><?php //wp_list_categories(); ?>
+<!--            </ul>-->
+<!---->
+<!--        </div><!-- #content -->
+<!--    </div><!-- #container -->
+
 <?php get_footer(); ?>

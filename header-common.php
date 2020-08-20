@@ -26,6 +26,6 @@
                 <div class="col-md-5 i-header-logo">
                     <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg" alt="Page Header"></a>
                 </div>
-                <div class="col-md-7 i-header-banner">                    
+                <div class="col-md-7 i-header-banner">
                 </div>
             </div>
