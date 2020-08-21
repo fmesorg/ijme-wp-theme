@@ -12,6 +12,7 @@ jQuery(document).ready(function ($) {
                                slidesToScroll: 1,
                                prevArrow: $('.topic-prev'),
                                nextArrow: $('.topic-next'),
+                              variableWidth:true,
                                responsive: [
                                  {
                                    breakpoint: 1024,
@@ -43,6 +44,7 @@ jQuery(document).ready(function ($) {
                                   slidesToScroll: 1,
                                   prevArrow: $('.category-prev'),
                                   nextArrow: $('.category-next'),
+                                  variableWidth:true,
                                   responsive: [
                                     {
                                       breakpoint: 1024,
