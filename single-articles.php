@@ -33,7 +33,6 @@
 <!--comments-->
 <!------------------->
 <!--Recommended Articles-->
-
 <div class="row article-wrapper">
     <?php
         if (have_posts()) {
@@ -94,6 +93,9 @@
 
                                 <script>
                                   jQuery(document).ready(function ($) {
+
+                                    showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
+                                    
                                     let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";
                                     url = "/ArticleCountAPI/article_count_api.php?article_name=" + post_slug;
                                     $.get(url, function (data) {
