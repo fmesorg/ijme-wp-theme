@@ -118,4 +118,10 @@
 .mostread-switch-wrapper {
     padding-top: 12px;
     padding-right: 18px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.category-next , .topic-next{
+    margin-left: 2px;
 }
