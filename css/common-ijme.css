@@ -223,3 +223,47 @@ a {
     line-height: 15px;
     margin-bottom: 16px;
 }
+
+.author-box-name {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #E01F1F;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.author-box-email {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #111010;
+    line-height: 16px;
+    margin-bottom: 12px;
+}
+
+.author-box-affiliation {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: #111010;
+}
+
+.author-box-bio {
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: #767676;
+}
+
+.author-name{
+    display: inline;
+    padding: 0 3px;
+    cursor: pointer;
+}
+
+.author-tool-tip-wrapper{
+    padding: 4px;
+}
+
+.jBox-container{
+    border-radius: 0!important;
+}
