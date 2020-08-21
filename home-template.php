@@ -22,7 +22,7 @@ get_header(); ?>
                 <?php get_template_part('template-parts/home-page/home-right-panel'); ?>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="width: 100%;">
             <?php get_template_part('template-parts/home-page/horizontal-advertisement'); ?>
         </div>
         <div class="row">
@@ -38,7 +38,7 @@ get_header(); ?>
             <?php get_template_part('template-parts/home-page/home-blog'); ?>
         </div>
         
-        <div class="row">
+        <div class="row" style="width: 100%;">
             <?php get_template_part('template-parts/home-page/home-media'); ?>
         </div>
         
