@@ -4,7 +4,7 @@
      */
 ?>
 
-<div id="mostread-byCategory" class="mostread-wrapper wrapper">
+<div id="mostread-byCategory" class="mostread-wrapper">
     <div class="gray-background">
         <div class="mostread-title">Most read by Category</div>
         <div class="mostread-switch-wrapper">

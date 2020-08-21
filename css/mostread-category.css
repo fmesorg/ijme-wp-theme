@@ -1,7 +1,5 @@
 .mostread-wrapper {
     background-color: #ffffff;
-    display: flex;
-    flex: 1;
     height: 392px;
     position: relative;
     width: 100%;
@@ -100,11 +98,11 @@
 }
 
 .category-carousel{
-    width:90%;
+    width:100%;
 }
 
 .topic-carousel{
-    width:90%;
+    width:100%;
 
 }
 

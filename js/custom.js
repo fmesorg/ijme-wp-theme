@@ -32,71 +32,7 @@ jQuery(function($){
 
 //Document Ready JS to use
 jQuery(document).ready(function($) {
-
-  //Topic Carousel
-  $('.topic-carousel').slick({
-                           slidesToShow: 4,
-                            slidesToScroll:1,
-                               prevArrow: $('.topic-prev'),
-                               nextArrow: $('.topic-next'),
-                           responsive: [
-                             {
-                               breakpoint: 1024,
-                               settings: {
-                                 slidesToShow: 3,
-                                 slidesToScroll: 3,
-                               }
-                             },
-                             {
-                               breakpoint: 600,
-                               settings: {
-                                 slidesToShow: 2,
-                                 slidesToScroll: 2
-                               }
-                             },
-                             {
-                               breakpoint: 480,
-                               settings: {
-                                 slidesToShow: 1,
-                                 slidesToScroll: 1
-                               }
-                             }
-                           ]
-                         });
-
-  //Category Carousel
-  $('.category-carousel').slick({
-                           slidesToShow: 4,
-                            slidesToScroll:1,
-                               prevArrow: $('.category-prev'),
-                               nextArrow: $('.category-next'),
-                           responsive: [
-                             {
-                               breakpoint: 1024,
-                               settings: {
-                                 slidesToShow: 3,
-                                 slidesToScroll: 3,
-                               }
-                             },
-                             {
-                               breakpoint: 600,
-                               settings: {
-                                 slidesToShow: 2,
-                                 slidesToScroll: 2
-                               }
-                             },
-                             {
-                               breakpoint: 480,
-                               settings: {
-                                 slidesToShow: 1,
-                                 slidesToScroll: 1
-                               }
-                             }
-                           ]
-                         });
-
-  //Tooltip attach after document is loaded
-
+  //Tooltip attach
   $("#submitStart a").click(function(){
 		return show_submission_closed_modal();
 	});
@@ -129,7 +65,7 @@ function showSupportModal(url) {
             window.open(paymentUrl,"_self");
         },
         cancel: function () {
-            window.location = url;
+            confirmBox.close();
         },
         closeButton:"box",
         content: "IJME is sustained by donation and voluntary payment of fees and subscription. If you can Afford to, please use our Pay What You Want (PWYW) system to pay a fee for the full-text access or pdf download of this article."
