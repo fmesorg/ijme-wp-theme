@@ -49,7 +49,10 @@
                         $categoryDimension = $categoryDimension . " " . $single->cat_name . " ";
                     }
                     $term_obj_list = get_the_terms($this_post->ID, 'topic');
-                    $terms_string = join(' , ', wp_list_pluck($term_obj_list, 'name')) . " ";
+                    $terms_string = " ";
+                    if ($term_obj_list) {
+                        $terms_string = join(' , ', wp_list_pluck($term_obj_list, 'name')) . " ";
+                    }
                 }
                 ?>
 				<script>
@@ -59,11 +62,13 @@
 					 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 					 ga('create', 'UA-42369332-1', 'auto');
                      <?php
-                     if(is_singular('articles')) {?>
+                     if(is_singular('articles'))
+                     {?>
                      ga('set', 'dimension1', '<?php echo $categoryDimension; ?>');
-                     if ($terms_string != " ") {
-                       ga('set', 'dimension2', '<?php echo $terms_string; ?>');
-                     }
+                     <?php
+                     if ($terms_string != " ") {?>
+                     ga('set', 'dimension2', '<?php echo $terms_string; ?>');
+                     <?php  } ?>
                      <?php } ?>
                      ga('send', 'pageview');
                 </script>
