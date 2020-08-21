@@ -57,9 +57,12 @@
                         <?php } ?>
                     </div>
                     <?php
-                        if (get_the_ID() >= 20) { //Change this to the current post number, from here the header will be used and removed from the template in article
+                        if (get_the_ID() >= 20) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
                             ?>
                             <div id="articleTitle"><h3><?php echo get_the_title(); ?></h3></div>
+                            <div style="display: flex">
+
+                            </div>
                             <div id="authorString">
                                 <em>
                                     <?php
@@ -67,11 +70,17 @@
                                         $out = array();
                                         if (!empty($authors)) {
                                             foreach ($authors as $key => $author) {
-                                                $authStr = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
-                                                //if($author['primary_contact']) {
-                                                array_push($out, $authStr);
+                                                $author_name = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
+                                                ?>
+                                                <div class="author-name"
+                                                     id="<?php echo $author['first_name'] . "-" . $author['last_name']; ?>">
+                                                    <?php echo $author_name; ?>
+                                                </div>
+                                                <script>
+                                                  createAuthorTooltip('<?php echo json_encode($author);?>');
+                                                </script>
+                                                <?php
                                             }
-                                            echo implode(', ', $out);
                                         }
                                     ?>
                                 </em>
@@ -88,7 +97,6 @@
                                     let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";
                                     url = "/ArticleCountAPI/article_count_api.php?article_name=" + post_slug;
                                     $.get(url, function (data) {
-                                      console.log("Slug", url);
                                       $(".result").html(data);
                                       document.getElementById('place-holder').classList.remove('lds-ellipsis');
                                       document.getElementById('article_count').innerText = JSON.parse(data).pageView;

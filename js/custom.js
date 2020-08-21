@@ -32,6 +32,8 @@ jQuery(function($){
 
 //Document Ready JS to use
 jQuery(document).ready(function($) {
+
+  //Topic Carousel
   $('.topic-carousel').slick({
                            slidesToShow: 4,
                             slidesToScroll:1,
@@ -62,6 +64,7 @@ jQuery(document).ready(function($) {
                            ]
                          });
 
+  //Category Carousel
   $('.category-carousel').slick({
                            slidesToShow: 4,
                             slidesToScroll:1,
@@ -92,6 +95,7 @@ jQuery(document).ready(function($) {
                            ]
                          });
 
+  //Tooltip attach after document is loaded
 
   $("#submitStart a").click(function(){
 		return show_submission_closed_modal();
@@ -101,8 +105,10 @@ jQuery(document).ready(function($) {
   $('.search-icon').click(function(){
 		$('.search-form').slideToggle("fast");
 	});
-
 });
+//End of document.ready
+//---------------------------------
+
 
 function show_submission_closed_modal() {
     $('#submission-closed-modal').modal();
@@ -150,4 +156,22 @@ function showCountryModal() {
 
     countryBox.open();
 }
+
+function createAuthorTooltip(authorData) {
+  authorData = JSON.parse(authorData);
+  var box = '<div class="author-tool-tip-wrapper" style="display: flex;flex-direction: column;"> <div class="author-box-name">' + authorData.first_name + authorData.middle_name + authorData.last_name + '</div> <div class="author-box-email">' + authorData.email + '</div><div class="author-box-affiliation">' + authorData.affiliation + '</div><div class="author-box-bio">' + authorData.biography + '</div> </div>';
+
+  new jBox('Tooltip', {
+    attach: "#" + authorData.first_name + "-" + authorData.last_name,
+    content: box,
+    trigger: 'click',
+    closeOnClick: 'body',
+    closeButton: 'box',
+    maxWidth:450,
+  });
+}
+
+
+
+
 
