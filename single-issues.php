@@ -21,7 +21,9 @@
                     $postId = get_post_meta(get_the_ID(), 'articles', true);
                     foreach ($postId as $id) {
                         $t_post = get_post($id);
-                        $postArray[] = $t_post;
+                        if ($t_post) {
+                            $postArray[] = $t_post;
+                        }
                     }
                     ?>
                     <?php
