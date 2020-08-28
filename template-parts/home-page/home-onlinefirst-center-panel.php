@@ -47,7 +47,7 @@
                     <div class="online-first-article-author">
                         <?php
                             $authors_list = get_author_list(get_the_ID());
-                            foreach ($authors_list as $author) echo $author;
+                            foreach ($authors_list as $author) echo $author."&nbsp;&nbsp;&nbsp;";
                         ?>
                     </div>
                 </div>

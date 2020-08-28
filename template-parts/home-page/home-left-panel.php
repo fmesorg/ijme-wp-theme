@@ -71,7 +71,7 @@
                         </a>
                     </div>
                  <div class="current-issue-article-author"><?php
-                        foreach ($authors_list as $author) echo $author;
+                        foreach ($authors_list as $author) echo $author."&nbsp;&nbsp;&nbsp;";
                      ?></div>
                 <?php } ?>
                 </div>
