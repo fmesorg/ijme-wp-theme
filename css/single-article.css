@@ -65,7 +65,7 @@
 #articleTitle {
     font-family: Roboto;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 32px!important;
     color: #111010;
     line-height: 42px;
     margin-top: 16px;

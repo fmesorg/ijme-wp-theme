@@ -1,16 +1,16 @@
 <?php
 /*
- * Template Name: home left panel template
+ * Template Name: home right panel template
  */
 
 ?>
 
 <?php
-    $contemporarily_relevant_post = get_posts(array(
+    $announcements = get_posts(array(
       'numberposts' => -1,
-      'post_type' => 'articles',
-      'meta_key' => 'is_contemporarily_relevant',
-      'meta_value' => '1'
+      'post_type' => 'announcements',
+      'posts_per_page' => 5,
+
     )); ?>
 <div id="current-issue-right-panel-wrapper">
     <div class="dp-flex">
@@ -23,24 +23,23 @@
             <?php endif; ?>
     </div>
     <?php
-        if ($contemporarily_relevant_post){
+        if ($announcements){
     ?>
     <div id="contemporarily-relevant-wrapper">
-        <div class="contemporarily-relevant-section-title">Contemporarily Relevant</div>
+        <div class="contemporarily-relevant-section-title">Announcements</div>
         <?php
-            foreach ($contemporarily_relevant_post as $post):
+            foreach ($announcements as $post):
                 setup_postdata($post);
-                $authors_list = get_author_list(get_the_ID());
                 ?>
                 <div class="contemporarily-article-wrapper">
                     <div class="contemporarily-article-name">
-                        <a href="<?php the_permalink(); ?>">
+                        <a href="<?php if (get_field('_external_link')) {echo get_field('_external_link');}else{the_permalink();} ?>">
                         <?php echo the_title(); ?>
                         </a>
                     </div>
                     <div class="contemporarily-article-author">
                         <?php
-                        echo implode(', ', $authors_list);
+                        echo get_the_date('F d, Y' );
                         ?>
                     </div>
                 </div>

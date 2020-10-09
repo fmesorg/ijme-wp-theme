@@ -44,7 +44,7 @@ a {
 }
 
 #page-content-wrapper {
-    padding: 48px;
+    padding: 24px 48px;
     font-family: Roboto, sans-serif;
 }
 
@@ -266,4 +266,21 @@ a {
 
 .jBox-container{
     border-radius: 0!important;
+}
+
+
+.page-title-text{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 32px;
+    color: #111010;
+    line-height: 42px;
+    margin-bottom: 24px;
+}
+
+.page-content-text-style{
+    font-family: Roboto;
+    font-size: 18px;
+    color: #111010;
+    line-height: 28px;
 }

@@ -48,7 +48,7 @@
                             <span id="red-oval"></span>
                             <span id="article-date-of-publication">Date of Publication : <?php echo get_the_date('F d ,Y'); ?></span>
                         </div>
-                        
+
                         <?php if (get_field('doi')) { ?>
                             <span id="article-doi"> DOI: <a href="<?php the_field('doi_link'); ?>" id="article-doi-link"
                                 ><?php the_field('doi_link'); ?></a>
@@ -58,7 +58,7 @@
                     <?php
                         if (get_the_ID() >= 20) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
                             ?>
-                            <div id="articleTitle"><h3><?php echo get_the_title(); ?></h3></div>
+                            <div id="articleTitle"><?php echo get_the_title(); ?></div>
                             <div style="display: flex">
 
                             </div>
@@ -95,7 +95,7 @@
                                   jQuery(document).ready(function ($) {
 
                                     showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
-                                    
+
                                     let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";
                                     url = "/ArticleCountAPI/article_count_api.php?article_name=" + post_slug;
                                     $.get(url, function (data) {
@@ -143,7 +143,7 @@
                                     href="<?php echo add_query_arg('galley', 'print', get_permalink(get_the_ID())); ?>">Print
                                 this article</a>
                         </div>
-                        
+
                         <div class="articleToolItem">
                             <img src="<?php echo THEME_URL; ?>/images/article-tool-icons/Indexing_metadata.svg" class="articleToolIcon"> <a href="#"
                                                                                                                 class="article-tool-item-name"
@@ -178,7 +178,7 @@
                 comments_template();
             }
         } ?>
-    
+
     <?php if (get_post_type() == 'page') the_content(); ?>
 </div>
 <?php get_footer(); ?>
