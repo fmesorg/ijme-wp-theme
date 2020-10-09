@@ -14,8 +14,8 @@
             </a>
         </div>
     </div>
-    
-    
+
+
     <?php
         global $post;
         $articles = get_posts(array(
@@ -23,7 +23,7 @@
           'post_type' => 'articles',
           'category' => 3
         ));
-        
+
         if ($articles) {
             foreach ($articles as $post) :
                 setup_postdata($post); ?>
@@ -47,11 +47,11 @@
                     <div class="online-first-article-author">
                         <?php
                             $authors_list = get_author_list(get_the_ID());
-                            foreach ($authors_list as $author) echo $author."&nbsp;&nbsp;&nbsp;";
+                            echo implode(', ', $authors_list);
                         ?>
                     </div>
                 </div>
-            
+
             <?php endforeach;
         } ?>
 

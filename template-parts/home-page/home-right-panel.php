@@ -40,7 +40,7 @@
                     </div>
                     <div class="contemporarily-article-author">
                         <?php
-                            foreach ($authors_list as $author) echo $author."&nbsp;&nbsp;&nbsp;";
+                        echo implode(', ', $authors_list);
                         ?>
                     </div>
                 </div>

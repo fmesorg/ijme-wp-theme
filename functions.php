@@ -51,7 +51,7 @@ function enqueue_front_end_scripts()
     wp_enqueue_style('rightSidebar', THEME_URL . '/css/rightSidebar.css');
 //    wp_enqueue_style('custom', THEME_URL . '/css/custom.css', [], '4.6.10');
     wp_enqueue_style('g-font', 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto:100,300,400,500,700&display=swap');
-    
+
 //    wp_enqueue_style('owl-theme', THEME_URL . '/css/owl.theme.css');
 //    wp_enqueue_style('owl-css', THEME_URL . '/css/owl.carousel.css');
 
@@ -69,7 +69,7 @@ function enqueue_front_end_scripts()
     wp_enqueue_script('jBox-js', THEME_URL . '/js/jBox.all.min.js');
     wp_enqueue_script('flickity', THEME_URL . '/js/flickity.pkgd.min.js');
 //    wp_enqueue_script('slick-js', 'cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
-    
+
     wp_enqueue_style('common-ijme', THEME_URL . '/css/common-ijme.css', [], '1.0.3');
     wp_enqueue_style('navbar-ijme', THEME_URL . '/css/navbar.css', [], '1.0.3');
     wp_enqueue_style('home-ijme', THEME_URL . '/css/home-template.css', [], '1.0.3');
@@ -81,12 +81,12 @@ function enqueue_front_end_scripts()
     wp_enqueue_style('issue-archive', THEME_URL . '/css/issue-archive.css', [], '1.0.0');
     wp_enqueue_style('slick-style', THEME_URL . '/css/slick.css', [], '1.0.0');
     wp_enqueue_style('slick-style', THEME_URL . '/css/slick-theme.css', [], '1.0.0');
-    
+
     wp_enqueue_script('slick-js', THEME_URL . '/js/slick.min.js');
     wp_enqueue_script('custom', THEME_URL . '/js/custom.js',[],'1.0.3');
     wp_enqueue_script('mostread-slider', THEME_URL . '/js/mostread-slider.js',[],'1.0.3',true);
-    
-    
+
+
     //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js', array(), '1.0.0', true );
 }
 
@@ -2031,8 +2031,8 @@ foreach ($allCategories
                 <?php
             }
         }
-    
-    
+
+
             function search_issue_by_name()
             {
                 if (isset($_POST['issueName'])) {
@@ -2073,11 +2073,11 @@ foreach ($allCategories
             <?php
             die();
             }
-    
+
             add_action('wp_ajax_search_issue_by_name', 'search_issue_by_name');
             add_action('wp_ajax_nopriv_search_issue_by_name', 'search_issue_by_name');
-    
-    
+
+
             //            For Archive filter
             function display_year_issues()
             {
@@ -2099,23 +2099,23 @@ foreach ($allCategories
               'posts_per_page' => -1,
               'post_title' => ''
             ));
-    
-    
+
+
             $year_keyed_posts_array = array();
             $max_posts = 0;
-    
+
             foreach ($posts_array as $post_obj) {
                 $year = get_post_meta($post_obj->ID, 'year', true);
-        
+
                 if (!isset($year_keyed_posts_array[$year])) {
                     $year_keyed_posts_array[$year] = array();
                 }
-        
+
                 $year_keyed_posts_array[$year][] = $post_obj;
-        
+
                 if (count($year_keyed_posts_array[$year]) > $max_posts) $max_posts = count($year_keyed_posts_array[$year]);
             }
-    
+
             $issue_category = array();
             arsort($year_keyed_posts_array);
             foreach ($year_keyed_posts_array as $key => $value) {
@@ -2138,7 +2138,7 @@ foreach ($allCategories
 <!--                            <span class="year-subtitle">(Cumulative Vol.28)</span>-->
                         </div>
                         <div class="archive-card-container">
-                    
+
                             <?php
                                 foreach ($articles as $post) :
                                     setup_postdata($post);
@@ -2182,8 +2182,8 @@ foreach ($allCategories
 
 add_action('wp_ajax_display_year_issues', 'display_year_issues');
 add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');
-    
-    
+
+
     function set_issue_category($year)
     {
         switch ($year) {
@@ -2204,7 +2204,7 @@ add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');
                 break;
         }
     }
-    
+
     function get_issue_section_title($category)
     {
         switch ($category) {
@@ -2324,9 +2324,8 @@ function get_author_list($post_id)
     $authors = get_post_meta($post_id, 'authors', true);
     if (!empty($authors)) {
         $authors_array = array();
-        foreach ($authors as $author) $authors_array[] = $author['last_name'] . ' ' . $author['middle_name'] . ' ' . $author['first_name'];
+        foreach ($authors as $author) $authors_array[] = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
     }
-    
     return $authors_array;
 }
 
@@ -2350,7 +2349,7 @@ function get_author_list($post_id)
           'parent_item_colon' => '',
           'menu_name' => 'Media Post',
         );
-        
+
         // register post type
         $args = array(
           'labels' => $labels,
@@ -2376,12 +2375,12 @@ function get_author_list($post_id)
         );
         register_post_type('media-post', $args);
     }
-    
+
     add_action('init', 'media_post');
-    
-    
-    
-    
+
+
+
+
     add_action( 'init', 'create_topic_taxonomies', 0 );
 
 //create two taxonomies, genres and topics for the post type "topic"
@@ -2405,7 +2404,7 @@ function get_author_list($post_id)
           'choose_from_most_used' => __( 'Choose from the most used Topics' ),
           'menu_name' => __( 'Topics' ),
         );
-        
+
         register_taxonomy('topic','articles',array(
           'hierarchical' => false,
           'labels' => $labels,
@@ -2416,22 +2415,22 @@ function get_author_list($post_id)
         ));
     }
 ?>
-    
+
         <?php
             add_filter('comment_form_default_fields', 'remove_comment_fields');
             function remove_comment_fields($fields)
             {
                 if (isset($fields['url']))
                     unset($fields['url']);
-            
+
                 return $fields;
             }
-            
-            
-    
+
+
+
         ?>
-    
-    
+
+
         <?php
             //Customize comment dispyay using call back function
             function my_comments_callback($comment, $args, $depth)
@@ -2457,5 +2456,5 @@ function get_author_list($post_id)
                 </li>
                 <?php
             }
-    
+
         ?>
