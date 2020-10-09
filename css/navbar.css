@@ -1,12 +1,35 @@
 .nav-logo-text {
     font-family: "Roboto", "serif" !important;
-    font-size: 9px;
+    font-size: 12px;
+    font-weight: bold;
     color: #262020;
     letter-spacing: 0;
     line-height: 12px;
-    border-left: 1px solid #D8D8D8;
-    padding-left: 12px;
+    padding-left: 40px;
+    margin-top: 20px;
 }
+.nav-about-wrapper{
+    margin-top: 12px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.nav-about-journal-text {
+    font-family: "Roboto", "serif" !important;
+    font-size: 14px;
+    font-weight: bold;
+    color: #262020 !important;
+    letter-spacing: 0;
+}
+
+.nav-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+}
+
 
 .header-social-media-wrapper {
     display: flex;
@@ -14,15 +37,16 @@
     align-items: center;
     justify-content: space-evenly;
     margin-left: auto;
-    padding-right: 24px;
+    padding-right: 36px;
     width: 140px;
+    cursor: pointer;
 }
 
 .navbar .nav > li > a {
     color: #262020 !important;
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Roboto', sans-serif !important;
-    font-weight: 300 !important;
+    font-weight: 500 !important;
 }
 
 

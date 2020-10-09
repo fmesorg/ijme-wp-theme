@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Brands/medium-m</title>
+    <defs>
+        <path d="M71.3,142.3 C71.9,136.4 69.6,130.5 65.2,126.5 L20.1,72.1 L20.1,64 L160.3,64 L268.7,301.7 L364,64 L497.7,64 L497.7,72.1 L459.1,109.1 C455.8,111.6 454.1,115.8 454.8,119.9 L454.8,391.9 C454.1,396 455.8,400.2 459.1,402.7 L496.8,439.7 L496.8,447.8 L307.1,447.8 L307.1,439.7 L346.2,401.8 C350,398 350,396.8 350,391 L350,171.2 L241.3,447.1 L226.6,447.1 L100.2,171.2 L100.2,356.1 C99.1,363.9 101.7,371.7 107.2,377.3 L158,438.9 L158,447 L14,447 L14,439 L64.8,377.3 C70.2,371.7 72.7,363.8 71.3,356.1 L71.3,142.3 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brands/medium-m/Hover">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#E01F1F" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

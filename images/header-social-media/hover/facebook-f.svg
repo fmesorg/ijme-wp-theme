@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Brands/facebook-f</title>
+    <defs>
+        <path d="M200.7,512 L200.7,283 L124,283 L124,192 L200.7,192 L200.7,120.3 C200.7,42.4 248.3,0 317.8,0 C351.1,0 379.7,2.5 388,3.6 L388,85 L339.8,85 C302,85 294.7,103 294.7,129.3 L294.7,192 L380,192 L368.3,283 L294.7,283 L294.7,512" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Brands/facebook-f/Hover">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#E01F1F" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
