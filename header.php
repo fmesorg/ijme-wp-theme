@@ -10,7 +10,11 @@
 		<?php if(is_front_page()) { ?>
 		<title><?php echo get_bloginfo('name'); ?> | <?php the_title(); ?></title>
 		<meta name="description" content="IJME is a comprehensive, open access, platform for discussions on bioethics, medical ethics, and healthcare justice in India and the developing world." />
-		<?php }else{ ?>
+        <?php } else if (get_post_type() == "issues") {?>
+            <title>Issues | <?php echo get_bloginfo('name');?> </title>
+            <meta name="description" content="<?php the_title(); ?>" />
+		<?php
+        } else { ?>
 		<title><?php the_title(); ?> | <?php echo get_bloginfo('name'); ?> </title>
 		<meta name="description" content="<?php the_title(); ?>" />
 		<?php } ?>
