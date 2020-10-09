@@ -28,7 +28,7 @@
     font-size: 14px;
     color: #111010;
     line-height: 18px;
-    padding-left: 13px;
+    margin-top: 18px;
 }
 
 .current-issue-section-title {
@@ -47,10 +47,13 @@
     line-height: 28px;
     font-weight: bold;
 }
+.current-issue-image-cover{
+    text-align: center;
+}
 
 .current-issue-image-cover img {
-    width: 90px;
-    height: 117px;
+    width: 230px;
+    height: 300px;
     object-fit: cover;
 }
 

@@ -43,9 +43,9 @@
                                         href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 5); ?></a>
                             </p>
                         </div>
-                        <div class="dp-flex pb-3 section-bottom-border">
+                        <div class="dp-flex pb-3 section-bottom-border flex-column">
                             <div class="current-issue-image-cover">
-                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
                             </div>
                             <div id="issue-description">
                                 <?php echo wp_trim_words(get_the_excerpt(), 25); ?>

@@ -90,7 +90,7 @@
     <body>
 
     <div class="">
-        <div class="row background-white padding-left-24 header-shadow custom-navigation-header">
+        <div class="row background-white padding-left-42 header-shadow custom-navigation-header">
             <div class="i-header-logo dp-flex align-items-center">
                 <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.png"
                                                          alt="Page Header"></a>
