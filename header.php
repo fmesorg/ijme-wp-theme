@@ -99,18 +99,25 @@
                 <div style="display: flex;width: 100%">
                     <?php require 'nav.php'; ?>
                     <div class="header-social-media-wrapper">
-                        <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/facebook-f.svg"
-                             onmouseover="hover(this,'facebook-f.svg');"
-                             onmouseout="unhover(this,'facebook-f.svg')"
-                             alt="Page Header">
+                        <a href="https://www.facebook.com/Health-Ethics-and-Law-HEaL-Institute-104243091068445/"
+                           target="_blank">
+                            <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/facebook-f.svg"
+                                 onmouseover="hover(this,'facebook-f.svg');"
+                                 onmouseout="unhover(this,'facebook-f.svg')"
+                                 alt="Page Header">
+                        </a>
+                        <a href="https://twitter.com/HEaL46956409" target="_blank">
                         <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/twitter.svg"
                              onmouseover="hover(this,'twitter.svg');"
                              onmouseout="unhover(this,'twitter.svg')"
                              alt="Page Header">
-                        <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/linkedin-in.svg"
-                             onmouseover="hover(this,'linkedin-in.svg');"
-                             onmouseout="unhover(this,'linkedin-in.svg')"
-                             alt="Page Header">
+                        </a>
+                        <a href="https://www.linkedin.com/in/fmes-institute-b61446199/" target="_blank">
+                            <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/linkedin-in.svg"
+                                 onmouseover="hover(this,'linkedin-in.svg');"
+                                 onmouseout="unhover(this,'linkedin-in.svg')"
+                                 alt="Page Header">
+                        </a>
                     </div>
                 </div>
                 <div class="nav-logo-text">
