@@ -37,6 +37,17 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+            <script>
+              function hover(element,fileName) {
+                let link = '<?php echo THEME_URL; ?>/images/header-social-media/hover/'+fileName;
+                element.setAttribute('src', link);
+              }
+
+              function unhover(element,fileName) {
+                let link = '<?php echo THEME_URL; ?>/images/header-social-media/'+fileName;
+                element.setAttribute('src', link);
+              }
+            </script>
 
         <?php $site_url = 'http://' . $_SERVER['HTTP_HOST'] . '/';
             if (($site_url == "http://ijme.in/") || ($site_url == "http://www.ijme.in/")) {
@@ -71,16 +82,6 @@
                      <?php  } ?>
                      <?php } ?>
                      ga('send', 'pageview');
-
-                     function hover(element,fileName) {
-                       let link = '<?php echo THEME_URL; ?>/images/header-social-media/hover/'+fileName;
-                       element.setAttribute('src', link);
-                     }
-
-                     function unhover(element,fileName) {
-                       let link = '<?php echo THEME_URL; ?>/images/header-social-media/'+fileName;
-                       element.setAttribute('src', link);
-                     }
 
                 </script>
             <?php } ?>
