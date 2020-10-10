@@ -4,7 +4,7 @@
      */
 ?>
 
-<div id="horizontal-advertisement-bar" class="col  dp-flex justify-content-center" style="flex:1; padding:40px" >
+<div id="horizontal-advertisement-bar" class="col  dp-flex justify-content-center" >
     <?php
         $frontpage_id = get_option('page_on_front');
         if (get_field('advertisement_bar', $frontpage_id)):

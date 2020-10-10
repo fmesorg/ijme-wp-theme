@@ -18,6 +18,12 @@
     padding: 16px 20px 20px 42px;
 }
 
+@media all and (max-width: 600px) {
+    #current-issue-left-panel-wrapper {
+        padding: 16px 20px 20px 24px;
+    }
+}
+
 #current-issue-right-panel-wrapper{
     background-color: #F4F4F4;
     padding: 20px 42px 20px 20px;
@@ -126,6 +132,13 @@
 
 #horizontal-advertisement-bar {
     background-color: #ffffff;
+    flex:1; padding:40px
+}
+
+@media all and (max-width: 600px) {
+    #horizontal-advertisement-bar{
+        padding:12px 12px 12px 36px;
+    }
 }
 
 #subscribe-box-wrapper {
@@ -151,12 +164,23 @@
     padding: 44px;
 }
 
+@media all and (max-width: 600px) {
+    .blog-wrapper{
+        padding: 22px;
+    }
+}
+
 #blog-section-title {
     font-family: Roboto;
     font-weight: bold;
     font-size: 24px;
     color: #111010;
     line-height: 32px;
+}
+@media all and (max-width: 600px) {
+    #blog-section-title{
+        flex-direction: row;
+    }
 }
 
 .blog-item-wrapper{
@@ -227,6 +251,12 @@
 .media-wrapper{
     background-color: #ffffff;
     padding: 44px;
+}
+
+@media all and (max-width: 600px) {
+    .media-wrapper{
+        padding: 22px;
+    }
 }
 
 .media-item-wrapper{

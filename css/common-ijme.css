@@ -77,9 +77,20 @@ a {
     background-color: white;
     border-radius: 0;
     border: none;
-    width: 360px;
+    max-width: 360px;
     margin-left: 30px;
     text-align: left;
+}
+
+@media all and (max-width: 600px) {
+    .subscribe-text-box {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .subscribe-button {
+        margin-top: 8px;
+    }
 }
 
 .subscribe-button{
@@ -283,4 +294,10 @@ a {
     font-size: 18px;
     color: #111010;
     line-height: 28px;
+}
+
+@media all and (max-width: 600px) {
+    .mobile-margin-adjustment {
+        margin-left: 0!important;
+    }
 }

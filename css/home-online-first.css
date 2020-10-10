@@ -26,6 +26,20 @@
     border-radius: 4px;
     border-radius: 4px;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.online-first-section-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+@media all and (max-width: 600px) {
+    .online-first-section-wrapper {
+        flex-direction: row;
+    }
 }
 
 .onlineFirst-article-wrapper:not(:last-child){
