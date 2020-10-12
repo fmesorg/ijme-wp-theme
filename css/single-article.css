@@ -11,6 +11,12 @@
     box-shadow: 0 4px 20px 0 rgba(216, 216, 216, 0.50) inset;
 }
 
+@media all and (max-width: 600px) {
+    .article-wrapper{
+        padding: 24px;
+    }
+}
+
 #article-date-of-publication {
     font-family: Roboto;
     font-weight: 300;

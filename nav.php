@@ -1,5 +1,13 @@
-<nav id="site-navigation" class="navbar navbar-expand" style="margin-left: auto;" role="navigation">
+<nav id="site-navigation" class="navbar navbar-expand-md" role="navigation">
     <div class="navheader navbar-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="navbar-toggler-custom-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </span>
+        </button>
+
         <!--        Full screen menu-->
         <?php
             wp_nav_menu( array(
@@ -14,7 +22,7 @@
                 'walker'            => new wp_bootstrap_navwalker())
             );
         ?>
-        
+
         <!--Mobile menu-->
         <!--		<div class="visible-xs visible-sm">-->
         <!--            --><?php
@@ -49,3 +57,4 @@
     <!--        --><?php //}?>
 
 </nav><!-- #site-navigation -->
+

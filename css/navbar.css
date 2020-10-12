@@ -30,6 +30,25 @@
     flex: 1;
 }
 
+@media all and (max-width: 600px) {
+    .nav-menu-wrapper{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .nav-logo-text{
+        padding-left: 0;
+    }
+
+    .nav-about-wrapper{
+        padding-left: 0;
+    }
+
+    .navheader{
+        margin-left: -28px;
+    }
+}
+
 
 .header-social-media-wrapper {
     display: flex;
@@ -52,4 +71,11 @@
 
 .header-shadow{
     box-shadow: 0 4px 20px 0 rgba(216,216,216,0.50);
+}
+
+.navbar-toggler-custom-icon > div {
+    width: 32px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
 }

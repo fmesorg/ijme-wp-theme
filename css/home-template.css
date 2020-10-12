@@ -204,6 +204,21 @@
     flex-direction: column;
 }
 
+@media all and (max-width: 600px) {
+    .blog-item{
+        height: auto;
+    }
+
+    .blog-item-wrapper{
+        flex-wrap: wrap;
+    }
+
+    .blog-item{
+        margin-bottom: 12px;
+    }
+}
+
+
 .blog-item-details{
     margin-top:auto;
 }
@@ -292,6 +307,16 @@
     color: #111010;
     line-height: 28px;
     margin-top: 12px;
+}
+
+@media all and (max-width: 600px) {
+    .media-item-wrapper{
+        flex-wrap: wrap;
+    }
+
+    .media-item{
+        margin-bottom: 12px;
+    }
 }
 
 

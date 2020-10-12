@@ -19,6 +19,8 @@
     padding: 0 0 16px 0;
 }
 
+
+
 #issue-articles {
     display: flex;
     flex-direction: column;
@@ -96,3 +98,26 @@
     padding-left: 6px;
 }
 
+
+@media all and (max-width: 600px) {
+
+    #issue-wrapper{
+        padding: 4px;
+    }
+
+    #issue-header{
+        flex-direction: column;
+    }
+
+    #issue-excerpt{
+        padding-left: 0;
+    }
+
+    .article-galley-file{
+        margin-bottom: 22px;
+    }
+
+    .issue-article-date{
+        margin-bottom: 0px;
+    }
+}

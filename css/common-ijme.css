@@ -14,6 +14,15 @@ a {
 
 .custom-navigation-header{
     height: 172px;
+    padding-left: 42px;
+}
+
+@media all and (max-width: 600px) {
+    .custom-navigation-header {
+        height: auto;
+        padding-left: 24px;
+        justify-content: center;
+    }
 }
 
 .i-header-logo img{
@@ -46,6 +55,13 @@ a {
 #page-content-wrapper {
     padding: 24px 48px;
     font-family: Roboto, sans-serif;
+}
+
+@media all and (max-width: 600px) {
+    #page-content-wrapper{
+        padding: 24px 24px;
+        overflow: auto;
+    }
 }
 
 .post-title {
@@ -217,6 +233,13 @@ a {
     margin-top: 36px;
 }
 
+@media all and (max-width: 600px) {
+    .comments-area{
+        width: 98%;
+    }
+}
+
+
 .comment{
     margin-bottom: 32px;
 }
@@ -301,3 +324,4 @@ a {
         margin-left: 0!important;
     }
 }
+

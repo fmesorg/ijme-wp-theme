@@ -76,6 +76,27 @@
     letter-spacing: 0;
 }
 
+@media all and (max-width: 600px) {
+    .sticky-message{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav-menu{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-nav-menu > li{
+        margin-left: 12px;
+    }
+
+    .footer-nav-container{
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+}
+
 #donation-button {
     font-family: Roboto, sans-serif;
     font-weight: bold;
