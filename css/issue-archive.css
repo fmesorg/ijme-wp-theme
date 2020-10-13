@@ -41,6 +41,7 @@
     padding: 0;
 }
 
+
 .tag-item {
     background: #EEEEEE;
     border: 1px solid #ECE8E8;
@@ -164,4 +165,36 @@
 
 .issue-archive-year{
     margin-top: 72px;
+}
+
+
+@media all and (max-width: 600px) {
+    #tag-list{
+        flex-direction: column;
+    }
+
+    .tag-item{
+        margin-bottom: 8px;
+    }
+
+    .issue-archive-year{
+        margin-top: 24px;
+    }
+
+    .year-section-title{
+        font-size: 22px;
+    }
+
+    .issue-archive-container{
+        padding: 24px;
+    }
+
+    .archive-card-container{
+        flex-direction: column;
+    }
+
+    .issue-archive-card{
+        margin-bottom: 8px;
+    }
+
 }
