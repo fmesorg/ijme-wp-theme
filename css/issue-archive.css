@@ -123,8 +123,9 @@
     box-shadow: 0 4px 8px 0 rgba(225,225,225,0.40);
     border-radius: 4px;
     width: 302px;
-    height: 136px;
+    min-height: 136px;
     padding: 16px;
+    margin-left: 22px;
 }
 
 .issue-archive-thumbnail {
@@ -160,7 +161,7 @@
 .archive-card-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    margin-left: -22px;
 }
 
 .issue-archive-year{
