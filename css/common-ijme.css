@@ -12,6 +12,13 @@ a {
 
 }
 
+.singleContentArticle {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    color: #111010;
+    line-height: 28px;
+}
+
 .custom-navigation-header{
     height: 172px;
     padding-left: 42px;
