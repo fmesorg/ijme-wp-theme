@@ -2108,14 +2108,15 @@ foreach ($allCategories
 
             foreach ($posts_array as $post_obj) {
                 $year = get_post_meta($post_obj->ID, 'year', true);
+                if($year > 1900) {
+                    if (!isset($year_keyed_posts_array[$year])) {
+                        $year_keyed_posts_array[$year] = array();
+                    }
 
-                if (!isset($year_keyed_posts_array[$year])) {
-                    $year_keyed_posts_array[$year] = array();
+                    $year_keyed_posts_array[$year][] = $post_obj;
+
+                    if (count($year_keyed_posts_array[$year]) > $max_posts) $max_posts = count($year_keyed_posts_array[$year]);
                 }
-
-                $year_keyed_posts_array[$year][] = $post_obj;
-
-                if (count($year_keyed_posts_array[$year]) > $max_posts) $max_posts = count($year_keyed_posts_array[$year]);
             }
 
             $issue_category = array();
