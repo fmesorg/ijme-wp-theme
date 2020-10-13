@@ -2042,7 +2042,9 @@ foreach ($allCategories
                 }
                 global $wpdb;
                 $articles = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->posts
-                WHERE post_status = 'publish' AND post_title LIKE '%s'", '%' . $wpdb->esc_like($issue_name) . '%'));
+                WHERE post_status = 'publish'
+                AND post_type='issues' 
+                AND post_title  LIKE '%s'", '%' . $wpdb->esc_like($issue_name) . '%'));
                 ?>
                 <div class="year-content">
                     <div class="archive-card-container flex-wrap">

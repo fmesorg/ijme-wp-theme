@@ -23,6 +23,7 @@
             );
         ?>
 
+
         <!--Mobile menu-->
         <!--		<div class="visible-xs visible-sm">-->
         <!--            --><?php
@@ -38,23 +39,8 @@
             //                'walker'            => new wp_bootstrap_navwalker())
             //            );
             //        ?>
-        </div>
-    <!--    --><?php
-        //    $obj = get_queried_object();
-        //        $custom_post_type = isset($obj->post_type)? $obj->post_type:"page";
-        //    if($custom_post_type!='blog') { ?>
-    <!--        <div>-->
-    <!--            <form method="get" action="-->
-    <?php //echo site_url(); ?><!--" id="searchform" class="search-form" role="search">-->
-    <!--                <div class="input-group add-on">-->
-    <!--                    <input class="form-control" placeholder="Search" name="s" id="srch-term" type="text">-->
-    <!--                    <div class="input-group-btn">-->
-    <!--                        <button class="btn search-submit" type="submit">search</button>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </form>-->
-    <!--        </div>-->
-    <!--        --><?php //}?>
+        <!--        </div>-->
+    </div>
 
-</nav><!-- #site-navigation -->
+</nav>
 

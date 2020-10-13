@@ -103,6 +103,19 @@
             <div class="nav-menu-wrapper">
                 <div style="display: flex;width: 100%">
                     <?php require 'nav.php'; ?>
+                 <div class="search-wrapper-fullscreen">
+                    <form method="get" action="
+    <?php echo site_url(); ?>" id="searchform" class="search-form" role="search">
+                        <div class="input-group add-on">
+                            <input class="form-control" placeholder="Search" name="s" id="srch-term" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn search-submit" type="submit">search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
                     <div class="header-social-media-wrapper">
                         <a href="https://www.facebook.com/Health-Ethics-and-Law-HEaL-Institute-104243091068445/"
                            target="_blank">
@@ -124,6 +137,17 @@
                                  alt="Page Header">
                         </a>
                     </div>
+                </div>
+                <div class="search-wrapper-mobile">
+                    <form method="get" action="
+    <?php echo site_url(); ?>" id="searchform" class="search-form" role="search">
+                        <div class="input-group add-on">
+                            <input class="form-control" placeholder="Search" name="s" id="srch-term" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn search-submit" type="submit">search</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="nav-logo-text">
                     <span>ISSN: 0975-5091 (Online);</span>

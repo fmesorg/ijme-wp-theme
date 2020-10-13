@@ -11,39 +11,38 @@
             <tr>
                 <td colspan="3" class="headseparator">&nbsp;</td>
             </tr>
-            
+
             <?php
             while ( have_posts() ) {
                 the_post();
-                
+
                 $issue_id = get_post_meta(get_the_ID(),'issue_post_id',true);
                 $volume = get_post_meta($issue_id,'volume',true);
                 $number = get_post_meta($issue_id,'number',true);
                 $year = get_post_meta($issue_id,'year',true);
                 ?>
-                
+
                 <tr valign="top">
                     <!--td>
                         <a href="<?php //echo get_permalink($issue_id); ?>">
                             <?php //if($volume || $number || $year) { ?>
-                                Vol <?php //echo $volume ? $volume : '-'; ?>, 
+                                Vol <?php //echo $volume ? $volume : '-'; ?>,
                                 No <?php //echo $number ? $number : '-'; ?>,
                                 <?php //echo $year ? '('.$year.')' : ''; ?>:
                             <?php //} ?>
                             <?php //echo get_the_title($issue_id); ?>
                         </a>
                     </td-->
-                    <td width="30%"><a href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">
+                    <td width="30%"><a href="<?php echo get_permalink(get_the_ID()); ?>">
 						<?php echo get_the_title(); ?>
 					</a></td>
                     <td width="30%" align="right">
-                        <a href="<?php echo get_permalink(get_the_ID()); ?>" class="file">Abstract</a>
-                        &nbsp;<a class="file" href="<?php echo add_query_arg( 'galley', 'html', get_permalink(get_the_ID()) ); ?>">Full text</a>
+                        <a class="file" href="<?php echo get_permalink(get_the_ID()); ?>">View</a>
                         <?php
                         $pdf_file = get_post_meta(get_the_ID(),'pdf_file',true);
                         if( $pdf_file ) {
                             ?>
-                            &nbsp;<a class="file" href="<?php echo add_query_arg( 'galley', 'pdf', get_permalink(get_the_ID()) ); ?>">PDF</a>
+                            &nbsp;<a class="file" href="<?php echo $pdf_file;?>">Download PDF</a>
                             <?php
                         }
                         ?>
@@ -71,25 +70,25 @@
                 <?php
             }
             ?>
-            
+
             <?php
             global $paged;
             if(empty($paged)) $paged = 1;
             ?>
-            
+
             <tr>
                 <td colspan="3" class="endseparator">&nbsp;</td>
             </tr>
             <tr class="pagination-row">
                 <td align="left"><?php global $wp_query; //echo $total_results = $wp_query->found_posts; ?> </td>
                 <td colspan="2" align="right">
-                    <?php wpbeginner_numeric_posts_nav(); ?>        
+                    <?php wpbeginner_numeric_posts_nav(); ?>
                 </td>
             </tr>
         </tbody>
-    </table>    
+    </table>
     <div class="search-instructions">
-        Search tips: 
+        Search tips:
         <ul>
             <li>Search terms are case-insensitive</li>
             <li>Common words are ignored</li>

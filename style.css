@@ -44,7 +44,6 @@ ul.search_box{float:right;height:42px;width:395px;margin-bottom:0;position:absol
 span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.png);background-repeat:no-repeat;background-position:top left;display:block;float:left;background-position:0 0;margin-top:10px;margin-left:10px}
 
 .search-form {
-    position: absolute;
     width: 100%;
     right: 0;
     top: 40px;
@@ -55,15 +54,24 @@ span.search_icon{width:22px;height:22px;background-image:url(images/search_icon.
 
 @media all and (max-width: 850px) {
     .search-form {
-        position: absolute;
-        width: 85%;
-        top: 40px;
         z-index: 1;
         max-width: 500px;
         padding-right: 0px;
     }
     .navbar-toggle{
         float: left!important;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .search-wrapper-fullscreen{
+        display: none;
+    }
+}
+
+@media all and (min-width: 601px){
+    .search-wrapper-mobile {
+        display: none;
     }
 }
 
