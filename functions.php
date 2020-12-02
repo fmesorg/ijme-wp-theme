@@ -2225,7 +2225,7 @@ add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');
                 echo "Medical Ethics (1993-1995)";
                 break;
             default:
-                echo "Indian Journal of Medical Ethics Archived Issues";
+                echo "Medical Ethics (1993-1995)";
                 break;
         }
     }
