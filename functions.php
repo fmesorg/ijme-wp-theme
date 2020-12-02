@@ -2118,10 +2118,11 @@ foreach ($allCategories
                     if (count($year_keyed_posts_array[$year]) > $max_posts) $max_posts = count($year_keyed_posts_array[$year]);
                 }
             }
-
             $issue_category = array();
-            arsort($year_keyed_posts_array);
-            foreach ($year_keyed_posts_array as $key => $value) {
+                ksort($year_keyed_posts_array);
+                $year_keyed_posts_array = array_reverse($year_keyed_posts_array, true);
+
+                foreach ($year_keyed_posts_array as $key => $value) {
                 $issue_category[set_issue_category($key)][$key] = $value;
             }
             if ($issue_category){
@@ -2193,13 +2194,13 @@ add_action('wp_ajax_nopriv_display_year_issues', 'display_year_issues');
             case $year >= 2016 :
                 return "CAT1";
                 break;
-            case ($year >= 2004) && ($year <= 2015) :
+            case ($year <= 2015) && ($year >= 2004) :
                 return 'CAT2';
                 break;
-            case ($year >= 1996) && ($year <= 2003) :
+            case ($year <= 2003) && ($year >= 1996):
                 return 'CAT3';
                 break;
-            case ($year <= 1993) && ($year >= 1995):
+            case ($year <= 1995) && ($year >= 1993):
                 return 'CAT4';
                 break;
             default:

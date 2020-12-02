@@ -14,10 +14,11 @@
     </div>
 
     <div id="issue-archive-search">
+<!--        Removed Search Box on FMES Team request-->
         <div id="search-box">
             <input id="issue-text-field" type="text" class="input-group-text tag-search-input"
-                   placeholder="Search a Volume...">
-            <button class="button tag-search-button" onclick="searchIssueByName()">Search</button>
+                   placeholder="Search a Volume..." hidden>
+<!--            <button class="button tag-search-button" onclick="searchIssueByName()">Search</button>-->
         </div>
         <div id="issue-search-tags">
             <ul id="tag-list">
@@ -131,7 +132,7 @@
           break;
       }
     }
-    
+
     function setSelected($id) {
       if(document.getElementsByClassName('tag-item tag-selected').length !==0){
         document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
@@ -144,11 +145,11 @@
         document.getElementsByClassName('tag-item tag-selected')[0].classList.remove('tag-selected');
       }
     }
-    
+
     function clearTextField() {
       document.getElementById('issue-text-field').value='';
     }
-    
+
     function removeOldData() {
       jQuery(".issue-archive-year").remove();
     }
