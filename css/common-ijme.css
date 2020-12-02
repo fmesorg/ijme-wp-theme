@@ -72,7 +72,8 @@ a {
 }
 
 .post-title {
-    font-family: Roboto-Bold, sans-serif;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
     font-size: 32px;
     color: #111010 !important;
     line-height: 42px;
@@ -181,7 +182,8 @@ a {
 }
 
 .comment-author {
-    font-family: Roboto-Bold, sans-serif;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
     font-size: 18px;
     color: #111010;
     letter-spacing: 0.5px;
@@ -210,7 +212,8 @@ a {
 }
 
 .comment-reply-btn {
-    font-family: Roboto-bold, sans-serif;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
     font-size: 15px;
     color: #767676;
     line-height: 20px;
@@ -224,7 +227,8 @@ a {
 }
 
 .comment-title{
-    font-family: Roboto-Bold, sans-serif;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
     font-size: 18px;
     color: #111010;
     line-height: 24px;

@@ -149,16 +149,16 @@
                         </div>
                     </form>
                 </div>
+                <div class="nav-about-wrapper" >
+                    <p class="nav-about-journal-text">
+                        A Journal of Healthcare Ethics & Humanities. Published since 1993 by Forum for Medical Ethics
+                        Society. <br/> Peer-reviewed. Indexed in Medline, PubMed, The Philosopher’s Index, Scopus.
+                    </p>
+                </div>
                 <div class="nav-logo-text">
                     <span>ISSN: 0975-5091 (Online);</span>
                     <span>0974-8466 (Print)</span>
                     <span>RNI Reg No. MAHENG/2016/67188</span>
-                </div>
-                <div class="nav-about-wrapper" >
-                    <p class="nav-about-journal-text">
-                        A Journal of Healthcare Ethics & Humanities. Published since 1993 by Forum for Medical Ethics
-                        Society. Peer-reviewed. Indexed in Medline, PubMed, The Philosopher’s Index, Scopus.
-                    </p>
                 </div>
             </div>
         </div>

@@ -103,7 +103,8 @@
 }
 
 .contemporarily-relevant-section-title {
-    font-family: Roboto-Bold;
+    font-family: Roboto;
+    font-weight: bold;
     font-size: 24px;
     color: #111010;
     line-height: 30px;
@@ -111,7 +112,7 @@
 }
 
 .contemporarily-article-name{
-    font-family: Roboto-Regular;
+    font-family: Roboto;
     font-size: 15px;
     color: #0A0A0A;
     line-height: 20px;

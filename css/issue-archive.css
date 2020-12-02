@@ -100,7 +100,8 @@
 }
 
 .year-title {
-    font-family: Roboto-Bold, sans-serif;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
     font-size: 20px;
     color: #262020;
     letter-spacing: 0.2px;
@@ -153,7 +154,8 @@
 
 .issue-archive-title {
     margin-top: 4px;
-    font-family: Roboto-Bold, sans-serif;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
     font-size: 18px;
     color: #111010;
     line-height: 22px;
