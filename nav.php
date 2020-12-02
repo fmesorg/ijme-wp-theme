@@ -23,7 +23,6 @@
             );
         ?>
 
-
         <!--Mobile menu-->
         <!--		<div class="visible-xs visible-sm">-->
         <!--            --><?php

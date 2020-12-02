@@ -334,5 +334,13 @@ a {
     .mobile-margin-adjustment {
         margin-left: 0!important;
     }
+
+    #bs-example-navbar-collapse-1 {
+        background-color: #cccccc6b;
+    }
+
+    .nav li{
+        padding: 10px;
+    }
 }
 
