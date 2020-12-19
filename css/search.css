@@ -1,0 +1,34 @@
+#search-main {
+    padding: 44px;
+}
+
+#search-result-title {
+    margin-bottom: 16px;
+    font-family: Roboto, sans-serif;
+    font-size: medium;
+    color: #575757;
+    font-weight: bold;
+}
+
+.pagination {
+    float: right;
+}
+
+.search-instructions {
+    margin-top: 42px;
+}
+
+.nav-pg-link {
+    color: #767676 !important;
+}
+
+.nav-pg-link-current {
+    font-weight: bold;
+}
+
+
+@media all and (max-width: 600px) {
+    #search-main{
+        padding:24px 12px;
+    }
+}

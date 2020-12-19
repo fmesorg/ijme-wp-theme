@@ -1,17 +1,7 @@
 <div id="results" class="search-result-page">
-    <table width="100%" class="listing">
-        <tbody>
-            <tr>
-                <td colspan="3" class="headseparator">&nbsp;</td>
-            </tr>
-            <tr class="heading" valign="bottom">
-                <!--td width="40%">Issue</td-->
-                <td width="60%" colspan="2">Title</td>
-            </tr>
-            <tr>
-                <td colspan="3" class="headseparator">&nbsp;</td>
-            </tr>
-
+    <div width="100%" class="listing">
+        <hr/>
+        <div id="search-result-title">Search Results</div>
             <?php
             while ( have_posts() ) {
                 the_post();
@@ -22,51 +12,26 @@
                 $year = get_post_meta($issue_id,'year',true);
                 ?>
 
-                <tr valign="top">
-                    <!--td>
-                        <a href="<?php //echo get_permalink($issue_id); ?>">
-                            <?php //if($volume || $number || $year) { ?>
-                                Vol <?php //echo $volume ? $volume : '-'; ?>,
-                                No <?php //echo $number ? $number : '-'; ?>,
-                                <?php //echo $year ? '('.$year.')' : ''; ?>:
-                            <?php //} ?>
-                            <?php //echo get_the_title($issue_id); ?>
-                        </a>
-                    </td-->
-                    <td width="30%"><a href="<?php echo get_permalink(get_the_ID()); ?>">
-						<?php echo get_the_title(); ?>
-					</a></td>
-                    <td width="30%" align="right">
-                        <a class="file" href="<?php echo get_permalink(get_the_ID()); ?>">View</a>
+                <div class="onlineFirst-article-wrapper dp-flex flex-column">
+                    <div class="issue-article-date">
+                        <?php echo date('F d, Y', strtotime($post->post_date)); ?>
+                    </div>
+                    <div class="online-first-article-title">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php echo wp_trim_words(get_the_title(), 8); ?></a>
+                    </div>
+                    <div class="online-first-article-abstract">
+                        <!--                        --><?php //echo wp_trim_words(get_the_excerpt(), 40); ?>
+                        <?php echo mb_strimwidth(get_the_excerpt(), 0, 300, '...'); ?>
+                    </div>
+                    <div class="online-first-article-author">
                         <?php
-                        $pdf_file = get_post_meta(get_the_ID(),'pdf_file',true);
-                        if( $pdf_file ) {
-                            ?>
-                            &nbsp;<a class="file" href="<?php echo $pdf_file;?>">Download PDF</a>
-                            <?php
-                        }
+                        $authors_list = get_author_list(get_the_ID());
+                        echo implode(', ', $authors_list);
                         ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="author-name pd-tb-5">
-                        <?php
-                        $authors = get_post_meta(get_the_ID(), 'authors', true);
-                        if(!empty($authors)){
-                        $authors_array = array();
-                        foreach($authors as $author) {
-                            $authors_array[] = $author['first_name'].' '.$author['middle_name'].' '.$author['last_name'];
-                        }
-                        echo implode(', ', $authors_array); }else {echo "";}
-                        ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="online-first-date"><?php echo get_the_date("F d, Y") ?></td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="separator">&nbsp;</td>
-                </tr>
+                    </div>
+                </div>
+
                 <?php
             }
             ?>
@@ -76,18 +41,16 @@
             if(empty($paged)) $paged = 1;
             ?>
 
-            <tr>
-                <td colspan="3" class="endseparator">&nbsp;</td>
-            </tr>
-            <tr class="pagination-row">
-                <td align="left"><?php global $wp_query; //echo $total_results = $wp_query->found_posts; ?> </td>
-                <td colspan="2" align="right">
+        <div class="pagination-row">
+            <div align="left"><?php global $wp_query; //echo $total_results = $wp_query->found_posts; ?> </div>
+            <div colspan="2" align="right">
                     <?php wpbeginner_numeric_posts_nav(); ?>
-                </td>
-            </tr>
+            </div>
+        </div>
         </tbody>
-    </table>
+    </div>
     <div class="search-instructions">
+        <hr/>
         Search tips:
         <ul>
             <li>Search terms are case-insensitive</li>

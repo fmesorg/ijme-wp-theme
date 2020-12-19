@@ -81,6 +81,7 @@ function enqueue_front_end_scripts()
     wp_enqueue_style('issue-archive', THEME_URL . '/css/issue-archive.css', [], '1.0.4');
     wp_enqueue_style('slick-style', THEME_URL . '/css/slick.css', [], '1.0.0');
     wp_enqueue_style('slick-style', THEME_URL . '/css/slick-theme.css', [], '1.0.0');
+    wp_enqueue_style('search-style', THEME_URL . '/css/search.css', [], '1.0.0');
 
     wp_enqueue_script('slick-js', THEME_URL . '/js/slick.min.js');
     wp_enqueue_script('custom', THEME_URL . '/js/custom.js',[],'1.0.4');

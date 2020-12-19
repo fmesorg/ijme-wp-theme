@@ -2,7 +2,7 @@
 
 <div class="row dp-flex">
     <div class="col-md-9 blocks  margin-lr-10 margin-r-5">
-        <div id="main">
+        <div id="search-main">
             <h4>Search</h4>
             <div id="content">
                 <?php get_template_part('advance-search-form'); ?>
