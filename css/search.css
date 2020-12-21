@@ -32,3 +32,22 @@
         padding:24px 12px;
     }
 }
+
+.advance-search-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#click-btn {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#click-btn:hover{
+    color: #E01F1F;
+}
+
+.extrasContainer{
+    margin-top: 16px;
+}
