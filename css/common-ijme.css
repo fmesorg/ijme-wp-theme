@@ -344,3 +344,11 @@ a {
     }
 }
 
+.search-submit {
+    background-image: url(../images/search_icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 0px;
+    width: 48px;
+    height: 38px;
+}
