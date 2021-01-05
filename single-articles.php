@@ -126,6 +126,13 @@
                 </div>
                 <div id="sidebar" class="col-md-2">
                     <div class="block" id="articleToolsInContent">
+                        <div class="addthis_container">
+
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox"></div>
+
+                        </div>
+
                         <div id="article-tools-title">Article Tools:</div>
                         <?php
                             $pdf_file = get_post_meta(get_the_ID(), 'pdf_file', true);
@@ -184,4 +191,5 @@
 </div>
 <?php get_footer(); ?>
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d1b0148a07aaf99"></script>
 
