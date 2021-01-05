@@ -106,17 +106,6 @@ a {
     text-align: left;
 }
 
-@media all and (max-width: 600px) {
-    .subscribe-text-box {
-        margin-left: 0px;
-        width: 100%;
-    }
-
-    .subscribe-button {
-        margin-top: 8px;
-    }
-}
-
 .subscribe-button{
     background-color: #E01F1F;
     color: white;
@@ -125,8 +114,20 @@ a {
     border-radius: 0;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
+    margin-left: 16px;
 }
 
+@media all and (max-width: 600px) {
+    .subscribe-text-box {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .subscribe-button {
+        margin-top: 8px;
+        margin-left: 0px;
+    }
+}
 .comment-text-field {
     background-color: #0c3b66;
 }
