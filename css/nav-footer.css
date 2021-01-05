@@ -45,9 +45,21 @@
 /*Sub footer*/
 
 #sub-footer {
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
     padding: 1.2% 5.8%;
+    flex-wrap: wrap;
+}
+
+.footer-brand-icon-wrapper{
+    margin-right: 12px;
+}
+@media all and (max-width: 850px) {
+    .footer-brand-icon-wrapper{
+        margin-right: 12px;
+        margin-top: 12px;
+    }
 }
 
 .footer-brand-text {
