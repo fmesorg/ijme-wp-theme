@@ -95,7 +95,7 @@ function showCountryModal() {
 
 function createAuthorTooltip(authorData) {
   authorData = JSON.parse(authorData);
-  var box = '<div class="author-tool-tip-wrapper" style="display: flex;flex-direction: column;"> <div class="author-box-name">' + authorData.first_name + authorData.middle_name + authorData.last_name + '</div> <div class="author-box-email">' + authorData.email + '</div><div class="author-box-affiliation">' + authorData.affiliation + '</div><div class="author-box-bio">' + authorData.biography + '</div> </div>';
+  var box = '<div class="author-tool-tip-wrapper" style="display: flex;flex-direction: column;"> <div class="author-box-name">' + authorData.first_name + " " + authorData.middle_name + " " + authorData.last_name + '</div> <div class="author-box-email">' + authorData.email + '</div><div class="author-box-affiliation">' + authorData.affiliation + '</div><div class="author-box-bio">' + authorData.biography + '</div> </div>';
 
   new jBox('Tooltip', {
     attach: "#" + authorData.first_name + "-" + authorData.last_name,
