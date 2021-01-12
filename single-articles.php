@@ -147,6 +147,7 @@
                             <?php } ?>
                         <div class="articleToolItem">
                             <img src="<?php echo THEME_URL; ?>/images/article-tool-icons/Print_article.svg" class="articleToolIcon"> <a
+                                    target="_blank"
                                     class="article-tool-item-name"
                                     href="<?php echo add_query_arg('galley', 'print', get_permalink(get_the_ID())); ?>">Print
                                 this article</a>
@@ -170,12 +171,7 @@
                                     href="<?php echo add_query_arg('galley', 'references', get_permalink(get_the_ID())); ?>"
                                     target="_blank">Finding References</a>
                         </div>
-                        <div class="articleToolItem">
-                            <img src="<?php echo THEME_URL; ?>/images/article-tool-icons/Email_the_author.svg" class="articleToolIcon"> <a
-                                    class="article-tool-item-name"
-                                    href="<?php echo add_query_arg('galley', 'mail', get_permalink(get_the_ID())) . '&to=author'; ?>"
-                                    target="_blank">Email the author</a>
-                        </div>
+
                         <div class="articleToolItem">
                             <img src="<?php echo THEME_URL; ?>/images/article-tool-icons/Post_comment.svg" class="articleToolIcon">
                             <a href="#comments" class="article-tool-item-name">Post a Comment</a>
