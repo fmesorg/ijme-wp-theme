@@ -31,7 +31,7 @@
                             setup_postdata($post); ?>
                             <div class="blog-item">
                                 <div class="blog-description">
-                                    <a href="<?php the_permalink(); ?>">
+                                    <a target="_blank" href="<?php the_permalink(); ?>">
                                         <?php echo get_the_title(); ?>
                                     </a>
                                 </div>
@@ -42,7 +42,7 @@
                             </div>
                         <?php endforeach;
                         wp_reset_postdata();
-                        
+
                     }
                 ?>
             </div>

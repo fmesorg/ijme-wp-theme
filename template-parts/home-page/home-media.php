@@ -36,7 +36,7 @@
                             <?php echo $media_type; ?>
                         </div>
                         <div class="media-title">
-                            <a href="<?php echo $media_link; ?>">
+                            <a target="_blank" href="<?php echo $media_link; ?>">
                                 <?php echo get_the_title(); ?>
                             </a>
                         </div>
