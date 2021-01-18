@@ -9,9 +9,9 @@
 
         <!-- Bootstrap -->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
-    
+
         <?php wp_head(); ?>
-        
+
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -21,10 +21,10 @@
     </head>
     <body>
         <div class="container">
-            
+
             <div class="row header">
                 <div class="col-md-5 i-header-logo">
-                    <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg" alt="Page Header"></a>
+                    <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.jpg" alt="Home" title="Home"></a>
                 </div>
                 <div class="col-md-7 i-header-banner">
                 </div>

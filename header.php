@@ -99,6 +99,7 @@
             <div class="i-header-logo dp-flex align-items-center">
                 <a href="<?php echo site_url(); ?>"><img src="<?php echo THEME_URL; ?>/images/logo.png"
                                                          alt="Page Header"></a>
+                <div id="home-page-label">HOME</div>
             </div>
             <div class="nav-menu-wrapper">
                 <div style="display: flex;width: 100%">
