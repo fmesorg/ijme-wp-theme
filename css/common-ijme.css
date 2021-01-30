@@ -241,7 +241,6 @@ a {
     padding-left: 16px;
     width: 60%;
     padding-top: 36px;
-    border-top: 1px solid #E01F1F;
     margin-top: 36px;
 }
 
@@ -371,4 +370,11 @@ a {
 
 #home-page-label :hover{
     display: block;
+}
+
+.article-separator{
+    height: 1px;
+    background: #E01F1F;
+    box-shadow: 0 1px 2px 0 rgba(224,31,31,0.26);
+    margin:36px 0
 }

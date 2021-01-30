@@ -121,6 +121,31 @@
                     <!--Paynow-->
                     <!------------------->
                     <!--Manuscript Editor-->
+                    <?php
+                    $peersArray = [];
+                    $peers = get_post_meta(get_the_ID(), 'peers', true);
+                    foreach ($peers as $key => $peer) {
+                        $peersArray[$key] = $peer['name'];
+                    }
+                    $peerNames = implode(', ', $peersArray);
+                    ?>
+                    <?php if (get_field('manuscript_editor') || !empty($peerNames)) {
+                        echo "<div class=\"article-separator\"></div>";
+                    } ?>
+
+                    <?php if (get_field('manuscript_editor')) { ?>
+                        <div class="manuscript-editor">Manuscript Editor: <span
+                                    class="manuscript-editor-name"><?php the_field('manuscript_editor'); ?></span></div>
+
+                    <?php } ?>
+
+                    <?php if (!empty($peerNames)) { ?>
+                        <div class="peer-reviewer">Peer Reviewers:
+                            <span class="peer-reviewer-name"><?php echo $peerNames ?></span>
+                        </div>
+
+                    <?php } ?>
+                    <div class="article-separator"></div>
                     <!--Peer Reviewer-->
                     <!------------------->
                 </div>

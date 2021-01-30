@@ -211,3 +211,32 @@
 #place-holder {
     display: flex;
 }
+
+
+.manuscript-editor{
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #111010;
+    line-height: 32px;
+}
+
+.manuscript-editor-name{
+    font-family: HelveticaNeue-Medium;
+    font-size: 18px;
+    color: #111010;
+    line-height: 32px;
+}
+
+.peer-reviewer{
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #111010;
+    line-height: 32px;
+}
+
+.peer-reviewer-name{
+    font-family: HelveticaNeue-Medium;
+    font-size: 18px;
+    color: #111010;
+    line-height: 32px;
+}
