@@ -28,10 +28,12 @@
                 <?php
                     if ($blogs) {
                         foreach ($blogs as $post) :
-                            setup_postdata($post); ?>
+                            setup_postdata($post);
+                            $blog_link = get_post_meta(get_the_ID(), 'blog_url', true);
+                            ?>
                             <div class="blog-item">
                                 <div class="blog-description">
-                                    <a target="_blank" href="<?php the_permalink(); ?>">
+                                    <a target="_blank" href="<?php echo $blog_link; ?>">
                                         <?php echo get_the_title(); ?>
                                     </a>
                                 </div>
