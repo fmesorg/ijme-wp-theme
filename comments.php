@@ -21,13 +21,15 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-    
+
     <?php
-        $args = array('comment_notes_before' => '<div class="comment-area-message">Your email address will not be published. Required fields are marked *</div> <div class="comment-area-submessage">Please restrict your comment preferably to 800 words</div>');
+        $args = array('comment_notes_before' => '<div class="comment-area-message">Your email address will not be published. Required fields are marked *</div> <div class="comment-area-submessage">Please restrict your comment preferably to 800 words</div>
+<div class="comment-area-submessage">Comments are moderated. Approval can take up to 48 hours.</div>
+');
     ?>
     <?php comment_form($args); ?>
-    
-    
+
+
     <?php if (have_comments()) : ?>
         <div class="comment-title">Comments:</div>
 
@@ -38,7 +40,7 @@ if ( post_password_required() ) {
 				) );
 			?>
 		</ol><!-- .comment-list -->
-    
+
     <?php endif; // have_comments() ?>
 
 	<?php

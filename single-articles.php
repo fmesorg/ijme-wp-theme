@@ -79,7 +79,7 @@
                         </script>
                     </div>
                     <?php
-                    $articleCutoffId = 20;
+                    $articleCutoffId = 19361;
                     if (get_the_ID() >= $articleCutoffId) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
                             ?>
                             <div id="articleTitle"><?php echo get_the_title(); ?></div>

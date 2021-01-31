@@ -3,13 +3,7 @@
     <div id="issue-archive-header">
         <div id="issue-archive-title">Archives</div>
         <div id="issue-archive-description">
-            [Text to Replace]
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nulla augue, volutpat eu ornare sed,
-            fermentum eu neque. Suspendisse pellentesque ac est in sodales. Cras odio lectus, dictum eleifend
-            fermentum ut, malesuada at nibh. Proin nisl velit, tempus volutpat sem placerat, mattis suscipit quam.
-            Cras fermentum luctus dolor, nec tincidunt orci gravida vel. Vivamus volutpat aliquet orci sit amet
-            lacinia. Fusce in cursus odio. Proin ut ultrices neque. Phasellus efficitur neque nunc, a sodales nisl
-            scelerisque at. Sed vel velit vitae sem venenatis tempor vel eget orci.
+            Access all issues of the <i>Indian Journal of Medical Ethics</i> from 1993 onwards.
         </div>
     </div>
 
