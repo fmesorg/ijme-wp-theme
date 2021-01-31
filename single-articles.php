@@ -162,8 +162,10 @@
                     <?php
                     $peersArray = [];
                     $peers = get_post_meta(get_the_ID(), 'peers', true);
-                    foreach ($peers as $key => $peer) {
-                        $peersArray[$key] = $peer['name'];
+                    if ($peers) {
+                        foreach ($peers as $key => $peer) {
+                            $peersArray[$key] = $peer['name'];
+                        }
                     }
                     $peerNames = implode(', ', $peersArray);
                     ?>
