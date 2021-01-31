@@ -79,7 +79,7 @@
                         </script>
                     </div>
                     <?php
-                    $articleCutoffId = 19361;
+                    $articleCutoffId = 20;
                     if (get_the_ID() >= $articleCutoffId) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
                             ?>
                             <div id="articleTitle"><?php echo get_the_title(); ?></div>
@@ -113,7 +113,9 @@
                                 <div id="abstract-label">Abstract:</div>
                                 <div id="article-abstract"><?php echo get_the_excerpt(); ?></div>
                             </div>
-                            <div class="singleContentArticle" style="margin-top: 100px"><?php the_content(); ?></div>
+                        <div class="article-separator"></div>
+
+                        <div class="singleContentArticle" style="margin-top: 100px"><?php the_content(); ?></div>
                     <?php } //                        If article is an old article if id < $articleCutoffId then just put the content and show authors at bottom
                     else {
                             ?>
