@@ -57,7 +57,8 @@
                         <?php } ?>
                     </div>
                     <?php
-                        if (get_the_ID() >= 20) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
+                    $articleCutoffId = 19361;
+                    if (get_the_ID() >= $articleCutoffId) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
                             ?>
                             <div id="articleTitle"><?php echo get_the_title(); ?></div>
                             <div style="display: flex">
@@ -113,13 +114,49 @@
                                 <div id="article-abstract"><?php echo get_the_excerpt(); ?></div>
                             </div>
                             <div class="singleContentArticle" style="margin-top: 100px"><?php the_content(); ?></div>
-                        <?php } else {
+                    <?php } //                        If article is an old article if id < $articleCutoffId then just put the content and show authors at bottom
+                    else {
                             ?>
                             <div class="singleContentArticle" style="margin-top: 100px"><?php the_content(); ?></div>
                         <?php }
                     ?>
                     <!--Paynow-->
                     <!------------------->
+                    <?php if (get_the_ID() < $articleCutoffId) { ?>
+                        <div class="article-separator"></div>
+                        <?php
+                        $authors = get_post_meta(get_the_ID(), 'authors', true);
+                        if (empty($authors)) {
+                            echo '<div class="author-section-bottom">';
+                            echo '<div class="blockTitle"> </div>';
+                        } else {
+                            ?>
+                            <div class="author-section-bottom">
+                                <div class="blockTitle"> About the Authors</div>
+
+                                <?php
+                                $authors = get_post_meta(get_the_ID(), 'authors', true);
+                                if (!empty($authors)) {
+                                    foreach ($authors as $key => $author) { ?>
+                                        <div class="authorBio">
+                                            <div>
+                                                <div>
+                                                    <em><?php echo $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'] ?></em>
+                                                    <?php if (array_key_exists("email", $author)){ ?>
+                                                    <a href="mailto:<?php echo $author['email']; ?>">
+                                                        (<?php echo $author['email']; ?>)</a></div>
+                                                <?php } else echo ""; ?>
+                                                <div class="author-subtext"><?php echo $author['biography']; ?></div>
+                                                <div class="author-subtext"><?php echo $author['affiliation']; ?></div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                } ?>
+                            </div>
+                            <!--    End of bottom Author Section-->
+                        <?php } ?>
+                    <?php } ?>
                     <!--Manuscript Editor-->
                     <?php
                     $peersArray = [];

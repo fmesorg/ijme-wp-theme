@@ -240,3 +240,30 @@
     color: #111010;
     line-height: 32px;
 }
+
+
+.blockTitle{
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 22px;
+    color: #403C3C;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+
+.authorBio{
+    margin-bottom: 16px;
+}
+
+.authorBio>p{
+    margin-bottom: 2px;
+}
+
+.author-subtext{
+    font-family: Roboto;
+    font-size: 16px;
+    color: #403C3C;
+    letter-spacing: 0;
+    line-height: 16px;
+}
