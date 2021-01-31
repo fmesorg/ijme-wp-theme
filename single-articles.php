@@ -65,7 +65,7 @@
 
                         <script>
                           jQuery(document).ready(function ($) {
-
+                            console.warn("Loading article..");
                             showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
 
                             let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";

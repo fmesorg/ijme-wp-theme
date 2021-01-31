@@ -66,7 +66,7 @@ function enqueue_front_end_scripts()
 //    wp_enqueue_script('owl-js', THEME_URL . '/js/owl.carousel.min.js');
     wp_enqueue_script('bootstrap-js', THEME_URL . '/js/bootstrap.min.js',[],'1.0.3');
 //    wp_enqueue_script('pdf-js', THEME_URL . '/js/pdf.min.js');
-    wp_enqueue_script('jBox-js', THEME_URL . '/js/jBox.all.min.js');
+    wp_enqueue_script('jBox-js', THEME_URL . '/js/jBox.all.min.js',[],'4.7.20');
     wp_enqueue_script('flickity', THEME_URL . '/js/flickity.pkgd.min.js');
 //    wp_enqueue_script('slick-js', 'cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
 

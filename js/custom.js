@@ -56,6 +56,7 @@ function hideBox() {
 }
 
 function showSupportModal(url) {
+  console.warn("show support modal");
     let confirmBox = new jBox('Confirm',{
         confirmButton: 'Pay Now',
         cancelButton: 'Later',
