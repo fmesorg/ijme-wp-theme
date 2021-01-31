@@ -9,6 +9,6 @@
         <p class="subscribe-text">Do not miss an interesting article that’s coming your way! Subscribe to our alerts
             now</p>
 <!--        <input type="text" class="input-group-text subscribe-text-box" placeholder="Email address"/>-->
-        <button class="button subscribe-button">SUBSCRIBE
+        <a target="_blank" href="/news-letter-subscription-form" class="button subscribe-button">SUBSCRIBE</a>
     </div>
 </div>
