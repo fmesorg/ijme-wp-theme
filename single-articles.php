@@ -56,6 +56,28 @@
                             </span>
                         <?php } ?>
                     </div>
+                    <div class="article_count_container">
+                        <img src="<?php echo THEME_URL; ?>/images/icons/View.svg" class="viewIcon">
+                        <div class="lds-ellipsis" id="place-holder"><p id="article_count"></p>
+                            <div></div>
+                        </div>
+                        <div style="margin-left: 3px;">Views</div>
+
+                        <script>
+                          jQuery(document).ready(function ($) {
+
+                            showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
+
+                            let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";
+                            url = "/ArticleCountAPI/article_count_api.php?article_name=" + post_slug;
+                            $.get(url, function (data) {
+                              $(".result").html(data);
+                              document.getElementById('place-holder').classList.remove('lds-ellipsis');
+                              document.getElementById('article_count').innerText = JSON.parse(data).pageView;
+                            });
+                          });
+                        </script>
+                    </div>
                     <?php
                     $articleCutoffId = 19361;
                     if (get_the_ID() >= $articleCutoffId) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
@@ -86,28 +108,6 @@
                                     ?>
                                 </em>
                             </div>
-                            <div class="article_count_container">
-                                <img src="<?php echo THEME_URL; ?>/images/icons/View.svg" class="viewIcon">
-                                    <div class="lds-ellipsis" id="place-holder"><p id="article_count"></p>
-                                        <div></div>
-                                    </div>
-                                <div style="margin-left: 3px;">Views</div>
-
-                                <script>
-                                  jQuery(document).ready(function ($) {
-
-                                    showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
-
-                                    let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";
-                                    url = "/ArticleCountAPI/article_count_api.php?article_name=" + post_slug;
-                                    $.get(url, function (data) {
-                                      $(".result").html(data);
-                                      document.getElementById('place-holder').classList.remove('lds-ellipsis');
-                                      document.getElementById('article_count').innerText = JSON.parse(data).pageView;
-                                    });
-                                  });
-                                </script>
-                            </div>
 
                             <div id="article-abstract-wrapper">
                                 <div id="abstract-label">Abstract:</div>
@@ -117,7 +117,7 @@
                     <?php } //                        If article is an old article if id < $articleCutoffId then just put the content and show authors at bottom
                     else {
                             ?>
-                            <div class="singleContentArticle" style="margin-top: 100px"><?php the_content(); ?></div>
+                            <div class="singleContentArticle oldArticles" style="margin-top: 100px"><?php the_content(); ?></div>
                         <?php }
                     ?>
                     <!--Paynow-->
