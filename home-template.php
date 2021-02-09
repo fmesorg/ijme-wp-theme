@@ -9,13 +9,13 @@ get_header(); ?>
 
         </div>
         <div class="row no-gutters">
-            <div class="col-md-3 col-sm-12 dp-flex">
+            <div class="col-md-3 col-sm-12 dp-flex left-panel-wrapper">
                 <?php get_template_part('template-parts/home-page/home-left-panel'); ?>
             </div>
-            <div class="col-md-6 col-sm-12 dp-flex">
+            <div class="col-md-6 col-sm-12 dp-flex center-panel-wrapper">
                 <?php get_template_part('template-parts/home-page/home-onlinefirst-center-panel'); ?>
             </div>
-            <div class="col-md-3 col-sm-12 dp-flex">
+            <div class="col-md-3 col-sm-12 dp-flex right-panel-wrapper">
                 <?php get_template_part('template-parts/home-page/home-right-panel'); ?>
             </div>
         </div>
