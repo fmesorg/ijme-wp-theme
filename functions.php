@@ -1844,7 +1844,7 @@ function html_generator($data)
                 <tbody style="background-color: white;padding-left: 30px;">
                  <tr>
         <td>
-            <center><a href="http://test.ijme.in"><img src="http://test.ijme.in/wp-content/themes/ijme/images/logo.jpg"  width="90%" style="padding: 20  10 10 10"></a></center>
+            <center><a href="http://test.ijme.in"><img src="https://www.ijme.in/wp-content/themes/ijme/images/logo.jpg"  width="24%" style="padding: 20  10 10 10"></a></center>
         </td>
 
     </tr>
@@ -1887,13 +1887,11 @@ foreach ($allCategories
         </td>
         <?php
         foreach ($catArrayMulti[$category] as $key => $post) {
-            $pdf = add_query_arg('galley', 'pdf', get_permalink($post));
-            $html = add_query_arg('galley', 'html', get_permalink($post));
+            $html = get_permalink($post);
 
             $authors = get_post_meta($post->ID, 'authors', true);
             $authors_array = array();
             $pstName = $post->post_title;
-            $pstAbstract = get_permalink($post->ID);
             echo '<td style=" width: 94.5%;float: left;position:relative;margin-bottom: 0px;padding-left: 25px;background: white;">
             <a href="' . $html . '" style="text-decoration: none;color: #1a1a1a;
                             font-family: Times New Roman, Times, serif;
@@ -1912,19 +1910,7 @@ foreach ($allCategories
                             margin-top:0px;
                             margin-bottom: 0px">' . implode(', ', $authors_array) . ' </p>';
             }
-            echo '<br><a style="
-                   padding: 1px 1px;text-align: right;
-                   color: #1a1a1a;
-                   font-family: Helvetica, Arial, sans-serif;
-                   font-size: 14px;
-                   vertical-align: text-top;
-                   text-decoration: none;
-                   padding-top: 0px;
-                   padding-bottom: 0px;
-                   margin: 0 0 0 0;
-                   " href="' . $pstAbstract . '">Abstract &nbsp; | &nbsp; </a>
-                   
-                   
+            echo '<br>
                 <a style="
                    padding: 1px 1px;
                    text-align: right;
@@ -1936,21 +1922,8 @@ foreach ($allCategories
                    padding-top: 0px;
                    padding-bottom: 0px;
                    margin: 0 0 0 0;
-                   " href="' . $html . '"> HTML &nbsp; | &nbsp;</a>
-                   
-                   
-                <a style="
-                   padding: 1px 1px;
-                   text-align: right;
-                   color: #1a1a1a;
-                   font-family: Helvetica, Arial, sans-serif;
-                   font-size: 14px;
-                   vertical-align: text-top;
-                   text-decoration: none;
-                   padding-top: 0px;
-                   padding-bottom: 0px;
-                   margin: 0 0 0 0;
-                   " href="' . $pdf . '">PDF &nbsp;  </a> ';
+                   " href="' . $html . '"> VIEW ARTICLE</a>
+                ';
             ?><?php
             $len = count($catArrayMulti[$category]);
             if ($len != $key + 1) {
@@ -1963,7 +1936,6 @@ foreach ($allCategories
 
         }
 
-
         }
         echo "<br>
         <tr>
@@ -1971,7 +1943,7 @@ foreach ($allCategories
             <span><br> <a href='{sp-browser-url}'>View it in your browser</a><br><br><a
                     href='{sp-unsubscribe-url}'>unsubscribe from this list</a></span>
 
-                       <a style=\"color: white; background-color: red; padding: 13px; text-decoration: none;float: right;font-size: small\" href=\"/IjmeSubscriptionForm/subscribe.php\" target=\"_blank\">SUBSCRIBE</a>
+                       <a style=\"color: white; background-color: red; padding: 13px; text-decoration: none;float: right;font-size: small\" href=\"https://ijme.in/news-letter-subscription-form\" target=\"_blank\">SUBSCRIBE</a>
 
         </td>
 
