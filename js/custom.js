@@ -108,6 +108,10 @@ function createAuthorTooltip(authorData) {
 }
 
 
-
-
-
+function fetchPostsByCategory() {
+  let ajaxurl = "/ArticleCountAPI/get_latest_articles_by_category.php";
+  jQuery.get(ajaxurl, function (response) {
+    return response;
+  });
+  return false;
+}

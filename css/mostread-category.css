@@ -63,6 +63,7 @@
     padding: 7px 14px 5px 12px;
     width: fit-content;
     margin-left: -16px;
+    text-transform: uppercase;
 }
 
 .category-post-title {

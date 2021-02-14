@@ -14,51 +14,94 @@
                  alt="slide right">
         </div>
     </div>
-        <div class="category-carousel category-card-wrapper">
+    <div id="articlesByCategory" class="category-carousel category-card-wrapper">
             <div class="category-card">
-                <div class="category-name">RESEARCH ETHICS</div>
-                <div class="category-post-title">Ethical Challenges in Education1</div>
-                <div class="category-author-name">Joy D'scuza</div>
-                <div class="category-abstract">Our editorial explores the need to create a nurturing ecology for
-                    good research and how far the New Education Policy, 2019, will facilitate this. Exploring
-                    medical education further, authors in…
-                </div>
+                <div class="category-name">ARTICLES</div>
+                <div id="Articles-title" class="category-post-title"></div>
+                <div id="Articles-authors" class="category-author-name"></div>
+                <div id="Articles-abstract" class="category-abstract"></div>
             </div>
             <div class="category-card">
-                <div class="category-name">RESEARCH ETHICS</div>
-                <div class="category-post-title">Ethical Challenges in Education2</div>
-                <div class="category-author-name">Joy D'scuza</div>
-                <div class="category-abstract">Our editorial explores the need to create a nurturing ecology for
-                    good research and how far the New Education Policy, 2019, will facilitate this. Exploring
-                    medical education further, authors in…
-                </div>
+                <div class="category-name">COMMENTS</div>
+                <div id="Comments-title" class="category-post-title"></div>
+                <div id="Comments-authors" class="category-author-name"></div>
+                <div id="Comments-abstract" class="category-abstract"></div>
             </div>
             <div class="category-card">
-                <div class="category-name">RESEARCH ETHICS</div>
-                <div class="category-post-title">Ethical Challenges in Education3</div>
-                <div class="category-author-name">Joy D'scuza</div>
-                <div class="category-abstract">Our editorial explores the need to create a nurturing ecology for
-                    good research and how far the New Education Policy, 2019, will facilitate this. Exploring
-                    medical education further, authors in…
-                </div>
+                <div class="category-name">COVID-19</div>
+                <div id="COVID-19-title" class="category-post-title"></div>
+                <div id="COVID-19-authors" class="category-author-name"></div>
+                <div id="COVID-19-abstract" class="category-abstract"></div>
             </div>
-            <div class="category-card">
-                <div class="category-name">RESEARCH ETHICS</div>
-                <div class="category-post-title">Ethical Challenges in Education4</div>
-                <div class="category-author-name">Joy D'scuza</div>
-                <div class="category-abstract">Our editorial explores the need to create a nurturing ecology for
-                    good research and how far the New Education Policy, 2019, will facilitate this. Exploring
-                    medical education further, authors in…
-                </div>
-            </div>
-            <div class="category-card">
-                <div class="category-name">RESEARCH ETHICS</div>
-                <div class="category-post-title">Ethical Challenges in Education5</div>
-                <div class="category-author-name">Joy D'scuza</div>
-                <div class="category-abstract">Our editorial explores the need to create a nurturing ecology for
-                    good research and how far the New Education Policy, 2019, will facilitate this. Exploring
-                    medical education further, authors in…
-                </div>
-            </div>
+        <div class="category-card">
+            <div class="category-name">Editorials</div>
+            <div id="Editorials-19-title" class="category-post-title"></div>
+            <div id="Editorials-19-authors" class="category-author-name"></div>
+            <div id="Editorials-19-abstract" class="category-abstract"></div>
         </div>
+        <div class="category-card">
+            <div class="category-name">Health and Law</div>
+            <div id="Health and Law-19-title" class="category-post-title"></div>
+            <div id="Health and Law-19-authors" class="category-author-name"></div>
+            <div id="Health and Law-19-abstract" class="category-abstract"></div>
+        </div>
+        <div class="category-card">
+            <div class="category-name">Case Studies</div>
+            <div id="Case Studies-title" class="category-post-title"></div>
+            <div id="Case Studies-authors" class="category-author-name"></div>
+            <div id="Case Studies-abstract" class="category-abstract"></div>
+        </div>
+
+    </div>
 </div>
+
+<script>
+  jQuery(document).ready(function ($) {
+    // let data = {"Articles":"Gender perspectives in medical education"}
+    // let categoryCards = createCards(data);
+    let url = "/ArticleCountAPI/get_latest_articles_by_category.php";
+    $.get(url, function (response) {
+      let data = JSON.parse(response);
+      createCards(data);
+    });
+  });
+
+  function createCards(data) {
+    //This list should match what is in the api get_latest_article_by_category.php used for Google analytics
+    let categoryList =
+      ["COVID-19",
+        "Articles",
+        "Comments",
+        "Editorials",
+        "Health and Law",
+        "Case Studies"];
+
+    for (let i = 0; i < categoryList.length; i++) {
+      let category = categoryList[i];
+      createCardFor(data[category], category);
+    }
+  }
+
+  function createCardFor(categoryPostName, category) {
+    // let url = "/wp-json/mostreadArticle/v1/"+categoryPostName;
+    // let url = "http://ijme.in/wp-json/mostreadArticle/v1/category/?title="+categoryPostName;
+    let url = "/wp-json/mostreadArticle/v1/category/?title=" + categoryPostName;
+    jQuery().ready(function ($) {
+      $.get(url, function (response) {
+        let data = JSON.parse(response);
+        console.log("restApi", data);
+        renderCard(data, category);
+      });
+    });
+
+    function renderCard(data, category) {
+      jQuery().ready(function ($) {
+        $("#" + category + "-title").html(data.title);
+        $("#" + category + "-authors").html(data.authors);
+        $("#" + category + "-abstract").html(data.abstract);
+      })
+    }
+
+  }
+
+</script>

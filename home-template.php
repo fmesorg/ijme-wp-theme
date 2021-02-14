@@ -28,9 +28,9 @@ get_header(); ?>
         <div class="row">
             <?php get_template_part('template-parts/home-page/subscribe-box'); ?>
         </div>
-<!--        <div class="row mobile-margin-adjustment">-->
-<!--            --><?php //get_template_part('template-parts/home-page/mostread-bycategory'); ?>
-<!--        </div>-->
+        <div class="row mobile-margin-adjustment">
+            <?php get_template_part('template-parts/home-page/mostread-bycategory'); ?>
+        </div>
         <div class="row mobile-margin-adjustment" style="width: 100%;">
             <?php get_template_part('template-parts/home-page/home-blog'); ?>
         </div>

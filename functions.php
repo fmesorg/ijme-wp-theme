@@ -2435,3 +2435,52 @@ function get_author_list($post_id)
             }
 
         ?>
+
+
+        <?php
+
+        function getPostByTitle($title)
+        {
+            return get_page_by_title($title, OBJECT, 'articles');
+        }
+
+        ?>
+
+
+
+        <?php
+
+
+        function getPostDetails($data)
+        {
+            $title = $data->get_param( 'title' );
+            if (!empty($title)) {
+                $post = getPostByTitle(html_entity_decode($title));
+                if(is_null($post)){
+                    return "No data available";
+                }
+                $postId = $post->ID;
+                $title = $post->post_title;
+                $abstract = mb_strimwidth($post->post_excerpt,0,250,"...");
+                $authors = implode(', ', get_author_list($postId));
+
+                $postData = array();
+                $postData['title'] = $title;
+                $postData['authors'] = $authors;
+                $postData['abstract'] = $abstract;
+                return json_encode($postData);
+            } else {
+                return "No data available";
+            }
+        }
+
+        add_action('rest_api_init', function () {
+            register_rest_route('mostreadArticle/v1', 'category/', array(
+                'methods' => 'GET',
+                'callback' => 'getPostDetails',
+            ), false);
+        });
+
+
+        ?>
+
