@@ -41,15 +41,15 @@
         </div>
         <div class="category-card">
             <div class="category-name">Health and Law</div>
-            <div id="Health and Law-title" class="category-post-title"></div>
-            <div id="Health and Law-authors" class="category-author-name"></div>
-            <div id="Health and Law-abstract" class="category-abstract"></div>
+            <div id="Health-and-Law-title" class="category-post-title"></div>
+            <div id="Health-and-Law-authors" class="category-author-name"></div>
+            <div id="Health-and-Law-abstract" class="category-abstract"></div>
         </div>
         <div class="category-card">
             <div class="category-name">Case Studies</div>
-            <div id="Case Studies-title" class="category-post-title"></div>
-            <div id="Case Studies-authors" class="category-author-name"></div>
-            <div id="Case Studies-abstract" class="category-abstract"></div>
+            <div id="Case-Studies-title" class="category-post-title"></div>
+            <div id="Case-Studies-authors" class="category-author-name"></div>
+            <div id="Case-Studies-abstract" class="category-abstract"></div>
         </div>
 
     </div>
@@ -95,10 +95,11 @@
     });
 
     function renderCard(data, category) {
+      let formateCategory = category.replace(' ', '-');
       jQuery().ready(function ($) {
-        $("#" + category + "-title").html(data.title);
-        $("#" + category + "-authors").html(data.authors);
-        $("#" + category + "-abstract").html(data.abstract);
+        $("#" + formateCategory + "-title").html(data.title);
+        $("#" + formateCategory + "-authors").html(data.authors);
+        $("#" + formateCategory + "-abstract").html(data.abstract);
       })
     }
 
