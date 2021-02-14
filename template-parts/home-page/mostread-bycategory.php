@@ -40,10 +40,10 @@
             <div id="Editorials-abstract" class="category-abstract"></div>
         </div>
         <div class="category-card">
-            <div class="category-name">Health and Law</div>
-            <div id="Health-and-Law-title" class="category-post-title"></div>
-            <div id="Health-and-Law-authors" class="category-author-name"></div>
-            <div id="Health-and-Law-abstract" class="category-abstract"></div>
+            <div class="category-name">From the Press</div>
+            <div id="From-the-Press-title" class="category-post-title"></div>
+            <div id="From-the-Press-authors" class="category-author-name"></div>
+            <div id="From-the-Press-abstract" class="category-abstract"></div>
         </div>
         <div class="category-card">
             <div class="category-name">Case Studies</div>
@@ -73,7 +73,7 @@
         "Articles",
         "Comments",
         "Editorials",
-        "Health and Law",
+        "From the Press",
         "Case Studies"];
 
     for (let i = 0; i < categoryList.length; i++) {
