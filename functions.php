@@ -2458,8 +2458,8 @@ function get_author_list($post_id)
                 $post = getPostByTitle(html_entity_decode($title));
                 if(is_null($post)){
                     $response = array();
-                    $response = ["error"] = "Not found";
-                    $response = ["article"] = html_entity_decode($title);
+                    $response ["error"] = "Not found";
+                    $response ["article"] = html_entity_decode($title);
                     return json_encode($response);
                 }
                 $postId = $post->ID;
