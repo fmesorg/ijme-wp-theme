@@ -16,11 +16,17 @@
     </div>
     <div id="articlesByCategory" class="category-carousel category-card-wrapper">
             <div class="category-card">
-                <div class="category-name">COMMENTS</div>
-                <div id="Comments-title" class="category-post-title"></div>
-                <div id="Comments-authors" class="category-author-name"></div>
-                <div id="Comments-abstract" class="category-abstract"></div>
+                <div class="category-name">ARTICLES</div>
+                <div id="Articles-title" class="category-post-title"></div>
+                <div id="Articles-authors" class="category-author-name"></div>
+                <div id="Articles-abstract" class="category-abstract"></div>
             </div>
+        <div class="category-card">
+            <div class="category-name">COMMENTS</div>
+            <div id="Comments-title" class="category-post-title"></div>
+            <div id="Comments-authors" class="category-author-name"></div>
+            <div id="Comments-abstract" class="category-abstract"></div>
+        </div>
             <div class="category-card">
                 <div class="category-name">COVID-19</div>
                 <div id="COVID-19-title" class="category-post-title"></div>
@@ -64,6 +70,7 @@
     //This list should match what is in the api get_latest_article_by_category.php used for Google analytics
     let categoryList =
       ["COVID-19",
+        "Articles",
         "Comments",
         "Editorials",
         "From the Press",
@@ -82,13 +89,12 @@
     jQuery().ready(function ($) {
       $.get(url, function (response) {
         let data = JSON.parse(response);
-        console.log("restApi", data);
         renderCard(data, category);
       });
     });
 
     function renderCard(data, category) {
-      let formateCategory = category.replace(' ', '-');
+      let formateCategory = category.replace(/\s+/g,"-");
       jQuery().ready(function ($) {
         $("#" + formateCategory + "-title").html(data.title);
         $("#" + formateCategory + "-authors").html(data.authors);
