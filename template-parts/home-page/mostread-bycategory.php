@@ -16,40 +16,52 @@
     </div>
     <div id="articlesByCategory" class="category-carousel category-card-wrapper">
             <div class="category-card">
-                <div class="category-name">ARTICLES</div>
-                <div id="Articles-title" class="category-post-title"></div>
-                <div id="Articles-authors" class="category-author-name"></div>
-                <div id="Articles-abstract" class="category-abstract"></div>
+                <a id="Articles-link" href="#">
+                    <div class="category-name">ARTICLES</div>
+                    <div id="Articles-title" class="category-post-title"></div>
+                    <div id="Articles-authors" class="category-author-name"></div>
+                    <div id="Articles-abstract" class="category-abstract"></div>
+                </a>
             </div>
         <div class="category-card">
-            <div class="category-name">COMMENTS</div>
-            <div id="Comments-title" class="category-post-title"></div>
-            <div id="Comments-authors" class="category-author-name"></div>
-            <div id="Comments-abstract" class="category-abstract"></div>
+            <a id="Comments-link" href="#">
+                <div class="category-name">COMMENTS</div>
+                <div id="Comments-title" class="category-post-title"></div>
+                <div id="Comments-authors" class="category-author-name"></div>
+                <div id="Comments-abstract" class="category-abstract"></div>
+            </a>
         </div>
             <div class="category-card">
-                <div class="category-name">COVID-19</div>
-                <div id="COVID-19-title" class="category-post-title"></div>
-                <div id="COVID-19-authors" class="category-author-name"></div>
-                <div id="COVID-19-abstract" class="category-abstract"></div>
+                <a id="COVID-19-link" href="#">
+                    <div class="category-name">COVID-19</div>
+                    <div id="COVID-19-title" class="category-post-title"></div>
+                    <div id="COVID-19-authors" class="category-author-name"></div>
+                    <div id="COVID-19-abstract" class="category-abstract"></div>
+                </a>
             </div>
         <div class="category-card">
-            <div class="category-name">Editorials</div>
-            <div id="Editorials-title" class="category-post-title"></div>
-            <div id="Editorials-authors" class="category-author-name"></div>
-            <div id="Editorials-abstract" class="category-abstract"></div>
+            <a id="Editorials-link" href="#">
+                <div class="category-name">Editorials</div>
+                <div id="Editorials-title" class="category-post-title"></div>
+                <div id="Editorials-authors" class="category-author-name"></div>
+                <div id="Editorials-abstract" class="category-abstract"></div>
+            </a>
         </div>
         <div class="category-card">
-            <div class="category-name">From the Press</div>
-            <div id="From-the-Press-title" class="category-post-title"></div>
-            <div id="From-the-Press-authors" class="category-author-name"></div>
-            <div id="From-the-Press-abstract" class="category-abstract"></div>
+            <a id="From-the-Press-link" href="#">
+                <div class="category-name">From the Press</div>
+                <div id="From-the-Press-title" class="category-post-title"></div>
+                <div id="From-the-Press-authors" class="category-author-name"></div>
+                <div id="From-the-Press-abstract" class="category-abstract"></div>
+            </a>
         </div>
         <div class="category-card">
-            <div class="category-name">Case Studies</div>
-            <div id="Case-Studies-title" class="category-post-title"></div>
-            <div id="Case-Studies-authors" class="category-author-name"></div>
-            <div id="Case-Studies-abstract" class="category-abstract"></div>
+            <a id="Case-Studies-link" href="#">
+                <div class="category-name">Case Studies</div>
+                <div id="Case-Studies-title" class="category-post-title"></div>
+                <div id="Case-Studies-authors" class="category-author-name"></div>
+                <div id="Case-Studies-abstract" class="category-abstract"></div>
+            </a>
         </div>
 
     </div>
@@ -99,6 +111,7 @@
         $("#" + formateCategory + "-title").html(data.title);
         $("#" + formateCategory + "-authors").html(data.authors);
         $("#" + formateCategory + "-abstract").html(data.abstract);
+        $("#" + formateCategory + "-link").attr("href", data.link);
       })
     }
 

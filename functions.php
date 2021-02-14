@@ -2464,6 +2464,7 @@ function get_author_list($post_id)
                 }
                 $postId = $post->ID;
                 $title = $post->post_title;
+                $postLink = get_post_permalink($postId);
                 $abstract = mb_strimwidth($post->post_excerpt,0,250,"...");
                 $authors = implode(', ', get_author_list($postId));
 
@@ -2471,6 +2472,7 @@ function get_author_list($post_id)
                 $postData['title'] = $title;
                 $postData['authors'] = $authors;
                 $postData['abstract'] = $abstract;
+                $postData['link'] = $postLink;
                 return json_encode($postData);
             } else {
                 return "No data available";
