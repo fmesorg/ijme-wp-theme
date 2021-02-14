@@ -2457,7 +2457,10 @@ function get_author_list($post_id)
             if (!empty($title)) {
                 $post = getPostByTitle(html_entity_decode($title));
                 if(is_null($post)){
-                    return "No data available";
+                    $response = array();
+                    $response = ["error"] = "Not found";
+                    $response = ["article"] = html_entity_decode($title);
+                    return json_encode($response);
                 }
                 $postId = $post->ID;
                 $title = $post->post_title;
