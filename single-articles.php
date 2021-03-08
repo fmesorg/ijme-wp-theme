@@ -77,61 +77,14 @@
                           });
                         </script>
                     </div>
-                    <?php
-                    $articleCutoffId = 19361;
-                    if (get_the_ID() >= $articleCutoffId) { //To do : Change this to the current post number, from here the header will be used and removed from the template in article
-                            ?>
-                            <div id="articleTitle"><?php echo get_the_title(); ?></div>
-                            <div style="display: flex">
 
-                            </div>
-                            <div id="authorString">
-                                <em>
-                                    <?php
-                                        $authors = get_post_meta(get_the_ID(), 'authors', true);
-                                        $out = array();
-                                        if (!empty($authors)) {
-                                            foreach ($authors as $key => $author) {
-                                                $author_name = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
-                                                ?>
-                                                <div class="author-name"
-                                                     id="<?php echo $author['first_name'] . "-" . $author['last_name']; ?>">
-                                                    <?php echo $author_name; ?>
-                                                </div>
-                                                <script>
-                                                  createAuthorTooltip('<?php echo json_encode($author);?>');
-                                                </script>
-                                                <?php
-                                            }
-                                        }
-                                    ?>
-                                </em>
-                            </div>
-
-                            <div id="article-abstract-wrapper">
-                                <div id="abstract-label">Abstract:</div>
-                                <div id="article-abstract"><?php echo get_the_excerpt(); ?></div>
-                            </div>
-                        <div class="article-separator"></div>
-
-                        <div class="singleContentArticle" style="margin-top: 100px"><?php the_content(); ?></div>
-                    <?php } //                        If article is an old article if id < $articleCutoffId then just put the content and show authors at bottom
-                    else {
-                            ?>
+<!--                                          If article is an old article if id < $articleCutoffId then just put the content and show authors at bottom-->
                             <div class="singleContentArticle oldArticles" style="margin-top: 100px"><?php the_content(); ?></div>
                         <?php }
                     ?>
                     <!--Paynow-->
                     <!------------------->
-                    <?php if (get_the_ID() < $articleCutoffId) { ?>
-                        <div class="article-separator"></div>
-                        <?php
-                        $authors = get_post_meta(get_the_ID(), 'authors', true);
-                        if (empty($authors)) {
-                            echo '<div class="author-section-bottom">';
-                            echo '<div class="blockTitle"> </div>';
-                        } else {
-                            ?>
+                    <div class="article-separator"></div>
                             <div class="author-section-bottom">
                                 <div class="blockTitle"> About the Authors</div>
 
@@ -157,7 +110,7 @@
                             </div>
                             <!--    End of bottom Author Section-->
                         <?php } ?>
-                    <?php } ?>
+
                     <!--Manuscript Editor-->
                     <?php
                     $peersArray = [];
@@ -245,8 +198,8 @@
                 </div>
                 <?php
                 comments_template();
-            }
-        } ?>
+
+         ?>
 
     <?php if (get_post_type() == 'page') the_content(); ?>
 </div>
