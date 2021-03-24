@@ -157,7 +157,7 @@
                     </p>
                 </div>
                 <div class="nav-logo-text">
-                    <span>ISSN: 0975-5091 (Online);</span>
+                    <span>ISSN: 0975-5691 (Online);</span>
                     <span>0974-8466 (Print)</span>
                     <span>RNI Reg No. MAHENG/2016/67188</span>
                 </div>
