@@ -41,13 +41,17 @@
                 the_post();
                 $issue = get_post_meta(get_the_ID(), 'xml_issue', true);
                 $volume = get_post_meta(get_the_ID(), 'xml_volume', true);
+                $postId = get_post_meta(get_the_ID(), 'articles', true);
+                $t_post = get_post($postId);
                 ?>
                 <div id="html-article" class="col-md-10 col-sm-12">
                     <div id="article-header-label">
                         <div id="article-header-left-details">
                             <span id="article-volume-label"><?php echo "Vol ".$volume.", Issue ".$issue; ?></span>
                             <span id="red-oval"></span>
-                            <span id="article-date-of-publication">Date of Publication : <?php echo get_the_date('F d ,Y'); ?></span>
+                            <span id="article-date-of-publication">Date of Publication: <?php
+                                $publish_date = get_post_meta($t_post->ID, 'article_pub_date', true);
+                                echo date("F d, Y", strtotime($publish_date)); ?></span>
                         </div>
 
                         <?php if (get_field('doi')) { ?>
