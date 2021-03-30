@@ -118,20 +118,20 @@
 
 
                     <div class="header-social-media-wrapper">
-                        <a href="https://www.facebook.com/Health-Ethics-and-Law-HEaL-Institute-104243091068445/"
+                        <a href="https://www.facebook.com/ijme.editorial"
                            target="_blank">
                             <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/facebook-f.svg"
                                  onmouseover="hover(this,'facebook-f.svg');"
                                  onmouseout="unhover(this,'facebook-f.svg')"
                                  alt="Page Header">
                         </a>
-                        <a href="https://twitter.com/HEaL46956409" target="_blank">
+                        <a href="https://twitter.com/IndJMedEthics" target="_blank">
                         <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/twitter.svg"
                              onmouseover="hover(this,'twitter.svg');"
                              onmouseout="unhover(this,'twitter.svg')"
                              alt="Page Header">
                         </a>
-                        <a href="https://www.linkedin.com/in/fmes-institute-b61446199/" target="_blank">
+                        <a href="https://www.linkedin.com/in/indian-journal-of-medical-ethics/" target="_blank">
                             <img width="18" src="<?php echo THEME_URL; ?>/images/header-social-media/linkedin-in.svg"
                                  onmouseover="hover(this,'linkedin-in.svg');"
                                  onmouseout="unhover(this,'linkedin-in.svg')"
@@ -157,7 +157,7 @@
                     </p>
                 </div>
                 <div class="nav-logo-text">
-                    <span>ISSN: 0975-5091 (Online);</span>
+                    <span>ISSN: 0975-5691 (Online);</span>
                     <span>0974-8466 (Print)</span>
                     <span>RNI Reg No. MAHENG/2016/67188</span>
                 </div>
