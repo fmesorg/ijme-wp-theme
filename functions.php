@@ -2299,8 +2299,8 @@ add_action('init', 'blog_init');
 function get_author_list($post_id)
 {
     $authors = get_post_meta($post_id, 'authors', true);
+    $authors_array = array();
     if (!empty($authors)) {
-        $authors_array = array();
         foreach ($authors as $author) $authors_array[] = $author['first_name'] . ' ' . $author['middle_name'] . ' ' . $author['last_name'];
     }
     return $authors_array;
