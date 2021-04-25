@@ -65,10 +65,14 @@ get_header();
             for ($i = 1; $i <= $total_pages; $i++) {
                 if ($i == $page) {
                     $pagLink .= "<strong><a href='?page=" . $i . "' style='color:red;text-decoration:none'>" . $i . "</a></strong>&nbsp;&nbsp;";
-                } elseif ($i < $page - 3 && $i != $total_pages && $i != 1) {
-                    $pagLink .= ".";
-                } elseif ($i > $page + 3 && $i != $total_pages && $i != 1) {
-                    $pagLink .= ".";
+                } elseif ($i < $page - 2 && $i != $total_pages && $i != 1 && $i < $page - 3) {
+                    $pagLink .= "";
+                } elseif ($i > $page + 2 && $i != $total_pages && $i != 1 && $i > $page + 3) {
+                    $pagLink .= "";
+                } elseif ($i > $page + 2 && $i != $total_pages && $i != 1) {
+                    $pagLink .= "... ";
+                } else if ($i < $page - 2 && $i != $total_pages && $i != 1) {
+                    $pagLink .= "... ";
                 } else {
                     $pagLink .= "<a href='?page=" . $i . "'>" . $i . "</a>&nbsp;&nbsp;";
                 }
@@ -81,8 +85,15 @@ get_header();
                 </div>
                 <div class="col-md-3" style="float: right">
                     <?php
-                    echo $pagLink;
-
+                    $nextPage = $page + 1;
+                    $prevPage = $page - 1;
+                    if ($page != $total_pages && $page != 1) {
+                        echo "<a href='?page=" . $prevPage . "'>Previous </a>" . $pagLink . "<a href='?page=" . $nextPage . "'>Next</a>";
+                    } else if ($page == $total_pages) {
+                        echo "<a href='?page=" . $prevPage . "'>Previous </a>" . $pagLink;
+                    } else if ($page == 1) {
+                        echo $pagLink . "<a href='?page=" . $nextPage . "'>Next</a>";
+                    }
                     ?></div>
             </div>
             <?php
