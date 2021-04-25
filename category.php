@@ -34,7 +34,7 @@ get_header();
                 ?>
                 <div class="onlineFirst-article-wrapper dp-flex flex-column">
                     <div class="issue-article-date">
-                        <?php echo date('F d, Y', strtotime($post->post_date)); ?>
+                        <?php echo date('F d, Y', strtotime($post->article_pub_date)); ?>
                     </div>
                     <div class="online-first-article-title">
                         <a href="<?php the_permalink(); ?>">
