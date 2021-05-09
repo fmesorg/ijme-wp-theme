@@ -79,11 +79,9 @@ get_header();
 
             }
             ?>
-            <div class="col-md-12">
-                <div class="col-md-9">
-
-                </div>
-                <div class="col-md-3" style="float: right">
+            <div class="pagination-row">
+                <div align="left"><?php global $wp_query; //echo $total_results = $wp_query->found_posts; ?> </div>
+                <div colspan="2" align="right">
                     <?php
                     $nextPage = $page + 1;
                     $prevPage = $page - 1;
