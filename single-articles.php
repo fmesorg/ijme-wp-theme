@@ -217,7 +217,7 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
 
     </div>
 
-</div>
+
 
 
 <?php } ?>
