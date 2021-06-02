@@ -1836,6 +1836,7 @@ function html_generator($data)
     $pstAbst = str_replace("<p>", "  <p  style=\"font-size:18px;padding-left:5px;\">", $pstAbstract);
     $pstTitle = $pstInfo->post_title;
     $pstPubDate = $pstInfo->post_date;
+    $pstLink=get_permalink( $issue_id );
 //    $pstImage=  wp_get_attachment_url(get_the_post_thumbnail_id($pstInfo));
     $pstImage = wp_get_attachment_image_src(get_post_thumbnail_id($pstInfo->ID), 'single-post-thumbnail');
 
@@ -1844,22 +1845,23 @@ function html_generator($data)
                 <tbody style="background-color: white;padding-left: 30px;">
                  <tr>
         <td>
-            <center><a href="http://test.ijme.in"><img src="https://www.ijme.in/wp-content/themes/ijme/images/logo.jpg"  width="24%" style="padding: 20  10 10 10"></a></center>
+            <center><a href="http://ijme.in"><img src="https://www.ijme.in/wp-content/themes/ijme/images/logo.jpg"  width="24%" style="padding: 20  10 10 10"></a></center>
         </td>
 
     </tr>
                 <tr  style=" "><td>               <span ><h3 style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:17px;padding-top:10px ; padding-bottom: 20px; margin-top:0px; margin-bottom:0px; background: white;padding-left:30px"> IJME ISSUE<br/>
-               <span style="font-size: 15px;padding-top: 5px;">Pub: ' . $pstPubDate . '</span></h3></span></td></tr>
+               <span style="font-size: 15px;padding-top: 5px;">Pub: ' .  date("F d, Y", strtotime($pstPubDate)) . '</span></h3></span></td></tr>
                 ';
 
     //for the thumbnail,title and abstract
+
 
     echo '
          <tr style="position:relative;
           width: 98%; background: white; padding-left: 10px; padding-top: 10px; ">
             <td style="position:relative;
                 background: white; ">
-               <center> <img align="center" src=" ' . $pstImage[0] . '"  width="50%" ></center>
+               <center><a href=' .$pstLink. '> <img align="center" src=" ' . $pstImage[0] . '"  width="50%"  ></a></center>
             
             </td>
          </tr>
