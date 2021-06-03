@@ -5,6 +5,7 @@ define('THEME_PATH', get_template_directory());
 //define('IJME_URL', get_site_url ().'/submissions'. '/index.php/ijme/user');
 define('IJME_URL', get_site_url() . '/submission');
 define('ISSN', '0975-5691');
+require 'customFunctions.php';
 
 function ijme_theme_setup()
 {
@@ -1839,6 +1840,8 @@ function html_generator($data)
     $pstLink=get_permalink( $issue_id );
 //    $pstImage=  wp_get_attachment_url(get_the_post_thumbnail_id($pstInfo));
     $pstImage = wp_get_attachment_image_src(get_post_thumbnail_id($pstInfo->ID), 'single-post-thumbnail');
+    $IssueVolume = get_post_meta($issue_id, 'volume', true); // add in wp issue
+    $IssueNumber = get_post_meta($issue_id, 'number', true); // add in wp issue
 
 
     echo '<table width="100%" align="center" style=" padding-bottom: 0px; background-color: white;margin-top: 0px; padding-top: 0px; padding-left: 0px;padding-right: 0px">
@@ -1850,6 +1853,7 @@ function html_generator($data)
 
     </tr>
                 <tr  style=" "><td>               <span ><h3 style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:17px;padding-top:10px ; padding-bottom: 20px; margin-top:0px; margin-bottom:0px; background: white;padding-left:30px"> IJME ISSUE<br/>
+                <span style="font-size: 15px;padding-top: 5px;">Vol ' . integerToRoman($IssueVolume). ' , Issue '. stringToNumber($IssueNumber) .'</span></br>
                <span style="font-size: 15px;padding-top: 5px;">Pub: ' .  date("F d, Y", strtotime($pstPubDate)) . '</span></h3></span></td></tr>
                 ';
 
