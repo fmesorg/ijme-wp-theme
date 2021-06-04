@@ -210,7 +210,7 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
             <?php $pdf_file = get_post_meta(get_the_ID(), 'pdf_file', true); ?>
 
             <a href="<?php echo $pdf_file ?>"
-               class="file" target="_self"
+               class="file" target="_blank"
                onclick="ga('send', 'event','pdf', 'downloads', 'pdf downloads', 0,{'nonInteraction': 1});  showSupportModal('<?php echo get_permalink(get_the_ID());?>')  ">
                 PDF</a><br>
         </div>
@@ -242,7 +242,7 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
                 <img src="<?php echo THEME_URL; ?>/images/article-tool-icons/Download_PDF.svg"
                      class="articleToolIcon">
                 <a href="<?php echo $pdf_file ?>"
-                   class="article-tool-item-name" target="_self"
+                   class="article-tool-item-name" target="_blank"
                    onclick="ga('send', 'event','pdf', 'downloads', 'pdf downloads', 0,{'nonInteraction': 1});   showSupportModal('<?php echo get_permalink(get_the_ID()); ?>') ">
                     Download PDF</a><br>
             </div>
