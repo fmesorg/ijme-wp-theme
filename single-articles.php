@@ -208,11 +208,13 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
 
             <a class="file" href="<?php echo add_query_arg('galley', 'html', get_permalink(get_the_ID())); ?>">HTML</a>
             <?php $pdf_file = get_post_meta(get_the_ID(), 'pdf_file', true); ?>
-
-            <a href="<?php echo $pdf_file ?>"
-               class="file" target="_blank"
-               onclick="ga('send', 'event','pdf', 'downloads', 'pdf downloads', 0,{'nonInteraction': 1});  showSupportModal('<?php echo get_permalink(get_the_ID());?>')  ">
-                PDF</a><br>
+            <?php if (!empty($pdfUrl)) { ?>
+                <span>|</span>
+                <a href="<?php echo $pdf_file ?>"
+                   class="file" target="_blank"
+                   onclick="ga('send', 'event','pdf', 'downloads', 'pdf downloads', 0,{'nonInteraction': 1})">
+                    PDF</a><br>
+            <?php } ?>
         </div>
 
     </div>
@@ -297,8 +299,17 @@ comments_template();
 
 <script>
     jQuery(document).ready(function ($) {
-        showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
 
+        $.urlParam = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results == null) {
+                return null;
+            }
+            return decodeURI(results[1]) || 0;
+        }
+        if ($.urlParam('galley') === 'html') {
+            showSupportModal('<?php echo get_permalink(get_the_ID()); ?>');
+        }
         let post_slug = "<?php echo $slug = get_post_field('post_name', get_post()); ?>";
         url = "/ArticleCountAPI/article_count_api.php?article_name=" + post_slug;
         $.get(url, function (data) {
