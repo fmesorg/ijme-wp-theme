@@ -208,7 +208,7 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
 
             <a class="file" href="<?php echo add_query_arg('galley', 'html', get_permalink(get_the_ID())); ?>">HTML</a>
             <?php $pdf_file = get_post_meta(get_the_ID(), 'pdf_file', true); ?>
-            <?php if (!empty($pdfUrl)) { ?>
+            <?php if (!empty($pdf_file)) { ?>
                 <span>|</span>
                 <a href="<?php echo $pdf_file ?>"
                    class="file" target="_blank"
