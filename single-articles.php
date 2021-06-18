@@ -168,10 +168,15 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
             </div>
 
         </div>
+        <h2 class="article-category"> <?php
+            $article_category = get_the_category($postId);
+            $catname = $article_category[0]->name;
+            echo $catname;
+            ?>  </h2>
         <?php $keyword = get_post_meta($post->ID, 'my_keywords'); ?>
         <!--                    <div>Keywords: --><?php //print_r($keyword) ?><!--</div>-->
 
-        <div id="articleTitle"><?php echo get_the_title(); ?></div>
+        <div id="articleTitle"><h3><?php echo get_the_title(); ?></h3></div>
         <div style="display: flex">
 
         </div>
