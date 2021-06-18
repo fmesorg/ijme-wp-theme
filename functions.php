@@ -1947,7 +1947,7 @@ foreach ($allCategories
         <tr>
         <td style=\"margin-bottom: 50px;padding-top: 90px\">
             <span><br> <a href='{sp-browser-url}'>View it in your browser</a><br><br><a
-                    href='{sp-unsubscribe-url}'>unsubscribe from this list</a></span>
+                    </span>[sp-unsubscribe-form placeholder='Email' btntxt='Unsubscribe' ]
 
                        <a style=\"color: white; background-color: red; padding: 13px; text-decoration: none;float: right;font-size: small\" href=\"https://ijme.in/news-letter-subscription-form\" target=\"_blank\">SUBSCRIBE</a>
 
