@@ -1872,7 +1872,7 @@ function html_generator($data)
          <tr>
             <td style=" padding-left: 5px; position:relative; float: right;
                 width: 98%; background: white; ">
-                <h2 align="center" style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:27px; margin-top: 10px">' . $pstTitle . '</h2>
+                <a href=' .$pstLink. '><h2 align="center" style="font-weight: 500;font-family: Times New Roman, Times, serif; font-size:27px; margin-top: 10px">' . $pstTitle . '</h2></a>
                 <p  >' . $pstAbst . '</p>
             
             </td>
