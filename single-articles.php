@@ -207,6 +207,12 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
             <div id="abstract-label">Abstract:</div>
             <div id="article-abstract"><?php echo get_the_excerpt(); ?></div>
         </div>
+        <div>
+            <p></br>Copyright: @Indian Journal of Medical Ethics </br>
+                Published under the Creative Common</br>
+                license <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">https://creativecommons.org/licenses/by-nc-nd/4.0/</a>
+            </p>
+        </div>
         <div class="article-separator"></div>
         <div id="articleFullText">
             <h4>Full Text</h4>
