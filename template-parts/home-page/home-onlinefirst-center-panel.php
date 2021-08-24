@@ -39,7 +39,7 @@
                     </div>
                     <div class="online-first-article-title">
                         <a href="<?php the_permalink(); ?>">
-                            <?php echo wp_trim_words(get_the_title(), 8); ?></a>
+                            <?php echo wp_trim_words(get_the_title(), 12); ?></a>
                     </div>
                     <div class="online-first-article-abstract">
 <!--                        --><?php //echo wp_trim_words(get_the_excerpt(), 40); ?>
