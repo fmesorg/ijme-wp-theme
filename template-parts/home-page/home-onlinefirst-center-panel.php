@@ -24,12 +24,17 @@
           'category' => 3
         ));
 
+
         if ($articles) {
             foreach ($articles as $post) :
                 setup_postdata($post); ?>
                 <div class="onlineFirst-article-wrapper dp-flex flex-column">
                     <div class="issue-article-date">
-                        <?php echo date('F d, Y', strtotime($post->post_date)); ?>
+                        <?php
+                        $postId = get_post_meta(get_the_ID(), 'articles', true);
+                        $article_category = get_the_category($postId);
+                        $catname = $article_category[0]->name;
+                        echo $catname.": ".date('F d, Y', strtotime($post->post_date)); ?>
                         <?php
                             $new_post = get_post_meta($post->ID, 'show_new_button', true);
                             if ($new_post == 1) {
