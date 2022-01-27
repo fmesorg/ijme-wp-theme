@@ -208,12 +208,6 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
             <div id="article-abstract"><?php echo get_the_excerpt(); ?></div>
         </div>
         <div>
-//             <p></br>Copyright: @Indian Journal of Medical Ethics</br>
-//                 Published under the Creative Common license (CC BY-NC-ND 4.0)</br>
-//                 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"> <span
-//                             style="text-decoration: underline;color:blue">
-//                 https://creativecommons.org/licenses/by-nc-nd/4.0/</span></a>
-//             </p>
 
           <p></br>  Copyright and license </br>
             ©Indian Journal of Medical Ethics 2022: Open Access and Distributed under the Creative Commons license ( <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"> <span
