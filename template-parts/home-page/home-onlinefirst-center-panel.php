@@ -33,7 +33,11 @@
                         <?php
                         $postId = get_post_meta(get_the_ID(), 'articles', true);
                         $article_category = get_the_category($postId);
-                        $catname = $article_category[0]->name;
+                        if(count($article_category)>1 && $article_category[0]->name =='Research Articles'){
+                            $catname=$article_category[1]->name;
+                        }else{
+                            $catname = $article_category[0]->name;
+                        }
                         echo $catname.": ".date('F d, Y', strtotime($post->post_date)); ?>
                         <?php
                             $new_post = get_post_meta($post->ID, 'show_new_button', true);
