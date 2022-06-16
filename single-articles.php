@@ -170,7 +170,11 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
         </div>
         <h2 class="article-category"> <?php
             $article_category = get_the_category($postId);
-            $catname = $article_category[0]->name;
+            if(count($article_category)>1 && $article_category[0]->name =='Research Articles'){
+                $catname=$article_category[1]->name;
+            }else{
+                $catname = $article_category[0]->name;
+            }
             echo $catname;
             ?>  </h2>
         <?php $keyword = get_post_meta($post->ID, 'my_keywords'); ?>
