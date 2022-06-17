@@ -209,7 +209,7 @@ if (isset($_GET['galley']) && $_GET['galley'] == 'print') {
 
         <div id="article-abstract-wrapper">
             <div id="abstract-label">Abstract:</div>
-            <div id="article-abstract"><?php echo get_the_excerpt(); ?></div>
+            <em> <div id="article-abstract"><?php echo get_the_excerpt(); ?></div></em>
         </div>
         <div>
 

@@ -52,7 +52,7 @@
                     </div>
                     <div class="online-first-article-abstract">
 <!--                        --><?php //echo wp_trim_words(get_the_excerpt(), 40); ?>
-                        <?php echo mb_strimwidth(get_the_excerpt(),0,300,'...'); ?>
+                        <em> <?php echo mb_strimwidth(get_the_excerpt(),0,300,'...'); ?></em>
                     </div>
                     <div class="online-first-article-author">
                         <?php
